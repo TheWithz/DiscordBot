@@ -1,11 +1,12 @@
 package events.commands;
 
+import bots.RunBot;
 import net.dv8tion.jda.MessageHistory;
-import net.dv8tion.jda.entities.Message;
+import net.dv8tion.jda.Permission;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.utils.PermissionUtil;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,24 +14,13 @@ import java.util.List;
  * Created by TheWithz on 2/15/16.
  */
 public class ClearChatCommand extends Command {
-    private static final String NO_NAME = "No name provided for this Command. Sorry!";
-    private static final String NO_DESCRIPTION = "No description has been provided for this Command. Sorry!";
-    private static final String NO_USAGE = "No usage instructions have been provided for this Command. Sorry!";
-
-    private ArrayList<Command> Commands;
-
-    public Command registerCommand(Command Command) {
-        Commands.add(Command);
-        return Command;
-    }
-
-    public ClearChatCommand() {
-        Commands = new ArrayList<Command>();
-    }
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        clearChat(e, e.getMessage().getContent().split("\\s+"));
+        if (PermissionUtil.checkPermission(RunBot.BOT, Permission.MESSAGE_MANAGE, e.getTextChannel()) && PermissionUtil.checkPermission(RunBot.BOT, Permission.MESSAGE_HISTORY, e.getTextChannel()))
+            clearChat(e, args);
+        else
+            e.getChannel().sendMessage("I do not have permissions sufficient to complete this task.");
     }
 
     @Override
@@ -50,7 +40,7 @@ public class ClearChatCommand extends Command {
 
     @Override
     public String getUsageInstructions() {
-        return "$clch <@mentions> \"as many as you want.\"" + "\n" + "$clch all \"in place of @everyone. which does NOT work\"";
+        return "$clch <@mentions>";
     }
 
     private void clearChat(MessageReceivedEvent event, String[] commandArguments) {
@@ -66,19 +56,16 @@ public class ClearChatCommand extends Command {
         } else {
             List<User> users = event.getMessage().getMentionedUsers();
             deleteAllMessagesOfMultipleUsers(users, history);
-            System.out.println(buildDeleteMessageForMultipleUsers(users));
+            event.getChannel().sendMessage(buildDeleteMessageForMultipleUsers(users));
         }
 
     }
 
     private void deleteAllMessagesOfMultipleUsers(List<User> users, MessageHistory history) {
-        for (Message x : history.retrieveAll()) {
-            // deletes history of specific individuals
-            users.forEach(k -> {
-                if (k != null && x.getAuthor().getId().equals(k.getId()))
-                    x.deleteMessage();
-            });
-        }
+        history.retrieveAll().forEach(x -> users.forEach(k -> {
+            if (k != null && x.getAuthor().getId().equals(k.getId()))
+                x.deleteMessage();
+        }));
     }
 
     private String buildDeleteMessageForMultipleUsers(List<User> users) {

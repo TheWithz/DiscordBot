@@ -36,7 +36,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>1.2.2_168</version>
+            <version>1.2.2_169</version>
         </dependency>
 
         <dependency>
@@ -44,5 +44,12 @@
             <artifactId>gson</artifactId>
             <version>2.6.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.8.11.2</version>
+        </dependency>
+
     </dependencies>
 </project>

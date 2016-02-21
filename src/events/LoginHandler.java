@@ -3,6 +3,7 @@ package events;
 import bots.RunBot;
 import misc.BashConsoleStream;
 import misc.DiscordConsoleStream;
+import misc.Permissions;
 import net.dv8tion.jda.events.InviteReceivedEvent;
 import net.dv8tion.jda.events.ReadyEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
@@ -29,5 +30,7 @@ public class LoginHandler extends ListenerAdapter {
         console.enableRedirect(true);
         BashConsoleStream bash = new BashConsoleStream(RunBot.API.getTextChannelById("148884523487199233"));
         bash.enableRedirect(true);
+        Permissions.setupPermissions();
+        RunBot.BOT = RunBot.API.getUserById(RunBot.API.getSelfInfo().getId());
     }
 }

@@ -2,23 +2,39 @@ package events.commands;
 
 import calculator.EvalPostfix;
 import calculator.InfixToPostfix;
-import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.hooks.ListenerAdapter;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by TheWithz on 2/15/16.
  */
-public class CalculatorCommand extends ListenerAdapter {
+public class CalculatorCommand extends Command {
 
-    public CalculatorCommand() {
-
+    @Override
+    public void onCommand(MessageReceivedEvent e, String[] args) {
+        calculate(args);
     }
 
     @Override
-    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
-        if (event.getMessage().getContent().startsWith("$calc "))
-            calculate(event.getMessage().getContent().split("\\s+"));
+    public List<String> getAliases() {
+        return Arrays.asList("$calc", "$calculate");
+    }
 
+    @Override
+    public String getDescription() {
+        return "Command that calculates an expression!";
+    }
+
+    @Override
+    public String getName() {
+        return "Calculate Command";
+    }
+
+    @Override
+    public String getUsageInstructions() {
+        return "$calc <Mathematical Expression>";
     }
 
     private void calculate(String[] commandArguments) {

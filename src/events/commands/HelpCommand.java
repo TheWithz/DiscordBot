@@ -33,7 +33,7 @@ public class HelpCommand extends Command {
         if (!e.isPrivate()) {
             e.getTextChannel().sendMessage(new MessageBuilder()
                     .appendMention(e.getAuthor())
-                    .appendString(": Help information was sent as a private message.")
+                    .appendString(": Check your PMs Please.")
                     .build());
         }
         sendPrivate(e.getAuthor().getPrivateChannel(), args);
@@ -79,7 +79,7 @@ public class HelpCommand extends Command {
                     .appendString(s.toString())
                     .build());
         } else {
-            String Command = args[1].charAt(0) == '.' ? args[1] : "." + args[1];    //If there is not a preceding . attached to the Command we are search, then prepend one.
+            String Command = args[1].charAt(0) == '$' ? args[1] : "$" + args[1];    //If there is not a preceding . attached to the Command we are search, then prepend one.
             for (Command c : Commands) {
                 if (c.getAliases().contains(Command)) {
                     String name = c.getName();

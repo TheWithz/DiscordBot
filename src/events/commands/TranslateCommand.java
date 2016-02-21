@@ -2,29 +2,47 @@ package events.commands;
 
 import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
-import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
-import net.dv8tion.jda.hooks.ListenerAdapter;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by TheWithz on 2/15/16.
  */
-public class TranslateCommand extends ListenerAdapter {
+public class TranslateCommand extends Command {
     private final String MICROSOFT_CLIENT_ID = "DiscordBotForTheWithz";
     private final String MICROSOFT_CLIENT_SECRET = "SDy+DFjPKIzmwkC59aA1E4tyIoTn4nAoWKhCEEfOksk=";
 
-    public TranslateCommand() {
-
+    @Override
+    public void onCommand(MessageReceivedEvent e, String[] args) {
+        generateTranslatedText(e, args);
     }
 
     @Override
-    public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
-        if (event.getMessage().getContent().startsWith("$tran "))
-            generateTranslatedText(event.getMessage().getContent().split("\\s+"));
+    public List<String> getAliases() {
+        return Arrays.asList("$tran", "$translate");
     }
 
-    private void generateTranslatedText(String[] commandArguments) {
+    @Override
+    public String getDescription() {
+        return "Command that translates a message!";
+    }
+
+    @Override
+    public String getName() {
+        return "Translate Command";
+    }
+
+    @Override
+    public String getUsageInstructions() {
+        return "$tran <Original Language> <Translated Language> <Message>";
+    }
+
+    private void generateTranslatedText(MessageReceivedEvent e, String[] commandArguments) {
         if (commandArguments.length < 4) {
-            System.out.println("Your syntax for this command is incorrect");
+            e.getChannel().sendMessage("Your syntax for this command is incorrect");
+            e.getChannel().sendMessage("$help tran");
             return;
         }
         //Set your Windows Azure Marketplace client info - See http:msdn.microsoft.com/en-us/library/hh454950.aspx

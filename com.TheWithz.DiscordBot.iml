@@ -12,7 +12,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Maven: com.memetix:microsoft-translator-java-api:0.6.2" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1" level="project" />
-    <orderEntry type="library" name="Maven: net.dv8tion:JDA:1.2.2_168" level="project" />
+    <orderEntry type="library" name="Maven: net.dv8tion:JDA:1.2.2_169" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.jaadec:jaad:0.8.5" level="project" />
     <orderEntry type="library" name="Maven: jflac:jflac:1.3" level="project" />
     <orderEntry type="library" name="Maven: com.mashape.unirest:unirest-java:1.4.7" level="project" />
@@ -33,5 +33,6 @@
     <orderEntry type="library" name="Maven: org.json:json:20150729" level="project" />
     <orderEntry type="library" name="Maven: com.neovisionaries:nv-websocket-client:1.16" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.8.11.2" level="project" />
   </component>
 </module>
