@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.TheWithz.DiscordBot</groupId>
     <artifactId>com.TheWithz.DiscordBot</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.2.5</version>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>1.2.2_167</version>
+            <version>1.2.2_168</version>
         </dependency>
 
         <dependency>

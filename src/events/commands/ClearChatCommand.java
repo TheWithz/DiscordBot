@@ -13,9 +13,9 @@ import java.util.List;
  * Created by TheWithz on 2/15/16.
  */
 public class ClearChatCommand extends Command {
-    private static final String NO_NAME = "No name provided for this CommandHandler. Sorry!";
-    private static final String NO_DESCRIPTION = "No description has been provided for this CommandHandler. Sorry!";
-    private static final String NO_USAGE = "No usage instructions have been provided for this CommandHandler. Sorry!";
+    private static final String NO_NAME = "No name provided for this Command. Sorry!";
+    private static final String NO_DESCRIPTION = "No description has been provided for this Command. Sorry!";
+    private static final String NO_USAGE = "No usage instructions have been provided for this Command. Sorry!";
 
     private ArrayList<Command> Commands;
 
@@ -50,7 +50,7 @@ public class ClearChatCommand extends Command {
 
     @Override
     public String getUsageInstructions() {
-        return "";
+        return "$clch <@mentions> \"as many as you want.\"" + "\n" + "$clch all \"in place of @everyone. which does NOT work\"";
     }
 
     private void clearChat(MessageReceivedEvent event, String[] commandArguments) {
@@ -60,7 +60,7 @@ public class ClearChatCommand extends Command {
         if (commandArguments.length < 2)
             // if there was no arguments do nothing
             return;
-        else if (commandArguments[1].equals("all")) {
+        else if (commandArguments[1].equals("@everyone")) {
             // deletes entire history
             history.retrieveAll().forEach(k -> k.deleteMessage());
         } else {

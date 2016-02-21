@@ -1,4 +1,4 @@
-package events;
+package events.commands;
 
 import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
@@ -8,11 +8,11 @@ import net.dv8tion.jda.hooks.ListenerAdapter;
 /**
  * Created by TheWithz on 2/15/16.
  */
-public class TranslateHandler extends ListenerAdapter {
+public class TranslateCommand extends ListenerAdapter {
     private final String MICROSOFT_CLIENT_ID = "DiscordBotForTheWithz";
     private final String MICROSOFT_CLIENT_SECRET = "SDy+DFjPKIzmwkC59aA1E4tyIoTn4nAoWKhCEEfOksk=";
 
-    public TranslateHandler() {
+    public TranslateCommand() {
 
     }
 

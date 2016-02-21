@@ -1,4 +1,4 @@
-package events;
+package events.commands;
 
 import calculator.EvalPostfix;
 import calculator.InfixToPostfix;
@@ -8,9 +8,9 @@ import net.dv8tion.jda.hooks.ListenerAdapter;
 /**
  * Created by TheWithz on 2/15/16.
  */
-public class CalculatorHandler extends ListenerAdapter {
+public class CalculatorCommand extends ListenerAdapter {
 
-    public CalculatorHandler() {
+    public CalculatorCommand() {
 
     }
 
