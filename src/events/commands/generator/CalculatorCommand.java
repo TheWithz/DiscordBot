@@ -1,7 +1,8 @@
-package events.commands;
+package events.commands.generator;
 
 import calculator.EvalPostfix;
 import calculator.InfixToPostfix;
+import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;

@@ -1,7 +1,16 @@
 package bots;
 
-import events.*;
-import events.commands.*;
+import events.LogHandler;
+import events.LoginHandler;
+import events.commands.ClearChatCommand;
+import events.commands.PermissionsCommand;
+import events.commands.SearchCommand;
+import events.commands.TodoCommand;
+import events.commands.audio.PlayLocalFileCommand;
+import events.commands.generator.*;
+import events.commands.voice.JoinCommand;
+import events.commands.voice.LeaveCommand;
+import events.commands.voice.MoveCommand;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.entities.User;
@@ -19,10 +28,8 @@ public class RunBot {
         try {
             HelpCommand help = new HelpCommand();
             API = new JDABuilder().setEmail("bot@botbot.com").setPassword("Bot")
-                    .addListener(new TextChannelHandler())
-                    .addListener(new VoiceChannelHandler())
                     .addListener(new LoginHandler())
-                    .addListener(new AudioHandler())
+                    //.addListener(new AudioHandler())
                     .addListener(new LogHandler())
                     .addListener(help.registerCommand(help))
                     .addListener(help.registerCommand(new TranslateCommand()))
@@ -32,7 +39,11 @@ public class RunBot {
                     .addListener(help.registerCommand(new PermissionsCommand()))
                     .addListener(help.registerCommand(new TodoCommand()))
                     .addListener(help.registerCommand(new RandomNumberCommand()))
-                    .addListener(help.registerCommand(new RandomFactCommand())).buildAsync();
+                    .addListener(help.registerCommand(new RandomFactCommand()))
+                    .addListener(help.registerCommand(new PlayLocalFileCommand()))
+                    .addListener(help.registerCommand(new LeaveCommand()))
+                    .addListener(help.registerCommand(new JoinCommand()))
+                    .addListener(help.registerCommand(new MoveCommand())).buildAsync();
         } catch (LoginException | IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Bot failed to connect");

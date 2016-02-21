@@ -1,5 +1,6 @@
-package events.commands;
+package events.commands.generator;
 
+import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;

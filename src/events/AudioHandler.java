@@ -16,10 +16,9 @@ import java.io.IOException;
 import java.net.URL;
 
 public class AudioHandler extends ListenerAdapter {
-
-    private Player player = null;
-    private VoiceChannel curChannel = null;
-    private File musicDir = new File("/home/TheWithz/Music/");
+    Player player = null;
+    VoiceChannel curChannel = null;
+    File musicDir = new File("/home/TheWithz/Music/");
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         String message = event.getMessage().getContent();
