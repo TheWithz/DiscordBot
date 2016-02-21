@@ -14,10 +14,6 @@ import net.dv8tion.jda.utils.InviteUtil;
  */
 public class LoginHandler extends ListenerAdapter {
 
-    public LoginHandler() {
-
-    }
-
     @Override
     public void onInviteReceived(InviteReceivedEvent event) {
         InviteUtil.join(event.getInvite(), event.getJDA(), x -> System.out.println("Guild " + x.getName() + " has been joined."));

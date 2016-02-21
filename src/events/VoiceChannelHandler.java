@@ -8,9 +8,6 @@ import net.dv8tion.jda.hooks.ListenerAdapter;
  */
 public class VoiceChannelHandler extends ListenerAdapter {
 
-    public VoiceChannelHandler() {
-    }
-
     @Override
     public void onVoiceChannelCreate(VoiceChannelCreateEvent event) {
         System.out.println("A VoiceChannel named: " + event.getChannel().getName() + " was created in guild: " + event.getGuild().getName());

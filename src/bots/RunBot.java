@@ -1,9 +1,6 @@
 package bots;
 
-import events.AudioHandler;
-import events.LoginHandler;
-import events.TextChannelHandler;
-import events.VoiceChannelHandler;
+import events.*;
 import events.commands.*;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
@@ -23,6 +20,7 @@ public class RunBot {
                     .addListener(new VoiceChannelHandler())
                     .addListener(new LoginHandler())
                     .addListener(new AudioHandler())
+                    .addListener(new LogHandler())
                     .addListener(help.registerCommand(help))
                     .addListener(help.registerCommand(new TranslateCommand()))
                     .addListener(help.registerCommand(new CalculatorCommand()))
@@ -30,7 +28,8 @@ public class RunBot {
                     .addListener(help.registerCommand(new SearchCommand()))
                     .addListener(help.registerCommand(new PermissionsCommand()))
                     .addListener(help.registerCommand(new TodoCommand()))
-                    .addListener(help.registerCommand(new RandomNumberCommand())).buildAsync();
+                    .addListener(help.registerCommand(new RandomNumberCommand()))
+                    .addListener(help.registerCommand(new RandomFactCommand())).buildAsync();
         } catch (LoginException | IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Bot failed to connect");

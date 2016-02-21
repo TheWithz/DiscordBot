@@ -9,9 +9,6 @@ import net.dv8tion.jda.hooks.ListenerAdapter;
  */
 public class TextChannelHandler extends ListenerAdapter {
 
-    public TextChannelHandler() {
-    }
-
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         // if (!event.getAuthor().getUsername().equals("Bot"))
