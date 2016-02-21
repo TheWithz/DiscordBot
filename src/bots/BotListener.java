@@ -1,19 +1,9 @@
 package bots;
 
 import net.dv8tion.jda.JDA;
-import net.dv8tion.jda.audio.player.FilePlayer;
-import net.dv8tion.jda.audio.player.Player;
-import net.dv8tion.jda.entities.VoiceChannel;
-import net.dv8tion.jda.events.channel.text.*;
-import net.dv8tion.jda.events.channel.voice.*;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -261,13 +251,6 @@ public class BotListener extends ListenerAdapter {
         }
     }
 
-    private void generateRandomNumber(UserChatEvent e, String[] commandArguments) {
-        try {
-            long rnum = (long) (Long.parseLong(commandArguments[1]) * Math.random() + 1);
-            e.getGroup().sendMessage(new MessageBuilder().addString("Your number is: " + rnum).build(API));
-        } catch (NumberFormatException error) {
-            e.getGroup().sendMessage(new MessageBuilder().addString("That number is too big.").build(API));
-        }
 
     private void toggleProfanity(UserChatEvent e) {
         if (profanityBot) {

@@ -29,7 +29,8 @@ public class RunBot {
                     .addListener(help.registerCommand(new ClearChatCommand()))
                     .addListener(help.registerCommand(new SearchCommand()))
                     .addListener(help.registerCommand(new PermissionsCommand()))
-                    .addListener(help.registerCommand(new TodoCommand())).buildAsync();
+                    .addListener(help.registerCommand(new TodoCommand()))
+                    .addListener(help.registerCommand(new RandomNumberCommand())).buildAsync();
         } catch (LoginException | IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Bot failed to connect");
