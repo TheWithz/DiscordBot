@@ -13,12 +13,12 @@ import java.io.IOException;
 public interface AudioUtil {
 
     File musicDir = new File("/home/TheWithz/Music/");
-    File audioFile = new File(musicDir.getPath() + musicDir.list()[(int) (musicDir.list().length * Math.random())]);
+    File audioFile = new File(musicDir.getPath() + "/" + musicDir.list()[(int) (musicDir.list().length * Math.random())]);
 
-    class FILEPLAYER {
+    public static class FILE_PLAYER {
         static Player player;
 
-        static {
+        FILE_PLAYER() {
             try {
                 player = new FilePlayer(audioFile);
             } catch (IOException e) {

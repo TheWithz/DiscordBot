@@ -38,14 +38,15 @@ public class PlayLocalFileCommand extends Command implements AudioUtil {
     }
 
     private void play(MessageReceivedEvent event) {
+        AudioUtil.FILE_PLAYER filePlayer = new AudioUtil.FILE_PLAYER();
+        event.getJDA().getAudioManager().setSendingHandler(filePlayer.player);
         // TODO: 2/21/16 write other "none random" play command
-        if (FILEPLAYER.player == null) {
-            event.getJDA().getAudioManager().setSendingHandler(FILEPLAYER.player);
-            FILEPLAYER.player.play();
-        } else if (FILEPLAYER.player.isStarted() && FILEPLAYER.player.isStopped()) {
+        if (filePlayer.player == null) {
+            filePlayer.player.play();
+        } else if (filePlayer.player.isStarted() && filePlayer.player.isStopped()) {
             System.out.println("The player has been stopped. To start playback, please use '$restart'");
             return;
         } else
-            FILEPLAYER.player.play();
+            filePlayer.player.play();
     }
 }

@@ -37,13 +37,13 @@ public class PauseCommand extends Command implements AudioUtil {
     }
 
     private void pause(MessageReceivedEvent e) {
-        if (FILEPLAYER.player == null) {
+        if (FILE_PLAYER.player == null) {
             System.out.println("player is null");
             e.getChannel().sendMessage("hmmm... something went wrong that shouldn't have.");
-        } else if (FILEPLAYER.player.isPaused() || FILEPLAYER.player.isStopped()) {
+        } else if (FILE_PLAYER.player.isPaused() || FILE_PLAYER.player.isStopped()) {
             e.getChannel().sendMessage("You cannot pause before you play!");
         } else
-            FILEPLAYER.player.pause();
+            FILE_PLAYER.player.pause();
     }
 
 }
