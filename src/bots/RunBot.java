@@ -7,10 +7,13 @@ import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.entities.User;
 
 import javax.security.auth.login.LoginException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RunBot {
     public static JDA API = null;
     public static User BOT = null;
+    private static final Timer TIMER = new Timer();
 
     public RunBot() {
         try {
@@ -34,7 +37,11 @@ public class RunBot {
             e.printStackTrace();
             System.out.println("Bot failed to connect");
         }
+        TIMER.schedule(new TimerTask() {
+            public void run() {
 
+            }
+        }, 0, 300 * 1000); // runs every 5 minutes
     }
 
     public static void main(String[] args) {
