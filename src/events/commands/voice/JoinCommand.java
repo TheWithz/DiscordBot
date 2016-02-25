@@ -12,10 +12,14 @@ import java.util.List;
  */
 public class JoinCommand extends Command {
 
-    VoiceChannel curChannel = null;
+    protected static VoiceChannel curChannel = null;
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if (curChannel != null) {
+            event.getChannel().sendMessage("Cannot join *" + args[1] + "* because I am in *" + curChannel.getName() + "* already. Please use $move for existing audio connections.");
+            return;
+        }
         curChannel = event.getGuild().getVoiceChannels().stream().filter(
                 vChan -> vChan.getName().equalsIgnoreCase(args[1]))
                 .findFirst().orElse(null);  //If there isn't a matching name, return null.

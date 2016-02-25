@@ -15,7 +15,6 @@ public class LoginHandler extends ListenerAdapter {
 
     @Override
     public void onInviteReceived(InviteReceivedEvent event) {
-        //System.out.println(("the invite is null ") + (event.getInvite() == null));
         InviteUtil.join(event.getInvite(), event.getJDA(), x -> System.out.println("Guild " + x.getName() + " has been joined. The invite was sent by " + event.getAuthor()));
         InviteUtil.delete(event.getInvite(), event.getJDA());
     }

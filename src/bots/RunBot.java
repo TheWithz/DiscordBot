@@ -6,6 +6,7 @@ import events.commands.ClearChatCommand;
 import events.commands.PermissionsCommand;
 import events.commands.SearchCommand;
 import events.commands.TodoCommand;
+import events.commands.audio.PauseCommand;
 import events.commands.audio.PlayLocalFileCommand;
 import events.commands.generator.*;
 import events.commands.voice.JoinCommand;
@@ -43,14 +44,15 @@ public class RunBot {
                     .addListener(help.registerCommand(new PlayLocalFileCommand()))
                     .addListener(help.registerCommand(new LeaveCommand()))
                     .addListener(help.registerCommand(new JoinCommand()))
-                    .addListener(help.registerCommand(new MoveCommand())).buildAsync();
+                    .addListener(help.registerCommand(new MoveCommand()))
+                    .addListener(help.registerCommand(new PauseCommand())).buildAsync();
         } catch (LoginException | IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Bot failed to connect");
         }
         TIMER.schedule(new TimerTask() {
             public void run() {
-
+                System.out.println("timer was fired. I think.");
             }
         }, 0, 300 * 1000); // runs every 5 minutes
     }

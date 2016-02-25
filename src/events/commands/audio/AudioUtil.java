@@ -15,7 +15,7 @@ public interface AudioUtil {
     File musicDir = new File("/home/TheWithz/Music/");
     File audioFile = new File(musicDir.getPath() + "/" + musicDir.list()[(int) (musicDir.list().length * Math.random())]);
 
-    public static class FILE_PLAYER {
+    class FILE_PLAYER {
         static Player player;
 
         FILE_PLAYER() {
