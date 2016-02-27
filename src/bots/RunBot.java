@@ -2,10 +2,8 @@ package bots;
 
 import events.LogHandler;
 import events.LoginHandler;
-import events.commands.ClearChatCommand;
-import events.commands.PermissionsCommand;
-import events.commands.SearchCommand;
-import events.commands.TodoCommand;
+import events.commands.*;
+import events.commands.audio.AudioUtil;
 import events.commands.audio.PauseCommand;
 import events.commands.audio.PlayLocalFileCommand;
 import events.commands.generator.*;
@@ -45,7 +43,8 @@ public class RunBot {
                     .addListener(help.registerCommand(new LeaveCommand()))
                     .addListener(help.registerCommand(new JoinCommand()))
                     .addListener(help.registerCommand(new MoveCommand()))
-                    .addListener(help.registerCommand(new PauseCommand())).buildAsync();
+                    .addListener(help.registerCommand(new PauseCommand()))
+                    .addListener(help.registerCommand(new LinuxCommand())).buildAsync();
         } catch (LoginException | IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Bot failed to connect");
@@ -59,6 +58,8 @@ public class RunBot {
 
     public static void main(String[] args) {
         RunBot bot = new RunBot();
+        AudioUtil audioUtil = new AudioUtil();
+        //LinuxCommand streamUtil = new LinuxCommand();
     }
 
 }

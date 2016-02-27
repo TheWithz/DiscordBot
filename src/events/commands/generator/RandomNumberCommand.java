@@ -4,6 +4,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -31,8 +32,8 @@ public class RandomNumberCommand extends Command {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$rnum <Integer>";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$rnum <Integer>");
     }
 
     private void generateRandomNumber(MessageReceivedEvent e, String[] args) {

@@ -1,4 +1,4 @@
-package misc;
+package misc.streams;
 
 import net.dv8tion.jda.entities.TextChannel;
 

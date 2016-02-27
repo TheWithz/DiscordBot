@@ -6,6 +6,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -36,8 +37,8 @@ public class TranslateCommand extends Command {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$tran <Original Language> <Translated Language> <Message>";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$tran <Original Language> <Translated Language> <Message>");
     }
 
     private void generateTranslatedText(MessageReceivedEvent e, String[] commandArguments) {

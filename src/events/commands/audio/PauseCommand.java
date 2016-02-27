@@ -4,12 +4,13 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by TheWithz on 2/21/16.
  */
-public class PauseCommand extends Command implements AudioUtil {
+public class PauseCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
@@ -32,18 +33,18 @@ public class PauseCommand extends Command implements AudioUtil {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$pause";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$pause");
     }
 
     private void pause(MessageReceivedEvent e) {
-        if (FILE_PLAYER.player == null) {
+        if (AudioUtil.player == null) {
             System.out.println("player is null");
             e.getChannel().sendMessage("hmmm... something went wrong that shouldn't have.");
-        } else if (FILE_PLAYER.player.isPaused() || FILE_PLAYER.player.isStopped()) {
+        } else if (AudioUtil.player.isPaused() || AudioUtil.player.isStopped()) {
             e.getChannel().sendMessage("You cannot pause before you play!");
         } else
-            FILE_PLAYER.player.pause();
+            AudioUtil.player.pause();
     }
 
 }

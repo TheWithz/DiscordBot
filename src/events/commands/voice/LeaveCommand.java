@@ -4,6 +4,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -33,7 +34,7 @@ public class LeaveCommand extends Command {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$leave";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$leave");
     }
 }

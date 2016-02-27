@@ -5,10 +5,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by TheWithz on 2/21/16.
@@ -36,8 +33,8 @@ public class RandomFactCommand extends Command {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$fact";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$fact");
     }
 
     private void generateRandomFact(MessageReceivedEvent e) {

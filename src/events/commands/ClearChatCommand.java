@@ -8,6 +8,7 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.utils.PermissionUtil;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -39,8 +40,8 @@ public class ClearChatCommand extends Command {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$clch <@mentions>";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$clch <@mentions>");
     }
 
     private void clearChat(MessageReceivedEvent event, String[] commandArguments) {

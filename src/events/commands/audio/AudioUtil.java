@@ -10,26 +10,28 @@ import java.io.IOException;
 /**
  * Created by TheWithz on 2/21/16.
  */
-public interface AudioUtil {
+public class AudioUtil {
 
-    File musicDir = new File("/home/TheWithz/Music/");
-    File audioFile = new File(musicDir.getPath() + "/" + musicDir.list()[(int) (musicDir.list().length * Math.random())]);
+    public static File musicDir;
+    public static File audioFile;
+    public static FilePlayer player;
 
-    class FILE_PLAYER {
-        static Player player;
-
-        FILE_PLAYER() {
-            try {
-                player = new FilePlayer(audioFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("Could not load the file. Does it exist?  File name: " + audioFile.getName());
-            } catch (UnsupportedAudioFileException e) {
-                e.printStackTrace();
-                System.out.println("Could not load file. It either isn't an audio file or isn't a" +
-                        " recognized audio format.");
-            }
+    public AudioUtil() {
+        musicDir = new File("/home/TheWithz/Music/");
+        audioFile = generateNewSong();
+        try {
+            player = new FilePlayer(audioFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Could not load the file. Does it exist?  File name: " + audioFile.getName());
+        } catch (UnsupportedAudioFileException e) {
+            e.printStackTrace();
+            System.out.println("Could not load file. It either isn't an audio file or isn't a recognized audio format.");
         }
+    }
+
+    public static File generateNewSong() {
+        return new File(musicDir.getPath() + "/" + musicDir.list()[(int) (musicDir.list().length * Math.random())]);
     }
 }
 

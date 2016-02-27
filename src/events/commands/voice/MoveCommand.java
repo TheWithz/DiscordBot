@@ -4,6 +4,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,7 +35,7 @@ public class MoveCommand extends Command {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$move <Voice Channel Name>";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$move <Voice Channel Name>");
     }
 }

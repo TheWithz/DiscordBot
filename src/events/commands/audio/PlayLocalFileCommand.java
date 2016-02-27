@@ -1,19 +1,21 @@
 package events.commands.audio;
 
 import events.commands.Command;
+import events.commands.LinuxCommand;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by TheWithz on 2/21/16.
  */
-public class PlayLocalFileCommand extends Command implements AudioUtil {
+public class PlayLocalFileCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        play(e);
+        play(e, args);
     }
 
     @Override
@@ -32,21 +34,23 @@ public class PlayLocalFileCommand extends Command implements AudioUtil {
     }
 
     @Override
-    public String getUsageInstructions() {
+    public List<String> getUsageInstructions() {
         // TODO: 2/21/16 explain implementations of play
-        return "";
+        return Collections.singletonList("");
     }
 
-    private void play(MessageReceivedEvent event) {
-        AudioUtil.FILE_PLAYER filePlayer = new AudioUtil.FILE_PLAYER();
-        event.getJDA().getAudioManager().setSendingHandler(filePlayer.player);
+    private void play(MessageReceivedEvent event, String[] args) {
+        if (AudioUtil.player == null || AudioUtil.audioFile == null) {
+            System.out.println("player is null " + (AudioUtil.player = null) + " | audioFile is null " + (AudioUtil.audioFile = null));
+        } else if (args.length >= 2) {
+            // LinuxCommand.runLinuxCommand("ls -AilF");
+            LinuxCommand.runLinuxCommand("less .");
+        } else {
+            if (AudioUtil.player.isStopped())
+                AudioUtil.player.restart();
+            AudioUtil.player.play();
+        }
+        event.getJDA().getAudioManager().setSendingHandler(AudioUtil.player);
         // TODO: 2/21/16 write other "none random" play command
-        if (filePlayer.player == null) {
-            filePlayer.player.play();
-        } else if (filePlayer.player.isStarted() && filePlayer.player.isStopped()) {
-            System.out.println("The player has been stopped. To start playback, please use '$restart'");
-            return;
-        } else
-            filePlayer.player.play();
     }
 }

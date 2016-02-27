@@ -6,6 +6,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -34,8 +35,8 @@ public class CalculatorCommand extends Command {
     }
 
     @Override
-    public String getUsageInstructions() {
-        return "$calc <Mathematical Expression>";
+    public List<String> getUsageInstructions() {
+        return Collections.singletonList("$calc <Mathematical Expression>");
     }
 
     private void calculate(String[] commandArguments) {
