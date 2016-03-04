@@ -8,25 +8,21 @@ import java.util.HashMap;
 /**
  * Created by TheWithz on 2/21/16.
  */
-public class Database
-{
+public class Database {
     private static Database instance;
 
     private Connection conn;
     private HashMap<String, PreparedStatement> preparedStatements;
 
-    public static Database getInstance()
-    {
+    public static Database getInstance() {
         if (instance == null)
             instance = new Database();
         return instance;
     }
 
-    private Database()
-    {
-        preparedStatements = new HashMap<String, PreparedStatement>();
-        try
-        {
+    private Database() {
+        preparedStatements = new HashMap();
+        try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:yui.db");
             Statement statement = conn.createStatement();
@@ -76,26 +72,20 @@ public class Database
             preparedStatements.put(TodoCommand.REMOVE_TODO_LIST, conn.prepareStatement("DELETE FROM TodoLists WHERE id = ?"));
             preparedStatements.put(TodoCommand.REMOVE_TODO_ENTRY, conn.prepareStatement("DELETE FROM TodoEntries WHERE id = ?"));
             preparedStatements.put(TodoCommand.REMOVE_TODO_USER, conn.prepareStatement("DELETE FROM TodoUsers WHERE listId = ? AND userId = ?"));
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-        catch (ClassNotFoundException e)
-        {
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public PreparedStatement getStatement(String statementName)
-    {
+    public PreparedStatement getStatement(String statementName) {
         if (!preparedStatements.containsKey(statementName))
             throw new RuntimeException("The statement: '" + statementName + "' does not exist.");
         return preparedStatements.get(statementName);
     }
 
-    public static int getAutoIncrement(PreparedStatement executedStatement, int col) throws SQLException
-    {
+    public static int getAutoIncrement(PreparedStatement executedStatement, int col) throws SQLException {
         ResultSet autoIncrements = executedStatement.getGeneratedKeys();
         autoIncrements.next();
         return autoIncrements.getInt(col);

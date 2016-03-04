@@ -1,4 +1,4 @@
-package misc.streams;
+package events.commands.generator.streams;
 
 import net.dv8tion.jda.entities.TextChannel;
 

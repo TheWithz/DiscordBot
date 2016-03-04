@@ -43,8 +43,9 @@ public class PlayLocalFileCommand extends Command {
         if (AudioUtil.player == null || AudioUtil.audioFile == null) {
             System.out.println("player is null " + (AudioUtil.player = null) + " | audioFile is null " + (AudioUtil.audioFile = null));
         } else if (args.length >= 2) {
+
             // LinuxCommand.runLinuxCommand("ls -AilF");
-            LinuxCommand.runLinuxCommand("less .");
+            // LinuxCommand.runLinuxCommand("less .");
         } else {
             if (AudioUtil.player.isStopped())
                 AudioUtil.player.restart();

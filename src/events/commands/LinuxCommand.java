@@ -29,6 +29,7 @@ public class LinuxCommand extends Command {
         return Arrays.asList("$ping", "$ls");
     }
 
+    // TODO: 2/27/16 fill out override methods
     @Override
     public String getDescription() {
         return null;
@@ -47,12 +48,8 @@ public class LinuxCommand extends Command {
     public static void runLinuxCommand(String com) {
         try {
             process = Runtime.getRuntime().exec(com);
-            //Thread t = new DirectedStream(process.getInputStream(), System.out);
-            BufferedReader br = new BufferedReader(
-                    new InputStreamReader(process.getInputStream()));
-            // if (command[0].equalsIgnoreCase("ls")) {
+            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
             System.out.println(run(br));
-            //}
         } catch (Exception e) {
             e.printStackTrace();
         }

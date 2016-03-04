@@ -24,10 +24,10 @@ public class PermissionsCommand extends Command {
             return;
         }
 
-        if (args[0].contains(".perms") || args[0].contains(".permissions")) {
+        if (args[0].contains("$perms") || args[0].contains("$permissions")) {
             args = ArrayUtils.subarray(args, 1, args.length);   //We cut off the .perms or .permissions to make the array behave as .op would
         } else {
-            args[0] = args[0].replace(".", "");     //Cut off the leading .
+            args[0] = args[0].replace("$", "");     //Cut off the leading .
         }
 
         if (args.length < 1)    //If the command sent was just '.perms', and we removed that above, then we have an array of length 0 currently.
@@ -53,7 +53,7 @@ public class PermissionsCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(".perms", ".permissions", ".op");
+        return Arrays.asList("$perms", "$permissions", "$op");
     }
 
     @Override
@@ -69,21 +69,21 @@ public class PermissionsCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                ".perms *<group> <action> <user>*\n"
+                "$perms *<group> <action> <user>*\n"
                         + "Groups:  [op]\n"
                         + "Actions: [add, remove, list]\n"
                         + "User:  Must be an @Mentioned user.\n"
-                        + "__Example:__   .perms op add @DV8FromTheWorld\n"
+                        + "__Example:__   $perms op add @DV8FromTheWorld\n"
                         + " - This would add the user 'DV8FromTheWorld' to the OPs list.\n"
-                        + "__Example 2:__ .perms op list\n"
+                        + "__Example 2:__ $perms op list\n"
                         + " - This would list all bot OPs.\n"
                         + "\n"
-                        + "**NOTE:** you can skip the .perms and jump straight to the group by using the group alias.\n"
-                        + "__Example:__  .op remove @BananaPhone");
+                        + "**NOTE:** you can skip the $perms and jump straight to the group by using the group alias.\n"
+                        + "__Example:__  $op remove @BananaPhone");
     }
 
     /**
-     * This processes all commands of the format:  .perms op / .permission op / .op
+     * This processes all commands of the format:  $perms op / $permission op / $op
      *
      * @param args The array of arguments that represent the .perms/.permissions removed command.
      * @param e    The original UserChatEvent, used to sendMessages.
@@ -160,9 +160,9 @@ public class PermissionsCommand extends Command {
     }
 
     /**
-     * This processes the removeOp commands of the format:  .perms op remove/ .permission op remove/ .op remove
+     * This processes the removeOp commands of the format:  $perms op remove/ $permission op remove/ $op remove
      *
-     * @param args The array of arguments that represent the .perms/.permissions removed command.
+     * @param args The array of arguments that represent the $perms/$permissions removed command.
      * @param e    The original UserChatEvent, used to sendMessages.
      */
     private void processRemoveOp(MessageReceivedEvent e, String[] args) {

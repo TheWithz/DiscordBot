@@ -16,13 +16,13 @@ public class SearchCommand extends Command {
     public void onCommand(MessageReceivedEvent e, String[] args) {
         String filter = null;
         switch (args[0]) {
-            case ".google":
-            case ".g":
+            case "$google":
+            case "$g":
                 break;
-            case ".wiki":
+            case "$wiki":
                 filter = "wiki";
                 break;
-            case ".urban":
+            case "$urban":
                 filter = "site:urbandictionary.com";
                 break;
             default:
@@ -38,7 +38,7 @@ public class SearchCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(".google", ".g", ".wiki", ".urban");
+        return Arrays.asList("$google", "$g", "$wiki", "$urban");
     }
 
     @Override
@@ -54,6 +54,6 @@ public class SearchCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                ".google *<search terms>  **OR** .wiki *<search terms>*  **OR**  .urban *<search terms>*\n");
+                "$google *<search terms>  **OR** $wiki *<search terms>*  **OR**  $urban *<search terms>*\n");
     }
 }

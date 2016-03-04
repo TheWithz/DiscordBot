@@ -53,7 +53,7 @@ public class ClearChatCommand extends Command {
             return;
         else if (commandArguments[1].equals("@everyone")) {
             // deletes entire history
-            history.retrieveAll().forEach(k -> k.deleteMessage());
+            history.retrieveAll().parallelStream().forEach(k -> k.deleteMessage());
         } else {
             List<User> users = event.getMessage().getMentionedUsers();
             deleteAllMessagesOfMultipleUsers(users, history);
@@ -63,7 +63,7 @@ public class ClearChatCommand extends Command {
     }
 
     private void deleteAllMessagesOfMultipleUsers(List<User> users, MessageHistory history) {
-        history.retrieveAll().forEach(x -> users.forEach(k -> {
+        history.retrieveAll().parallelStream().forEach(x -> users.forEach(k -> {
             if (k != null && x.getAuthor().getId().equals(k.getId()))
                 x.deleteMessage();
         }));

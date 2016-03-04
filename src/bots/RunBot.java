@@ -44,14 +44,15 @@ public class RunBot {
                     .addListener(help.registerCommand(new JoinCommand()))
                     .addListener(help.registerCommand(new MoveCommand()))
                     .addListener(help.registerCommand(new PauseCommand()))
-                    .addListener(help.registerCommand(new LinuxCommand())).buildAsync();
+                    .addListener(help.registerCommand(new LinuxCommand()))
+                    .addListener(help.registerCommand(new EvalCommand())).buildAsync();
         } catch (LoginException | IllegalArgumentException e) {
             e.printStackTrace();
             System.out.println("Bot failed to connect");
         }
         TIMER.schedule(new TimerTask() {
             public void run() {
-                System.out.println("timer was fired. I think.");
+//System.out.println("timer was fired. I think.");
             }
         }, 0, 300 * 1000); // runs every 5 minutes
     }
