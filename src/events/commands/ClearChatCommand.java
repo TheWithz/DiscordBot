@@ -1,6 +1,7 @@
 package events.commands;
 
 import bots.RunBot;
+import misc.Permissions;
 import net.dv8tion.jda.MessageHistory;
 import net.dv8tion.jda.Permission;
 import net.dv8tion.jda.entities.User;
@@ -18,9 +19,13 @@ public class ClearChatCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        if (PermissionUtil.checkPermission(RunBot.BOT, Permission.MESSAGE_MANAGE, e.getTextChannel()) && PermissionUtil.checkPermission(RunBot.BOT, Permission.MESSAGE_HISTORY, e.getTextChannel()))
+        if (PermissionUtil.checkPermission(RunBot.BOT, Permission.MESSAGE_MANAGE, e.getTextChannel()) && PermissionUtil.checkPermission(RunBot.BOT, Permission.MESSAGE_HISTORY, e.getTextChannel())) {
+            if (!Permissions.getPermissions().isOp(e.getAuthor())) {
+                e.getChannel().sendMessage("Sorry, this command is OP only!");
+                return;
+            }
             clearChat(e, args);
-        else
+        } else
             e.getChannel().sendMessage("I do not have permissions sufficient to complete this task.");
     }
 

@@ -1,7 +1,9 @@
 package events.commands;
 
+import bots.RunBot;
 import misc.Permissions;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.Guild;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.ArrayUtils;
@@ -9,13 +11,13 @@ import org.apache.commons.lang3.ArrayUtils;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by TheWithz on 2/21/16.
  */
 public class PermissionsCommand extends Command {
+
+
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
@@ -170,13 +172,12 @@ public class PermissionsCommand extends Command {
             sendMessage(e, "Please provide a user!");
             return;
         }
-        Pattern idPattern = Pattern.compile("(?<=<@)[0-9]{18}(?=>)");
-        Matcher idMatch = idPattern.matcher(args[2]);
-        if (!idMatch.find()) {
-            sendMessage(e, "Sorry, I don't recognize the user provided: " + args[2]);
-            return;
-        }
-
+        //Pattern idPattern = Pattern.compile("(?<=<@)[0-9]{18}(?=>)");
+        //Matcher idMatch = idPattern.matcher(args[2]);
+        //if (!idMatch.find()) {
+        //    sendMessage(e, "Sorry, I don't recognize the user provided: " + args[2]);
+        //    return;
+        //}
         for (User user : e.getMessage().getMentionedUsers()) {
             try {
                 if (Permissions.getPermissions().removeOp(user.getId())) {

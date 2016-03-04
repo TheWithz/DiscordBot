@@ -1,6 +1,7 @@
 package events.commands;
 
 import misc.GoogleSearch;
+import misc.Permissions;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.StringUtils;
 
@@ -14,6 +15,11 @@ import java.util.List;
 public class SearchCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
+        if (!Permissions.getPermissions().isOp(e.getAuthor())) {
+            e.getChannel().sendMessage("Sorry, this command is OP only!");
+            return;
+        }
+
         String filter = null;
         switch (args[0]) {
             case "$google":

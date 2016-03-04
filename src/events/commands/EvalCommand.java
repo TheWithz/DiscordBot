@@ -1,14 +1,24 @@
 package events.commands;
 
 import bots.RunBot;
+import groovy.lang.Binding;
+import groovy.lang.GString;
+import groovy.lang.GroovyShell;
+import jdk.internal.org.xml.sax.ErrorHandler;
+import jdk.internal.org.xml.sax.SAXException;
+import jdk.internal.org.xml.sax.SAXParseException;
 import misc.Permissions;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.http.protocol.ExecutionContext;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by TheWithz on 3/4/16.
@@ -32,24 +42,32 @@ public class EvalCommand extends Command {
             e.getChannel().sendMessage("Sorry, this command is OP only!");
             return;
         }
-
-        try {
-            engine.put("event", e);
-            engine.put("channel", e.getChannel());
-            engine.put("args", args);
-            engine.put("api", e.getJDA());
-            engine.put("bot", RunBot.BOT);
-            Object out = engine.eval(
-                    "(function() {" +
-                            "with (imports) {" +
-                            e.getMessage().getContent().substring(args[0].length()) +
-                            "}" +
-                            "})();");
-            e.getChannel().sendMessage(out == null ? "Executed without error. \n": out.toString());
-        } catch (ScriptException e1) {
-            e.getChannel().sendMessage(e1.getMessage());
-        }
+        executeScript(e, System.out, args);
     }
+
+    public Object executeScript(MessageReceivedEvent e, PrintStream outStream,
+                                String[] args) {
+        Binding binding = new Binding();
+        binding.setVariable("event", e);
+        binding.setVariable("channel", e.getChannel());
+        binding.setVariable("args", args);
+        binding.setVariable("api", e.getJDA());
+        binding.setVariable("bot", RunBot.BOT);
+        GroovyShell shell = new GroovyShell(binding);
+
+        // redirect output:
+        PrintStream oldOut = System.out;
+        Object value;
+        try {
+            System.setOut(outStream);
+            value = shell.evaluate(e.getMessage().getContent().substring(args[0].length()));
+            e.getChannel().sendMessage("**Compiled without errors!** \n" + ((value == null) ? value : value));
+        } finally {
+            System.setOut(oldOut);
+        }
+        return value;
+    }
+
 
     @Override
     public List<String> getAliases() {
