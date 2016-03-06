@@ -1,5 +1,6 @@
 package events.commands;
 
+import bots.RunBot;
 import misc.Permissions;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
@@ -32,7 +33,7 @@ public class LinuxCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$ping", "$ls");
+        return Arrays.asList(RunBot.prefix + "ping", RunBot.prefix + "ls");
     }
 
     // TODO: 2/27/16 fill out override methods

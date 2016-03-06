@@ -1,5 +1,6 @@
 package events.commands.generator;
 
+import bots.RunBot;
 import calculator.EvalPostfix;
 import calculator.InfixToPostfix;
 import events.commands.Command;
@@ -21,7 +22,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$calc", "$calculate");
+        return Arrays.asList(RunBot.prefix + "calc", RunBot.prefix + "calculate");
     }
 
     @Override
@@ -36,7 +37,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$calc <Mathematical Expression>");
+        return Collections.singletonList(RunBot.prefix + "calc <Mathematical Expression>");
     }
 
     private void calculate(String[] commandArguments) {

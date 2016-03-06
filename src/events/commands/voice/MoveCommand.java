@@ -1,5 +1,6 @@
 package events.commands.voice;
 
+import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
@@ -21,7 +22,7 @@ public class MoveCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$move");
+        return Arrays.asList(RunBot.prefix + "move");
     }
 
     @Override
@@ -36,6 +37,6 @@ public class MoveCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$move <Voice Channel Name>");
+        return Collections.singletonList(RunBot.prefix + "move <Voice Channel Name>");
     }
 }

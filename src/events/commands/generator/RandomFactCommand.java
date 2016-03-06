@@ -1,5 +1,6 @@
 package events.commands.generator;
 
+import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
@@ -19,7 +20,7 @@ public class RandomFactCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$fact");
+        return Arrays.asList(RunBot.prefix + "fact");
     }
 
     @Override
@@ -34,7 +35,7 @@ public class RandomFactCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$fact");
+        return Collections.singletonList(RunBot.prefix + "fact");
     }
 
     private void generateRandomFact(MessageReceivedEvent e) {

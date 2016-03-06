@@ -1,5 +1,6 @@
 package events.commands.generator;
 
+import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
@@ -18,7 +19,7 @@ public class RandomNumberCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$rnum", "$randomNumber", "$randomNum", "$randomnumber", "$rNum");
+        return Arrays.asList(RunBot.prefix + "rnum", RunBot.prefix + "randomNumber", RunBot.prefix + "randomNum", RunBot.prefix + "randomnumber", RunBot.prefix + "rNum");
     }
 
     @Override
@@ -33,7 +34,7 @@ public class RandomNumberCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$rnum <Integer>");
+        return Collections.singletonList(RunBot.prefix + "rnum <Integer>");
     }
 
     private void generateRandomNumber(MessageReceivedEvent e, String[] args) {

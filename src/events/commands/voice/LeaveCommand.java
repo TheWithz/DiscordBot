@@ -1,5 +1,6 @@
 package events.commands.voice;
 
+import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
@@ -20,7 +21,7 @@ public class LeaveCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$leave");
+        return Arrays.asList(RunBot.prefix + "leave");
     }
 
     @Override
@@ -35,6 +36,6 @@ public class LeaveCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$leave");
+        return Collections.singletonList(RunBot.prefix + "leave");
     }
 }

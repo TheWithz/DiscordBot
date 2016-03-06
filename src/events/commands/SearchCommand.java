@@ -1,5 +1,6 @@
 package events.commands;
 
+import bots.RunBot;
 import misc.GoogleSearch;
 import misc.Permissions;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
@@ -22,13 +23,13 @@ public class SearchCommand extends Command {
 
         String filter = null;
         switch (args[0]) {
-            case "$google":
-            case "$g":
+            case RunBot.prefix + "google":
+            case RunBot.prefix + "g":
                 break;
-            case "$wiki":
+            case RunBot.prefix + "wiki":
                 filter = "wiki";
                 break;
-            case "$urban":
+            case RunBot.prefix + "urban":
                 filter = "site:urbandictionary.com";
                 break;
             default:
@@ -44,7 +45,7 @@ public class SearchCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$google", "$g", "$wiki", "$urban");
+        return Arrays.asList(RunBot.prefix + "google", RunBot.prefix + "g", RunBot.prefix + "wiki", RunBot.prefix + "urban");
     }
 
     @Override
@@ -60,6 +61,6 @@ public class SearchCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                "$google *<search terms>  **OR** $wiki *<search terms>*  **OR**  $urban *<search terms>*\n");
+                RunBot.prefix + "google *<search terms>  **OR** " + RunBot.prefix + "wiki *<search terms>*  **OR**  " + RunBot.prefix + "urban *<search terms>*\n");
     }
 }

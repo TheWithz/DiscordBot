@@ -4,6 +4,7 @@ package events;
  * Created by TheWithz on 2/15/16.
  */
 
+import bots.RunBot;
 import net.dv8tion.jda.audio.player.FilePlayer;
 import net.dv8tion.jda.audio.player.Player;
 import net.dv8tion.jda.entities.VoiceChannel;
@@ -24,7 +25,7 @@ public class AudioHandler extends ListenerAdapter {
         String message = event.getMessage().getContent();
 
         //Start an audio connection with a VoiceChannel
-        if (message.startsWith("$join ")) {
+        if (message.startsWith(RunBot.prefix + "join ")) {
             //Separates the name of the channel so that we can search for it
             String chanName = message.substring(6);
 
@@ -39,11 +40,11 @@ public class AudioHandler extends ListenerAdapter {
             event.getJDA().getAudioManager().openAudioConnection(curChannel);
         }
         //Disconnect the audio connection with the VoiceChannel.
-        if (message.equals("$leave"))
+        if (message.equals(RunBot.prefix + "leave"))
             event.getJDA().getAudioManager().closeAudioConnection();
 
         //Start playing audio with our FilePlayer. If we haven't created and registered a FilePlayer yet, do that.
-        if (message.equals("$play")) {
+        if (message.equals(RunBot.prefix + "play")) {
             //If the player didn't exist, create it and start playback.
             if (player == null) {
                 File audioFile = null;
@@ -91,17 +92,17 @@ public class AudioHandler extends ListenerAdapter {
         }
 
         //You can't pause, stop or restart before a player has even been created!
-        if (player == null && (message.equals("$pause") || message.equals("$stop") || message.equals("$restart"))) {
+        if (player == null && (message.equals(RunBot.prefix + "pause") || message.equals(RunBot.prefix + "stop") || message.equals(RunBot.prefix + "restart"))) {
             System.out.println("You need to 'play' before you can preform that command.");
             return;
         }
 
         if (player != null) {
-            if (message.equals("$pause"))
+            if (message.equals(RunBot.prefix + "pause"))
                 player.pause();
-            if (message.equals("$stop"))
+            if (message.equals(RunBot.prefix + "stop"))
                 player.stop();
-            if (message.equals("$restart"))
+            if (message.equals(RunBot.prefix + "restart"))
                 player.restart();
         }
     }

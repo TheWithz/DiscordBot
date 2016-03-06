@@ -31,7 +31,7 @@ public class ClearChatCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$clch", "$clear", "$clearChat", "$clearchat");
+        return Arrays.asList(RunBot.prefix + "clch", RunBot.prefix + "clear", RunBot.prefix + "clearChat", RunBot.prefix + "clearchat");
     }
 
     @Override
@@ -46,7 +46,7 @@ public class ClearChatCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$clch <@mentions>");
+        return Collections.singletonList(RunBot.prefix + "clch <@mentions>");
     }
 
     private void clearChat(MessageReceivedEvent event, String[] commandArguments) {

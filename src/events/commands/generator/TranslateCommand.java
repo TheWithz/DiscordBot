@@ -1,8 +1,11 @@
 package events.commands.generator;
 
+import bots.RunBot;
 import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
 import events.commands.Command;
+import misc.Permissions;
+import net.dv8tion.jda.Permission;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
@@ -18,12 +21,16 @@ public class TranslateCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
+        if (!Permissions.getPermissions().isOp(e.getAuthor())) {
+            e.getChannel().sendMessage("Sorry, this command is OP only");
+        }
+
         generateTranslatedText(e, args);
     }
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$tran", "$translate");
+        return Arrays.asList(RunBot.prefix + "tran", RunBot.prefix + "translate");
     }
 
     @Override
@@ -38,13 +45,13 @@ public class TranslateCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$tran <Original Language> <Translated Language> <Message>");
+        return Collections.singletonList(RunBot.prefix + "tran <Original Language> <Translated Language> <Message>");
     }
 
     private void generateTranslatedText(MessageReceivedEvent e, String[] commandArguments) {
         if (commandArguments.length < 4) {
             e.getChannel().sendMessage("Your syntax for this command is incorrect");
-            e.getChannel().sendMessage("$help tran");
+            e.getChannel().sendMessage(RunBot.prefix + "help tran");
             return;
         }
         //Set your Windows Azure Marketplace client info - See http:msdn.microsoft.com/en-us/library/hh454950.aspx

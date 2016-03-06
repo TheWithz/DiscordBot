@@ -1,5 +1,6 @@
 package events.commands.generator;
 
+import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.PrivateChannel;
@@ -43,7 +44,7 @@ public class HelpCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$help", "$commands");
+        return Arrays.asList(RunBot.prefix + "help", RunBot.prefix + "commands");
     }
 
     @Override
@@ -59,11 +60,11 @@ public class HelpCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                "$help   **OR**  $help *<command>*\n"
-                        + "$help - returns the list of commands along with a simple description of each.\n"
-                        + "$help <command> - returns the name, description, aliases and usage information of a command.\n"
+                RunBot.prefix + "help   **OR**  $help *<command>*\n"
+                        + RunBot.prefix + "help - returns the list of commands along with a simple description of each.\n"
+                        + RunBot.prefix + "help <command> - returns the name, description, aliases and usage information of a command.\n"
                         + "   - This can use the aliases of a command as input as well.\n"
-                        + "__Example:__ $help ann");
+                        + "__Example:__ " + RunBot.prefix + "help g");
     }
 
     private void sendPrivate(PrivateChannel channel, String[] args) {
@@ -110,7 +111,7 @@ public class HelpCommand extends Command {
                 }
             }
             channel.sendMessage(new MessageBuilder()
-                    .appendString("The provided command '**" + args[1] + "**' does not exist. Use $help to list all commands.")
+                    .appendString("The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.prefix + "help to list all commands.")
                     .build());
         }
     }

@@ -83,7 +83,7 @@ public class TodoCommand extends Command {
         }
 
         try {
-            checkArgs(args, 1, "No Action argument was provided. Please use `$help " + getAliases().get(0) + "` for more information.");
+            checkArgs(args, 1, "No Action argument was provided. Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
 
             switch (args[1].toLowerCase()) {
                 case "show":
@@ -123,7 +123,7 @@ public class TodoCommand extends Command {
                     break;
                 default:
                     sendMessage(e, "Unknown Action argument: `" + args[1] + "` was provided. " +
-                            "Please use `$help " + getAliases().get(0) + "` for more information.");
+                            "Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
             }
         } catch (SQLException e1) {
             sendMessage(e, "An SQL error occured while processing command.\nError Message: " + e1.getMessage());
@@ -135,7 +135,7 @@ public class TodoCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$todo");
+        return Arrays.asList(RunBot.prefix + "todo");
     }
 
     @Override

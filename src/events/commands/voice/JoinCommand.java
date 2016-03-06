@@ -1,5 +1,6 @@
 package events.commands.voice;
 
+import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.entities.VoiceChannel;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
@@ -22,7 +23,7 @@ public class JoinCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$join");
+        return Arrays.asList(RunBot.prefix + "join");
     }
 
     @Override
@@ -37,7 +38,7 @@ public class JoinCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$join <Voice Channel Name>");
+        return Collections.singletonList(RunBot.prefix + "join <Voice Channel Name>");
     }
 
     private void join(MessageReceivedEvent event, String[] args) {

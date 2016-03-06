@@ -1,5 +1,6 @@
 package events.commands.audio;
 
+import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
@@ -19,7 +20,7 @@ public class PauseCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$pause");
+        return Arrays.asList(RunBot.prefix + "pause");
     }
 
     @Override
@@ -34,7 +35,7 @@ public class PauseCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList("$pause");
+        return Collections.singletonList(RunBot.prefix + "pause");
     }
 
     private void pause(MessageReceivedEvent e) {

@@ -1,5 +1,6 @@
 package events.commands.audio;
 
+import bots.RunBot;
 import events.commands.Command;
 import events.commands.LinuxCommand;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
@@ -20,7 +21,7 @@ public class PlayLocalFileCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList("$play");
+        return Arrays.asList(RunBot.prefix + "play");
     }
 
     @Override

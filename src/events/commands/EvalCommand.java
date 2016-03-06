@@ -71,7 +71,7 @@ public class EvalCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Collections.singletonList("$eval");
+        return Collections.singletonList(RunBot.prefix + "eval");
     }
 
     @Override
@@ -87,7 +87,7 @@ public class EvalCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                "$eval <Java code>\n" +
+                RunBot.prefix + "eval <Java code>\n" +
                         "    Example: `$eval return \"5 + 5 is: \" + (5 + 5);\n" +
                         "    This will print: 5 + 5 is: 10");
     }
