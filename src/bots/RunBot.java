@@ -22,7 +22,7 @@ public class RunBot {
     public static JDA API = null;
     public static User BOT = null;
     private static final Timer TIMER = new Timer();
-    public static final String prefix = "$";
+    public static final String prefix = "$$$";
 
     public RunBot() {
         try {

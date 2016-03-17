@@ -17,7 +17,8 @@ public class LoginHandler extends ListenerAdapter {
 
     @Override
     public void onInviteReceived(InviteReceivedEvent event) {
-        InviteUtil.join(event.getInvite(), event.getJDA(), x -> System.out.println("Guild " + x.getName() + " has been joined. The invite was sent by " + event.getAuthor()));
+        if (event.isPrivate())
+            InviteUtil.join(event.getInvite(), event.getJDA(), x -> System.out.println("Guild " + x.getName() + " has been joined. The invite was sent by " + event.getAuthor()));
         //InviteUtil.delete(event.getInvite(), event.getJDA());
     }
 
