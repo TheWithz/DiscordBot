@@ -1,7 +1,6 @@
 package events.commands.audio;
 
 import net.dv8tion.jda.audio.player.FilePlayer;
-import net.dv8tion.jda.audio.player.Player;
 
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.File;
@@ -18,7 +17,11 @@ public class AudioUtil {
 
     public AudioUtil() {
         musicDir = new File("/home/TheWithz/Music/");
-        audioFile = generateNewSong();
+        generateNewSong();
+    }
+
+    public static void generateNewSong() {
+        audioFile = new File(musicDir.getPath() + "/" + musicDir.list()[(int) (musicDir.list().length * Math.random())]);
         try {
             player = new FilePlayer(audioFile);
         } catch (IOException e) {
@@ -28,10 +31,6 @@ public class AudioUtil {
             e.printStackTrace();
             System.out.println("Could not load file. It either isn't an audio file or isn't a recognized audio format.");
         }
-    }
-
-    public static File generateNewSong() {
-        return new File(musicDir.getPath() + "/" + musicDir.list()[(int) (musicDir.list().length * Math.random())]);
     }
 }
 

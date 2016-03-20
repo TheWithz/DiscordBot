@@ -12,9 +12,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Created by TheWithz on 2/21/16.
- */
 public class HelpCommand extends Command {
     private static final String NO_NAME = "No name provided for this command. Sorry!";
     private static final String NO_DESCRIPTION = "No description has been provided for this command. Sorry!";
@@ -23,7 +20,7 @@ public class HelpCommand extends Command {
     private ArrayList<Command> commands;
 
     public HelpCommand() {
-        commands = new ArrayList();
+        commands = new ArrayList<Command>();
     }
 
     public Command registerCommand(Command command) {
@@ -60,11 +57,11 @@ public class HelpCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                RunBot.prefix + "help   **OR**  $help *<command>*\n"
+                RunBot.prefix + "help   **OR** " + RunBot.prefix + "help *<command>*\n"
                         + RunBot.prefix + "help - returns the list of commands along with a simple description of each.\n"
                         + RunBot.prefix + "help <command> - returns the name, description, aliases and usage information of a command.\n"
                         + "   - This can use the aliases of a command as input as well.\n"
-                        + "__Example:__ " + RunBot.prefix + "help g");
+                        + "__Example:__ " + RunBot.prefix + "help ann");
     }
 
     private void sendPrivate(PrivateChannel channel, String[] args) {

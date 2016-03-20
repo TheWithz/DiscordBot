@@ -2,8 +2,6 @@ package events.commands;
 
 import bots.RunBot;
 import misc.Database;
-import misc.Permissions;
-import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.entities.User;
@@ -16,9 +14,6 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Created by TheWithz on 2/21/16.
- */
 public class TodoCommand extends Command {
     //Database Methods
     public static final String ADD_TODO_LIST = "addTodoList";
@@ -77,11 +72,6 @@ public class TodoCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        if (!Permissions.getPermissions().isOp(e.getAuthor())) {
-            e.getChannel().sendMessage("Sorry, this command is OP only!");
-            return;
-        }
-
         try {
             checkArgs(args, 1, "No Action argument was provided. Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
 

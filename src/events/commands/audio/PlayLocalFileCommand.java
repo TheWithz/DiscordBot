@@ -2,7 +2,6 @@ package events.commands.audio;
 
 import bots.RunBot;
 import events.commands.Command;
-import events.commands.LinuxCommand;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
@@ -48,8 +47,8 @@ public class PlayLocalFileCommand extends Command {
             // LinuxCommand.runLinuxCommand("ls -AilF");
             // LinuxCommand.runLinuxCommand("less .");
         } else {
-            if (AudioUtil.player.isStopped())
-                AudioUtil.player.restart();
+            AudioUtil.player.stop();
+            AudioUtil.generateNewSong();
             AudioUtil.player.play();
         }
         event.getJDA().getAudioManager().setSendingHandler(AudioUtil.player);
