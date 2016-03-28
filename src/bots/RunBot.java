@@ -3,9 +3,6 @@ package bots;
 import events.LogHandler;
 import events.LoginHandler;
 import events.commands.*;
-import events.commands.audio.AudioUtil;
-import events.commands.audio.PauseCommand;
-import events.commands.audio.PlayLocalFileCommand;
 import events.commands.generator.*;
 import events.commands.voice.JoinCommand;
 import events.commands.voice.LeaveCommand;
@@ -40,11 +37,9 @@ public class RunBot {
                     .addListener(help.registerCommand(new TodoCommand()))
                     .addListener(help.registerCommand(new RandomNumberCommand()))
                     .addListener(help.registerCommand(new RandomFactCommand()))
-                    .addListener(help.registerCommand(new PlayLocalFileCommand()))
                     .addListener(help.registerCommand(new LeaveCommand()))
                     .addListener(help.registerCommand(new JoinCommand()))
                     .addListener(help.registerCommand(new MoveCommand()))
-                    .addListener(help.registerCommand(new PauseCommand()))
                     .addListener(help.registerCommand(new LinuxCommand()))
                     .addListener(help.registerCommand(new EvalCommand())).buildAsync();
         } catch (LoginException | IllegalArgumentException e) {
@@ -60,7 +55,6 @@ public class RunBot {
 
     public static void main(String[] args) {
         RunBot bot = new RunBot();
-        AudioUtil audioUtil = new AudioUtil();
         //LinuxCommand streamUtil = new LinuxCommand();
     }
 

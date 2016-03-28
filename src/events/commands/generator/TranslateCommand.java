@@ -5,7 +5,6 @@ import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
 import events.commands.Command;
 import misc.Permissions;
-import net.dv8tion.jda.Permission;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
@@ -23,6 +22,7 @@ public class TranslateCommand extends Command {
     public void onCommand(MessageReceivedEvent e, String[] args) {
         if (!Permissions.getPermissions().isOp(e.getAuthor())) {
             e.getChannel().sendMessage("Sorry, this command is OP only");
+            return;
         }
 
         generateTranslatedText(e, args);
@@ -63,7 +63,7 @@ public class TranslateCommand extends Command {
                 message.append(commandArguments[i] + " ");
             }
             String translatedText = Translate.execute(message.toString(), Language.valueOf(commandArguments[1].toUpperCase()), Language.valueOf(commandArguments[2].toUpperCase()));
-            System.out.println(translatedText);
+            e.getChannel().sendMessage(translatedText);
         } catch (Exception error) {
             error.printStackTrace();
         }

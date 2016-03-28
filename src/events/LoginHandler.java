@@ -26,6 +26,7 @@ public class LoginHandler extends ListenerAdapter {
     public void onReady(ReadyEvent event) {
         // RunBot.API.setDebug(true);
         DiscordConsoleStream console = new DiscordConsoleStream(RunBot.API.getTextChannelById("148884523487199233"), true);
+
         //  BashConsoleStream bash = new BashConsoleStream(RunBot.API.getTextChannelById("147169039049949184"));
         //  bash.enableRedirect(true);
         Permissions.setupPermissions();

@@ -17,7 +17,11 @@ public class DiscordConsoleStream {
     }
 
     public DiscordConsoleStream(TextChannel channel, boolean enable) {
-        setChannel(channel);
+        try {
+            setChannel(channel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         systemOut = new RedirectStream(System.out) {
             @Override
             protected void enableRedirect(boolean enable) {
