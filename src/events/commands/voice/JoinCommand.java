@@ -53,6 +53,6 @@ public class JoinCommand extends Command {
             System.out.println("There isn't a VoiceChannel in this Guild with the name: '" + args[1] + "'");
             return;
         }
-        event.getJDA().getAudioManager().openAudioConnection(curChannel);
+        event.getJDA().getAudioManager(event.getGuild()).openAudioConnection(curChannel);
     }
 }

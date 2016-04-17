@@ -51,7 +51,7 @@ public class ClearChatCommand extends Command {
 
     private void clearChat(MessageReceivedEvent event, String[] commandArguments) {
 
-        MessageHistory history = new MessageHistory(event.getJDA(), event.getTextChannel());
+        MessageHistory history = new MessageHistory(event.getTextChannel());
 
         if (commandArguments.length < 2)
             // if there was no arguments do nothing

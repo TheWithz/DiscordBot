@@ -24,7 +24,7 @@ public class RunBot {
     public RunBot() {
         try {
             HelpCommand help = new HelpCommand();
-            API = new JDABuilder().setEmail("bot@botbot.com").setPassword("Bot")
+            API = new JDABuilder().setBotToken("MTY4Nzk2MzAzNzI2MjE1MTY4.CfVcyw._3Ew_1m7MB38YDJO1GwOVsZWK_g")
                     .addListener(new LoginHandler())
                     //.addListener(new AudioHandler())
                     .addListener(new LogHandler())

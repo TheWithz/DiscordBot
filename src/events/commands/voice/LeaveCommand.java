@@ -15,7 +15,7 @@ public class LeaveCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        event.getJDA().getAudioManager().closeAudioConnection();
+        event.getJDA().getAudioManager(event.getGuild()).closeAudioConnection();
         JoinCommand.curChannel = null;
     }
 

@@ -15,7 +15,7 @@ public class MoveCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        event.getJDA().getAudioManager().moveAudioConnection(event.getGuild().getVoiceChannels().stream().filter(
+        event.getJDA().getAudioManager(event.getGuild()).moveAudioConnection(event.getGuild().getVoiceChannels().stream().filter(
                 vChan -> vChan.getName().equalsIgnoreCase(args[1]))
                 .findFirst().orElse(null));
     }

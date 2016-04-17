@@ -6,7 +6,6 @@ import misc.Permissions;
 import net.dv8tion.jda.events.InviteReceivedEvent;
 import net.dv8tion.jda.events.ReadyEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
-import net.dv8tion.jda.utils.InviteUtil;
 
 import java.sql.SQLException;
 
@@ -17,8 +16,8 @@ public class LoginHandler extends ListenerAdapter {
 
     @Override
     public void onInviteReceived(InviteReceivedEvent event) {
-        if (event.isPrivate())
-            InviteUtil.join(event.getInvite(), event.getJDA(), x -> System.out.println("Guild " + x.getName() + " has been joined. The invite was sent by " + event.getAuthor()));
+        //if (event.isPrivate())
+        //  InviteUtil.join(event.getInvite(), event.getJDA(), x -> System.out.println("Guild " + x.getName() + " has been joined. The invite was sent by " + event.getAuthor()));
         //InviteUtil.delete(event.getInvite(), event.getJDA());
     }
 
