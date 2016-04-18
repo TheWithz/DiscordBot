@@ -16,8 +16,8 @@ public class LoginHandler extends ListenerAdapter {
 
     @Override
     public void onInviteReceived(InviteReceivedEvent event) {
-        //if (event.isPrivate())
-        //  InviteUtil.join(event.getInvite(), event.getJDA(), x -> System.out.println("Guild " + x.getName() + " has been joined. The invite was sent by " + event.getAuthor()));
+        if (event.isPrivate())
+            event.getAuthor().getPrivateChannel().sendMessage("I am sorry, but sending invites to bots has been deprecated. However if You really want me to join your server follow this URL \nhttps://discordapp.com/oauth2/authorize?&client_id=168796197396545537&scope=bot&permissions=0");
         //InviteUtil.delete(event.getInvite(), event.getJDA());
     }
 
@@ -25,7 +25,6 @@ public class LoginHandler extends ListenerAdapter {
     public void onReady(ReadyEvent event) {
         // RunBot.API.setDebug(true);
         DiscordConsoleStream console = new DiscordConsoleStream(RunBot.API.getTextChannelById("148884523487199233"), true);
-
         //  BashConsoleStream bash = new BashConsoleStream(RunBot.API.getTextChannelById("147169039049949184"));
         //  bash.enableRedirect(true);
         Permissions.setupPermissions();

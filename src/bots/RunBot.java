@@ -12,12 +12,15 @@ import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.entities.User;
 
 import javax.security.auth.login.LoginException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class RunBot {
     public static JDA API = null;
     public static User BOT = null;
+    public static HashMap<String, HashSet<User>> prefixes;
     private static final Timer TIMER = new Timer();
     public static final String prefix = "$$$";
 

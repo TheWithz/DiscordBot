@@ -28,6 +28,7 @@ public abstract class Command extends ListenerAdapter {
     }
 
     protected boolean containsCommand(Message message) {
+        // throws index out of bounds error if a message is sent that only contains a single space such as the description for a file
         return getAliases().contains(commandArgs(message)[0]);
     }
 
