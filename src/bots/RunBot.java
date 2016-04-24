@@ -10,8 +10,14 @@ import events.commands.voice.MoveCommand;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.entities.User;
+import net.dv8tion.jda.player.MusicBot;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.security.auth.login.LoginException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Timer;
@@ -26,11 +32,12 @@ public class RunBot {
 
     public RunBot() {
         try {
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Config.json"))));
             HelpCommand help = new HelpCommand();
-            API = new JDABuilder().setBotToken("MTY4Nzk2MzAzNzI2MjE1MTY4.CfVcyw._3Ew_1m7MB38YDJO1GwOVsZWK_g")
+            API = new JDABuilder().setBotToken(obj.getString("botToken"))
                     .addListener(new LoginHandler())
-                    //.addListener(new AudioHandler())
                     .addListener(new LogHandler())
+                    .addListener(new MusicBot())
                     .addListener(help.registerCommand(help))
                     .addListener(help.registerCommand(new TranslateCommand()))
                     .addListener(help.registerCommand(new CalculatorCommand()))
@@ -44,10 +51,27 @@ public class RunBot {
                     .addListener(help.registerCommand(new JoinCommand()))
                     .addListener(help.registerCommand(new MoveCommand()))
                     .addListener(help.registerCommand(new LinuxCommand()))
-                    .addListener(help.registerCommand(new EvalCommand())).buildAsync();
-        } catch (LoginException | IllegalArgumentException e) {
+                    .addListener(help.registerCommand(new EvalCommand())).buildBlocking();
+        } catch (IllegalArgumentException e) {
+            System.out.println("The config was not populated. Please provide a token.");
+        } catch (LoginException e) {
+            System.out.println("The provided botToken was incorrect. Please provide valid details.");
+        } catch (InterruptedException e) {
             e.printStackTrace();
-            System.out.println("Bot failed to connect");
+        } catch (JSONException e) {
+            System.err.println("Encountered a JSON error. Most likely caused due to an outdated or ill-formated config.\n" +
+                    "Please delete the config so that it can be regenerated. JSON Error:\n");
+            e.printStackTrace();
+        } catch (IOException e) {
+            JSONObject obj = new JSONObject();
+            obj.put("botToken", "");
+            try {
+                Files.write(Paths.get("resources/Config.json"), obj.toString(4).getBytes());
+                System.out.println("No config file was found. Config.json has been generated, please populate it!");
+            } catch (IOException e1) {
+                System.out.println("No config file was found and we failed to generate one.");
+                e1.printStackTrace();
+            }
         }
         TIMER.schedule(new TimerTask() {
             public void run() {
