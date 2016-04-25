@@ -1,41 +1,39 @@
-package events.commands.voice;
+package events.commands.music;
 
 import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
- * Created by TheWithz on 2/21/16.
+ * Created by TheWithz on 4/24/16.
  */
 public class LeaveCommand extends Command {
-
+    //Disconnect the audio connection with the VoiceChannel.
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        event.getJDA().getAudioManager(event.getGuild()).closeAudioConnection();
-        JoinCommand.curChannel = null;
+        AudioUtil.manager.closeAudioConnection();
     }
 
     @Override
-    public List<String> getAliases() {
+    public java.util.List<String> getAliases() {
         return Arrays.asList(RunBot.prefix + "leave");
     }
 
     @Override
     public String getDescription() {
-        return "Command that leaves a voice channel!";
+        return null;
     }
 
     @Override
     public String getName() {
-        return "Leave Command";
+        return null;
     }
 
     @Override
-    public List<String> getUsageInstructions() {
-        return Collections.singletonList(RunBot.prefix + "leave");
+    public java.util.List<String> getUsageInstructions() {
+        return null;
     }
 }
+

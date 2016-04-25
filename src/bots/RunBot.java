@@ -4,13 +4,10 @@ import events.LogHandler;
 import events.LoginHandler;
 import events.commands.*;
 import events.commands.generator.*;
-import events.commands.voice.JoinCommand;
-import events.commands.voice.LeaveCommand;
-import events.commands.voice.MoveCommand;
+import events.commands.music.*;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.entities.User;
-import net.dv8tion.jda.player.MusicBot;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,7 +34,6 @@ public class RunBot {
             API = new JDABuilder().setBotToken(obj.getString("botToken"))
                     .addListener(new LoginHandler())
                     .addListener(new LogHandler())
-                    .addListener(new MusicBot())
                     .addListener(help.registerCommand(help))
                     .addListener(help.registerCommand(new TranslateCommand()))
                     .addListener(help.registerCommand(new CalculatorCommand()))
@@ -47,18 +43,29 @@ public class RunBot {
                     .addListener(help.registerCommand(new TodoCommand()))
                     .addListener(help.registerCommand(new RandomNumberCommand()))
                     .addListener(help.registerCommand(new RandomFactCommand()))
-                    .addListener(help.registerCommand(new LeaveCommand()))
-                    .addListener(help.registerCommand(new JoinCommand()))
-                    .addListener(help.registerCommand(new MoveCommand()))
                     .addListener(help.registerCommand(new LinuxCommand()))
-                    .addListener(help.registerCommand(new EvalCommand())).buildBlocking();
+                    .addListener(help.registerCommand(new EvalCommand()))
+                    .addListener(help.registerCommand(new JoinCommand()))
+                    .addListener(help.registerCommand(new LeaveCommand()))
+                    .addListener(help.registerCommand(new ListCommand()))
+                    .addListener(help.registerCommand(new NowPlayingCommand()))
+                    .addListener(help.registerCommand(new PauseCommand()))
+                    .addListener(help.registerCommand(new PlayCommand()))
+                    .addListener(help.registerCommand(new RepeatCommand()))
+                    .addListener(help.registerCommand(new ResetCommand()))
+                    .addListener(help.registerCommand(new RestartCommand()))
+                    .addListener(help.registerCommand(new ShuffleCommand()))
+                    .addListener(help.registerCommand(new SkipCommand()))
+                    .addListener(help.registerCommand(new StopCommand()))
+                    .addListener(help.registerCommand(new VolumeCommand()))
+                    .buildAsync();
         } catch (IllegalArgumentException e) {
             System.out.println("The config was not populated. Please provide a token.");
         } catch (LoginException e) {
             System.out.println("The provided botToken was incorrect. Please provide valid details.");
-        } catch (InterruptedException e) {
+        } /*catch (InterruptedException e) {
             e.printStackTrace();
-        } catch (JSONException e) {
+        }*/ catch (JSONException e) {
             System.err.println("Encountered a JSON error. Most likely caused due to an outdated or ill-formated config.\n" +
                     "Please delete the config so that it can be regenerated. JSON Error:\n");
             e.printStackTrace();

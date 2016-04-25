@@ -24,7 +24,6 @@ public class TranslateCommand extends Command {
             e.getChannel().sendMessage("Sorry, this command is OP only");
             return;
         }
-
         generateTranslatedText(e, args);
     }
 
