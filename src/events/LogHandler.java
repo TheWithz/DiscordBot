@@ -7,29 +7,32 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by TheWithz on 2/21/16.
  */
 public class LogHandler extends ListenerAdapter {
+    private boolean enabled = true;
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         try (PrintWriter out = new PrintWriter(
                 new BufferedWriter(new FileWriter("resources/log.txt", true)))) {
-            //{is private?} {yes/no} {is editted?} {yes/no} (time editted) [sender] [who name : ID] | where guild name : ID | -> | where channel name : ID | (time sent) message
-            out.printf("");
-/// TODO: 2/21/16 format log messages based on things like when it was editted and such
+            if (!enabled) return;
+
+            String content = event.getMessage().getContent();
+            String message = (content.contains("\n")) ? "\n" + content : content;
+            out.printf("[%s] [%s#%s] %s: %s\n",
+                    event.getMessage().getTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
+                    event.getGuild().getName(),
+                    event.getChannel().toString(),
+                    event.getAuthor().getUsername(),
+                    message);
+
         } catch (IOException error) {
             System.out.println("File not written to text file");
         }
     }
-
-    private static String getCurrentTimeStamp() {
-        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
-    }
-
 
 }

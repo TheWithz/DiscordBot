@@ -13,12 +13,15 @@ import org.json.JSONObject;
 
 import javax.security.auth.login.LoginException;
 import java.io.IOException;
+import java.lang.management.ManagementFactory;
+import java.lang.management.RuntimeMXBean;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class RunBot {
     public static JDA API = null;
@@ -48,6 +51,7 @@ public class RunBot {
                     .addListener(help.registerCommand(new JoinCommand()))
                     .addListener(help.registerCommand(new LeaveCommand()))
                     .addListener(help.registerCommand(new ListCommand()))
+                    .addListener(help.registerCommand(new StatCommand()))
                     .addListener(help.registerCommand(new NowPlayingCommand()))
                     .addListener(help.registerCommand(new PauseCommand()))
                     .addListener(help.registerCommand(new PlayCommand()))
@@ -85,6 +89,27 @@ public class RunBot {
                 //System.out.println("timer was fired. I think.");
             }
         }, 0, 300 * 1000); // runs every 5 minutes
+    }
+
+    public static String getUptime() {
+        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
+        long uptime = rb.getUptime();
+
+        long days = TimeUnit.MILLISECONDS.toDays(uptime);
+        uptime -= TimeUnit.DAYS.toMillis(days);
+
+        long hours = TimeUnit.MILLISECONDS.toHours(uptime);
+        uptime -= TimeUnit.HOURS.toMillis(hours);
+
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(uptime);
+        uptime -= TimeUnit.MINUTES.toMillis(minutes);
+
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(uptime);
+
+        return "**Uptime:** " + days + (days != 1L ? " days " : " day ") +
+                hours + (hours != 1L ? " hours " : " hour ") +
+                minutes + (minutes != 1L ? " minutes " : " minute ") +
+                seconds + (seconds != 1L ? " seconds " : " second");
     }
 
     public static void main(String[] args) {

@@ -7,7 +7,11 @@ import net.dv8tion.jda.player.MusicPlayer;
 import net.dv8tion.jda.player.Playlist;
 import net.dv8tion.jda.player.source.AudioInfo;
 import net.dv8tion.jda.player.source.AudioSource;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -21,7 +25,7 @@ public class PlayCommand extends Command {
     public void onCommand(MessageReceivedEvent event, String[] args) {
 
         //If no URL was provided.
-        if (args[1] == null && args[0].equals(RunBot.prefix + "play")) {
+        if (args.length == 1 && args[0].equals(RunBot.prefix + "play")) {
             if (AudioUtil.player.isPlaying()) {
                 event.getChannel().sendMessage("player is already playing!");
                 return;
@@ -36,7 +40,7 @@ public class PlayCommand extends Command {
                     event.getChannel().sendMessage("player has started playing!");
                 }
             }
-        } else if (args[1] != null) {
+        } else if (args.length == 2 && args[1] != null) {
             String msg = "";
             String url = args[1];
             Playlist playlist = Playlist.getPlaylist(url);
@@ -84,6 +88,19 @@ public class PlayCommand extends Command {
                             "Error: " + info.getError());
                 }
             }
+        } else if (args.length == 3 && args[1].equals("playlist") && args[2] != null) {
+            Thread thread = new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
+                        event.getChannel().sendMessage(RunBot.prefix + "play " + obj.getString(args[2]));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+            thread.start();
         }
     }
 

@@ -58,7 +58,7 @@ public class HelpCommand extends Command {
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
                 RunBot.prefix + "help   **OR** " + RunBot.prefix + "help *<command>*\n"
-                        + RunBot.prefix + "help - returns the list of commands along with a simple description of each.\n"
+                        + RunBot.prefix + "help - rewhat if I cant vote in the primary, just the general election. can I complain then?turns the list of commands along with a simple description of each.\n"
                         + RunBot.prefix + "help <command> - returns the name, description, aliases and usage information of a command.\n"
                         + "   - This can use the aliases of a command as input as well.\n"
                         + "__Example:__ " + RunBot.prefix + "help ann");

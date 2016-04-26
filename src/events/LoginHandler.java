@@ -32,6 +32,7 @@ public class LoginHandler extends ListenerAdapter {
         RunBot.API.getAccountManager().setGame("JDA");
         try {
             Permissions.getPermissions().addOp("122764399961309184");
+            Permissions.getPermissions().addOp(RunBot.BOT.getId());
         } catch (SQLException e) {
             e.printStackTrace();
         }

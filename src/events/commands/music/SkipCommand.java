@@ -23,7 +23,7 @@ public class SkipCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "";
     }
 
     @Override
