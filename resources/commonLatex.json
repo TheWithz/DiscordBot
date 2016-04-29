@@ -1,0 +1,8 @@
+{
+  "quadraticFormula": "x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}",
+  "sigma": "\\Sigma",
+  "integral": "\\int",
+  "nthroot": "\\sqrt[n]{a}",
+  "derivative": "\\frac{\\partial}{\\partial_{x}}",
+  "quadratic": "y=ax^{2}+bx+c"
+}
