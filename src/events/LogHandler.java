@@ -23,12 +23,21 @@ public class LogHandler extends ListenerAdapter {
 
             String content = event.getMessage().getContent();
             String message = (content.contains("\n")) ? "\n" + content : content;
-            out.printf("[%s] [%s#%s] %s: %s\n",
-                    event.getMessage().getTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
-                    event.getGuild().getName(),
-                    event.getChannel().toString(),
-                    event.getAuthor().getUsername(),
-                    message);
+            if (!event.isPrivate()) {
+                out.printf("[%s] [%s#%s] %s: %s\n",
+                        event.getMessage().getTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
+                        event.getGuild().getName(),
+                        event.getChannel().toString(),
+                        event.getAuthor().getUsername(),
+                        message);
+            } else {
+                out.printf("[%s] [%s#%s] %s: %s\n",
+                        event.getMessage().getTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
+                        event.getPrivateChannel().getUser().getAsMention(),
+                        event.getChannel().toString(),
+                        event.getAuthor().getUsername(),
+                        message);
+            }
 
         } catch (IOException error) {
             System.out.println("File not written to text file");

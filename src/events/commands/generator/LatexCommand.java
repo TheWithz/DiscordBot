@@ -56,6 +56,7 @@ public class LatexCommand extends Command {
             builder.append("\\documentclass{article}\n");
             builder.append("\\pagestyle{empty}\n\n");
             builder.append("\\begin{document}\n");
+            builder.append("\\Huge\n");
             builder.append("$");
             builder.append(args[1]);
             builder.append("$\n");

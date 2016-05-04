@@ -7,18 +7,21 @@ import events.commands.generator.*;
 import events.commands.music.*;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
+import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.User;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.security.auth.login.LoginException;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -26,7 +29,6 @@ import java.util.concurrent.TimeUnit;
 public class RunBot {
     public static JDA API = null;
     public static User BOT = null;
-    public static HashMap<String, HashSet<User>> prefixes;
     private static final Timer TIMER = new Timer();
     public static final String prefix = "$$$";
 
@@ -50,7 +52,7 @@ public class RunBot {
                     .addListener(help.registerCommand(new EvalCommand()))
                     .addListener(help.registerCommand(new JoinCommand()))
                     .addListener(help.registerCommand(new LeaveCommand()))
-                    .addListener(help.registerCommand(new ListCommand()))
+                    .addListener(help.registerCommand(new PrintQueueCommand()))
                     .addListener(help.registerCommand(new LatexCommand()))
                     .addListener(help.registerCommand(new StatCommand()))
                     .addListener(help.registerCommand(new SaveCommand()))
@@ -72,7 +74,7 @@ public class RunBot {
         } /*catch (InterruptedException e) {
             e.printStackTrace();
         }*/ catch (JSONException e) {
-            System.err.println("Encountered a JSON error. Most likely caused due to an outdated or ill-formated config.\n" +
+            System.err.println("Encountered a JSON error. Most likely caused due to an outdated or ill-formatted config.\n" +
                     "Please delete the config so that it can be regenerated. JSON Error:\n");
             e.printStackTrace();
         } catch (IOException e) {
@@ -112,6 +114,20 @@ public class RunBot {
                 hours + (hours != 1L ? " hours " : " hour ") +
                 minutes + (minutes != 1L ? " minutes " : " minute ") +
                 seconds + (seconds != 1L ? " seconds " : " second");
+    }
+
+    public static void printAsFile(MessageReceivedEvent event, StringBuilder b, String fileName) {
+        event.getChannel().sendTyping();
+        LinuxCommand.runLinuxCommand(event, "touch resources/" + fileName + ".txt");
+        File file = new File("resources/" + fileName + ".txt");
+        Path path = Paths.get("resources/" + fileName + ".txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(b.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        event.getChannel().sendFile(file, new MessageBuilder().appendCodeBlock(fileName, "java").build());
+        file.delete();
     }
 
     public static void main(String[] args) {

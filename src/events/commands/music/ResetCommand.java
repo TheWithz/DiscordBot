@@ -28,16 +28,16 @@ public class ResetCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Resets the audio player";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Reset Command";
     }
 
     @Override
     public List<String> getUsageInstructions() {
-        return null;
+        return Arrays.asList(RunBot.prefix + "reset");
     }
 }

@@ -56,16 +56,16 @@ public class SaveCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Stores a value and a key into a designated .json file for later use";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Save Command";
     }
 
     @Override
     public List<String> getUsageInstructions() {
-        return null;
+        return Arrays.asList(RunBot.prefix + "save <json file> <key> <value>", "Example : " + RunBot.prefix + "save playlist 80smix ");
     }
 }

@@ -18,21 +18,21 @@ public class StatCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "stats");
+        return Arrays.asList(RunBot.prefix + "stats", RunBot.prefix + "uptime");
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Prints statistics for TheWithzBot";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Stat Command";
     }
 
     @Override
     public List<String> getUsageInstructions() {
-        return null;
+        return Arrays.asList(RunBot.prefix + "stat", RunBot.prefix + "uptime");
     }
 }

@@ -5,10 +5,9 @@ import misc.Permissions;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
 import java.util.List;
 
@@ -51,6 +50,7 @@ public class LinuxCommand extends Command {
                 RunBot.prefix + "mv",
                 RunBot.prefix + "stat",
                 RunBot.prefix + "python3.5",
+                RunBot.prefix + "python",
                 RunBot.prefix + "cd",
                 RunBot.prefix + "echo",
                 RunBot.prefix + "cp");
@@ -78,27 +78,16 @@ public class LinuxCommand extends Command {
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
             StringBuilder b = run(br);
             if (b.length() > 2000) {
-                printAsFile(event, b, com);
+                RunBot.printAsFile(event, b, com);
             } else {
-                System.out.println(b);
+                if (com.split("\\s+")[1].equals("resources/html.py")) {
+                    event.getChannel().sendMessage(new MessageBuilder().appendString(b.toString()).build());
+                } else
+                    System.out.println(b);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private static void printAsFile(MessageReceivedEvent event, StringBuilder b, String com) {
-        event.getChannel().sendTyping();
-        runLinuxCommand(event, "touch resources/" + com + ".txt");
-        File file = new File("resources/" + com + ".txt");
-        Path path = Paths.get("resources/" + com + ".txt");
-        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-            writer.write(b.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        event.getChannel().sendFile(file, new MessageBuilder().appendCodeBlock(com, "java").build());
-        file.delete();
     }
 
     private static StringBuilder run(BufferedReader br) throws IOException, InterruptedException {

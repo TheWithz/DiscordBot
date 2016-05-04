@@ -26,16 +26,16 @@ public class VolumeCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Changes the volume of the audio player";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Volume Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return null;
+        return Arrays.asList(RunBot.prefix + "volume");
     }
 }

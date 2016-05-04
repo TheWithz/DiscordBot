@@ -38,16 +38,16 @@ public class NowPlayingCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Prints out information about the currently playing song";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "NowPlaying Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return null;
+        return Arrays.asList(RunBot.prefix + "nowplaying", RunBot.prefix + "currentsong", RunBot.prefix + "current ");
     }
 }

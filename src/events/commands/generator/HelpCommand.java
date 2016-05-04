@@ -58,10 +58,10 @@ public class HelpCommand extends Command {
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
                 RunBot.prefix + "help   **OR** " + RunBot.prefix + "help *<command>*\n"
-                        + RunBot.prefix + "help - rewhat if I cant vote in the primary, just the general election. can I complain then?turns the list of commands along with a simple description of each.\n"
-                        + RunBot.prefix + "help <command> - returns the name, description, aliases and usage information of a command.\n"
+                        + RunBot.prefix + "help | returns the list of commands along with a simple description of each.\n"
+                        + RunBot.prefix + "help <command> | returns the name, description, aliases, and usage information of a command.\n"
                         + "   - This can use the aliases of a command as input as well.\n"
-                        + "__Example:__ " + RunBot.prefix + "help ann");
+                        + "__Example:__ " + RunBot.prefix + "help stats");
     }
 
     private void sendPrivate(PrivateChannel channel, String[] args) {
@@ -80,7 +80,7 @@ public class HelpCommand extends Command {
                     .appendString(s.toString())
                     .build());
         } else {
-            String command = args[1].charAt(0) == '.' ? args[1] : "." + args[1];    //If there is not a preceding . attached to the command we are search, then prepend one.
+            String command = args[1].substring(0, RunBot.prefix.length()).equals(RunBot.prefix) ? args[1] : RunBot.prefix + args[1];    //If there is not a preceding prefix attached to the command we are search, then prepend one.
             for (Command c : commands) {
                 if (c.getAliases().contains(command)) {
                     String name = c.getName();
@@ -90,7 +90,6 @@ public class HelpCommand extends Command {
                     description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
                     usageInstructions = (usageInstructions == null || usageInstructions.isEmpty()) ? Collections.singletonList(NO_USAGE) : usageInstructions;
 
-                    //TODO: Replace with a PrivateMessage
                     channel.sendMessage(new MessageBuilder()
                             .appendString("**Name:** " + name + "\n")
                             .appendString("**Description:** " + description + "\n")

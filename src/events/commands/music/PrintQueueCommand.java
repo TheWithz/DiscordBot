@@ -17,7 +17,7 @@ import java.util.Arrays;
 /**
  * Created by TheWithz on 4/24/16.
  */
-public class ListCommand extends Command {
+public class PrintQueueCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (args.length == 1) {
@@ -58,7 +58,7 @@ public class ListCommand extends Command {
 
             builder.appendString("\nTotal Queue Time Length: " + AudioTimestamp.fromSeconds(totalSeconds).getTimestamp());
             if (error)
-                builder.appendString("`An error occured calculating total time. Might not be completely valid.");
+                builder.appendString("`An error occured calculating total time. Might not be completely valid.`");
             event.getChannel().sendMessage(builder.build());
         } else if (args.length == 2 && args[1].equals("playlists")) {
             try {
@@ -80,21 +80,21 @@ public class ListCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "list");
+        return Arrays.asList(RunBot.prefix + "printQueue");
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Prints out the list of songs left in the queue";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "PrintQueue Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return null;
+        return Arrays.asList(RunBot.prefix + "printQueue");
     }
 }
