@@ -153,7 +153,7 @@ public class TodoCommand extends Command {
                                 "       Example 2: `%1$s lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.\n" +
                                 "\n" +
                                 "__**create [ListName]** - Creates a new todo list with name [ListName]__\n" +
-                                "       Example: `%1$s list project5`  would create a todo list with the name `project5`\n" +
+                                "       Example: `%1$s create project5`  would create a todo list with the name `project5`\n" +
                                 "\n" +
                                 "__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__\n" +
                                 "       Example: `%1$s add project5 Fix bug where Users can delete System32`\n" +
