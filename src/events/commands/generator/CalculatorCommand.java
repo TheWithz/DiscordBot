@@ -17,7 +17,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        calculate(args);
+        e.getChannel().sendMessage(calculate(args));
     }
 
     @Override
@@ -40,14 +40,14 @@ public class CalculatorCommand extends Command {
         return Collections.singletonList(RunBot.prefix + "calc <Mathematical Expression>");
     }
 
-    private void calculate(String[] commandArguments) {
+    private String calculate(String[] commandArguments) {
         StringBuilder inFixExpression = new StringBuilder();
         for (int i = 1; i < commandArguments.length; i++) {
             inFixExpression.append(commandArguments[i]);
             inFixExpression.append(" ");
         }
-        System.out.println("The answer to your expression is: "
-                + EvalPostfix.evalPostFix(InfixToPostfix.convertToPostfix(inFixExpression.toString())));
+        return "The answer to your expression is: "
+                + EvalPostfix.evalPostFix(InfixToPostfix.convertToPostfix(inFixExpression.toString()));
     }
 
 }
