@@ -80,7 +80,7 @@ public class HelpCommand extends Command {
                     .appendString(s.toString())
                     .build());
         } else {
-            String command = args[1].substring(0, RunBot.prefix.length()).equals(RunBot.prefix) ? args[1] : RunBot.prefix + args[1];    //If there is not a preceding prefix attached to the command we are search, then prepend one.
+            String command = ((args[1].length() > RunBot.prefix.length() + 1) && args[1].substring(0, RunBot.prefix.length()).equals(RunBot.prefix)) ? args[1] : RunBot.prefix + args[1];    //If there is not a preceding prefix attached to the command we are search, then prepend one.
             for (Command c : commands) {
                 if (c.getAliases().contains(command)) {
                     String name = c.getName();
