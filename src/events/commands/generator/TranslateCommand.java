@@ -50,7 +50,7 @@ public class TranslateCommand extends Command {
     private void generateTranslatedText(MessageReceivedEvent e, String[] commandArguments) {
         if (commandArguments.length < 4) {
             e.getChannel().sendMessage("Your syntax for this command is incorrect");
-            e.getChannel().sendMessage(RunBot.prefix + "help tran");
+            e.getChannel().sendMessage("**" + RunBot.prefix + "help tran**");
             return;
         }
         //Set your Windows Azure Marketplace client info - See http:msdn.microsoft.com/en-us/library/hh454950.aspx
@@ -59,7 +59,7 @@ public class TranslateCommand extends Command {
         try {
             StringBuilder message = new StringBuilder();
             for (int i = 3; i < commandArguments.length; i++) {
-                message.append(commandArguments[i] + " ");
+                message.append(commandArguments[i]).append(" ");
             }
             String translatedText = Translate.execute(message.toString(), Language.valueOf(commandArguments[1].toUpperCase()), Language.valueOf(commandArguments[2].toUpperCase()));
             e.getChannel().sendMessage(translatedText);
