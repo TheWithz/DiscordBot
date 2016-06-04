@@ -37,23 +37,23 @@ public class LinuxCommand extends Command {
     @Override
     public List<String> getAliases() {
         return Arrays.asList(RunBot.prefix + "ping",
-                RunBot.prefix + "ls",
-                RunBot.prefix + "curl",
-                RunBot.prefix + "nmap",
-                RunBot.prefix + "cat",
-                RunBot.prefix + "tar",
-                RunBot.prefix + "touch",
-                RunBot.prefix + "crunch",
-                RunBot.prefix + "man",
-                RunBot.prefix + "grep",
-                RunBot.prefix + "mkdir",
-                RunBot.prefix + "mv",
-                RunBot.prefix + "stat",
-                RunBot.prefix + "python3.5",
-                RunBot.prefix + "python",
-                RunBot.prefix + "cd",
-                RunBot.prefix + "echo",
-                RunBot.prefix + "cp");
+                             RunBot.prefix + "ls",
+                             RunBot.prefix + "curl",
+                             RunBot.prefix + "nmap",
+                             RunBot.prefix + "cat",
+                             RunBot.prefix + "tar",
+                             RunBot.prefix + "touch",
+                             RunBot.prefix + "crunch",
+                             RunBot.prefix + "man",
+                             RunBot.prefix + "grep",
+                             RunBot.prefix + "mkdir",
+                             RunBot.prefix + "mv",
+                             RunBot.prefix + "stat",
+                             RunBot.prefix + "python3.5",
+                             RunBot.prefix + "python",
+                             RunBot.prefix + "cd",
+                             RunBot.prefix + "echo",
+                             RunBot.prefix + "cp");
     }
 
     // TODO: 2/27/16 fill out override methods
@@ -80,10 +80,7 @@ public class LinuxCommand extends Command {
             if (b.length() > 2000) {
                 RunBot.printAsFile(event, b, com);
             } else {
-                if (com.split("\\s+")[1].equals("resources/html.py")) {
-                    event.getChannel().sendMessage(new MessageBuilder().appendString(b.toString()).build());
-                } else
-                    System.out.println(b);
+                event.getChannel().sendMessage(new MessageBuilder().appendString(b.toString()).build());
             }
         } catch (Exception e) {
             e.printStackTrace();

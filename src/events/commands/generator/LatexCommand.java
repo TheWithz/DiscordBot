@@ -10,7 +10,7 @@ import org.json.JSONObject;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -63,6 +63,7 @@ public class LatexCommand extends Command {
             builder.append("\\end{document}");
             writeToFile(builder);
             LinuxCommand.runLinuxCommand(event, "latex latex.tex");
+            // did you remember to install dvipng? make sure you do
             LinuxCommand.runLinuxCommand(event, "dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png");
             event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[1], "LaTeX").build());
         } else if (args.length == 3 && args[1].equals("list")) {
@@ -107,7 +108,7 @@ public class LatexCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "latex");
+        return Collections.singletonList(RunBot.prefix + "latex");
     }
 
     @Override
