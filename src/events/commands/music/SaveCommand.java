@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -51,7 +52,7 @@ public class SaveCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "save");
+        return Collections.singletonList(RunBot.prefix + "save");
     }
 
     @Override

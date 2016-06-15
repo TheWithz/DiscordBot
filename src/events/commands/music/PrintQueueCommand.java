@@ -80,7 +80,7 @@ public class PrintQueueCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "printQueue");
+        return Arrays.asList(RunBot.prefix + "printQueue", RunBot.prefix + "listQueue");
     }
 
     @Override
