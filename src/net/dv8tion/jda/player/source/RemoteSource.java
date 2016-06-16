@@ -28,7 +28,7 @@ public class RemoteSource implements AudioSource
 {
     public static final List<String> YOUTUBE_DL_LAUNCH_ARGS =
             Collections.unmodifiableList(Arrays.asList(
-                    "python",               //Launch python executor
+                    "python3",               //Launch python executor
                     "resources/youtube-dl",         //youtube-dl program file
                     "-q",                   //quiet. No standard out.
                     "-f", "bestaudio/best", //Format to download. Attempts best audio-only, followed by best video/audio combo

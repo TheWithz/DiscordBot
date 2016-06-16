@@ -34,7 +34,8 @@ public class PlayCommand extends Command {
                 event.getChannel().sendMessage("playback as been resumed.");
             } else {
                 if (AudioUtil.player.getAudioQueue().isEmpty())
-                    event.getChannel().sendMessage("The current audio queue is empty! Add something to the queue first!");
+                    event.getChannel()
+                         .sendMessage("The current audio queue is empty! Add something to the queue first!");
                 else {
                     AudioUtil.player.play();
                     event.getChannel().sendMessage("player has started playing!");
@@ -50,7 +51,7 @@ public class PlayCommand extends Command {
 //                AudioInfo info = source.getInfo();   //Preload the audio info.
             if (sources.size() > 1) {
                 event.getChannel().sendMessage("Found a playlist with **" + sources.size() + "** entries.\n" +
-                        "Proceeding to gather information and queue sources. This may take some time...");
+                                                       "Proceeding to gather information and queue sources. This may take some time...");
                 final MusicPlayer fPlayer = AudioUtil.player;
                 Thread thread = new Thread() {
                     @Override
@@ -64,11 +65,13 @@ public class PlayCommand extends Command {
                                 if (fPlayer.isStopped())
                                     fPlayer.play();
                             } else {
-                                event.getChannel().sendMessage("Error detected, skipping source. Error:\n" + info.getError());
+                                event.getChannel()
+                                     .sendMessage("Error detected, skipping source. Error:\n" + info.getError());
                                 it.remove();
                             }
                         }
-                        event.getChannel().sendMessage("Finished queuing provided playlist. Successfully queued **" + sources.size() + "** sources");
+                        event.getChannel()
+                             .sendMessage("Finished queuing provided playlist. Successfully queued **" + sources.size() + "** sources");
                     }
                 };
                 thread.start();
@@ -85,7 +88,7 @@ public class PlayCommand extends Command {
                     event.getChannel().sendMessage(msg + ".");
                 } else {
                     event.getChannel().sendMessage("There was an error while loading the provided URL.\n" +
-                            "Error: " + info.getError());
+                                                           "Error: " + info.getError());
                 }
             }
         } else if (args.length == 3 && args[1].equals("playlist") && args[2] != null) {
