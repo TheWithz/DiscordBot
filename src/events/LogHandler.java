@@ -2,6 +2,7 @@ package events;
 
 import bots.RunBot;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.audio.*;
 import net.dv8tion.jda.events.channel.text.*;
 import net.dv8tion.jda.events.channel.voice.*;
@@ -83,6 +84,19 @@ public class LogHandler extends ListenerAdapter {
     @Override
     public void onGuildMessageReceived(GuildMessageReceivedEvent event) {
         super.onGuildMessageReceived(event);
+        if (event.getChannel().getId().equals("193015102817959936") && event.getAuthor()
+                                                                            .getId()
+                                                                            .equals(RunBot.BOT.getId())) {
+            return;
+        }
+        User user = event.getAuthor();
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock("[" + getCurrentTime() + "]" +
+                                                                            "[" + user.getUsername() +
+                                                                            "](ID:" + user.getId() +
+                                                                            ") Wrote message in channel/guild [" +
+                                                                            event.getChannel().getName() + "](" +
+                                                                            event.getGuild().getName() + ")", "md")
+                                                   .build());
     }
 
     @Override

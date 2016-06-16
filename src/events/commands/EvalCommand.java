@@ -51,8 +51,8 @@ public class EvalCommand extends Command {
         PrintStream oldOut = System.out;
         Object value;
         try {
-            System.setOut(outStream);
-            value = shell.evaluate(e.getMessage().getContent().substring(args[0].length()));
+            //System.setOut(outStream);
+            value = shell.evaluate(args[1]);
             e.getChannel().sendMessage("**Compiled without errors!** \n" + ((value == null) ? value : value));
         } finally {
             System.setOut(oldOut);
