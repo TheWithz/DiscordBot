@@ -18,6 +18,7 @@ import java.util.List;
  */
 
 public class EvalCommand extends Command {
+    private StringBuilder builder = new StringBuilder();
 
     public EvalCommand() {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
@@ -34,10 +35,10 @@ public class EvalCommand extends Command {
             e.getChannel().sendMessage("Sorry, this command is OP only!");
             return;
         }
-        executeScript(e, System.out, args);
+        executeScript(e, new DiscordAsOutputStream(e.getTextChannel()), args);
     }
 
-    public Object executeScript(MessageReceivedEvent e, PrintStream outStream,
+    public Object executeScript(MessageReceivedEvent e, DiscordAsOutputStream outStream,
                                 String[] args) {
         Binding binding = new Binding();
         binding.setVariable("event", e);
@@ -51,15 +52,15 @@ public class EvalCommand extends Command {
         PrintStream oldOut = System.out;
         Object value;
         try {
-            //System.setOut(outStream);
+            System.setOut(new PrintStream(outStream));
             value = shell.evaluate(args[1]);
-            e.getChannel().sendMessage("**Compiled without errors!** \n" + ((value == null) ? value : value));
+            System.out.println("**Compiled without errors!** \n" + ((value == null) ? "void" : value));
         } finally {
             System.setOut(oldOut);
+            outStream.myPrint();
         }
         return value;
     }
-
 
     @Override
     public List<String> getAliases() {
@@ -80,7 +81,7 @@ public class EvalCommand extends Command {
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
                 RunBot.prefix + "eval <Java code>\n" +
-                        "    Example: `$eval return \"5 + 5 is: \" + (5 + 5);\n" +
+                        "    Example: `" + RunBot.prefix + "eval return \"5 + 5 is: \" + (5 + 5);\n" +
                         "    This will print: 5 + 5 is: 10");
     }
 }

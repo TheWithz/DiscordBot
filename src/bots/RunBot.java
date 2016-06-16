@@ -138,6 +138,20 @@ public class RunBot {
         file.delete();
     }
 
+    public static void printAsFile(TextChannel channel, StringBuilder b, String fileName) {
+        channel.sendTyping();
+        LinuxCommand.runLinuxCommand(channel, "touch resources/" + fileName + ".txt");
+        File file = new File("resources/" + fileName + ".txt");
+        Path path = Paths.get("resources/" + fileName + ".txt");
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            writer.write(b.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        channel.sendFile(file, new MessageBuilder().appendCodeBlock(fileName, "java").build());
+        file.delete();
+    }
+
     public static void main(String[] args) {
         RunBot bot = new RunBot();
     }
