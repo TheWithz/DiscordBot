@@ -23,6 +23,7 @@ public class DiscordAsOutputStream extends OutputStream {
     @Override
     public void write(int b) {
         if (b == '\n') {
+            anotatedText.append((char)b);
             finalOutput.append(anotatedText.toString());
             anotatedText = new StringBuilder();
             return;
