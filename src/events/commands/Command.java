@@ -37,7 +37,11 @@ public abstract class Command extends ListenerAdapter {
     }
 
     protected String[] commandArgs(String string) {
-        return string.split("\\s+");
+        String[] args = string.split("~");
+        for(int i = 0; i < args.length; i++){
+            args[i] = args[i].trim();
+        }
+        return args;
     }
 
     protected Message sendMessage(MessageReceivedEvent e, Message message) {

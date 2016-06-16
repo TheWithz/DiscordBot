@@ -8,6 +8,7 @@ import events.commands.music.*;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.eclipse.egit.github.core.client.GitHubClient;
@@ -30,6 +31,7 @@ import java.util.concurrent.TimeUnit;
 public class RunBot {
     public static JDA API = null;
     public static User BOT = null;
+    public static TextChannel LOG = null;
     private static final Timer TIMER = new Timer();
     public static final String prefix = "$$$";
     private static final GitHubClient client = new GitHubClient();

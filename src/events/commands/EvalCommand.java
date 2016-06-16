@@ -2,33 +2,25 @@ package events.commands;
 
 import bots.RunBot;
 import groovy.lang.Binding;
-import groovy.lang.GString;
 import groovy.lang.GroovyShell;
-import jdk.internal.org.xml.sax.ErrorHandler;
-import jdk.internal.org.xml.sax.SAXException;
-import jdk.internal.org.xml.sax.SAXParseException;
 import misc.Permissions;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import org.apache.http.protocol.ExecutionContext;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by TheWithz on 3/4/16.
  */
 
 public class EvalCommand extends Command {
-    private ScriptEngine engine;
 
     public EvalCommand() {
-        engine = new ScriptEngineManager().getEngineByName("nashorn");
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
         try {
             engine.eval("var imports = new JavaImporter(java.io, java.lang, java.util);");
         } catch (ScriptException e) {

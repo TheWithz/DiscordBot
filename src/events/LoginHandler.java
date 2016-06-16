@@ -27,8 +27,10 @@ public class LoginHandler extends ListenerAdapter {
         // RunBot.API.setDebug(true);
         Permissions.setupPermissions();
         RunBot.BOT = API.getUserById(API.getSelfInfo().getId());
+        RunBot.LOG = RunBot.API.getTextChannelById("193015102817959936");
         API.getAccountManager().setGame("JDA");
         try {
+            // add TheWithz as OP
             Permissions.getPermissions().addOp("122764399961309184");
             Permissions.getPermissions().addOp(RunBot.BOT.getId());
         } catch (SQLException e) {

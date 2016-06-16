@@ -39,9 +39,9 @@ public class LatexCommand extends Command {
                         builder.append("\\pagestyle{empty}\n\n");
                         builder.append("\\begin{document}\n");
                         builder.append("\\Huge\n");
-                        builder.append("$");
+                        builder.append("");
                         builder.append(obj.getString(key));
-                        builder.append("$\n");
+                        builder.append("\n");
                         builder.append("\\end{document}");
                         writeToFile(builder);
                         LinuxCommand.runLinuxCommand(event, "latex latex.tex");
@@ -57,9 +57,9 @@ public class LatexCommand extends Command {
             builder.append("\\pagestyle{empty}\n\n");
             builder.append("\\begin{document}\n");
             builder.append("\\Huge\n");
-            builder.append("$");
+            builder.append("");
             builder.append(args[1]);
-            builder.append("$\n");
+            builder.append("\n");
             builder.append("\\end{document}");
             writeToFile(builder);
             LinuxCommand.runLinuxCommand(event, "latex latex.tex");
