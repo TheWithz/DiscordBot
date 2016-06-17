@@ -50,8 +50,7 @@ public class LinuxCommand extends Command {
                              RunBot.prefix + "mkdir",
                              RunBot.prefix + "mv",
                              RunBot.prefix + "stat",
-                             RunBot.prefix + "python3.5",
-                             RunBot.prefix + "python",
+                             RunBot.prefix + "python3",
                              RunBot.prefix + "cd",
                              RunBot.prefix + "echo",
                              RunBot.prefix + "cp");

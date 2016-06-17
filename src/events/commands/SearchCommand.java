@@ -36,7 +36,7 @@ public class SearchCommand extends Command {
 
         StringBuilder builder = new StringBuilder();
         Arrays.asList(args).stream().forEach(builder::append);
-        LinuxCommand.runLinuxCommand(e, "python resources/html.py " + builder.toString());
+        LinuxCommand.runLinuxCommand(e, "python3 resources/html.py " + builder.toString());
 
     }
 

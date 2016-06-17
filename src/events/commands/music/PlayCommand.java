@@ -12,7 +12,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -97,7 +97,7 @@ public class PlayCommand extends Command {
                 public void run() {
                     try {
                         JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
-                        event.getChannel().sendMessage(RunBot.prefix + "play " + obj.getString(args[2]));
+                        event.getChannel().sendMessage(RunBot.prefix + "play \"" + obj.getString(args[2]) + "\"");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -109,7 +109,7 @@ public class PlayCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "play");
+        return Collections.singletonList(RunBot.prefix + "play");
     }
 
     @Override

@@ -90,13 +90,12 @@ public class LogHandler extends ListenerAdapter {
             return;
         }
         User user = event.getAuthor();
-        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock("[" + getCurrentTime() + "]" +
-                                                                            "[" + user.getUsername() +
-                                                                            "](ID:" + user.getId() +
-                                                                            ") Wrote message in channel/guild [" +
-                                                                            event.getChannel().getName() + "](" +
-                                                                            event.getGuild().getName() + ")", "md")
-                                                   .build());
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Wrote message in channel/guild [%s](%s)",
+                                                                                  getCurrentTime(),
+                                                                                  user.getUsername(),
+                                                                                  user.getId(),
+                                                                                  event.getChannel().getName(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
@@ -117,31 +116,67 @@ public class LogHandler extends ListenerAdapter {
     @Override
     public void onTextChannelDelete(TextChannelDeleteEvent event) {
         super.onTextChannelDelete(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[%s][TC:%s][%s](%s) Channel was deleted",
+                                                                                  getCurrentTime(),
+                                                                                  event.getChannel().getName(),
+                                                                                  event.getChannel().getId(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
     public void onTextChannelUpdateName(TextChannelUpdateNameEvent event) {
         super.onTextChannelUpdateName(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[%s][TC:%s][%s](%s) Channel renamed from/to [%s](%s)",
+                                                                                  getCurrentTime(),
+                                                                                  event.getChannel().getName(),
+                                                                                  event.getChannel().getId(),
+                                                                                  event.getGuild().getName(),
+                                                                                  event.getOldName(),
+                                                                                  event.getChannel().getName()), "md").build());
     }
 
     @Override
     public void onTextChannelUpdateTopic(TextChannelUpdateTopicEvent event) {
         super.onTextChannelUpdateTopic(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[%s][TC:%s][%s](%s) Channel topic was updated",
+                                                                                  getCurrentTime(),
+                                                                                  event.getChannel().getName(),
+                                                                                  event.getChannel().getId(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
     public void onTextChannelUpdatePosition(TextChannelUpdatePositionEvent event) {
         super.onTextChannelUpdatePosition(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[%s][TC:%s][ID:%s](%s) Channel was moved out of position [%s]",
+                                                                                  getCurrentTime(),
+                                                                                  event.getChannel().getName(),
+                                                                                  event.getChannel().getId(),
+                                                                                  event.getGuild().getName(),
+                                                                                  event.getOldPosition()), "md").build());
     }
 
     @Override
     public void onTextChannelUpdatePermissions(TextChannelUpdatePermissionsEvent event) {
         super.onTextChannelUpdatePermissions(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[%s][TC:%s][ID:%s](%s) Channel permissions were updated \n Changed Roles: [%s]\n Users with " +
+                                                                                          "Permissions: (%s)",
+                                                                                  getCurrentTime(),
+                                                                                  event.getChannel().getName(),
+                                                                                  event.getChannel().getId(),
+                                                                                  event.getGuild().getName(),
+                                                                                  event.getChangedRoles().toString(),
+                                                                                  event.getUsersWithPermissionChanges().toString()), "md").build());
     }
 
     @Override
     public void onTextChannelCreate(TextChannelCreateEvent event) {
         super.onTextChannelCreate(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[%s][TC:%s][%s](%s) Channel was created",
+                                                                                  getCurrentTime(),
+                                                                                  event.getChannel().getName(),
+                                                                                  event.getChannel().getId(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
@@ -197,60 +232,79 @@ public class LogHandler extends ListenerAdapter {
     @Override
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
         super.onGuildMemberJoin(event);
-        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock("[" + getCurrentTime() + "]" +
-                                                                            "[" + event.getUser().getUsername() +
-                                                                            "](ID:" + event.getUser().getId() +
-                                                                            ") Joined Guild [" + event.getGuild() +
-                                                                            "]", "md")
-                                                   .build());
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Joined Guild {%s}",
+                                                                                  getCurrentTime(),
+                                                                                  event.getUser().getUsername(),
+                                                                                  event.getUser().getId(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
     public void onGuildMemberLeave(GuildMemberLeaveEvent event) {
         super.onGuildMemberLeave(event);
-        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock("[" + getCurrentTime() + "]" +
-                                                                            "[" + event.getUser().getUsername() +
-                                                                            "](ID:" + event.getUser().getId() +
-                                                                            ") Left Guild [" + event.getGuild() +
-                                                                            "]", "md")
-                                                   .build());
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Left Guild {%s}",
+                                                                                  getCurrentTime(),
+                                                                                  event.getUser().getUsername(),
+                                                                                  event.getUser().getId(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
     public void onGuildMemberBan(GuildMemberBanEvent event) {
         super.onGuildMemberBan(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Was banned from Guild [%s]",
+                                                                                  getCurrentTime(),
+                                                                                  event.getUser().getUsername(),
+                                                                                  event.getUser().getId(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
     public void onGuildMemberUnban(GuildMemberUnbanEvent event) {
         super.onGuildMemberUnban(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Was unbanned from Guild [%s]",
+                                                                                  getCurrentTime(),
+                                                                                  event.getUser().getUsername(),
+                                                                                  event.getUser().getId(),
+                                                                                  event.getGuild().getName()), "md").build());
     }
 
     @Override
     public void onGuildMemberRoleAdd(GuildMemberRoleAddEvent event) {
         super.onGuildMemberRoleAdd(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Had a role added. role/guild [%s](%s)",
+                                                                                  getCurrentTime(),
+                                                                                  event.getUser().getUsername(),
+                                                                                  event.getUser().getId(),
+                                                                                  event.getGuild().getName(),
+                                                                                  event.getRoles()), "md").build());
     }
 
     @Override
     public void onGuildMemberRoleRemove(GuildMemberRoleRemoveEvent event) {
         super.onGuildMemberRoleRemove(event);
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Had a role removed. role/guild [%s](%s)",
+                                                                                  getCurrentTime(),
+                                                                                  event.getUser().getUsername(),
+                                                                                  event.getUser().getId(),
+                                                                                  event.getGuild().getName(),
+                                                                                  event.getRoles()), "md").build());
     }
 
     @Override
     public void onGuildMemberNickChange(GuildMemberNickChangeEvent event) {
         super.onGuildMemberNickChange(event);
-        String name = event.getUser().getUsername();
+        User user = event.getUser();
+        String name = user.getUsername();
         String oldNick = event.getPrevNick() == null ? name : event.getPrevNick();
         String newNick = event.getNewNick() == null ? name : event.getNewNick();
-        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock("[" + getCurrentTime() + "]" +
-                                                                            "[" + name +
-                                                                            "](ID:" + event.getUser().getId() +
-                                                                            ") Changed their nickname on Guild " +
-                                                                            "[" + event.getGuild()
-                                                                                       .getName() + "] from/to " +
-                                                                            "[" + oldNick + "](" +
-                                                                            newNick + ")", "md")
-                                                   .build());
+        RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Changed their nickname on Guild [%s] from/to [%s](%s)",
+                                                                                  getCurrentTime(),
+                                                                                  name,
+                                                                                  user.getId(),
+                                                                                  event.getGuild().getName(),
+                                                                                  oldNick,
+                                                                                  newNick), "md").build());
     }
 
     @Override
@@ -294,33 +348,73 @@ public class LogHandler extends ListenerAdapter {
     }
 
     @Override
-    public void onVoiceSelfMute(VoiceSelfMuteEvent event) {
-        super.onVoiceSelfMute(event);
-    }
-
-    @Override
-    public void onVoiceSelfDeaf(VoiceSelfDeafEvent event) {
-        super.onVoiceSelfDeaf(event);
-    }
-
-    @Override
     public void onVoiceServerMute(VoiceServerMuteEvent event) {
         super.onVoiceServerMute(event);
+        // TODO 6/17/16 make sure when server mute or deafen are called, regular mute and deafen are not
+        if (event.getVoiceStatus().isServerMuted()) {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Was server muted in Guild [%s]",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId(),
+                                                                                      event.getGuild().getName()), "md").build());
+        } else {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Was server unmuted in Guild [%s]",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId(),
+                                                                                      event.getGuild().getName()), "md").build());
+        }
     }
 
     @Override
     public void onVoiceServerDeaf(VoiceServerDeafEvent event) {
         super.onVoiceServerDeaf(event);
+        // TODO 6/17/16 make sure when server mute or deafen are called, regular mute and deafen are not
+        if (event.getVoiceStatus().isServerDeaf()) {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Was server deafened in Guild [%s]",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId(),
+                                                                                      event.getGuild().getName()), "md").build());
+        } else {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Was server undeafened in Guild [%s]",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId(),
+                                                                                      event.getGuild().getName()), "md").build());
+        }
     }
 
     @Override
     public void onVoiceMute(VoiceMuteEvent event) {
         super.onVoiceMute(event);
+        if (event.getVoiceStatus().isMuted()) {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Muted themselves",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId()), "md").build());
+        } else {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Unmuted themselves",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId()), "md").build());
+        }
     }
 
     @Override
     public void onVoiceDeaf(VoiceDeafEvent event) {
         super.onVoiceDeaf(event);
+        if (event.getVoiceStatus().isDeaf()) {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Deafened themselves",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId()), "md").build());
+        } else {
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Undeafened themselves",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId()), "md").build());
+        }
     }
 
     @Override
@@ -328,13 +422,17 @@ public class LogHandler extends ListenerAdapter {
         super.onVoiceJoin(event);
         // if they entered the AFK channel
         if (RunBot.API.getVoiceChannelByName("AFK").contains(event.getChannel())) {
-            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock("[" + getCurrentTime() + "]" +
-                                                                                "[" + event.getUser().getUsername() +
-                                                                                "](ID:" + event.getUser().getId() +
-                                                                                ") Has gone AFK", "md")
-                                                       .build());
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Has gone AFK",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId()), "md").build());
         } else {
-
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Joined channel/guild [%s](%s)",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId(),
+                                                                                      event.getChannel().getName(),
+                                                                                      event.getGuild().getName()), "md").build());
         }
     }
 
@@ -343,13 +441,17 @@ public class LogHandler extends ListenerAdapter {
         super.onVoiceLeave(event);
         // if they left the AFK channel
         if (RunBot.API.getVoiceChannelByName("AFK").contains(event.getOldChannel())) {
-            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock("[" + getCurrentTime() + "]" +
-                                                                                "[" + event.getUser().getUsername() +
-                                                                                "](ID:" + event.getUser().getId() +
-                                                                                ") Is no longer AFK", "md")
-                                                       .build());
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Is no longer AFK",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId()), "md").build());
         } else {
-
+            RunBot.LOG.sendMessage(new MessageBuilder().appendCodeBlock(String.format("[[%s][%s]](ID:%s) Left channel/guild [%s](%s)",
+                                                                                      getCurrentTime(),
+                                                                                      event.getUser().getUsername(),
+                                                                                      event.getUser().getId(),
+                                                                                      event.getOldChannel().getName(),
+                                                                                      event.getGuild().getName()), "md").build());
         }
     }
 
