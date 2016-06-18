@@ -97,10 +97,14 @@ public class RunBot {
         }
         TIMER.schedule(new TimerTask() {
             public void run() {
-                System.out.println(client.getUser());
-                System.out.println(getUptime());
+                if (LogHandler.logGrouper.size() >= 10) {
+                    StringBuilder builder = new StringBuilder();
+                    LogHandler.logGrouper.forEach(builder::append);
+                    RunBot.LOG.sendMessage(builder.toString());
+                    LogHandler.logGrouper.clear();
+                }
             }
-        }, 0, 300 * 1000); // runs every 5 minutes
+        }, 0, 3 * 1000); // runs every 5 seconds *i think*
     }
 
     public static String getUptime() {
