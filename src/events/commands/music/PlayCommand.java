@@ -97,7 +97,7 @@ public class PlayCommand extends Command {
                 public void run() {
                     try {
                         JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
-                        event.getChannel().sendMessage(RunBot.prefix + "play \"" + obj.getString(args[2]) + "\"");
+                        event.getChannel().sendMessage(RunBot.prefix + "play " + obj.getString(args[2]));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

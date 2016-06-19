@@ -6,15 +6,14 @@ import net.dv8tion.jda.entities.TextChannel;
 import java.io.OutputStream;
 
 /**
- * Created by thewithz on 6/16/16.
+ * Created by thewithz on 6/19/16.
  */
-public class DiscordAsOutputStream extends OutputStream {
-
+public class DiscordAsErrorStream extends OutputStream {
     private StringBuilder anotatedText;
     private StringBuilder finalOutput;
     private TextChannel outChannel;
 
-    public DiscordAsOutputStream(TextChannel outChannel) {
+    public DiscordAsErrorStream(TextChannel outChannel) {
         this.outChannel = outChannel;
         anotatedText = new StringBuilder();
         finalOutput = new StringBuilder();
@@ -23,7 +22,7 @@ public class DiscordAsOutputStream extends OutputStream {
     @Override
     public void write(int b) {
         if (b == '\n') {
-            anotatedText.append((char)b);
+            anotatedText.append((char) b);
             finalOutput.append(anotatedText.toString());
             anotatedText = new StringBuilder();
             return;
@@ -32,11 +31,11 @@ public class DiscordAsOutputStream extends OutputStream {
     }
 
     public void myPrint() {
-        if(finalOutput.length() > 0) {
+        if (finalOutput.length() > 0) {
             if (finalOutput.length() <= 2000)
                 outChannel.sendMessage(finalOutput.toString());
             else
-                RunBot.printAsFile(outChannel, finalOutput, "EvalOutput");
+                RunBot.printAsFile(outChannel, finalOutput, "EvalError");
         }
     }
 }
