@@ -13,6 +13,10 @@ public class VolumeCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if(AudioUtil.player == null){
+            event.getChannel().sendMessage("Cannot change volume of player at this time");
+            return;
+        }
         float volume = Float.parseFloat(args[1]);
         volume = Math.min(1F, Math.max(0F, volume));
         AudioUtil.player.setVolume(volume);

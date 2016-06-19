@@ -23,7 +23,7 @@ public abstract class Command extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent e) {
-        if (containsCommand(e.getMessage()))
+        if (e.getMessage().getContent().length() > 0 && containsCommand(e.getMessage()))
             onCommand(e, commandArgs(e.getMessage()));
     }
 

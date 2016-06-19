@@ -35,11 +35,10 @@ public class EvalCommand extends Command {
             e.getChannel().sendMessage("Sorry, this command is OP only!");
             return;
         }
-        executeScript(e, new DiscordAsOutputStream(e.getTextChannel()), new DiscordAsErrorStream(e.getTextChannel()), args);
+        executeScript(e, new DiscordAsOutputStream(e.getTextChannel()), args);
     }
 
-    public Object executeScript(MessageReceivedEvent e, DiscordAsOutputStream outStream, DiscordAsErrorStream errStream,
-                                String[] args) {
+    public Object executeScript(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
         Binding binding = new Binding();
         binding.setVariable("event", e);
         binding.setVariable("channel", e.getChannel());
@@ -50,18 +49,17 @@ public class EvalCommand extends Command {
 
         // redirect output:
         PrintStream oldOut = System.out;
-        PrintStream oldErr = System.err;
-        Object value;
+        Object value = null;
         try {
             System.setOut(new PrintStream(outStream));
-            System.setErr(new PrintStream(errStream));
             value = shell.evaluate(args[1]);
             System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
+        } catch (RuntimeException exception) {
+            System.out.println(":no_entry: **Did not compile!**");
+            System.out.println("```\n" + exception.getMessage() + "```");
         } finally {
             System.setOut(oldOut);
-            System.setErr(oldErr);
             outStream.myPrint();
-            errStream.myPrint();
         }
         return value;
     }
