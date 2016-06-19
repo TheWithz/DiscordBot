@@ -4,6 +4,7 @@ import bots.RunBot;
 import misc.Database;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.Message;
+import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +20,7 @@ public class TodoCommand extends Command {
     public static final String ADD_TODO_LIST = "addTodoList";
     public static final String ADD_TODO_ENTRY = "addTodoEntry";
     public static final String ADD_TODO_USER = "addTodoUser";
+    public static final String EDIT_TODO_ENTRY = "editTodoEntry";
     public static final String GET_TODO_LISTS = "getTodoLists";
     public static final String GET_TODO_ENTRIES = "getTodoEntries";
     public static final String GET_TODO_USERS = "getTodoUsers";
@@ -88,6 +90,9 @@ public class TodoCommand extends Command {
                 case "add":
                     handleAdd(e, args);
                     break;
+                case "edit":
+                    handleEdit(e, args);
+                    break;
                 case "mark":
                 case "check":
                     handleCheck(e, args, true);
@@ -115,17 +120,26 @@ public class TodoCommand extends Command {
                     sendMessage(e, "Unknown Action argument: `" + args[1] + "` was provided. " +
                             "Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
             }
+            if (Arrays.asList(args).contains("botfeatures")) {
+                refreshTodoChannel(e);
+            }
         } catch (SQLException e1) {
-            sendMessage(e, "An SQL error occured while processing command.\nError Message: " + e1.getMessage());
+            sendMessage(e, "An SQL error occurred while processing command.\nError Message: " + e1.getMessage());
             e1.printStackTrace();
         } catch (IllegalArgumentException e2) {
             sendMessage(e, e2.getMessage());
         }
     }
 
+    private void refreshTodoChannel(MessageReceivedEvent e) {
+        TextChannel tc = RunBot.API.getTextChannelById("193539094410690561");
+        tc.deleteMessages(tc.getHistory().retrieveAll());
+        handleShow(e, new String[]{"$$$todo", "show", "botfeatures"});
+    }
+
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "todo");
+        return Collections.singletonList(RunBot.prefix + "todo");
     }
 
     @Override
@@ -157,6 +171,8 @@ public class TodoCommand extends Command {
                                 "\n" +
                                 "__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__\n" +
                                 "       Example: `%1$s add project5 Fix bug where Users can delete System32`\n" +
+                                "\n__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__\n" +
+                                "       Example: `%1$s edit project5 4 add more documentation for users of JDA API`\n" +
                                 "\n" +
                                 "__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__\n" +
                                 "       Example 1: `%1$s mark project5 2` Marks the second entry in the project5 list as compelted.\n" +
@@ -189,6 +205,58 @@ public class TodoCommand extends Command {
                         getAliases().get(0)));
     }
 
+    //alias edit [listname] [index of entry] [content]
+    private void handleEdit(MessageReceivedEvent e, String[] args) throws SQLException {
+        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
+        checkArgs(args, 3, "No entry was specified. Cannot edit an entry that does not exist" +
+                "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
+        checkArgs(args, 4, "No content was specified. Cannot create an empty todo entry!" +
+                "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
+
+        String label = args[2].toLowerCase();
+        String content = StringUtils.join(args, " ", 4, args.length);
+        TodoList todoList = todoLists.get(label);
+        String todoEntryString = args[3];
+        int todoEntryIndex;
+        try {
+            //We subtract 1 from the provided value because entries are listed from 1 and higher.
+            // People don't start counting from 0, so when we display the list of entries, we start from 1.
+            // This means that the entry index they enter will actually be 1 greater than the actual entry.
+            todoEntryIndex = Integer.parseInt(todoEntryString) - 1;
+        } catch (NumberFormatException ex) {
+            sendMessage(e, "The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`");
+            return;
+        }
+        if (todoEntryIndex < 0 || todoEntryIndex + 1 > todoList.entries.size()) {
+            //We add 1 back to the todoEntry because we subtracted 1 from it above. (Basically, we make it human readable again)
+            sendMessage(e, "The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`");
+            return;
+        }
+
+        if (todoList == null) {
+            sendMessage(e, "Sorry, `" + label + "` isn't a known todo list. " +
+                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            return;
+        }
+
+        if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
+            sendMessage(e, "Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.");
+            return;
+        }
+
+        TodoEntry todoEntry = todoList.entries.get(todoEntryIndex);
+
+        PreparedStatement editTodoEntry = Database.getInstance().getStatement(EDIT_TODO_ENTRY);
+        editTodoEntry.setString(1, content);
+        editTodoEntry.setInt(2, todoList.id);
+        if (editTodoEntry.executeUpdate() == 0)
+            throw new SQLException(EDIT_TODO_ENTRY + " reported no modified rows!");
+
+        todoEntry.content = content;
+
+        sendMessage(e, "Editted entry " + (todoEntryIndex + 1) + " in `" + label + "` todo list.");
+    }
+
     //alias show [ListName]
     private void handleShow(MessageReceivedEvent e, String[] args) {
         checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " show [ListName]`");
@@ -203,13 +271,15 @@ public class TodoCommand extends Command {
         // Discord messages can only be 2000 characters.
         List<Message> todoMessages = new ArrayList<Message>();
         MessageBuilder builder = new MessageBuilder();
-        builder.appendString("__Todo for: `" + label + "`__\n");
+        builder.appendCodeBlock("Todo for: " + label + "\n", "fix").appendString("```diff\n");
         for (int i = 0; i < todoList.entries.size(); i++) {
             TodoEntry todoEntry = todoList.entries.get(i);
             String todoEntryString = todoEntry.content;
-            if (todoEntry.checked)
-                todoEntryString = "~~" + todoEntryString + "~~";
-            todoEntryString = (i + 1) + ") " + todoEntryString + "\n";
+            if (todoEntry.checked) {
+                todoEntryString = "+" + (i + 1) + ") " + todoEntryString + "\n";
+            } else {
+                todoEntryString = "-" + (i + 1) + ") " + todoEntryString + "\n";
+            }
             if (builder.getLength() + todoEntryString.length() > 2000) {
                 todoMessages.add(builder.build());
                 builder = new MessageBuilder();
@@ -218,7 +288,7 @@ public class TodoCommand extends Command {
         }
 
         todoMessages.forEach(message -> sendMessage(e, message));
-        sendMessage(e, builder.build());
+        sendMessage(e, builder.appendString("```").build());
     }
 
     //alias lists

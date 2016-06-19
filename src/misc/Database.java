@@ -63,6 +63,7 @@ public class Database {
             preparedStatements.put(TodoCommand.ADD_TODO_LIST, conn.prepareStatement("INSERT INTO TodoLists (label, owner, locked) VALUES (?, ?, ?)"));
             preparedStatements.put(TodoCommand.ADD_TODO_ENTRY, conn.prepareStatement("INSERT INTO TodoEntries (listId, content, checked) VALUES (?, ?, ?)"));
             preparedStatements.put(TodoCommand.ADD_TODO_USER, conn.prepareStatement("INSERT INTO TodoUsers (listId, userId) VALUES (?, ?)"));
+            preparedStatements.put(TodoCommand.EDIT_TODO_ENTRY, conn.prepareStatement("UPDATE TodoEntries SET content = ? WHERE listId = ?"));
             preparedStatements.put(TodoCommand.GET_TODO_LISTS, conn.prepareStatement("SELECT id, label, owner, locked FROM TodoLists"));
             preparedStatements.put(TodoCommand.GET_TODO_ENTRIES, conn.prepareStatement("SELECT id, content, checked FROM TodoEntries WHERE listId = ?"));
             preparedStatements.put(TodoCommand.GET_TODO_USERS, conn.prepareStatement("SELECT userId FROM TodoUsers WHERE listId = ?"));

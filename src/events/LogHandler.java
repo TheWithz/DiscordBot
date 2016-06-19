@@ -49,14 +49,14 @@ public class LogHandler extends ListenerAdapter {
             String content = event.getMessage().getContent();
             String message = (content.contains("\n")) ? "\n" + content : content;
             if (!event.isPrivate()) {
-                out.printf("```md\n[%s] [%s#%s] %s: %s\n",
+                out.printf("[%s] [%s#%s] %s: %s\n",
                            event.getMessage().getTime().format(ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
                            event.getGuild().getName(),
                            event.getChannel().toString(),
                            event.getAuthor().getUsername(),
                            message);
             } else {
-                out.printf("```md\n[%s] [%s#%s] %s: %s\n",
+                out.printf("[%s] [%s#%s] %s: %s\n",
                            event.getMessage().getTime().format(ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
                            event.getPrivateChannel().getUser().getAsMention(),
                            event.getChannel().toString(),
