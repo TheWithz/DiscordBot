@@ -24,7 +24,7 @@ public class Database {
         preparedStatements = new HashMap();
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:yui.db");
+            conn = DriverManager.getConnection("jdbc:sqlite:thewithz.db");
             Statement statement = conn.createStatement();
             statement.setQueryTimeout(30);
             statement.execute("PRAGMA foreign_keys = ON");
