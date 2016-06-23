@@ -141,6 +141,11 @@ public class RunBot {
         file.delete();
     }
 
+    public static void checkArgs(String[] args, int index, String failMessage) {
+        if (args.length < (index + 1))
+            throw new IllegalArgumentException(failMessage);
+    }
+
     public static void main(String[] args) {
         RunBot bot = new RunBot();
     }

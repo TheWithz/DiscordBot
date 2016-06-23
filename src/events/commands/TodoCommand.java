@@ -75,7 +75,7 @@ public class TodoCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
         try {
-            checkArgs(args, 1, "No Action argument was provided. Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
+            RunBot.checkArgs(args, 1, "No Action argument was provided. Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
 
             switch (args[1].toLowerCase()) {
                 case "show":
@@ -207,7 +207,7 @@ public class TodoCommand extends Command {
 
     //alias show [ListName]
     private void handleShow(MessageReceivedEvent e, String[] args) {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " show [ListName]`");
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " show [ListName]`");
 
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
@@ -267,7 +267,7 @@ public class TodoCommand extends Command {
 
     //alias create [ListName]
     private void handleCreate(MessageReceivedEvent e, String[] args) throws SQLException {
-        checkArgs(args, 2, "No ListName for the new todo list was provided. Usage: `" + getAliases().get(0) + " create [ListName]`");
+        RunBot.checkArgs(args, 2, "No ListName for the new todo list was provided. Usage: `" + getAliases().get(0) + " create [ListName]`");
 
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
@@ -294,8 +294,8 @@ public class TodoCommand extends Command {
 
     //alias add [ListName] [Content ... ]
     private void handleAdd(MessageReceivedEvent e, String[] args) throws SQLException {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " add [ListName] [content...]`");
-        checkArgs(args, 3, "No content was specified. Cannot create an empty todo entry!" +
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " add [ListName] [content...]`");
+        RunBot.checkArgs(args, 3, "No content was specified. Cannot create an empty todo entry!" +
                 "Usage: `" + getAliases().get(0) + " add [ListName] [content...]`");
 
         String label = args[2].toLowerCase();
@@ -328,10 +328,10 @@ public class TodoCommand extends Command {
 
     //alias edit [listname] [index of entry] [content]
     private void handleEdit(MessageReceivedEvent e, String[] args) throws SQLException {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
-        checkArgs(args, 3, "No entry was specified. Cannot edit an entry that does not exist" +
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
+        RunBot.checkArgs(args, 3, "No entry was specified. Cannot edit an entry that does not exist" +
                 "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
-        checkArgs(args, 4, "No content was specified. Cannot create an empty todo entry!" +
+        RunBot.checkArgs(args, 4, "No content was specified. Cannot create an empty todo entry!" +
                 "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
 
         String label = args[2].toLowerCase();
@@ -383,8 +383,8 @@ public class TodoCommand extends Command {
     //alias uncheck [ListName] [EntryIndex]
     //alias unmark [ListName] [EntryIndex]
     private void handleCheck(MessageReceivedEvent e, String[] args, boolean completed) throws SQLException {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " mark/unmark [ListName] [EntryIndex]`");
-        checkArgs(args, 3, "No todo EntryIndex was specified. Usage: `" + getAliases().get(0) + " mark/unmark [ListName] [EntryIndex]`");
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " mark/unmark [ListName] [EntryIndex]`");
+        RunBot.checkArgs(args, 3, "No todo EntryIndex was specified. Usage: `" + getAliases().get(0) + " mark/unmark [ListName] [EntryIndex]`");
 
 
         String label = args[2].toLowerCase();
@@ -441,7 +441,7 @@ public class TodoCommand extends Command {
 
     //alias lock [ListName]
     private void handleLock(MessageReceivedEvent e, String[] args, boolean locked) throws SQLException {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " lock/unlock [ListName]`");
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " lock/unlock [ListName]`");
 
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
@@ -470,8 +470,8 @@ public class TodoCommand extends Command {
     //alias users remove [ListName] @mention @mention ...
     //alias users list [ListName]
     private void handleUsers(MessageReceivedEvent e, String[] args) throws SQLException {
-        checkArgs(args, 2, "No SubAction was specified. Usage: `" + getAliases().get(0) + " users [SubAction] [ListName]`");
-        checkArgs(args, 3, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " users [SubAction] [ListName]`");
+        RunBot.checkArgs(args, 2, "No SubAction was specified. Usage: `" + getAliases().get(0) + " users [SubAction] [ListName]`");
+        RunBot.checkArgs(args, 3, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " users [SubAction] [ListName]`");
 
         String action = args[2].toLowerCase();
         String label = args[3].toLowerCase();
@@ -574,7 +574,7 @@ public class TodoCommand extends Command {
 
     //alias clear [ListName]
     public void handleClear(MessageReceivedEvent e, String[] args) throws SQLException {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " clear [ListName]`");
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " clear [ListName]`");
 
         String label = args[2];
         TodoList todoList = todoLists.get(label);
@@ -607,7 +607,7 @@ public class TodoCommand extends Command {
 
     //alias remove [ListName]
     public void handleRemove(MessageReceivedEvent e, String[] args) throws SQLException {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " remove [ListName]`");
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " remove [ListName]`");
 
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
@@ -629,11 +629,6 @@ public class TodoCommand extends Command {
 
         todoLists.remove(label);
         sendMessage(e, "Deleted the `" + label + "` todo list.");
-    }
-
-    private void checkArgs(String[] args, int index, String failMessage) {
-        if (args.length < (index + 1))
-            throw new IllegalArgumentException(failMessage);
     }
 
     private static class TodoList {

@@ -2,7 +2,7 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Python" name="Python">
-      <configuration sdkName="Python 2.7.11+ (/usr/bin/python2.7)" />
+      <configuration sdkName="" />
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8" inherit-compiler-output="false">
@@ -16,6 +16,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Python 2.7.11+ (/usr/bin/python2.7) interpreter library" level="application" />
+    <orderEntry type="library" name="Maven: net.dv8tion:JDA:2.1.1_313" level="project" />
     <orderEntry type="library" name="Maven: com.memetix:microsoft-translator-java-api:0.6.2" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1" level="project" />
     <orderEntry type="library" name="Maven: net.dv8tion:JDA:2.1.1_313" level="project" />
