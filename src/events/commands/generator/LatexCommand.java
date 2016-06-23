@@ -28,44 +28,44 @@ public class LatexCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (args.length == 2) {
-            LinuxCommand.runLinuxCommand(event, "rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux");
-            LinuxCommand.runLinuxCommand(event, "touch latex.tex");
+            System.out.println(LinuxCommand.runLinuxCommand("rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux"));
+            System.out.println(LinuxCommand.runLinuxCommand("touch latex.tex"));
             StringBuilder builder = new StringBuilder();
             try {
                 JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/commonLatex.json"))));
                 obj.keySet().stream().forEach(key -> {
                     if (args[1].equals(key)) {
-                        builder.append("\\documentclass{article}\n");
-                        builder.append("\\pagestyle{empty}\n\n");
-                        builder.append("\\begin{document}\n");
-                        builder.append("\\Huge\n");
-                        builder.append("");
-                        builder.append(obj.getString(key));
-                        builder.append("\n");
-                        builder.append("\\end{document}");
+                        builder.append("\\documentclass{article}\n")
+                               .append("\\usepackage{amsmath}")
+                               .append("\\pagestyle{empty}\n\n")
+                               .append("\\begin{document}\n")
+                               .append("\\Huge\n")
+                               .append(obj.getString(key))
+                               .append("\n")
+                               .append("\\end{document}");
                         writeToFile(builder);
-                        LinuxCommand.runLinuxCommand(event, "latex latex.tex");
-                        LinuxCommand.runLinuxCommand(event, "dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png");
-                        event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[1], "LaTeX").build());
+                        System.out.println(LinuxCommand.runLinuxCommand("latex latex.tex"));
+                        System.out.println(LinuxCommand.runLinuxCommand("dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png"));
+                        event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[1], "tex").build());
                         return;
                     }
                 });
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            builder.append("\\documentclass{article}\n");
-            builder.append("\\pagestyle{empty}\n\n");
-            builder.append("\\begin{document}\n");
-            builder.append("\\Huge\n");
-            builder.append("");
-            builder.append(args[1]);
-            builder.append("\n");
-            builder.append("\\end{document}");
+            builder.append("\\documentclass{article}\n")
+                   .append("\\usepackage{amsmath}")
+                   .append("\\pagestyle{empty}\n\n")
+                   .append("\\begin{document}\n")
+                   .append("\\Huge\n")
+                   .append(args[1])
+                   .append("\n")
+                   .append("\\end{document}");
             writeToFile(builder);
-            LinuxCommand.runLinuxCommand(event, "latex latex.tex");
+            System.out.println(LinuxCommand.runLinuxCommand("latex latex.tex"));
             // did you remember to install dvipng? make sure you do
-            LinuxCommand.runLinuxCommand(event, "dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png");
-            event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[1], "LaTeX").build());
+            System.out.println(LinuxCommand.runLinuxCommand("dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png"));
+            event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[1], "tex").build());
         } else if (args.length == 3 && args[1].equals("list")) {
             if (args[2].equals("all")) {
                 StringBuilder builder = new StringBuilder();

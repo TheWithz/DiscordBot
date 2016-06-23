@@ -205,58 +205,6 @@ public class TodoCommand extends Command {
                         getAliases().get(0)));
     }
 
-    //alias edit [listname] [index of entry] [content]
-    private void handleEdit(MessageReceivedEvent e, String[] args) throws SQLException {
-        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
-        checkArgs(args, 3, "No entry was specified. Cannot edit an entry that does not exist" +
-                "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
-        checkArgs(args, 4, "No content was specified. Cannot create an empty todo entry!" +
-                "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
-
-        String label = args[2].toLowerCase();
-        String content = StringUtils.join(args, " ", 4, args.length);
-        TodoList todoList = todoLists.get(label);
-        String todoEntryString = args[3];
-        int todoEntryIndex;
-        try {
-            //We subtract 1 from the provided value because entries are listed from 1 and higher.
-            // People don't start counting from 0, so when we display the list of entries, we start from 1.
-            // This means that the entry index they enter will actually be 1 greater than the actual entry.
-            todoEntryIndex = Integer.parseInt(todoEntryString) - 1;
-        } catch (NumberFormatException ex) {
-            sendMessage(e, "The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`");
-            return;
-        }
-        if (todoEntryIndex < 0 || todoEntryIndex + 1 > todoList.entries.size()) {
-            //We add 1 back to the todoEntry because we subtracted 1 from it above. (Basically, we make it human readable again)
-            sendMessage(e, "The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`");
-            return;
-        }
-
-        if (todoList == null) {
-            sendMessage(e, "Sorry, `" + label + "` isn't a known todo list. " +
-                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
-            return;
-        }
-
-        if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
-            sendMessage(e, "Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.");
-            return;
-        }
-
-        TodoEntry todoEntry = todoList.entries.get(todoEntryIndex);
-
-        PreparedStatement editTodoEntry = Database.getInstance().getStatement(EDIT_TODO_ENTRY);
-        editTodoEntry.setString(1, content);
-        editTodoEntry.setInt(2, todoList.id);
-        if (editTodoEntry.executeUpdate() == 0)
-            throw new SQLException(EDIT_TODO_ENTRY + " reported no modified rows!");
-
-        todoEntry.content = content;
-
-        sendMessage(e, "Editted entry " + (todoEntryIndex + 1) + " in `" + label + "` todo list.");
-    }
-
     //alias show [ListName]
     private void handleShow(MessageReceivedEvent e, String[] args) {
         checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " show [ListName]`");
@@ -276,9 +224,9 @@ public class TodoCommand extends Command {
             TodoEntry todoEntry = todoList.entries.get(i);
             String todoEntryString = todoEntry.content;
             if (todoEntry.checked) {
-                todoEntryString = "+" + (i + 1) + ") " + todoEntryString + "\n";
+                todoEntryString = "+" + (i + 1) + ") " + todoEntryString + "\n\n";
             } else {
-                todoEntryString = "-" + (i + 1) + ") " + todoEntryString + "\n";
+                todoEntryString = "-" + (i + 1) + ") " + todoEntryString + "\n\n";
             }
             if (builder.getLength() + todoEntryString.length() > 2000) {
                 todoMessages.add(builder.build());
@@ -376,6 +324,58 @@ public class TodoCommand extends Command {
         addTodoEntry.clearParameters();
 
         sendMessage(e, "Added to `" + label + "` todo list.");
+    }
+
+    //alias edit [listname] [index of entry] [content]
+    private void handleEdit(MessageReceivedEvent e, String[] args) throws SQLException {
+        checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
+        checkArgs(args, 3, "No entry was specified. Cannot edit an entry that does not exist" +
+                "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
+        checkArgs(args, 4, "No content was specified. Cannot create an empty todo entry!" +
+                "Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
+
+        String label = args[2].toLowerCase();
+        String content = StringUtils.join(args, " ", 4, args.length);
+        TodoList todoList = todoLists.get(label);
+        String todoEntryString = args[3];
+        int todoEntryIndex;
+        try {
+            //We subtract 1 from the provided value because entries are listed from 1 and higher.
+            // People don't start counting from 0, so when we display the list of entries, we start from 1.
+            // This means that the entry index they enter will actually be 1 greater than the actual entry.
+            todoEntryIndex = Integer.parseInt(todoEntryString) - 1;
+        } catch (NumberFormatException ex) {
+            sendMessage(e, "The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`");
+            return;
+        }
+        if (todoEntryIndex < 0 || todoEntryIndex + 1 > todoList.entries.size()) {
+            //We add 1 back to the todoEntry because we subtracted 1 from it above. (Basically, we make it human readable again)
+            sendMessage(e, "The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`");
+            return;
+        }
+
+        if (todoList == null) {
+            sendMessage(e, "Sorry, `" + label + "` isn't a known todo list. " +
+                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            return;
+        }
+
+        if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
+            sendMessage(e, "Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.");
+            return;
+        }
+
+        TodoEntry todoEntry = todoList.entries.get(todoEntryIndex);
+
+        PreparedStatement editTodoEntry = Database.getInstance().getStatement(EDIT_TODO_ENTRY);
+        editTodoEntry.setString(1, content);
+        editTodoEntry.setInt(2, todoList.id);
+        if (editTodoEntry.executeUpdate() == 0)
+            throw new SQLException(EDIT_TODO_ENTRY + " reported no modified rows!");
+
+        todoEntry.content = content;
+
+        sendMessage(e, "Editted entry " + (todoEntryIndex + 1) + " in `" + label + "` todo list.");
     }
 
     //alias check [ListName] [EntryIndex]

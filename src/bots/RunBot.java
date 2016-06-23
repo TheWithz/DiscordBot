@@ -10,7 +10,6 @@ import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.eclipse.egit.github.core.client.GitHubClient;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -128,23 +127,9 @@ public class RunBot {
                 seconds + (seconds != 1L ? " seconds " : " second");
     }
 
-    public static void printAsFile(MessageReceivedEvent event, StringBuilder b, String fileName) {
-        event.getChannel().sendTyping();
-        LinuxCommand.runLinuxCommand(event, "touch resources/" + fileName + ".txt");
-        File file = new File("resources/" + fileName + ".txt");
-        Path path = Paths.get("resources/" + fileName + ".txt");
-        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
-            writer.write(b.toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        event.getChannel().sendFile(file, new MessageBuilder().appendCodeBlock(fileName, "java").build());
-        file.delete();
-    }
-
     public static void printAsFile(TextChannel channel, StringBuilder b, String fileName) {
         channel.sendTyping();
-        LinuxCommand.runLinuxCommand(channel, "touch resources/" + fileName + ".txt");
+        LinuxCommand.runLinuxCommand("touch resources/" + fileName + ".txt");
         File file = new File("resources/" + fileName + ".txt");
         Path path = Paths.get("resources/" + fileName + ".txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {

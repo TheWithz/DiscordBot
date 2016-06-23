@@ -2,8 +2,6 @@ package events.commands;
 
 import bots.RunBot;
 import misc.Permissions;
-import net.dv8tion.jda.MessageBuilder;
-import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.io.BufferedReader;
@@ -32,7 +30,7 @@ public class LinuxCommand extends Command {
             command.append(string);
             command.append(" ");
         });
-        runLinuxCommand(e, command.toString().substring(RunBot.prefix.length(), command.lastIndexOf(" ")));
+        runLinuxCommand(command.toString().substring(RunBot.prefix.length(), command.lastIndexOf(" ")));
     }
 
     @Override
@@ -72,33 +70,13 @@ public class LinuxCommand extends Command {
         return null;
     }
 
-    public static void runLinuxCommand(MessageReceivedEvent event, String com) {
+    public static StringBuilder runLinuxCommand(String com) {
         try {
             process = Runtime.getRuntime().exec(com);
             BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuilder b = run(br);
-            if (b.length() > 2000) {
-                RunBot.printAsFile(event, b, com);
-            } else {
-                event.getChannel().sendMessage(new MessageBuilder().appendString(b.toString()).build());
-            }
+            return run(br);
         } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static void runLinuxCommand(TextChannel channel, String com) {
-        try {
-            process = Runtime.getRuntime().exec(com);
-            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            StringBuilder b = run(br);
-            if (b.length() > 2000) {
-                RunBot.printAsFile(channel, b, com);
-            } else {
-                channel.sendMessage(new MessageBuilder().appendString(b.toString()).build());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return new StringBuilder(e.getMessage());
         }
     }
 
@@ -109,7 +87,8 @@ public class LinuxCommand extends Command {
             msg.append("\n");
         }
         process.waitFor();
-        msg.append("exit: " + process.exitValue());
+        msg.append("exit: ")
+           .append(process.exitValue());
         process.destroy();
         return msg;
     }
