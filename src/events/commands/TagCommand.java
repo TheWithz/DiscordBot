@@ -117,6 +117,9 @@ public class TagCommand extends Command{
         }
     }
 
+    private void handleCreate(MessageReceivedEvent e, String[] args) {
+    }
+
     @Override
     public List<String> getAliases() {
         return Collections.singletonList("tag");
