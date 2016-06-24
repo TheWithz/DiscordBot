@@ -46,7 +46,7 @@ public class CalculatorCommand extends Command {
             inFixExpression.append(commandArguments[i]);
             inFixExpression.append(" ");
         }
-        return "The answer to your expression is: "
+        return ":white_check_mark: The answer to your expression is: "
                 + EvalPostfix.evalPostFix(InfixToPostfix.convertToPostfix(inFixExpression.toString()));
     }
 

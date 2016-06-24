@@ -4,7 +4,7 @@ import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -15,19 +15,19 @@ public class RestartCommand extends Command {
         if (AudioUtil.player.isStopped()) {
             if (AudioUtil.player.getPreviousAudioSource() != null) {
                 AudioUtil.player.reload(true);
-                event.getChannel().sendMessage("The previous song has been restarted.");
+                event.getChannel().sendMessage(":white_check_mark: The previous song has been restarted.");
             } else {
-                event.getChannel().sendMessage("The player has never played a song, so it cannot restart a song.");
+                event.getChannel().sendMessage(":x: The player has never played a song, so it cannot restart a song.");
             }
         } else {
             AudioUtil.player.reload(true);
-            event.getChannel().sendMessage("The currently playing song has been restarted!");
+            event.getChannel().sendMessage(":white_check_mark: The currently playing song has been restarted!");
         }
     }
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "restart");
+        return Collections.singletonList(RunBot.PREFIX + "restart");
     }
 
     @Override

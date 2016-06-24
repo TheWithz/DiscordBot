@@ -123,8 +123,8 @@ public class TodoCommand extends Command {
                     sendMessage(e, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
                             "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
             }
-            if (Arrays.asList(args).contains("botfeatures")) {
-                refreshTodoChannel(e);
+            if (Arrays.asList(args).contains("botfeatures") && args[0].equals(RunBot.PREFIX + "todo")) {
+                refreshTodoChannel();
             }
         } catch (SQLException e1) {
             sendMessage(e, ":x: An SQL error occurred while processing command.\nError Message: " + e1.getMessage());
@@ -134,7 +134,7 @@ public class TodoCommand extends Command {
         }
     }
 
-    private void refreshTodoChannel(MessageReceivedEvent e) {
+    private void refreshTodoChannel() {
         TextChannel tc = RunBot.API.getTextChannelById("193539094410690561");
         List hist = tc.getHistory().retrieveAll();
         if (hist.size() < 2) {

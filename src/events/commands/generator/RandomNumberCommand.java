@@ -38,11 +38,12 @@ public class RandomNumberCommand extends Command {
     }
 
     private void generateRandomNumber(MessageReceivedEvent e, String[] args) {
+        RunBot.checkArgs(args, 1, ":x: No Integer was provided. See " + RunBot.PREFIX + "help " + getAliases().get(0));
         try {
             long rnum = (long) (Long.parseLong(args[1]) * Math.random() + 1);
-            e.getChannel().sendMessage("your number is: " + rnum);
+            e.getChannel().sendMessage(":white_check_mark: your number is: " + rnum);
         } catch (NumberFormatException error) {
-            e.getChannel().sendMessage("either your number is too big or you have not input an integer");
+            e.getChannel().sendMessage(":x: either your number is too big or you have not input an integer");
         }
     }
 }

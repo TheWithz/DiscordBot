@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -23,17 +24,17 @@ public class PrintQueueCommand extends Command {
         if (args.length == 1) {
             java.util.List<AudioSource> queue = AudioUtil.player.getAudioQueue();
             if (queue.isEmpty()) {
-                event.getChannel().sendMessage("The queue is currently empty!");
+                event.getChannel().sendMessage(":x: The queue is currently empty!");
                 return;
             }
 
             MessageBuilder builder = new MessageBuilder();
-            builder.appendString("__Current Queue.  Entries: " + queue.size() + "__\n");
+            builder.appendString(":white_check_mark: __Current Queue.  Entries: " + queue.size() + "__\n");
             for (int i = 0; i < queue.size() && i < 10; i++) {
                 AudioInfo info = queue.get(i).getInfo();
                 // builder.appendString("**(" + (i + 1) + ")** ");
                 if (info == null)
-                    builder.appendString("*Could not get info for this song.*");
+                    builder.appendString(":x: *Could not get info for this song.*");
                 else {
                     AudioTimestamp duration = info.getDuration();
                     builder.appendString("`[");
@@ -56,9 +57,9 @@ public class PrintQueueCommand extends Command {
                 totalSeconds += info.getDuration().getTotalSeconds();
             }
 
-            builder.appendString("\nTotal Queue Time Length: " + AudioTimestamp.fromSeconds(totalSeconds).getTimestamp());
+            builder.appendString("\n:white_check_mark: Total Queue Time Length: " + AudioTimestamp.fromSeconds(totalSeconds).getTimestamp());
             if (error)
-                builder.appendString("`An error occured calculating total time. Might not be completely valid.`");
+                builder.appendString(":x: `An error occured calculating total time. Might not be completely valid.`");
             event.getChannel().sendMessage(builder.build());
         } else if (args.length == 2 && args[1].equals("playlists")) {
             try {
@@ -95,6 +96,6 @@ public class PrintQueueCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.PREFIX + "printQueue");
+        return Collections.singletonList(RunBot.PREFIX + "printQueue");
     }
 }

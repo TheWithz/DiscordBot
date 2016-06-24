@@ -4,7 +4,7 @@ import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -19,7 +19,7 @@ public class PauseCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "pause");
+        return Collections.singletonList(RunBot.PREFIX + "pause");
     }
 
     @Override

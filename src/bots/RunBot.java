@@ -150,7 +150,7 @@ public class RunBot {
             throw new IllegalArgumentException(failMessage);
     }
 
-    public static boolean OpRequired(MessageReceivedEvent e){
+    public static boolean OpRequired(MessageReceivedEvent e) {
         if (!Permissions.getPermissions().isOp(e.getAuthor())) {
             e.getChannel().sendMessage(RunBot.OP_REQUIRED);
             return true;

@@ -6,7 +6,10 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
 /**
  * Created by TheWithz on 2/21/16.
@@ -20,7 +23,7 @@ public class RandomFactCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "fact");
+        return Collections.singletonList(RunBot.PREFIX + "fact");
     }
 
     @Override
@@ -50,7 +53,7 @@ public class RandomFactCommand extends Command {
             a.add(scanner.nextLine());
         }
         int rnum = (int) (a.size() * Math.random());
-        e.getChannel().sendMessage(a.get(rnum));
+        e.getChannel().sendMessage(":white_check_mark: " + a.get(rnum));
         scanner.close();
     }
 

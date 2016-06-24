@@ -4,8 +4,8 @@ import bots.RunBot;
 import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
 import events.commands.Command;
-import misc.Permissions;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -20,10 +20,8 @@ public class TranslateCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        if (!Permissions.getPermissions().isOp(e.getAuthor())) {
-            e.getChannel().sendMessage("Sorry, this command is OP only");
+        if (RunBot.OpRequired(e))
             return;
-        }
         generateTranslatedText(e, args);
     }
 
@@ -48,24 +46,22 @@ public class TranslateCommand extends Command {
     }
 
     private void generateTranslatedText(MessageReceivedEvent e, String[] commandArguments) {
-        if (commandArguments.length < 4) {
-            e.getChannel().sendMessage("Your syntax for this command is incorrect");
-            e.getChannel().sendMessage("**" + RunBot.PREFIX + "help tran**");
-            return;
-        }
+        RunBot.checkArgs(commandArguments, 2, ":x: No language was specified to translate from. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(commandArguments, 3, ":x: No language was specified to translate to. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(commandArguments, 4, ":x: No Content was specified to translate. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+
         //Set your Windows Azure Marketplace client info - See http:msdn.microsoft.com/en-us/library/hh454950.aspx
         Translate.setClientId(MICROSOFT_CLIENT_ID);
         Translate.setClientSecret(MICROSOFT_CLIENT_SECRET);
+        String translatedText = null;
         try {
-            StringBuilder message = new StringBuilder();
-            for (int i = 3; i < commandArguments.length; i++) {
-                message.append(commandArguments[i]).append(" ");
-            }
-            String translatedText = Translate.execute(message.toString(), Language.valueOf(commandArguments[1].toUpperCase()), Language.valueOf(commandArguments[2].toUpperCase()));
-            e.getChannel().sendMessage(translatedText);
-        } catch (Exception error) {
-            error.printStackTrace();
+            translatedText = Translate.execute(StringUtils.join(commandArguments, " ", 4, commandArguments.length), Language.valueOf(commandArguments[1].toUpperCase()), Language
+                    .valueOf(commandArguments[2].toUpperCase()));
+        } catch (Exception e1) {
+            sendMessage(e, ":x: " + e1.getMessage());
         }
+        if (translatedText != null)
+            e.getChannel().sendMessage(":white_check_mark: " + translatedText);
     }
 
 }

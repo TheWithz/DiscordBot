@@ -19,15 +19,15 @@ public class NowPlayingCommand extends Command {
             AudioInfo info = AudioUtil.player.getCurrentAudioSource().getInfo();
             if (info.getError() == null) {
                 event.getChannel().sendMessage(
-                        "**Playing:** " + info.getTitle() + "\n" +
+                        ":white_check_mark: **Playing:** " + info.getTitle() + "\n" +
                                 "**Time:**    [" + currentTime.getTimestamp() + " / " + info.getDuration().getTimestamp() + "]");
             } else {
                 event.getChannel().sendMessage(
-                        "**Playing:** Info Error. Known source: " + AudioUtil.player.getCurrentAudioSource().getSource() + "\n" +
+                        ":white_check_mark: **Playing:** Info Error. Known source: " + AudioUtil.player.getCurrentAudioSource().getSource() + "\n" +
                                 "**Time:**    [" + currentTime.getTimestamp() + " / (N/A)]");
             }
         } else {
-            event.getChannel().sendMessage("The player is not currently playing anything!");
+            event.getChannel().sendMessage(":x: The player is not currently playing anything!");
         }
     }
 
@@ -48,6 +48,6 @@ public class NowPlayingCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.PREFIX + "nowplaying", RunBot.PREFIX + "currentsong", RunBot.PREFIX + "current ");
+        return Arrays.asList(RunBot.PREFIX + "nowplaying", RunBot.PREFIX + "currentsong", RunBot.PREFIX + "current");
     }
 }

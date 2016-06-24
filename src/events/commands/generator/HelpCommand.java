@@ -13,9 +13,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class HelpCommand extends Command {
-    private static final String NO_NAME = "No name provided for this command. Sorry!";
-    private static final String NO_DESCRIPTION = "No description has been provided for this command. Sorry!";
-    private static final String NO_USAGE = "No usage instructions have been provided for this command. Sorry!";
+    private static final String NO_NAME = ":x: No name provided for this command. Sorry!";
+    private static final String NO_DESCRIPTION = ":x: No description has been provided for this command. Sorry!";
+    private static final String NO_USAGE = ":x: No usage instructions have been provided for this command. Sorry!";
 
     private ArrayList<Command> commands;
 
@@ -107,7 +107,7 @@ public class HelpCommand extends Command {
                 }
             }
             channel.sendMessage(new MessageBuilder()
-                    .appendString("The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
+                    .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
                     .build());
         }
     }

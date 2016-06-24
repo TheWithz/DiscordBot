@@ -5,7 +5,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.player.MusicPlayer;
 
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,12 +18,12 @@ public class ResetCommand extends Command {
         AudioUtil.player = new MusicPlayer();
         AudioUtil.player.setVolume(AudioUtil.DEFAULT_VOLUME);
         AudioUtil.manager.setSendingHandler(AudioUtil.player);
-        event.getChannel().sendMessage("Music player has been completely reset.");
+        event.getChannel().sendMessage(":white_check_mark: Music player has been completely reset.");
     }
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "reset");
+        return Collections.singletonList(RunBot.PREFIX + "reset");
     }
 
     @Override
@@ -38,6 +38,6 @@ public class ResetCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.PREFIX + "reset");
+        return Collections.singletonList(RunBot.PREFIX + "reset");
     }
 }
