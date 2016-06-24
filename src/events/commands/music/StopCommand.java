@@ -13,12 +13,12 @@ public class StopCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         AudioUtil.player.stop();
-        event.getChannel().sendMessage("playback has been completely stopped.");
+        event.getChannel().sendMessage(":white_check_mark: playback has been completely stopped.");
     }
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "stop");
+        return Collections.singletonList(RunBot.PREFIX + "stop");
     }
 
     @Override

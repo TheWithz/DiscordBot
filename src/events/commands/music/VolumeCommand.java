@@ -5,6 +5,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -25,7 +26,7 @@ public class VolumeCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "volume");
+        return Collections.singletonList(RunBot.PREFIX + "volume");
     }
 
     @Override

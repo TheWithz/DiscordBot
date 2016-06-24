@@ -5,6 +5,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -15,16 +16,16 @@ public class ShuffleCommand extends Command {
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (AudioUtil.player.isShuffle()) {
             AudioUtil.player.setShuffle(false);
-            event.getChannel().sendMessage("The player has been set to **not** shuffle.");
+            event.getChannel().sendMessage(":white_check_mark: The player has been set to **not** shuffle.");
         } else {
             AudioUtil.player.setShuffle(true);
-            event.getChannel().sendMessage("The player been set to shuffle.");
+            event.getChannel().sendMessage(":white_check_mark: The player been set to shuffle.");
         }
     }
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "shuffle");
+        return Collections.singletonList(RunBot.PREFIX + "shuffle");
     }
 
     @Override

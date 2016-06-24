@@ -13,12 +13,12 @@ public class SkipCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         AudioUtil.player.skipToNext();
-        event.getChannel().sendMessage("Skipped the current song.");
+        event.getChannel().sendMessage(":white_check_mark: Skipped the current song.");
     }
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "skip");
+        return Collections.singletonList(RunBot.PREFIX + "skip");
     }
 
     @Override
