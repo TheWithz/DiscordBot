@@ -61,6 +61,7 @@ public class Database {
                                             "content TEXT NOT NULL," +
                                             "PRIMARY KEY (id)" +
                                             ")");
+            //statement.executeUpdate("SELECT id FROM Tags ORDER BY id ASC");
 
             //Permissions
             preparedStatements.put(Permissions.ADD_OP, conn.prepareStatement("REPLACE INTO Ops (id) VALUES (?)"));
@@ -84,10 +85,10 @@ public class Database {
 
             //TagCommand
             preparedStatements.put(TagCommand.ADD_TAG, conn.prepareStatement("INSERT INTO Tags (label, content) VALUES (?, ?)"));
-            preparedStatements.put(TagCommand.EDIT_TAG, conn.prepareStatement("UPDATE Tags SET content = ? WHERE label = ?"));
+            preparedStatements.put(TagCommand.EDIT_TAG, conn.prepareStatement("UPDATE Tags SET content = ? WHERE id = ? AND label = ?"));
             preparedStatements.put(TagCommand.GET_TAG, conn.prepareStatement("SELECT content FROM Tags WHERE id = ? AND label = ?"));
             preparedStatements.put(TagCommand.GET_TAGS, conn.prepareStatement("SELECT id, label, content FROM Tags"));
-            preparedStatements.put(TagCommand.REMOVE_TAG, conn.prepareStatement("DELETE FROM Tags WHERE id = ? AND label = ?"));
+            preparedStatements.put(TagCommand.REMOVE_TAG, conn.prepareStatement("DELETE FROM Tags WHERE id = ?"));
 
         } catch (SQLException e) {
             e.printStackTrace();

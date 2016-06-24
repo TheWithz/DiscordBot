@@ -149,7 +149,7 @@ public class TagCommand extends Command {
         sendMessage(e, ":white_check_mark: Created `" + label + "` tag.");
     }
 
-    private void handleDelete(MessageReceivedEvent e, String[] args) throws SQLException{
+    private void handleDelete(MessageReceivedEvent e, String[] args) throws SQLException {
         if (RunBot.OpRequired(e))
             return;
 
@@ -164,7 +164,7 @@ public class TagCommand extends Command {
 
         PreparedStatement removeTodoList = Database.getInstance().getStatement(REMOVE_TAG);
         removeTodoList.setInt(1, tag.id);
-        removeTodoList.setString(2, tag.label);
+        //removeTodoList.setString(2, tag.label);
         if (removeTodoList.executeUpdate() == 0)
             throw new SQLException(REMOVE_TAG + " reported no updated rows!");
         removeTodoList.clearParameters();
@@ -173,16 +173,47 @@ public class TagCommand extends Command {
         sendMessage(e, ":white_check_mark: Deleted the `" + label + "` tag.");
     }
 
-    private void handleEdit(MessageReceivedEvent e, String[] args) {
+    private void handleEdit(MessageReceivedEvent e, String[] args) throws SQLException {
         if (RunBot.OpRequired(e))
             return;
+
+        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`");
+        RunBot.checkArgs(args, 3, ":x: No Content was specified. Cannot edit a tag so that it does not exist" +
+                "Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`");
+
+        String label = args[2].toLowerCase();
+        String content = StringUtils.join(args, " ", 3, args.length);
+        Tag tag = tags.get(label);
+
+        if (tag == null) {
+            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list. " +
+                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            return;
+        }
+
+        PreparedStatement editTodoEntry = Database.getInstance().getStatement(EDIT_TAG);
+        editTodoEntry.setString(1, content);
+        editTodoEntry.setInt(2, tag.id);
+        editTodoEntry.setString(3, label);
+        if (editTodoEntry.executeUpdate() == 0)
+            throw new SQLException(EDIT_TAG + " reported no modified rows!");
+
+        tags.remove(label);
+        tags.put(label, new Tag(
+                tag.id, label, content
+        ));
+        tag.content = content;
+
+        sendMessage(e, ":white_check_mark: Editted tag `" + label + "`");
 
     }
 
     private void handleList(MessageReceivedEvent e, String[] args) {
         StringBuilder builder = new StringBuilder();
         builder.append("```fix\nShowing list of tags``````css\n");
-        tags.keySet().stream().forEach(tagName -> builder.append(tags.get(tagName).id).append(") ").append(tagName).append("\n"));
+        for(int i = 0; i < tags.keySet().size(); i++){
+            builder.append(i + 1).append(") ").append(tags.keySet().toArray(new String[]{})[i]).append("\n");
+        }
         sendMessage(e, builder.append("```").toString());
     }
 
