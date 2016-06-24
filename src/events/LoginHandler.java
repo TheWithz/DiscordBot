@@ -31,6 +31,7 @@ public class LoginHandler extends ListenerAdapter {
         RunBot.BOT = API.getUserById(API.getSelfInfo().getId());
         RunBot.LOG = RunBot.API.getTextChannelById("193015102817959936");
         API.getAccountManager().setGame("JDA");
+        RunBot.OWNER_REQUIRED = ":no_entry: Only " + RunBot.API.getUserById("122764399961309184").getAsMention() + " can use this command";
         try {
             // add TheWithz as OP
             Permissions.getPermissions().addOp("122764399961309184");

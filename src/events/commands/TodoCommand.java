@@ -93,6 +93,8 @@ public class TodoCommand extends Command {
                 case "add":
                     handleAdd(e, args);
                     break;
+                case "madd":
+                    handleMultipleAdd(e, args);
                 case "edit":
                     handleEdit(e, args);
                     break;
@@ -178,6 +180,8 @@ public class TodoCommand extends Command {
                                 "\n" +
                                 "__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__\n" +
                                 "       Example: `%1$s add project5 Fix bug where Users can delete System32`\n" +
+                                "__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__\n" +
+                                "       Example: `%1$s madd project5 \"fix house\" \"remove door\" \"eat lunch\"`\n" +
                                 "\n__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__\n" +
                                 "       Example: `%1$s edit project5 4 add more documentation for users of JDA API`\n" +
                                 "\n" +
@@ -186,15 +190,15 @@ public class TodoCommand extends Command {
                                 "       Example 2: `%1$s unmark project5 3` Marks the third entry in the project5 list as incomplete.\n" +
                                 "       Example 3: `%1$s mark project5 *` Marks **all** todo entries in the project5 list as completed.\n" +
                                 "     **Note:** You can also use `check` and `uncheck`.\n" +
-                                "\n" +
-                                "__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__\n" +
-                                "       Example 1: `%1$s lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`\n" +
-                                "       Example 2: `%1$s unlock project5` Unlocks the project5 list so that all users can modify it.\n",
+                                "\n",
                         getAliases().get(0)),
 
                 //Second Usage Message
                 String.format(
-                        "__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__\n" +
+                        "__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__\n" +
+                                "       Example 1: `%1$s lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`\n" +
+                                "       Example 2: `%1$s unlock project5` Unlocks the project5 list so that all users can modify it.\n" +
+                                "__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__\n" +
                                 "     __SubActions__:\n" +
                                 "\n" +
                                 "       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__\n" +
@@ -367,6 +371,42 @@ public class TodoCommand extends Command {
         sendMessage(e, ":white_check_mark: Added to `" + label + "` todo list.");
     }
 
+    private void handleMultipleAdd(MessageReceivedEvent e, String[] args) throws SQLException {
+        RunBot.checkArgs(args, 2, ":x: No todo ListName was specified. Usage: `" + getAliases().get(0) + " add [ListName] [content...]`");
+        RunBot.checkArgs(args, 3, ":x: No content was specified. Cannot create an empty todo entry!" +
+                "Usage: `" + getAliases().get(0) + " add [ListName] [content...]`");
+
+        String label = args[2].toLowerCase();
+        TodoList todoList = todoLists.get(label);
+
+        if (todoList == null) {
+            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list. " +
+                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            return;
+        }
+
+        if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
+            sendMessage(e, ":x: Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.");
+            return;
+        }
+
+        for (int i = 3; i < args.length; i++) {
+            String content = args[i];
+            PreparedStatement addTodoEntry = Database.getInstance().getStatement(ADD_TODO_ENTRY);
+            addTodoEntry.setInt(1, todoList.id);
+            addTodoEntry.setString(2, content);
+            addTodoEntry.setBoolean(3, false);
+            if (addTodoEntry.executeUpdate() == 0)
+                throw new SQLException(ADD_TODO_ENTRY + " reported no modified rows!");
+
+            todoList.entries.add(new TodoEntry(Database.getAutoIncrement(addTodoEntry, 1), content, false));
+            addTodoEntry.clearParameters();
+
+            //sendMessage(e, ":white_check_mark: Added to `" + label + "` todo list.");
+        }
+        sendMessage(e, ":white_check_mark: All entries added successfully to todo list.");
+    }
+
     //alias edit [listname] [index of entry] [content]
     private void handleEdit(MessageReceivedEvent e, String[] args) throws SQLException {
         RunBot.checkArgs(args, 2, ":x: No todo ListName was specified. Usage: `" + getAliases().get(0) + " edit [ListName] [index of entry] [content...]`");
@@ -411,6 +451,7 @@ public class TodoCommand extends Command {
         PreparedStatement editTodoEntry = Database.getInstance().getStatement(EDIT_TODO_ENTRY);
         editTodoEntry.setString(1, content);
         editTodoEntry.setInt(2, todoList.id);
+        editTodoEntry.setInt(3, todoEntry.id);
         if (editTodoEntry.executeUpdate() == 0)
             throw new SQLException(EDIT_TODO_ENTRY + " reported no modified rows!");
 

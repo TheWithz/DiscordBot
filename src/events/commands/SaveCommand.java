@@ -1,7 +1,6 @@
 package events.commands;
 
 import bots.RunBot;
-import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -64,10 +63,8 @@ public class SaveCommand extends Command {
                 handlePlaylist(event, args);
                 break;
             case "config":
-                if (!event.getAuthor().getId().equals("122764399961309184")) {
-                    sendMessage(event, ":x: Only " + event.getAuthor().getAsMention() + " can update the config");
+                if (RunBot.OwnerRequired(event))
                     return;
-                }
                 handleConfig(event, args);
                 break;
             default:

@@ -19,6 +19,8 @@ public class SearchCommand extends Command {
             return;
         }
 
+        RunBot.checkArgs(args, 1, ":x: no query was requested for searching. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+
 //        String filter = null;
 //        switch (args[0]) {
 //            case RunBot.PREFIX + "google":

@@ -1,13 +1,13 @@
 package events.commands;
 
 import bots.RunBot;
-import misc.Permissions;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -20,38 +20,15 @@ public class LinuxCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        if (!Permissions.getPermissions().isOp(e.getAuthor())) {
-            e.getChannel().sendMessage("Sorry, this command is OP only!");
+        if (RunBot.OwnerRequired(e))
             return;
-        }
 
-        StringBuilder command = new StringBuilder();
-        Arrays.asList(args).forEach(string -> {
-            command.append(string);
-            command.append(" ");
-        });
-        runLinuxCommand(command.toString().substring(RunBot.PREFIX.length(), command.lastIndexOf(" ")));
+        sendMessage(e, runLinuxCommand(StringUtils.join(args, " ", 1, args.length)).toString());
     }
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "ping",
-                             RunBot.PREFIX + "ls",
-                             RunBot.PREFIX + "curl",
-                             RunBot.PREFIX + "nmap",
-                             RunBot.PREFIX + "cat",
-                             RunBot.PREFIX + "tar",
-                             RunBot.PREFIX + "touch",
-                             RunBot.PREFIX + "crunch",
-                             RunBot.PREFIX + "man",
-                             RunBot.PREFIX + "grep",
-                             RunBot.PREFIX + "mkdir",
-                             RunBot.PREFIX + "mv",
-                             RunBot.PREFIX + "stat",
-                             RunBot.PREFIX + "python3",
-                             RunBot.PREFIX + "cd",
-                             RunBot.PREFIX + "echo",
-                             RunBot.PREFIX + "cp");
+        return Collections.singletonList(RunBot.PREFIX + "bash");
     }
 
     // TODO: 2/27/16 fill out override methods

@@ -4,7 +4,6 @@ import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -14,14 +13,17 @@ public class VolumeCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        if(AudioUtil.player == null){
-            event.getChannel().sendMessage("Cannot change volume of player at this time");
+        RunBot.checkArgs(args, 1, ":x: No volume was specified to change to. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+
+        if (AudioUtil.player == null) {
+            event.getChannel().sendMessage(":x: Cannot change volume of player at this time");
             return;
         }
+
         float volume = Float.parseFloat(args[1]);
         volume = Math.min(1F, Math.max(0F, volume));
         AudioUtil.player.setVolume(volume);
-        event.getChannel().sendMessage("volume was changed to: " + volume);
+        event.getChannel().sendMessage(":white_check_mark: volume was changed to: " + volume);
     }
 
     @Override
@@ -41,6 +43,6 @@ public class VolumeCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.PREFIX + "volume");
+        return Collections.singletonList(RunBot.PREFIX + "volume");
     }
 }

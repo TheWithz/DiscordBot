@@ -36,13 +36,14 @@ public class RunBot {
     private static final Timer TIMER = new Timer();
     public static final String PREFIX = "$$$";
     public static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
+    public static String OWNER_REQUIRED = null;
     private static final GitHubClient client = new GitHubClient();
 
     public RunBot() {
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Config.json"))));
-            //client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
-            //        .getString("gitPassword"));
+            client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
+                    .getString("gitPassword"));
             HelpCommand help = new HelpCommand();
             API = new JDABuilder().setBotToken(obj.getString("testBotToken"))
                                   .addListener(new LoginHandler())
@@ -50,7 +51,6 @@ public class RunBot {
                                   .addListener(help.registerCommand(help))
                                   .addListener(help.registerCommand(new TranslateCommand()))
                                   .addListener(help.registerCommand(new CalculatorCommand()))
-                                  .addListener(help.registerCommand(new ClearChatCommand()))
                                   .addListener(help.registerCommand(new SearchCommand()))
                                   .addListener(help.registerCommand(new PermissionsCommand()))
                                   .addListener(help.registerCommand(new TodoCommand()))
@@ -153,6 +153,14 @@ public class RunBot {
     public static boolean OpRequired(MessageReceivedEvent e) {
         if (!Permissions.getPermissions().isOp(e.getAuthor())) {
             e.getChannel().sendMessage(RunBot.OP_REQUIRED);
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean OwnerRequired(MessageReceivedEvent e) {
+        if (!e.getAuthor().getId().equals("122764399961309184")) {
+            e.getChannel().sendMessage(RunBot.OWNER_REQUIRED);
             return true;
         }
         return false;
