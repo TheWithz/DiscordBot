@@ -58,14 +58,14 @@ public class RunBot {
                                   .addListener(help.registerCommand(new TodoCommand()))
                                   .addListener(help.registerCommand(new RandomNumberCommand()))
                                   .addListener(help.registerCommand(new RandomFactCommand()))
-                                  .addListener(help.registerCommand(new LinuxCommand()))
+                                  .addListener(help.registerCommand(new BashCommand()))
                                   .addListener(help.registerCommand(new EvalCommand()))
                                   .addListener(help.registerCommand(new JoinCommand()))
                                   .addListener(help.registerCommand(new LeaveCommand()))
                                   .addListener(help.registerCommand(new PrintQueueCommand()))
                                   .addListener(help.registerCommand(new LatexCommand()))
                                   .addListener(help.registerCommand(new StatCommand()))
-                                  .addListener(help.registerCommand(new SaveCommand()))
+                                  .addListener(help.registerCommand(new JsonCommand()))
                                   .addListener(help.registerCommand(new NowPlayingCommand()))
                                   .addListener(help.registerCommand(new PauseCommand()))
                                   .addListener(help.registerCommand(new PlayCommand()))
@@ -135,7 +135,7 @@ public class RunBot {
 
     public static void printAsFile(TextChannel channel, StringBuilder b, String fileName) {
         channel.sendTyping();
-        LinuxCommand.runLinuxCommand("touch resources/" + fileName + ".txt");
+        BashCommand.runLinuxCommand("touch resources/" + fileName + ".txt");
         File file = new File("resources/" + fileName + ".txt");
         Path path = Paths.get("resources/" + fileName + ".txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {

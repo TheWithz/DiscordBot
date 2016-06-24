@@ -2,7 +2,7 @@ package events.commands.generator;
 
 import bots.RunBot;
 import events.commands.Command;
-import events.commands.LinuxCommand;
+import events.commands.BashCommand;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.ArrayUtils;
@@ -78,25 +78,25 @@ public class LatexCommand extends Command {
     private void handleRaw(MessageReceivedEvent event, String[] args) {
         RunBot.checkArgs(args, 3, ":x: No latex provided. See " + RunBot.PREFIX + "help " + getAliases().get(0));
 
-        System.out.println(LinuxCommand.runLinuxCommand("rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux"));
-        System.out.println(LinuxCommand.runLinuxCommand("touch latex.tex"));
+        System.out.println(BashCommand.runLinuxCommand("rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux"));
+        System.out.println(BashCommand.runLinuxCommand("touch latex.tex"));
 
         String[] latex = ArrayUtils.subarray(args, 3, args.length);
 
         StringBuilder builder = buildLatex(new StringBuilder(), latex);
 
         writeToFile(builder);
-        System.out.println(LinuxCommand.runLinuxCommand("latex latex.tex"));
+        System.out.println(BashCommand.runLinuxCommand("latex latex.tex"));
         // did you remember to install dvipng? make sure you do
-        System.out.println(LinuxCommand.runLinuxCommand("dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png"));
+        System.out.println(BashCommand.runLinuxCommand("dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png"));
         event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(Arrays.toString(latex), "tex").build());
     }
 
     private void handleShowPresets(MessageReceivedEvent event, String[] args) {
         RunBot.checkArgs(args, 3, ":x: No preset provided. See " + RunBot.PREFIX + "help " + getAliases().get(0));
 
-        System.out.println(LinuxCommand.runLinuxCommand("rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux"));
-        System.out.println(LinuxCommand.runLinuxCommand("touch latex.tex"));
+        System.out.println(BashCommand.runLinuxCommand("rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux"));
+        System.out.println(BashCommand.runLinuxCommand("touch latex.tex"));
 
         StringBuilder builder = new StringBuilder();
 
@@ -107,8 +107,8 @@ public class LatexCommand extends Command {
                 builder = buildLatex(builder, obj.getString(args[3]));
                 writeToFile(builder);
                 // error here
-                System.out.println(LinuxCommand.runLinuxCommand("latex latex.tex"));
-                System.out.println(LinuxCommand.runLinuxCommand("dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png"));
+                System.out.println(BashCommand.runLinuxCommand("latex latex.tex"));
+                System.out.println(BashCommand.runLinuxCommand("dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png"));
                 event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[3], "tex").build());
             }
         } catch (IOException e) {

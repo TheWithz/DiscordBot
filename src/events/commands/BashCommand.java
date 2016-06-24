@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by TheWithz on 2/26/16.
  */
-public class LinuxCommand extends Command {
+public class BashCommand extends Command {
 
     private static String line = "";
     public static Process process;

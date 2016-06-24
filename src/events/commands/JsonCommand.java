@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by TheWithz on 4/29/16.
  */
-public class SaveCommand extends Command {
+public class JsonCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (RunBot.OpRequired(event))
