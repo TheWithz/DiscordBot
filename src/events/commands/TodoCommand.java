@@ -31,6 +31,9 @@ public class TodoCommand extends Command {
     public static final String REMOVE_TODO_ENTRY = "removeTodoEntry";
     public static final String REMOVE_TODO_USER = "removeTodoUser";
 
+    private boolean allowRemove = false;
+    private String listToRemove = "";
+
     private HashMap<String, TodoList> todoLists = new HashMap<>();
 
     public TodoCommand() {
@@ -133,8 +136,12 @@ public class TodoCommand extends Command {
 
     private void refreshTodoChannel(MessageReceivedEvent e) {
         TextChannel tc = RunBot.API.getTextChannelById("193539094410690561");
+        List hist = tc.getHistory().retrieveAll();
+        if (hist.size() < 2) {
+            tc.sendMessage("this is temporary");
+        }
         tc.deleteMessages(tc.getHistory().retrieveAll());
-        handleShow(e, new String[]{"$$$todo", "show", "botfeatures"});
+        handleShow(tc, new String[]{"$$$todo", "show", "botfeatures"});
     }
 
     @Override
@@ -237,6 +244,40 @@ public class TodoCommand extends Command {
 
         todoMessages.forEach(message -> sendMessage(e, message));
         sendMessage(e, builder.appendString("```").build());
+    }
+
+    //alias show [ListName]
+    private void handleShow(TextChannel tc, String[] args) {
+        RunBot.checkArgs(args, 2, "No todo ListName was specified. Usage: `" + getAliases().get(0) + " show [ListName]`");
+
+        String label = args[2].toLowerCase();
+        TodoList todoList = todoLists.get(label);
+        if (todoList == null) {
+            tc.sendMessage("Sorry, `" + label + "` isn't a known todo list.");
+            return;
+        }
+
+        // Discord messages can only be 2000 characters.
+        List<Message> todoMessages = new ArrayList<Message>();
+        MessageBuilder builder = new MessageBuilder();
+        builder.appendCodeBlock("Todo for: " + label + "\n", "fix").appendString("```diff\n");
+        for (int i = 0; i < todoList.entries.size(); i++) {
+            TodoEntry todoEntry = todoList.entries.get(i);
+            String todoEntryString = todoEntry.content;
+            if (todoEntry.checked) {
+                todoEntryString = "+" + (i + 1) + ") " + todoEntryString + "\n\n";
+            } else {
+                todoEntryString = "-" + (i + 1) + ") " + todoEntryString + "\n\n";
+            }
+            if (builder.getLength() + todoEntryString.length() > 2000) {
+                todoMessages.add(builder.build());
+                builder = new MessageBuilder();
+            }
+            builder.appendString(todoEntryString);
+        }
+
+        todoMessages.forEach(tc::sendMessage);
+        tc.sendMessage(builder.appendString("```").build());
     }
 
     //alias lists
@@ -621,6 +662,20 @@ public class TodoCommand extends Command {
             return;
         }
 
+        if (!allowRemove) {
+            sendMessage(e, ":name_badge: :name_badge: :name_badge: Are you sure you want to permanently delete the TodoList `" + label + "` ? If so, run the command again. :name_badge: :name_badge: :name_badge:");
+            allowRemove = true;
+            listToRemove = label;
+            return;
+        }
+
+        if (!listToRemove.equals(label)) {
+            sendMessage(e, ":name_badge: :name_badge: :name_badge: Be careful!! you almost permanently deleted the TodoList `" + label + "` by accident! :name_badge: :name_badge: :name_badge:");
+            allowRemove = false;
+            listToRemove = "";
+            return;
+        }
+
         PreparedStatement removeTodoList = Database.getInstance().getStatement(REMOVE_TODO_LIST);
         removeTodoList.setInt(1, todoList.id);
         if (removeTodoList.executeUpdate() == 0)
@@ -629,6 +684,7 @@ public class TodoCommand extends Command {
 
         todoLists.remove(label);
         sendMessage(e, "Deleted the `" + label + "` todo list.");
+        allowRemove = false;
     }
 
     private static class TodoList {
