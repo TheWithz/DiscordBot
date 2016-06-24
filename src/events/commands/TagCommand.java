@@ -8,9 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by NathanWithz on 6/23/2016.
@@ -211,8 +209,9 @@ public class TagCommand extends Command {
     private void handleList(MessageReceivedEvent e, String[] args) {
         StringBuilder builder = new StringBuilder();
         builder.append("```fix\nShowing list of tags``````css\n");
+        List<String> labels = new ArrayList<>(tags.keySet());
         for(int i = 0; i < tags.keySet().size(); i++){
-            builder.append(i + 1).append(") ").append(tags.keySet().toArray(new String[]{})[i]).append("\n");
+            builder.append(i + 1).append(") ").append(labels.get(i)).append("\n");
         }
         sendMessage(e, builder.append("```").toString());
     }
