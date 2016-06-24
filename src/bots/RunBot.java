@@ -5,11 +5,13 @@ import events.LoginHandler;
 import events.commands.*;
 import events.commands.generator.*;
 import events.commands.music.*;
+import misc.Permissions;
 import net.dv8tion.jda.JDA;
 import net.dv8tion.jda.JDABuilder;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
+import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.eclipse.egit.github.core.client.GitHubClient;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,7 +34,8 @@ public class RunBot {
     public static User BOT = null;
     public static TextChannel LOG = null;
     private static final Timer TIMER = new Timer();
-    public static final String prefix = "$$$";
+    public static final String PREFIX = "$$$";
+    public static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     private static final GitHubClient client = new GitHubClient();
 
     public RunBot() {
@@ -71,6 +74,7 @@ public class RunBot {
                                   .addListener(help.registerCommand(new SkipCommand()))
                                   .addListener(help.registerCommand(new StopCommand()))
                                   .addListener(help.registerCommand(new VolumeCommand()))
+                                  .addListener(help.registerCommand(new TagCommand()))
                                   .setBulkDeleteSplittingEnabled(false)
                                   .buildAsync();
         } catch (IllegalArgumentException e) {
@@ -144,6 +148,14 @@ public class RunBot {
     public static void checkArgs(String[] args, int index, String failMessage) {
         if (args.length < (index + 1))
             throw new IllegalArgumentException(failMessage);
+    }
+
+    public static boolean OpRequired(MessageReceivedEvent e){
+        if (!Permissions.getPermissions().isOp(e.getAuthor())) {
+            e.getChannel().sendMessage(RunBot.OP_REQUIRED);
+            return true;
+        }
+        return false;
     }
 
     public static void main(String[] args) {

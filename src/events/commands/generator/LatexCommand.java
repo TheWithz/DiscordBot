@@ -108,7 +108,7 @@ public class LatexCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Collections.singletonList(RunBot.prefix + "latex");
+        return Collections.singletonList(RunBot.PREFIX + "latex");
     }
 
     @Override

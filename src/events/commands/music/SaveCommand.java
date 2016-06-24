@@ -52,7 +52,7 @@ public class SaveCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Collections.singletonList(RunBot.prefix + "save");
+        return Collections.singletonList(RunBot.PREFIX + "save");
     }
 
     @Override
@@ -67,6 +67,6 @@ public class SaveCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.prefix + "save <json file> <key> <value>", "Example : " + RunBot.prefix + "save playlist 80smix ");
+        return Arrays.asList(RunBot.PREFIX + "save <json file> <key> <value>", "Example : " + RunBot.PREFIX + "save playlist 80smix ");
     }
 }

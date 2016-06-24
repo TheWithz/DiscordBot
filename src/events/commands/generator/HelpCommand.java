@@ -41,7 +41,7 @@ public class HelpCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "help", RunBot.prefix + "commands");
+        return Arrays.asList(RunBot.PREFIX + "help", RunBot.PREFIX + "commands");
     }
 
     @Override
@@ -57,11 +57,11 @@ public class HelpCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                RunBot.prefix + "help   **OR** " + RunBot.prefix + "help *<command>*\n"
-                        + RunBot.prefix + "help | returns the list of commands along with a simple description of each.\n"
-                        + RunBot.prefix + "help <command> | returns the name, description, aliases, and usage information of a command.\n"
+                RunBot.PREFIX + "help   **OR** " + RunBot.PREFIX + "help *<command>*\n"
+                        + RunBot.PREFIX + "help | returns the list of commands along with a simple description of each.\n"
+                        + RunBot.PREFIX + "help <command> | returns the name, description, aliases, and usage information of a command.\n"
                         + "   - This can use the aliases of a command as input as well.\n"
-                        + "__Example:__ " + RunBot.prefix + "help stats");
+                        + "__Example:__ " + RunBot.PREFIX + "help stats");
     }
 
     private void sendPrivate(PrivateChannel channel, String[] args) {
@@ -80,7 +80,7 @@ public class HelpCommand extends Command {
                     .appendString(s.toString())
                     .build());
         } else {
-            String command = ((args[1].length() > RunBot.prefix.length() + 1) && args[1].substring(0, RunBot.prefix.length()).equals(RunBot.prefix)) ? args[1] : RunBot.prefix + args[1];    //If there is not a preceding prefix attached to the command we are search, then prepend one.
+            String command = ((args[1].length() > RunBot.PREFIX.length() + 1) && args[1].substring(0, RunBot.PREFIX.length()).equals(RunBot.PREFIX)) ? args[1] : RunBot.PREFIX + args[1];    //If there is not a preceding PREFIX attached to the command we are search, then prepend one.
             for (Command c : commands) {
                 if (c.getAliases().contains(command)) {
                     String name = c.getName();
@@ -107,7 +107,7 @@ public class HelpCommand extends Command {
                 }
             }
             channel.sendMessage(new MessageBuilder()
-                    .appendString("The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.prefix + "help to list all commands.")
+                    .appendString("The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
                     .build());
         }
     }

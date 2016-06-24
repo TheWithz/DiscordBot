@@ -18,7 +18,7 @@ public class StatCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "stats", RunBot.prefix + "uptime");
+        return Arrays.asList(RunBot.PREFIX + "stats", RunBot.PREFIX + "uptime");
     }
 
     @Override
@@ -33,6 +33,6 @@ public class StatCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.prefix + "stat", RunBot.prefix + "uptime");
+        return Arrays.asList(RunBot.PREFIX + "stat", RunBot.PREFIX + "uptime");
     }
 }

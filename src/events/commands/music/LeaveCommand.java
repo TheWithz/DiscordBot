@@ -18,7 +18,7 @@ public class LeaveCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "leave");
+        return Arrays.asList(RunBot.PREFIX + "leave");
     }
 
     @Override

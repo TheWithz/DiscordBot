@@ -3,7 +3,6 @@ package events.commands;
 import bots.RunBot;
 import misc.Permissions;
 import net.dv8tion.jda.MessageBuilder;
-import net.dv8tion.jda.entities.Guild;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.ArrayUtils;
@@ -25,10 +24,10 @@ public class PermissionsCommand extends Command {
             return;
         }
 
-        if (args[0].contains(RunBot.prefix + "perms") || args[0].contains(RunBot.prefix + "permissions")) {
+        if (args[0].contains(RunBot.PREFIX + "perms") || args[0].contains(RunBot.PREFIX + "permissions")) {
             args = ArrayUtils.subarray(args, 1, args.length);   //We cut off the .perms or .permissions to make the array behave as .op would
         } else {
-            args[0] = args[0].replace(RunBot.prefix + "", "");     //Cut off the leading .
+            args[0] = args[0].replace(RunBot.PREFIX + "", "");     //Cut off the leading .
         }
 
         if (args.length < 1)    //If the command sent was just '.perms', and we removed that above, then we have an array of length 0 currently.
@@ -54,7 +53,7 @@ public class PermissionsCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "perms", RunBot.prefix + "permissions", RunBot.prefix + "op");
+        return Arrays.asList(RunBot.PREFIX + "perms", RunBot.PREFIX + "permissions", RunBot.PREFIX + "op");
     }
 
     @Override
@@ -70,17 +69,17 @@ public class PermissionsCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                RunBot.prefix + "perms *<group> <action> <user>*\n"
+                RunBot.PREFIX + "perms *<group> <action> <user>*\n"
                         + "Groups:  [op]\n"
                         + "Actions: [add, remove, list]\n"
                         + "User:  Must be an @Mentioned user.\n"
-                        + "__Example:__  " + RunBot.prefix + "perms op add @DV8FromTheWorld\n"
+                        + "__Example:__  " + RunBot.PREFIX + "perms op add @DV8FromTheWorld\n"
                         + " - This would add the user 'DV8FromTheWorld' to the OPs list.\n"
-                        + "__Example 2:__ " + RunBot.prefix + "perms op list\n"
+                        + "__Example 2:__ " + RunBot.PREFIX + "perms op list\n"
                         + " - This would list all bot OPs.\n"
                         + "\n"
-                        + "**NOTE:** you can skip the " + RunBot.prefix + " perms and jump straight to the group by using the group alias.\n"
-                        + "__Example:__ " + RunBot.prefix + "op remove @BananaPhone");
+                        + "**NOTE:** you can skip the " + RunBot.PREFIX + " perms and jump straight to the group by using the group alias.\n"
+                        + "__Example:__ " + RunBot.PREFIX + "op remove @BananaPhone");
     }
 
     private void processOp(MessageReceivedEvent e, String[] args) {

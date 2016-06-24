@@ -23,7 +23,7 @@ public class RepeatCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "repeat");
+        return Arrays.asList(RunBot.PREFIX + "repeat");
     }
 
     @Override

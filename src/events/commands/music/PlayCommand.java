@@ -25,7 +25,7 @@ public class PlayCommand extends Command {
     public void onCommand(MessageReceivedEvent event, String[] args) {
 
         //If no URL was provided.
-        if (args.length == 1 && args[0].equals(RunBot.prefix + "play")) {
+        if (args.length == 1 && args[0].equals(RunBot.PREFIX + "play")) {
             if (AudioUtil.player.isPlaying()) {
                 event.getChannel().sendMessage("player is already playing!");
                 return;
@@ -97,7 +97,7 @@ public class PlayCommand extends Command {
                 public void run() {
                     try {
                         JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
-                        event.getChannel().sendMessage(RunBot.prefix + "play " + obj.getString(args[2]));
+                        event.getChannel().sendMessage(RunBot.PREFIX + "play " + obj.getString(args[2]));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -109,7 +109,7 @@ public class PlayCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Collections.singletonList(RunBot.prefix + "play");
+        return Collections.singletonList(RunBot.PREFIX + "play");
     }
 
     @Override

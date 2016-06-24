@@ -19,7 +19,7 @@ public class RandomNumberCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "rnum", RunBot.prefix + "randomNumber", RunBot.prefix + "randomNum", RunBot.prefix + "randomnumber", RunBot.prefix + "rNum");
+        return Arrays.asList(RunBot.PREFIX + "rnum", RunBot.PREFIX + "randomNumber", RunBot.PREFIX + "randomNum", RunBot.PREFIX + "randomnumber", RunBot.PREFIX + "rNum");
     }
 
     @Override
@@ -34,7 +34,7 @@ public class RandomNumberCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList(RunBot.prefix + "rnum <Integer>");
+        return Collections.singletonList(RunBot.PREFIX + "rnum <Integer>");
     }
 
     private void generateRandomNumber(MessageReceivedEvent e, String[] args) {

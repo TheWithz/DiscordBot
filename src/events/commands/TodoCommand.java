@@ -75,7 +75,7 @@ public class TodoCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
         try {
-            RunBot.checkArgs(args, 1, "No Action argument was provided. Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
+            RunBot.checkArgs(args, 1, "No Action argument was provided. Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
 
             switch (args[1].toLowerCase()) {
                 case "show":
@@ -118,7 +118,7 @@ public class TodoCommand extends Command {
                     break;
                 default:
                     sendMessage(e, "Unknown Action argument: `" + args[1] + "` was provided. " +
-                            "Please use `" + RunBot.prefix + "help " + getAliases().get(0) + "` for more information.");
+                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
             }
             if (Arrays.asList(args).contains("botfeatures")) {
                 refreshTodoChannel(e);
@@ -139,7 +139,7 @@ public class TodoCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Collections.singletonList(RunBot.prefix + "todo");
+        return Collections.singletonList(RunBot.PREFIX + "todo");
     }
 
     @Override

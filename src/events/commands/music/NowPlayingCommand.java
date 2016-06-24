@@ -33,7 +33,7 @@ public class NowPlayingCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "nowplaying", RunBot.prefix + "currentsong", RunBot.prefix + "current");
+        return Arrays.asList(RunBot.PREFIX + "nowplaying", RunBot.PREFIX + "currentsong", RunBot.PREFIX + "current");
     }
 
     @Override
@@ -48,6 +48,6 @@ public class NowPlayingCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.prefix + "nowplaying", RunBot.prefix + "currentsong", RunBot.prefix + "current ");
+        return Arrays.asList(RunBot.PREFIX + "nowplaying", RunBot.PREFIX + "currentsong", RunBot.PREFIX + "current ");
     }
 }

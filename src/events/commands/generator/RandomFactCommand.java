@@ -20,7 +20,7 @@ public class RandomFactCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "fact");
+        return Arrays.asList(RunBot.PREFIX + "fact");
     }
 
     @Override
@@ -35,7 +35,7 @@ public class RandomFactCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList(RunBot.prefix + "fact");
+        return Collections.singletonList(RunBot.PREFIX + "fact");
     }
 
     private void generateRandomFact(MessageReceivedEvent e) {

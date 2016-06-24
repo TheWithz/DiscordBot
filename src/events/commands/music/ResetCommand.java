@@ -23,7 +23,7 @@ public class ResetCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "reset");
+        return Arrays.asList(RunBot.PREFIX + "reset");
     }
 
     @Override
@@ -38,6 +38,6 @@ public class ResetCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.prefix + "reset");
+        return Arrays.asList(RunBot.PREFIX + "reset");
     }
 }

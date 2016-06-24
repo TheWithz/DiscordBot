@@ -27,7 +27,7 @@ public class RestartCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "restart");
+        return Arrays.asList(RunBot.PREFIX + "restart");
     }
 
     @Override

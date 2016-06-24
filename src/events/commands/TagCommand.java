@@ -1,128 +1,90 @@
 package events.commands;
 
+import bots.RunBot;
+import misc.Database;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.StringUtils;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by NathanWithz on 6/23/2016.
  */
-public class TagCommand extends Command{
+public class TagCommand extends Command {
 
+    //Database Methods
+    public static final String ADD_TAG = "addTag";
+    public static final String EDIT_TAG = "editTag";
+    public static final String GET_TAG = "getTag";
+    public static final String GET_TAGS = "getTags";
+    public static final String REMOVE_TAG = "removeTag";
 
-    public TagCommand()
-    {
-        this.command = "tag";
-        this.aliases = new String[]{"t"};
-        this.help = "displays a tag; tag commands (try `"+SpConst.PREFIX+"tag help`)";
-        this.longhelp = "This command is used to create, edit, and view \"tags\". "
-                + "Tags are a method of storing text for easy recollection later. "
-                + "Additionally, some scripting-esque elements can be used to provide "
-                + "extra functionality.";
-        this.arguments = new Argument[]{
-                new Argument("tagname",Argument.Type.SHORTSTRING,true),
-                new Argument("tag arguments",Argument.Type.LONGSTRING,false)
-        };
-        this.children = new Command[]{
-                new TagCreate(),
-                new TagDelete(),
-                new TagEdit(),
-                new TagList(),
-                new TagOwner(),
-                new TagRandom(),
-                new TagRaw(),
-                new TagRaw2(),
-                new TagSearch(),
-                new TagOverride(),
-                new TagRestore(),
-                new TagImport(),
-                new TagUnimport()
-        };
-    }
-    @Override
-    protected boolean execute(Object[] args, MessageReceivedEvent event)
-    {
-        String tagname = (String)(args[0]);
-        String tagargs = args[1]==null?null:(String)(args[1]);
-        boolean local = false;
-        boolean nsfw = true;
-        if(!event.isPrivate())
-        {
-            local = "local".equalsIgnoreCase(Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGMODE]);
-            nsfw = event.getTextChannel().getName().contains("nsfw") || event.getTextChannel().getTopic().toLowerCase().contains("{nsfw}");
+    private HashMap<String, Tag> tags = new HashMap<>();
+
+    public TagCommand() {
+        try {
+            ResultSet sqlTags = Database.getInstance().getStatement(GET_TAGS).executeQuery();
+            while (sqlTags.next()) {
+                String label = sqlTags.getString(2);
+                Tag tag = new Tag(
+                        sqlTags.getInt(1),     //Id
+                        label,  //label
+                        sqlTags.getString(3)  //Content
+                );
+                tags.put(label, tag);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        String[] tag = null;
-        if(!event.isPrivate())
-            tag = Overrides.getInstance().findTag(event.getGuild(), tagname, nsfw);
-        if(tag==null)
-            tag = Tags.getInstance().findTag(tagname, event.getGuild(), local, nsfw);
-        if(tag==null)
-        {
-            Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-            return false;
-        }
-        Sender.sendResponse("\u180E"+JagTag.convertText(tag[Tags.CONTENTS], tagargs, event.getAuthor(), event.getGuild(), event.getChannel()),
-                event.getChannel(), event.getMessage().getId());
-        return true;
     }
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        switch(args[1].toLowerCase()){
-            case "create":
-                handleCreate(e, args);
-                break;
-            case "delete":
-                handleDelete(e, args);
-                break;
-            case "edit":
-                handleEdit(e, args);
-                break;
-            case "list":
-                handleList(e, args);
-                break;
-            case "owner":
-                handleOwner(e, args);
-                break;
-            case "random":
-                handleRandom(e, args);
-                break;
-            case "raw":
-                handleRaw(e, args);
-                break;
-            case "raw2":
-                handleRaw2(e, args);
-                break;
-            case "search":
-                handleSearch(e, args);
-                break;
-            case "override":
-                handleOverride(e, args);
-                break;
-            case "overridelist":
-                handleOverrideList(e, args);
-                break;
-            case "restore":
-                handleRestore(e, args);
-                break;
-            case "import":
-                handleImport(e, args);
-                break;
-            case "unimport":
-                handleUnImport(e, args);
-                break;
-            default:
-                break;
-        }
-    }
+        try {
+            RunBot.checkArgs(args, 1, ":x: No Action argument was provided. Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
 
-    private void handleCreate(MessageReceivedEvent e, String[] args) {
+            switch (args[1].toLowerCase()) {
+                case "show":
+                    handleShow(e, args);
+                    break;
+                case "create":
+                case "add":
+                    handleCreate(e, args);
+                    break;
+                case "delete":
+                case "remove":
+                    handleDelete(e, args);
+                    break;
+                case "edit":
+                    handleEdit(e, args);
+                    break;
+                case "list":
+                case "print":
+                    handleList(e, args);
+                    break;
+                case "owner":
+                    handleOwner(e, args);
+                    break;
+                default:
+                    sendMessage(e, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+            }
+        } catch (SQLException e1) {
+            sendMessage(e, ":x: An SQL error occurred while processing command.\nError Message: " + e1.getMessage());
+            e1.printStackTrace();
+        } catch (IllegalArgumentException e2) {
+            sendMessage(e, e2.getMessage());
+        }
     }
 
     @Override
     public List<String> getAliases() {
-        return Collections.singletonList("tag");
+        return Collections.singletonList(RunBot.PREFIX + "tag");
     }
 
     @Override
@@ -132,7 +94,7 @@ public class TagCommand extends Command{
 
     @Override
     public String getName() {
-        return null;
+        return "Tag Command";
     }
 
     @Override
@@ -140,541 +102,123 @@ public class TagCommand extends Command{
         return null;
     }
 
-    //subcommands
-    private class TagCreate extends Command
-    {
-        private TagCreate()
-        {
-            this.command = "create";
-            this.aliases= new String[]{"add"};
-            this.help = "saves a tag for later recollection";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true),
-                    new Argument("tag contents",Argument.Type.LONGSTRING,true)
-            };
-            this.cooldown = 60;
+    private void handleShow(MessageReceivedEvent e, String[] args) {
+        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " show [TagLabel]`");
+
+        String label = args[2].toLowerCase();
+        Tag tag = tags.get(label);
+        if (tag == null) {
+            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known tag.");
+            return;
         }
+
+        if (tag.content.length() >= 1950) {
+            sendMessage(e, "```Showing tag: [" + tag.label + "]```");
+            RunBot.printAsFile(e.getTextChannel(), new StringBuilder(tag.content), tag.label);
+        } else
+            sendMessage(e, "```Showing tag: [" + tag.label + "]```" + tag.content);
+    }
+
+    private void handleCreate(MessageReceivedEvent e, String[] args) throws SQLException {
+        if (RunBot.OpRequired(e))
+            return;
+
+        RunBot.checkArgs(args, 2, ":x: No TagLabel for the new tag was provided. Usage: `" + getAliases().get(0) + " create [TagLabel] [Content]`");
+        RunBot.checkArgs(args, 3, ":x: No Content for the new tag was provided. Usage: `" + getAliases().get(0) + " create [TagLabel] [Content]`");
+
+        String label = args[2].toLowerCase();
+        String content = StringUtils.join(args, " ", 3, args.length);
+        Tag tag = tags.get(label);
+
+        if (tag != null) {
+            sendMessage(e, ":x: A tag already exists with the name `" + label + "`.");
+            return;
+        }
+
+        PreparedStatement addTag = Database.getInstance().getStatement(ADD_TAG);
+        addTag.setString(1, label);//Label
+        addTag.setString(2, content);//Content
+
+        if (addTag.executeUpdate() == 0)
+            throw new SQLException(ADD_TAG + " reported no modified rows!");
+
+        tag = new Tag(Database.getAutoIncrement(addTag, 1), label, content);
+        tags.put(label, tag);
+        addTag.clearParameters();
+
+        sendMessage(e, ":white_check_mark: Created `" + label + "` tag.");
+    }
+
+    private void handleDelete(MessageReceivedEvent e, String[] args) throws SQLException{
+        if (RunBot.OpRequired(e))
+            return;
+
+        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " remove [TagLabel]`");
+
+        String label = args[2].toLowerCase();
+        Tag tag = tags.get(label);
+        if (tag == null) {
+            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known tag.");
+            return;
+        }
+
+        PreparedStatement removeTodoList = Database.getInstance().getStatement(REMOVE_TAG);
+        removeTodoList.setInt(1, tag.id);
+        removeTodoList.setString(2, tag.label);
+        if (removeTodoList.executeUpdate() == 0)
+            throw new SQLException(REMOVE_TAG + " reported no updated rows!");
+        removeTodoList.clearParameters();
+
+        tags.remove(label);
+        sendMessage(e, ":white_check_mark: Deleted the `" + label + "` tag.");
+    }
+
+    private void handleEdit(MessageReceivedEvent e, String[] args) {
+        if (RunBot.OpRequired(e))
+            return;
+
+    }
+
+    private void handleList(MessageReceivedEvent e, String[] args) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("```fix\nShowing list of tags``````css\n");
+        tags.keySet().stream().forEach(tagName -> builder.append(tags.get(tagName).id).append(") ").append(tagName).append("\n"));
+        sendMessage(e, builder.append("```").toString());
+    }
+
+    private void handleOwner(MessageReceivedEvent e, String[] args) {
+        //TODO: 6/23/16 consider tying ownership to tags
+    }
+
+    private static class Tag {
+        int id;
+        String label;
+        String content;
+
+        Tag(int id, String label, String content) {
+            this.id = id;
+            this.label = label;
+            this.content = content;
+        }
+
         @Override
-        protected String cooldownKey(MessageReceivedEvent event) {return event.getAuthor().getId()+"tagcreate";}
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagname = (String)(args[0]);
-            String contents = (String)(args[1]);
-            String[] tag = Tags.getInstance().findTag(tagname);
-            if(tag==null)//good to make it
-            {
-                Tags.getInstance().setTag(new String[]{
-                        event.getAuthor().getId(),
-                        tagname,
-                        contents
-                });
-                Sender.sendResponse(SpConst.SUCCESS+"Tag \""+tagname+"\" created successfully.", event.getChannel(), event.getMessage().getId());
-                return true;
-            }
-            else
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tag[Tags.TAGNAME]+"\" already exists.", event.getChannel(), event.getMessage().getId());
+        public boolean equals(Object o) {
+            if (!(o instanceof Tag))
                 return false;
-            }
+
+            Tag te = (Tag) o;
+            return te.id == this.id && te.content.equals(this.content);
+        }
+
+        @Override
+        public int hashCode() {
+            return toString().hashCode();
+        }
+
+        @Override
+        public String toString() {
+            return "Tag { Id: " + id + "label: " + label + " Content: " + content + "}";
         }
     }
 
-    private class TagDelete extends Command
-    {
-        private TagDelete()
-        {
-            this.command = "delete";
-            this.aliases = new String[]{"remove"};
-            this.help = "deletes a tag if it belongs to you";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true)
-            };
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagname = (String)(args[0]);
-            String[] tag = Tags.getInstance().findTag(tagname);
-            if(tag==null)//nothing to edit
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            else if(tag[Tags.OWNERID].equals(event.getAuthor().getId()))
-            {
-                Tags.getInstance().removeTag(tag[Tags.TAGNAME]);
-                Sender.sendResponse(SpConst.SUCCESS+"Tag \""+tag[Tags.TAGNAME]+"\" deleted successfully.", event.getChannel(), event.getMessage().getId());
-                return true;
-            }
-            else
-            {
-                String owner;
-                User u = event.getJDA().getUserById(tag[Tags.OWNERID]);
-                if(u!=null)
-                    owner = "**"+u.getUsername()+"**";
-                    //else if(tag[Tags.OWNERID].startsWith("g"))
-                    //owner = "the server *"+event.getGuild().getName()+"*";
-                else
-                    owner = "an unknown user (ID:"+tag[Tags.OWNERID]+")";
-                Sender.sendResponse(SpConst.ERROR+"You cannot delete tag \""+tag[Tags.TAGNAME]+"\" because it belongs to **"+owner+"**", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-        }
-    }
-
-    private class TagEdit extends Command
-    {
-        private TagEdit()
-        {
-            this.command = "edit";
-            this.help = "edits a tag if it belongs to you";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true),
-                    new Argument("new contents",Argument.Type.LONGSTRING,true)
-            };
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagname = (String)(args[0]);
-            String contents = (String)(args[1]);
-            String[] tag = Tags.getInstance().findTag(tagname);
-            if(tag==null)//nothing to edit
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            else if(tag[Tags.OWNERID].equals(event.getAuthor().getId()) || SpConst.JAGROSH_ID.equals(event.getAuthor().getId()))
-            {
-                Tags.getInstance().setTag(new String[]{
-                        tag[Tags.OWNERID],
-                        tag[Tags.TAGNAME],
-                        contents
-                });
-                Sender.sendResponse(SpConst.SUCCESS+"Tag \""+tag[Tags.TAGNAME]+"\" edited successfully.", event.getChannel(), event.getMessage().getId());
-                return true;
-            }
-            else
-            {
-                String owner;
-                User u = event.getJDA().getUserById(tag[Tags.OWNERID]);
-                if(u!=null)
-                    owner = "**"+u.getUsername()+"**";
-                    //else if(tag[Tags.OWNERID].startsWith("g"))
-                    //owner = "the server *"+event.getGuild().getName()+"*";
-                else
-                    owner = "an unknown user (ID:"+tag[Tags.OWNERID]+")";
-                Sender.sendResponse(SpConst.ERROR+"You cannot edit tag \""+tag[Tags.TAGNAME]+"\" because it belongs to **"+owner+"**", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-        }
-    }
-
-    private class TagList extends Command
-    {
-        private TagList()
-        {
-            this.command = "list";
-            this.help = "shows a list of all tags owned by you, or another user";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("username",Argument.Type.USER,false)
-            };
-            this.cooldown = 10;
-        }
-        @Override
-        protected String cooldownKey(MessageReceivedEvent event) {return event.getAuthor().getId()+"taglist";}
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            User user = (User)(args[0]);
-            if(user==null)
-                user = event.getAuthor();
-            boolean nsfw = true;
-            if(!event.isPrivate())
-                nsfw = event.getTextChannel().getName().contains("nsfw") || event.getTextChannel().getTopic().toLowerCase().contains("{nsfw}");
-            ArrayList<String> tags = Tags.getInstance().findTagsByOwner(user, nsfw);
-            Collections.sort(tags);
-            StringBuilder builder;
-            builder = new StringBuilder(SpConst.SUCCESS+tags.size()+" tags owned by **"+user.getUsername()+"**: \n");
-            tags.stream().forEach((tag) -> {
-                builder.append(tag).append(" ");
-            });
-            Sender.sendResponse(builder.toString(), event.getChannel(), event.getMessage().getId());
-            return true;
-        }
-    }
-
-    private class TagOwner extends Command
-    {
-        private TagOwner()
-        {
-            this.command = "owner";
-            this.help = "shows the owner of a tag";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true)
-            };
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagname = (String)(args[0]);
-            String[] tag = null;
-            if(!event.isPrivate())
-                tag = Overrides.getInstance().findTag(event.getGuild(), tagname, true);
-            if(tag==null)
-                tag = Tags.getInstance().findTag(tagname, event.getGuild(), false, true);
-            if(tag==null)
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            String owner;
-            User u = event.getJDA().getUserById(tag[Tags.OWNERID]);
-            if(u!=null)
-                owner = "**"+u.getUsername()+"**";
-            else if(tag[Tags.OWNERID].startsWith("g"))
-                owner = "the server *"+event.getGuild().getName()+"*";
-            else
-                owner = "an unknown user (ID:"+tag[Tags.OWNERID]+")";
-            Sender.sendResponse("Tag \""+tag[Tags.TAGNAME]+"\" belongs to "+owner, event.getChannel(), event.getMessage().getId());
-            return true;
-        }
-    }
-
-    private class TagRandom extends Command
-    {
-        private TagRandom()
-        {
-            this.command = "random";
-            this.help = "shows a random tag";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tag arguments",Argument.Type.LONGSTRING,false)
-            };
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagargs = args[0]==null?null:(String)(args[0]);
-            boolean local = false;
-            boolean nsfw = true;
-            if(!event.isPrivate())
-            {
-                local = "local".equalsIgnoreCase(Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGMODE]);
-                nsfw = event.getTextChannel().getName().contains("nsfw") || event.getTextChannel().getTopic().toLowerCase().contains("{nsfw}");
-            }
-            List<String[]> tags = Tags.getInstance().findTags(null, event.getGuild(), local, nsfw);
-            if(tags.isEmpty())
-            {
-                Sender.sendResponse(SpConst.WARNING+"No tags found!", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            String[] tag = tags.get((int)(Math.random()*tags.size()));
-            Sender.sendResponse("Tag \""+tag[Tags.TAGNAME]+"\":\n"
-                            +JagTag.convertText(tag[Tags.CONTENTS], tagargs, event.getAuthor(), event.getGuild(), event.getChannel()),
-                    event.getChannel(), event.getMessage().getId());
-            return true;
-        }
-    }
-
-    private class TagRaw extends Command
-    {
-        private TagRaw()
-        {
-            this.command = "raw";
-            this.help = "shows the raw (non-dynamic) tag text";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true)
-            };
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagname = (String)(args[0]);
-            boolean local = false;
-            boolean nsfw = true;
-            if(!event.isPrivate())
-            {
-                local = "local".equalsIgnoreCase(Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGMODE]);
-                nsfw = event.getTextChannel().getName().contains("nsfw") || event.getTextChannel().getTopic().toLowerCase().contains("{nsfw}");
-            }
-            String[] tag = null;
-            if(!event.isPrivate())
-                tag = Overrides.getInstance().findTag(event.getGuild(), tagname, nsfw);
-            if(tag==null)
-                tag = Tags.getInstance().findTag(tagname, event.getGuild(), local, nsfw);
-            if(tag==null)
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            Sender.sendResponse("\u180E"+tag[Tags.CONTENTS], event.getChannel(), event.getMessage().getId());
-            return true;
-        }
-    }
-
-    private class TagRaw2 extends Command
-    {
-        private TagRaw2()
-        {
-            this.command = "raw2";
-            this.help = "shows the raw tag text in a code block";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true)
-            };
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagname = (String)(args[0]);
-            boolean local = false;
-            boolean nsfw = true;
-            if(!event.isPrivate())
-            {
-                local = "local".equalsIgnoreCase(Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGMODE]);
-                nsfw = event.getTextChannel().getName().contains("nsfw") || event.getTextChannel().getTopic().toLowerCase().contains("{nsfw}");
-            }
-            String[] tag = null;
-            if(!event.isPrivate())
-                tag = Overrides.getInstance().findTag(event.getGuild(), tagname, nsfw);
-            if(tag==null)
-                tag = Tags.getInstance().findTag(tagname, event.getGuild(), local, nsfw);
-            if(tag==null)
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            Sender.sendResponse("```\n"+tag[Tags.CONTENTS]+"```", event.getChannel(), event.getMessage().getId());
-            return true;
-        }
-    }
-
-    private class TagSearch extends Command
-    {
-        private TagSearch()
-        {
-            this.command = "search";
-            this.help = "searches for tags that include the given query";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("query",Argument.Type.SHORTSTRING,false)
-            };
-            this.cooldown = 10;
-        }
-        @Override
-        protected String cooldownKey(MessageReceivedEvent event) {return event.getAuthor().getId()+"tagsearch";}
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String query = args[0]==null?null:(String)(args[0]);
-            boolean local = false;
-            boolean nsfw = true;
-            if(!event.isPrivate())
-            {
-                local = "local".equalsIgnoreCase(Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGMODE]);
-                nsfw = event.getTextChannel().getName().contains("nsfw") || event.getTextChannel().getTopic().toLowerCase().contains("{nsfw}");
-            }
-            List<String[]> tags = Tags.getInstance().findTags(query, event.getGuild(), local, nsfw);
-            if(tags.isEmpty())
-            {
-                Sender.sendResponse(SpConst.WARNING+"No tags found matching \""+query+"\"!", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            StringBuilder builder = new StringBuilder(SpConst.SUCCESS).append(tags.size()).append(" tags found");
-            if(query!=null)
-                builder.append(" containing \"").append(query).append("\"");
-            builder.append(":\n");
-            tags.stream().forEach((tag) -> {
-                builder.append(tag[Tags.TAGNAME]).append(" ");
-            });
-            Sender.sendResponse(builder.toString(),event.getChannel(), event.getMessage().getId());
-            return true;
-        }
-    }
-
-    private class TagOverride extends Command
-    {
-        private TagOverride()
-        {
-            this.command = "override";
-            this.help = "creates an override for the current server";
-            //this.longhelp = "";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true),
-                    new Argument("new contents",Argument.Type.LONGSTRING,false)
-            };
-            this.level = PermLevel.MODERATOR;
-            this.availableInDM = false;
-            this.children = new Command[]{
-                    new TagOverrideList()
-            };
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event)
-        {
-            String tagname = (String)(args[0]);
-            String contents = args[1]==null?null:(String)(args[1]);
-            if(contents==null)
-                contents = "This tag was removed by **"+event.getAuthor().getUsername()+"**";
-            String[] tag = Overrides.getInstance().findTag(event.getGuild(), tagname, true);
-            if(tag==null)
-                tag = Tags.getInstance().findTag(tagname);
-            if(tag==null)//nothing to edit
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            else
-            {
-                Overrides.getInstance().setTag(new String[]{"g"+event.getGuild().getId(),tag[Overrides.TAGNAME],contents});
-                Sender.sendResponse(SpConst.SUCCESS+"Tag \""+tag[Tags.TAGNAME]+"\" overriden successfully.", event.getChannel(), event.getMessage().getId());
-                return true;
-            }
-        }
-
-        private class TagOverrideList extends Command
-        {
-            private TagOverrideList()
-            {
-                this.command = "list";
-                this.help = "lists tag overrides on the current server";
-                this.level = PermLevel.MODERATOR;
-                this.availableInDM = false;
-            }
-            @Override
-            protected boolean execute(Object[] args, MessageReceivedEvent event)
-            {
-                List<String> list = Overrides.getInstance().findGuildTags(event.getGuild());
-                if(list.isEmpty())
-                    Sender.sendResponse(SpConst.WARNING+"No tags have been overriden on **"+event.getGuild().getName()+"**", event.getChannel(), event.getMessage().getId());
-                else
-                {
-                    Collections.sort(list);
-                    StringBuilder builder = new StringBuilder(SpConst.SUCCESS+list.size()+" tag overrides on **"+event.getGuild().getName()+"**:\n");
-                    list.stream().forEach((tag) -> {
-                        builder.append(tag).append(" ");
-                    });
-                    Sender.sendResponse(builder.toString(), event.getChannel(), event.getMessage().getId());
-                }
-                return true;
-            }
-        }
-    }
-
-    private class TagRestore extends Command
-    {
-        private TagRestore()
-        {
-            this.command = "restore";
-            this.help = "restores a tag from overriden state";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true),
-            };
-            this.level = PermLevel.MODERATOR;
-            this.availableInDM = false;
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event) {
-            String tagname = (String)(args[0]);
-            String[] tag = Overrides.getInstance().findTag(event.getGuild(), tagname, true);
-            if(tag==null)
-            {
-                Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" is not currently overriden", event.getChannel(), event.getMessage().getId());
-                return false;
-            }
-            else
-            {
-                Overrides.getInstance().removeTag(tag);
-                Sender.sendResponse(SpConst.SUCCESS+"Tag \""+tag[Tags.TAGNAME]+"\" restored successfully.", event.getChannel(), event.getMessage().getId());
-                return true;
-            }
-        }
-    }
-
-    private class TagImport extends Command
-    {
-        private TagImport()
-        {
-            this.command = "import";
-            this.help = "imports a tag from a tag command";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true),
-            };
-            this.level = PermLevel.ADMIN;
-            this.availableInDM = false;
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event) {
-            String tagname = (String)(args[0]);
-            String[] imports = Settings.tagCommandsFromList(Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGIMPORTS]);
-            boolean found = false;
-            for(String tag : imports)
-                if(tag.equalsIgnoreCase(tagname))
-                    found = true;
-            if(!found)
-            {
-                String[] tag = Overrides.getInstance().findTag(event.getGuild(), tagname, true);
-                if(tag==null)
-                    tag = Tags.getInstance().findTag(tagname);
-                if(tag==null)//nothing to import
-                {
-                    Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" could not be found", event.getChannel(), event.getMessage().getId());
-                    return false;
-                }
-                else
-                {
-                    String cmds = Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGIMPORTS];
-                    Settings.getInstance().setSetting(event.getGuild().getId(), Settings.TAGIMPORTS, cmds==null?tag[Tags.TAGNAME]:cmds+" "+tag[Tags.TAGNAME]);
-                    Sender.sendResponse(SpConst.SUCCESS+"Tag \""+tagname+"\" has been added a tag command", event.getChannel(), event.getMessage().getId());
-                    return true;
-                }
-            }
-            Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" is already a tag command!", event.getChannel(), event.getMessage().getId());
-            return false;
-        }
-    }
-
-    private class TagUnimport extends Command
-    {
-        private TagUnimport()
-        {
-            this.command = "unimport";
-            this.help = "un-imports a tag from a tag command";
-            this.arguments = new Argument[]{
-                    new Argument("tagname",Argument.Type.SHORTSTRING,true),
-            };
-            this.level = PermLevel.ADMIN;
-            this.availableInDM = false;
-        }
-        @Override
-        protected boolean execute(Object[] args, MessageReceivedEvent event) {
-            String tagname = (String)(args[0]);
-            String[] imports = Settings.tagCommandsFromList(Settings.getInstance().getSettingsForGuild(event.getGuild().getId())[Settings.TAGIMPORTS]);
-            boolean found = false;
-            StringBuilder builder = new StringBuilder();
-            for(String tag : imports)
-            {
-                if(tag.equalsIgnoreCase(tagname))
-                    found = true;
-                else
-                    builder.append(tag).append(" ");
-            }
-            if(found)
-            {
-                Settings.getInstance().setSetting(event.getGuild().getId(), Settings.TAGIMPORTS, builder.toString().trim());
-                Sender.sendResponse(SpConst.SUCCESS+"Tag \""+tagname+"\" is no longer a tag command", event.getChannel(), event.getMessage().getId());
-                return true;
-            }
-            Sender.sendResponse(SpConst.ERROR+"Tag \""+tagname+"\" is not currently a tag command!", event.getChannel(), event.getMessage().getId());
-            return false;
-        }
-    }
 }

@@ -31,7 +31,7 @@ public class JoinCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "join");
+        return Arrays.asList(RunBot.PREFIX + "join");
     }
 
     @Override

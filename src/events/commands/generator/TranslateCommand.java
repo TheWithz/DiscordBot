@@ -29,7 +29,7 @@ public class TranslateCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "tran", RunBot.prefix + "translate");
+        return Arrays.asList(RunBot.PREFIX + "tran", RunBot.PREFIX + "translate");
     }
 
     @Override
@@ -44,13 +44,13 @@ public class TranslateCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList(RunBot.prefix + "tran <Original Language> <Translated Language> <Message>");
+        return Collections.singletonList(RunBot.PREFIX + "tran <Original Language> <Translated Language> <Message>");
     }
 
     private void generateTranslatedText(MessageReceivedEvent e, String[] commandArguments) {
         if (commandArguments.length < 4) {
             e.getChannel().sendMessage("Your syntax for this command is incorrect");
-            e.getChannel().sendMessage("**" + RunBot.prefix + "help tran**");
+            e.getChannel().sendMessage("**" + RunBot.PREFIX + "help tran**");
             return;
         }
         //Set your Windows Azure Marketplace client info - See http:msdn.microsoft.com/en-us/library/hh454950.aspx

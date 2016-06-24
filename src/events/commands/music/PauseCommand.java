@@ -19,7 +19,7 @@ public class PauseCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "pause");
+        return Arrays.asList(RunBot.PREFIX + "pause");
     }
 
     @Override

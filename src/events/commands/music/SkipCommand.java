@@ -18,7 +18,7 @@ public class SkipCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "skip");
+        return Arrays.asList(RunBot.PREFIX + "skip");
     }
 
     @Override

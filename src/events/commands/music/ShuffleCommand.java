@@ -24,7 +24,7 @@ public class ShuffleCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "shuffle");
+        return Arrays.asList(RunBot.PREFIX + "shuffle");
     }
 
     @Override

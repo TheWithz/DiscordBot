@@ -30,28 +30,28 @@ public class LinuxCommand extends Command {
             command.append(string);
             command.append(" ");
         });
-        runLinuxCommand(command.toString().substring(RunBot.prefix.length(), command.lastIndexOf(" ")));
+        runLinuxCommand(command.toString().substring(RunBot.PREFIX.length(), command.lastIndexOf(" ")));
     }
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "ping",
-                             RunBot.prefix + "ls",
-                             RunBot.prefix + "curl",
-                             RunBot.prefix + "nmap",
-                             RunBot.prefix + "cat",
-                             RunBot.prefix + "tar",
-                             RunBot.prefix + "touch",
-                             RunBot.prefix + "crunch",
-                             RunBot.prefix + "man",
-                             RunBot.prefix + "grep",
-                             RunBot.prefix + "mkdir",
-                             RunBot.prefix + "mv",
-                             RunBot.prefix + "stat",
-                             RunBot.prefix + "python3",
-                             RunBot.prefix + "cd",
-                             RunBot.prefix + "echo",
-                             RunBot.prefix + "cp");
+        return Arrays.asList(RunBot.PREFIX + "ping",
+                             RunBot.PREFIX + "ls",
+                             RunBot.PREFIX + "curl",
+                             RunBot.PREFIX + "nmap",
+                             RunBot.PREFIX + "cat",
+                             RunBot.PREFIX + "tar",
+                             RunBot.PREFIX + "touch",
+                             RunBot.PREFIX + "crunch",
+                             RunBot.PREFIX + "man",
+                             RunBot.PREFIX + "grep",
+                             RunBot.PREFIX + "mkdir",
+                             RunBot.PREFIX + "mv",
+                             RunBot.PREFIX + "stat",
+                             RunBot.PREFIX + "python3",
+                             RunBot.PREFIX + "cd",
+                             RunBot.PREFIX + "echo",
+                             RunBot.PREFIX + "cp");
     }
 
     // TODO: 2/27/16 fill out override methods

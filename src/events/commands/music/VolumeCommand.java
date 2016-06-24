@@ -25,7 +25,7 @@ public class VolumeCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "volume");
+        return Arrays.asList(RunBot.PREFIX + "volume");
     }
 
     @Override
@@ -40,6 +40,6 @@ public class VolumeCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.prefix + "volume");
+        return Arrays.asList(RunBot.PREFIX + "volume");
     }
 }

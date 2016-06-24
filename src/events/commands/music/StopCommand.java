@@ -18,7 +18,7 @@ public class StopCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "stop");
+        return Arrays.asList(RunBot.PREFIX + "stop");
     }
 
     @Override

@@ -21,13 +21,13 @@ public class SearchCommand extends Command {
 
 //        String filter = null;
 //        switch (args[0]) {
-//            case RunBot.prefix + "google":
-//            case RunBot.prefix + "g":
+//            case RunBot.PREFIX + "google":
+//            case RunBot.PREFIX + "g":
 //                break;
-//            case RunBot.prefix + "wiki":
+//            case RunBot.PREFIX + "wiki":
 //                filter = "wiki";
 //                break;
-//            case RunBot.prefix + "urban":
+//            case RunBot.PREFIX + "urban":
 //                filter = "site:urbandictionary.com";
 //                break;
 //            default:
@@ -42,7 +42,7 @@ public class SearchCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "google", RunBot.prefix + "g", RunBot.prefix + "wiki", RunBot.prefix + "urban");
+        return Arrays.asList(RunBot.PREFIX + "google", RunBot.PREFIX + "g", RunBot.PREFIX + "wiki", RunBot.PREFIX + "urban");
     }
 
     @Override
@@ -58,6 +58,6 @@ public class SearchCommand extends Command {
     @Override
     public List<String> getUsageInstructions() {
         return Collections.singletonList(
-                RunBot.prefix + "google *<search terms>  **OR** " + RunBot.prefix + "wiki *<search terms>*  **OR**  " + RunBot.prefix + "urban *<search terms>*\n");
+                RunBot.PREFIX + "google *<search terms>  **OR** " + RunBot.PREFIX + "wiki *<search terms>*  **OR**  " + RunBot.PREFIX + "urban *<search terms>*\n");
     }
 }

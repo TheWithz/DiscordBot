@@ -1,5 +1,6 @@
 package misc;
 
+import events.commands.TagCommand;
 import events.commands.TodoCommand;
 
 import java.sql.*;
@@ -30,29 +31,36 @@ public class Database {
             statement.execute("PRAGMA foreign_keys = ON");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS Ops(id)");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
-                    "TodoLists(" +
-                    "id INTEGER," +
-                    "label VARCHAR(50) NOT NULL," +
-                    "owner VARCHAR(18) NOT NULL," +
-                    "locked BOOLEAN," +
-                    "PRIMARY KEY (id)" +
-                    ")");
+                                            "TodoLists(" +
+                                            "id INTEGER," +
+                                            "label VARCHAR(50) NOT NULL," +
+                                            "owner VARCHAR(18) NOT NULL," +
+                                            "locked BOOLEAN," +
+                                            "PRIMARY KEY (id)" +
+                                            ")");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
-                    "TodoEntries(" +
-                    "id INTEGER," +
-                    "listId INTEGER," +
-                    "content TEXT NOT NULL," +
-                    "checked BOOLEAN," +
-                    "PRIMARY KEY (id)," +
-                    "FOREIGN KEY (listId) REFERENCES TodoLists(id) ON DELETE CASCADE" +
-                    ")");
+                                            "TodoEntries(" +
+                                            "id INTEGER," +
+                                            "listId INTEGER," +
+                                            "content TEXT NOT NULL," +
+                                            "checked BOOLEAN," +
+                                            "PRIMARY KEY (id)," +
+                                            "FOREIGN KEY (listId) REFERENCES TodoLists(id) ON DELETE CASCADE" +
+                                            ")");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
-                    "TodoUsers(" +
-                    "listId INT," +
-                    "userId VARCHAR(18) NOT NULL," +
-                    "PRIMARY KEY (listId, userId)," +
-                    "FOREIGN KEY (listId) REFERENCES TodoLists(id) ON DELETE CASCADE" +
-                    ")");
+                                            "TodoUsers(" +
+                                            "listId INT," +
+                                            "userId VARCHAR(18) NOT NULL," +
+                                            "PRIMARY KEY (listId, userId)," +
+                                            "FOREIGN KEY (listId) REFERENCES TodoLists(id) ON DELETE CASCADE" +
+                                            ")");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
+                                            "Tags(" +
+                                            "id INTEGER," +
+                                            "label TEXT NOT NULL," +
+                                            "content TEXT NOT NULL," +
+                                            "PRIMARY KEY (id)" +
+                                            ")");
 
             //Permissions
             preparedStatements.put(Permissions.ADD_OP, conn.prepareStatement("REPLACE INTO Ops (id) VALUES (?)"));
@@ -73,6 +81,14 @@ public class Database {
             preparedStatements.put(TodoCommand.REMOVE_TODO_LIST, conn.prepareStatement("DELETE FROM TodoLists WHERE id = ?"));
             preparedStatements.put(TodoCommand.REMOVE_TODO_ENTRY, conn.prepareStatement("DELETE FROM TodoEntries WHERE id = ?"));
             preparedStatements.put(TodoCommand.REMOVE_TODO_USER, conn.prepareStatement("DELETE FROM TodoUsers WHERE listId = ? AND userId = ?"));
+
+            //TagCommand
+            preparedStatements.put(TagCommand.ADD_TAG, conn.prepareStatement("INSERT INTO Tags (label, content) VALUES (?, ?)"));
+            preparedStatements.put(TagCommand.EDIT_TAG, conn.prepareStatement("UPDATE Tags SET content = ? WHERE label = ?"));
+            preparedStatements.put(TagCommand.GET_TAG, conn.prepareStatement("SELECT content FROM Tags WHERE id = ? AND label = ?"));
+            preparedStatements.put(TagCommand.GET_TAGS, conn.prepareStatement("SELECT id, label, content FROM Tags"));
+            preparedStatements.put(TagCommand.REMOVE_TAG, conn.prepareStatement("DELETE FROM Tags WHERE id = ? AND label = ?"));
+
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {

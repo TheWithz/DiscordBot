@@ -22,7 +22,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.prefix + "calc", RunBot.prefix + "calculate");
+        return Arrays.asList(RunBot.PREFIX + "calc", RunBot.PREFIX + "calculate");
     }
 
     @Override
@@ -37,7 +37,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Collections.singletonList(RunBot.prefix + "calc <Mathematical Expression>");
+        return Collections.singletonList(RunBot.PREFIX + "calc <Mathematical Expression>");
     }
 
     private String calculate(String[] commandArguments) {
