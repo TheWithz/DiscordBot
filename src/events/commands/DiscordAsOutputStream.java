@@ -23,7 +23,7 @@ public class DiscordAsOutputStream extends OutputStream {
     @Override
     public void write(int b) {
         if (b == '\n') {
-            anotatedText.append((char)b);
+            anotatedText.append((char) b);
             finalOutput.append(anotatedText.toString());
             anotatedText = new StringBuilder();
             return;
@@ -32,11 +32,12 @@ public class DiscordAsOutputStream extends OutputStream {
     }
 
     public void myPrint() {
-        if(finalOutput.length() > 0) {
+        if (finalOutput.length() > 0) {
             if (finalOutput.length() <= 2000)
                 outChannel.sendMessage(finalOutput.toString());
             else
                 RunBot.printAsFile(outChannel, finalOutput, "EvalOutput");
         }
+        finalOutput = new StringBuilder();
     }
 }

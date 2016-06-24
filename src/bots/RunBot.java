@@ -2,6 +2,7 @@ package bots;
 
 import events.LogHandler;
 import events.LoginHandler;
+import events.TerminalHandler;
 import events.commands.*;
 import events.commands.generator.*;
 import events.commands.music.*;
@@ -48,6 +49,7 @@ public class RunBot {
             API = new JDABuilder().setBotToken(obj.getString("testBotToken"))
                                   .addListener(new LoginHandler())
                                   .addListener(new LogHandler())
+                                  .addListener(new TerminalHandler())
                                   .addListener(help.registerCommand(help))
                                   .addListener(help.registerCommand(new TranslateCommand()))
                                   .addListener(help.registerCommand(new CalculatorCommand()))

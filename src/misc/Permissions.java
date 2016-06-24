@@ -30,7 +30,7 @@ public class Permissions {
                 ops.add(opsSet.getString("id"));
             }
             if (ops.size() == 0) {
-                //TODO: Once we interact with the CLI, request an OP here. For now, default to make bot OP.
+                ops.add("122764399961309184");
             }
         } catch (SQLException e) {
             e.printStackTrace();
