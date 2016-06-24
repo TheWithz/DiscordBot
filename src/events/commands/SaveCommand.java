@@ -133,12 +133,12 @@ public class SaveCommand extends Command {
 
     @Override
     public String getDescription() {
-        return "Stores a value and a key into a designated .json file for later use";
+        return "Stores a value and a key into a designated json file for later use";
     }
 
     @Override
     public String getName() {
-        return "Save Command";
+        return "Json Command";
     }
 
     @Override
