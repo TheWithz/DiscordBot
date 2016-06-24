@@ -41,8 +41,8 @@ public class RunBot {
     public RunBot() {
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Config.json"))));
-            client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
-                    .getString("gitPassword"));
+            //client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
+            //        .getString("gitPassword"));
             HelpCommand help = new HelpCommand();
             API = new JDABuilder().setBotToken(obj.getString("testBotToken"))
                                   .addListener(new LoginHandler())

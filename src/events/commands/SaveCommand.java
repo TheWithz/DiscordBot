@@ -1,4 +1,4 @@
-package events.commands.music;
+package events.commands;
 
 import bots.RunBot;
 import events.commands.Command;
@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -21,22 +22,41 @@ public class SaveCommand extends Command {
         if (RunBot.OpRequired(event))
             return;
 
-        RunBot.checkArgs(args, 1, ":x: No json was specified to save to. See " + RunBot.PREFIX + "help " + getAliases().get(0));
-        RunBot.checkArgs(args, 2, ":x: No key was specified to save as. See " + RunBot.PREFIX + "help " + getAliases().get(0));
-        RunBot.checkArgs(args, 3, ":x: No content was specified to save. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 1, ":x: No json action argument was specified. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 2, ":x: No json was specified to save to. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 3, ":x: No key was specified to save as. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 4, ":x: No content was specified to save. See " + RunBot.PREFIX + "help " + getAliases().get(0));
 
-        switch (args[0]) {
-            case RunBot.PREFIX + "jsonSave":
+        switch (args[1]) {
+            case "save":
+            case "add":
                 handleSave(event, args);
                 break;
-            case RunBot.PREFIX + "jsonRemove":
+            case "remove":
+            case "delete":
+                handleRemove(event, args);
+                break;
+            case "new":
+            case "create":
+                handleMakeNewJson(event, args);
+            default:
+                sendMessage(event, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
                 break;
         }
 
     }
 
+    private void handleMakeNewJson(MessageReceivedEvent event, String[] args) {
+
+    }
+
+    private void handleRemove(MessageReceivedEvent event, String[] args) {
+
+    }
+
     private void handleSave(MessageReceivedEvent event, String[] args) {
-        switch (args[1]) {
+        switch (args[2]) {
             case "latex":
                 handleLatex(event, args);
                 break;
@@ -51,7 +71,7 @@ public class SaveCommand extends Command {
                 handleConfig(event, args);
                 break;
             default:
-                sendMessage(event, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                sendMessage(event, ":x: Unknown json file: `" + args[2] + "` was provided. " +
                         "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
                 break;
         }
@@ -62,7 +82,7 @@ public class SaveCommand extends Command {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/commonLatex.json"))));
             if (checkKeyExists(obj, event, args))
                 return;
-            obj.put(args[2], args[3]);
+            obj.put(args[3], args[4]);
             Files.write(Paths.get("resources/commonLatex.json"), obj.toString().getBytes());
             sendMessage(event, ":white_check_mark: The JSON file was updated successfully.");
         } catch (IOException e) {
@@ -75,7 +95,7 @@ public class SaveCommand extends Command {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
             if (checkKeyExists(obj, event, args))
                 return;
-            obj.put(args[2], args[3]);
+            obj.put(args[3], args[4]);
             Files.write(Paths.get("resources/Playlists.json"), obj.toString().getBytes());
             sendMessage(event, ":white_check_mark: The JSON file was updated successfully.");
         } catch (IOException e) {
@@ -88,7 +108,7 @@ public class SaveCommand extends Command {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Config.json"))));
             if (checkKeyExists(obj, event, args))
                 return;
-            obj.put(args[2], args[3]);
+            obj.put(args[3], args[4]);
             Files.write(Paths.get("resources/Config.json"), obj.toString().getBytes());
             sendMessage(event, ":white_check_mark: The JSON file was updated successfully.");
         } catch (IOException e) {
@@ -108,7 +128,7 @@ public class SaveCommand extends Command {
 
     @Override
     public List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "jsonSave", RunBot.PREFIX + "jsonRemove");
+        return Collections.singletonList(RunBot.PREFIX + "json");
     }
 
     @Override
@@ -123,7 +143,7 @@ public class SaveCommand extends Command {
 
     @Override
     public List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.PREFIX + "save <json file> <key> <value>", "Example : " + RunBot.PREFIX + "save playlist 80smix <url" +
+        return Arrays.asList(RunBot.PREFIX + "json save <json file> <key> <value>", "Example : " + RunBot.PREFIX + "json save playlist 80smix <url" +
                 " of playlist>");
     }
 }
