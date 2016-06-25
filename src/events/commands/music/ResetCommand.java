@@ -37,7 +37,17 @@ public class ResetCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(RunBot.PREFIX + "reset");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsEveryone();
     }
 }

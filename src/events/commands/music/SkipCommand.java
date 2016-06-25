@@ -32,7 +32,17 @@ public class SkipCommand extends Command {
     }
 
     @Override
-    public java.util.List<String> getUsageInstructions() {
+    public java.util.List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
         return null;
     }
 }

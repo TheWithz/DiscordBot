@@ -7,6 +7,7 @@ import net.dv8tion.jda.player.source.AudioInfo;
 import net.dv8tion.jda.player.source.AudioTimestamp;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -47,7 +48,17 @@ public class NowPlayingCommand extends Command {
     }
 
     @Override
-    public java.util.List<String> getUsageInstructions() {
+    public java.util.List<String> getUsageInstructionsEveryone() {
         return Arrays.asList(RunBot.PREFIX + "nowplaying", RunBot.PREFIX + "currentsong", RunBot.PREFIX + "current");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsEveryone();
     }
 }

@@ -8,7 +8,6 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -141,8 +140,17 @@ public class JsonCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
-        return Arrays.asList(RunBot.PREFIX + "json save <json file> <key> <value>", "Example : " + RunBot.PREFIX + "json save playlist 80smix <url" +
-                " of playlist>");
+    public List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return null;
     }
 }

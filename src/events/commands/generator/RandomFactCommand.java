@@ -37,8 +37,18 @@ public class RandomFactCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(RunBot.PREFIX + "fact");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsEveryone();
     }
 
     private void generateRandomFact(MessageReceivedEvent e) {

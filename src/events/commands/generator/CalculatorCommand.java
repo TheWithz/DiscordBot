@@ -27,7 +27,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public String getDescription() {
-        return "Command that calculates an expression!";
+        return "Calculates a given expression.";
     }
 
     @Override
@@ -36,8 +36,18 @@ public class CalculatorCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
-        return Collections.singletonList(RunBot.PREFIX + "calc <Mathematical Expression>");
+    public List<String> getUsageInstructionsEveryone() {
+        return Collections.singletonList(getAliases().get(0) + " <Mathematical Expression>");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsEveryone();
     }
 
     private String calculate(String[] commandArguments) {

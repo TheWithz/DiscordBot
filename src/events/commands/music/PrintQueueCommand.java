@@ -14,6 +14,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -95,7 +96,17 @@ public class PrintQueueCommand extends Command {
     }
 
     @Override
-    public java.util.List<String> getUsageInstructions() {
+    public java.util.List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(RunBot.PREFIX + "printQueue");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsEveryone();
     }
 }

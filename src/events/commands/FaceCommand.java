@@ -30,7 +30,17 @@ public class FaceCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
         return null;
     }
 

@@ -23,6 +23,11 @@ import java.util.List;
 public class PlayCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if (AudioUtil.player == null) {
+            sendMessage(event, ":x: You cannot play songs without establishing an audio connection first.");
+            return;
+        }
+
         if (args.length == 1) {
             handlePlay(event);
             return;
@@ -147,7 +152,17 @@ public class PlayCommand extends Command {
     }
 
     @Override
-    public java.util.List<String> getUsageInstructions() {
+    public java.util.List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
         return null;
     }
 }

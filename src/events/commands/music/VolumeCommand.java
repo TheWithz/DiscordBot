@@ -5,6 +5,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -42,7 +43,17 @@ public class VolumeCommand extends Command {
     }
 
     @Override
-    public java.util.List<String> getUsageInstructions() {
+    public java.util.List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(RunBot.PREFIX + "volume");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsEveryone();
     }
 }

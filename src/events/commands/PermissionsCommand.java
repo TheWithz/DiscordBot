@@ -19,10 +19,8 @@ public class PermissionsCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        if (!Permissions.getPermissions().isOp(e.getAuthor())) {
-            sendMessage(e, Permissions.OP_REQUIRED_MESSAGE);
+        if (RunBot.OwnerRequired(e))
             return;
-        }
 
         if (args[0].contains(RunBot.PREFIX + "perms") || args[0].contains(RunBot.PREFIX + "permissions")) {
             args = ArrayUtils.subarray(args, 1, args.length);   //We cut off the .perms or .permissions to make the array behave as .op would
@@ -66,7 +64,17 @@ public class PermissionsCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
         return Collections.singletonList(
                 RunBot.PREFIX + "perms *<group> <action> <user>*\n"
                         + "Groups:  [op]\n"

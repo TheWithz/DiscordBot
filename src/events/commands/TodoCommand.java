@@ -162,7 +162,7 @@ public class TodoCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
         return Arrays.asList(
                 String.format(
                         "%1$s [Action] <Action Arguments>\n" +
@@ -214,6 +214,16 @@ public class TodoCommand extends Command {
                                 "__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__\n" +
                                 "       Example: `%1$s remove project5` Completely deletes the project5 todo list.\n",
                         getAliases().get(0)));
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsOp();
     }
 
     //alias show [ListName]

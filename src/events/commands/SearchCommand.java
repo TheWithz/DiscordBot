@@ -57,8 +57,18 @@ public class SearchCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(
                 RunBot.PREFIX + "google *<search terms>  **OR** " + RunBot.PREFIX + "wiki *<search terms>*  **OR**  " + RunBot.PREFIX + "urban *<search terms>*\n");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsEveryone();
     }
 }

@@ -1,8 +1,8 @@
 package events.commands.generator;
 
 import bots.RunBot;
-import events.commands.Command;
 import events.commands.BashCommand;
+import events.commands.Command;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.ArrayUtils;
@@ -31,14 +31,14 @@ public class LatexCommand extends Command {
                 handleShow(event, args);
                 break;
             case "list":
-                handleList(event, args);
+                handleList(event);
                 break;
             default:
                 break;
         }
     }
 
-    private void handleList(MessageReceivedEvent event, String[] args) {
+    private void handleList(MessageReceivedEvent event) {
         StringBuilder builder = new StringBuilder();
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/commonLatex.json"))));
@@ -156,7 +156,17 @@ public class LatexCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
         return null;
     }
 }

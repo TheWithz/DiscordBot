@@ -4,7 +4,6 @@ import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,7 +38,17 @@ public class ShuffleCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
         return null;
     }
 }

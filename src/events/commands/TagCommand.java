@@ -99,7 +99,17 @@ public class TagCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return null;
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
         return null;
     }
 
@@ -114,10 +124,10 @@ public class TagCommand extends Command {
         }
 
         if (tag.content.length() >= 1950) {
-            sendMessage(e, "```Showing tag: [" + tag.label + "]```");
+            sendMessage(e, "```fix\nShowing tag: [" + tag.label + "]```");
             RunBot.printAsFile(e.getTextChannel(), new StringBuilder(tag.content), tag.label);
         } else
-            sendMessage(e, "```Showing tag: [" + tag.label + "]```" + tag.content);
+            sendMessage(e, "```fix\nShowing tag: [" + tag.label + "]```" + tag.content);
     }
 
     private void handleCreate(MessageReceivedEvent e, String[] args) throws SQLException {

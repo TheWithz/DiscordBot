@@ -22,6 +22,10 @@ public class Permissions {
     private static Permissions permissions;
     private ArrayList<String> ops;
 
+    public enum Perm {
+        OP_ONLY, OWNER_ONLY, EVERYONE
+    }
+
     private Permissions() {
         ops = new ArrayList<String>();
         try {

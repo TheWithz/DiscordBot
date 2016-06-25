@@ -33,8 +33,18 @@ public class RandomNumberCommand extends Command {
     }
 
     @Override
-    public List<String> getUsageInstructions() {
+    public List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(RunBot.PREFIX + "rnum <Integer>");
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOp() {
+        return getUsageInstructionsEveryone();
+    }
+
+    @Override
+    public List<String> getUsageInstructionsOwner() {
+        return getUsageInstructionsOp();
     }
 
     private void generateRandomNumber(MessageReceivedEvent e, String[] args) {
