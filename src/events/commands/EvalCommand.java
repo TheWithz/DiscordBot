@@ -29,7 +29,7 @@ public class EvalCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        RunBot.checkArgs(args, 1, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 1, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
         if (RunBot.OwnerRequired(e))
             return;

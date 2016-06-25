@@ -61,16 +61,16 @@ public class PlayCommand extends Command {
     }
 
     private void handlePlaylist(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 2, ":x: No local playlist was provided to play from. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 2, ":x: No local playlist was provided to play from. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         Thread thread = new Thread() {
             @Override
             public void run() {
                 try {
                     JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
-                    event.getChannel().sendMessage(RunBot.PREFIX + "play " + obj.getString(args[2]));
+                    handleUrl(event, new String[]{args[0], "url", obj.getString(args[2].toLowerCase())});
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    sendMessage(event, e.getMessage());
                 }
             }
         };
@@ -78,10 +78,10 @@ public class PlayCommand extends Command {
     }
 
     private void handleUrl(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 2, ":x: No URL was provided to play from. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 2, ":x: No URL was provided to play from. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         String msg = "";
-        String url = args[1];
+        String url = args[2];
         Playlist playlist = Playlist.getPlaylist(url);
         List<AudioSource> sources = new LinkedList(playlist.getSources());
 //                AudioSource source = new RemoteSource(url);

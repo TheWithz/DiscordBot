@@ -13,7 +13,7 @@ public class VolumeCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 1, ":x: No volume was specified to change to. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 1, ":x: No volume was specified to change to. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         if (AudioUtil.player == null) {
             event.getChannel().sendMessage(":x: Cannot change volume of player at this time");

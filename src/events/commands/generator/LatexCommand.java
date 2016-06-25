@@ -24,7 +24,7 @@ public class LatexCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 1, ":x: No Action argument was provided. Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+        RunBot.checkArgs(args, 1, ":x: No Action argument was provided. Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", event);
 
         switch (args[1]) {
             case "show":
@@ -58,7 +58,7 @@ public class LatexCommand extends Command {
     }
 
     private void handleShow(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 2, "No modifier provided. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 2, "No modifier provided. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         switch (args[2]) {
             case "preset":
@@ -76,7 +76,7 @@ public class LatexCommand extends Command {
     }
 
     private void handleRaw(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 3, ":x: No latex provided. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 3, ":x: No latex provided. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         System.out.println(BashCommand.runLinuxCommand("rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux"));
         System.out.println(BashCommand.runLinuxCommand("touch latex.tex"));
@@ -93,7 +93,7 @@ public class LatexCommand extends Command {
     }
 
     private void handleShowPresets(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 3, ":x: No preset provided. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 3, ":x: No preset provided. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         System.out.println(BashCommand.runLinuxCommand("rm latex.tex && rm latex.dvi && rm latex.png && rm latex.aux"));
         System.out.println(BashCommand.runLinuxCommand("touch latex.tex"));

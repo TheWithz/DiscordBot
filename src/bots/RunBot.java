@@ -147,9 +147,18 @@ public class RunBot {
         file.delete();
     }
 
-    public static void checkArgs(String[] args, int index, String failMessage) {
-        if (args.length < (index + 1))
+    public static void checkArgs(String[] args, int index, String failMessage, MessageReceivedEvent e) {
+        if (args.length < (index + 1)) {
+            e.getChannel().sendMessage(failMessage);
             throw new IllegalArgumentException(failMessage);
+        }
+    }
+
+    public static void checkArgs(String[] args, int index, String failMessage, TextChannel tc) {
+        if (args.length < (index + 1)) {
+            tc.sendMessage(failMessage);
+            throw new IllegalArgumentException(failMessage);
+        }
     }
 
     public static boolean OpRequired(MessageReceivedEvent e) {

@@ -14,7 +14,7 @@ public class JoinCommand extends Command {
     //Start an audio connection with a VoiceChannel
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 1, ":x: No Channel was specified to join. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 1, ":x: No Channel was specified to join. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
         //Separates the name of the channel so that we can search for it
         String chanName = args[1];
 

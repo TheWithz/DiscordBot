@@ -38,7 +38,7 @@ public class RandomNumberCommand extends Command {
     }
 
     private void generateRandomNumber(MessageReceivedEvent e, String[] args) {
-        RunBot.checkArgs(args, 1, ":x: No Integer was provided. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 1, ":x: No Integer was provided. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
         try {
             long rnum = (long) (Long.parseLong(args[1]) * Math.random() + 1);
             e.getChannel().sendMessage(":white_check_mark: your number is: " + rnum);

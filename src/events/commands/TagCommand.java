@@ -8,7 +8,10 @@ import org.apache.commons.lang3.StringUtils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by NathanWithz on 6/23/2016.
@@ -44,7 +47,7 @@ public class TagCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
         try {
-            RunBot.checkArgs(args, 1, ":x: No Action argument was provided. Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+            RunBot.checkArgs(args, 1, ":x: No Action argument was provided. Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", e);
 
             switch (args[1].toLowerCase()) {
                 case "show":
@@ -101,7 +104,7 @@ public class TagCommand extends Command {
     }
 
     private void handleShow(MessageReceivedEvent e, String[] args) {
-        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " show [TagLabel]`");
+        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " show [TagLabel]`", e);
 
         String label = args[2].toLowerCase();
         Tag tag = tags.get(label);
@@ -121,8 +124,8 @@ public class TagCommand extends Command {
         if (RunBot.OpRequired(e))
             return;
 
-        RunBot.checkArgs(args, 2, ":x: No TagLabel for the new tag was provided. Usage: `" + getAliases().get(0) + " create [TagLabel] [Content]`");
-        RunBot.checkArgs(args, 3, ":x: No Content for the new tag was provided. Usage: `" + getAliases().get(0) + " create [TagLabel] [Content]`");
+        RunBot.checkArgs(args, 2, ":x: No TagLabel for the new tag was provided. Usage: `" + getAliases().get(0) + " create [TagLabel] [Content]`", e);
+        RunBot.checkArgs(args, 3, ":x: No Content for the new tag was provided. Usage: `" + getAliases().get(0) + " create [TagLabel] [Content]`", e);
 
         String label = args[2].toLowerCase();
         String content = StringUtils.join(args, " ", 3, args.length);
@@ -151,7 +154,7 @@ public class TagCommand extends Command {
         if (RunBot.OpRequired(e))
             return;
 
-        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " remove [TagLabel]`");
+        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " remove [TagLabel]`", e);
 
         String label = args[2].toLowerCase();
         Tag tag = tags.get(label);
@@ -175,9 +178,9 @@ public class TagCommand extends Command {
         if (RunBot.OpRequired(e))
             return;
 
-        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`");
+        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`",e );
         RunBot.checkArgs(args, 3, ":x: No Content was specified. Cannot edit a tag so that it does not exist" +
-                "Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`");
+                "Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`",e );
 
         String label = args[2].toLowerCase();
         String content = StringUtils.join(args, " ", 3, args.length);
@@ -210,7 +213,7 @@ public class TagCommand extends Command {
         StringBuilder builder = new StringBuilder();
         builder.append("```fix\nShowing list of tags``````css\n");
         List<String> labels = new ArrayList<>(tags.keySet());
-        for(int i = 0; i < tags.keySet().size(); i++){
+        for (int i = 0; i < tags.keySet().size(); i++) {
             builder.append(i + 1).append(") ").append(labels.get(i)).append("\n");
         }
         sendMessage(e, builder.append("```").toString());

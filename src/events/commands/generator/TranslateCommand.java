@@ -46,9 +46,9 @@ public class TranslateCommand extends Command {
     }
 
     private void generateTranslatedText(MessageReceivedEvent e, String[] commandArguments) {
-        RunBot.checkArgs(commandArguments, 2, ":x: No language was specified to translate from. See " + RunBot.PREFIX + "help " + getAliases().get(0));
-        RunBot.checkArgs(commandArguments, 3, ":x: No language was specified to translate to. See " + RunBot.PREFIX + "help " + getAliases().get(0));
-        RunBot.checkArgs(commandArguments, 4, ":x: No Content was specified to translate. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(commandArguments, 2, ":x: No language was specified to translate from. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+        RunBot.checkArgs(commandArguments, 3, ":x: No language was specified to translate to. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+        RunBot.checkArgs(commandArguments, 4, ":x: No Content was specified to translate. See " + RunBot.PREFIX + "help " + getAliases().get(0),e );
 
         //Set your Windows Azure Marketplace client info - See http:msdn.microsoft.com/en-us/library/hh454950.aspx
         Translate.setClientId(MICROSOFT_CLIENT_ID);

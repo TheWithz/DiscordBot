@@ -21,10 +21,10 @@ public class JsonCommand extends Command {
         if (RunBot.OpRequired(event))
             return;
 
-        RunBot.checkArgs(args, 1, ":x: No json action argument was specified. See " + RunBot.PREFIX + "help " + getAliases().get(0));
-        RunBot.checkArgs(args, 2, ":x: No json was specified to save to. See " + RunBot.PREFIX + "help " + getAliases().get(0));
-        RunBot.checkArgs(args, 3, ":x: No key was specified to save as. See " + RunBot.PREFIX + "help " + getAliases().get(0));
-        RunBot.checkArgs(args, 4, ":x: No content was specified to save. See " + RunBot.PREFIX + "help " + getAliases().get(0));
+        RunBot.checkArgs(args, 1, ":x: No json action argument was specified. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+        RunBot.checkArgs(args, 2, ":x: No json was specified to save to. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+        RunBot.checkArgs(args, 3, ":x: No key was specified to save as. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+        RunBot.checkArgs(args, 4, ":x: No content was specified to save. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         switch (args[1]) {
             case "save":
@@ -38,6 +38,7 @@ public class JsonCommand extends Command {
             case "new":
             case "create":
                 handleMakeNewJson(event, args);
+                break;
             default:
                 sendMessage(event, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
                         "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
@@ -60,6 +61,7 @@ public class JsonCommand extends Command {
                 handleLatex(event, args);
                 break;
             case "playlist":
+            case "playlists":
                 handlePlaylist(event, args);
                 break;
             case "config":
