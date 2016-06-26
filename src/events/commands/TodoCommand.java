@@ -197,26 +197,26 @@ public class TodoCommand extends Command {
 
                 //Second Usage Message
                 String.format(
-                        "\n**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.\n" +
-                                "Example 1: `%1$s lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`\n" +
-                                "Example 2: `%1$s unlock project5` Unlocks the project5 list so that all users can modify it.\n" +
+                        "\n[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.\n" +
+                                "[[Example 1:](%1$s)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>\n" +
+                                "[[Example 2:](%1$s)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.\n" +
                                 "________________________________________________________________________________________________________\n\n"+
-                                "**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.\n" +
-                                "SubActions:\n" +
+                                "[[users][SubAction]](ListName) <SubAction Args> Used add, remove and list the Auth'd users for a todo list.\n" +
+                                "<SubActions:>\n" +
                                 "\n" +
-                                "**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.\n" +
-                                "Example: `%1$s users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.\n\n" +
-                                "**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.\n" +
-                                "Example: `%1$s users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.\n\n" +
-                                "**list [ListName]** Lists the Owner and Auth'd users for the ListName list.\n" +
-                                "Example: `%1$s users list project5` Lists the owner and all Auth'd users for the project5 list.\n" +
+                                "[add][ListName] <@ mentions...> Adds the mentions users to the Auth'd users for <ListName> list.\n" +
+                                "Example: `%1$s users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the <project5> list.\n\n" +
+                                "**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for <ListName> list.\n" +
+                                "Example: `%1$s users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the <project5> list.\n\n" +
+                                "**list [ListName]** Lists the Owner and Auth'd users for the <ListName> list.\n" +
+                                "Example: `%1$s users list project5` Lists the owner and all Auth'd users for the <project5> list.\n" +
                                 "________________________________________________________________________________________________________\n" +
                                 "\n" +
-                                "**clear [ListName]** - Clears all **completed** todo entries from a list.\n" +
-                                "Example: `%1$s clear project5` Clears all **completed** todo entries in the project5 list\n" +
+                                "[clear][ListName] - Clears all <completed> todo entries from a list.\n" +
+                                "[[Example:](%1$s)][clear] <project5> Clears all <completed> todo entries in the <project5> list\n" +
                                 "\n" +
-                                "**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.\n" +
-                                "Example: `%1$s remove project5` Completely deletes the project5 todo list.\n",
+                                "[remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.\n" +
+                                "[[Example:](%1$s)][remove] <project5> Completely deletes the <project5> todo list.\n",
                         getAliases().get(0)));
     }
 
