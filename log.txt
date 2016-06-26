@@ -378,3 +378,46 @@ Use $$$ to instantiate a command.```
 
 ```
 [2016-06-26 03:55:58.503] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help json
+[2016-06-26 12:30:05.953] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo add botfeatures write website to manage bot, display info, etc.
+[2016-06-26 12:30:06.111] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-06-26 12:30:06.332] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+```
+[2016-06-26 12:31:36.007] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: yas https://images-2.discordapp.net/.eJwFwcsNwyAMANBdGADX5hPIuR2iR0QQQUoCws6lVXfve191z0OtahcZvAJsjXOfm2bpM9Wia-_1KGk01rmfkERS3s9yCQOSI1psMA5D8GiQAKN33vqAkR52iWQcPD-vt4lNj6uq3x_-lCIB.xXaomNw6mizFmBuOoed8GtoqztY.png
