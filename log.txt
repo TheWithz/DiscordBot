@@ -421,3 +421,1588 @@ Todo for: botfeatures
 
 ```
 [2016-06-26 12:31:36.007] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: yas https://images-2.discordapp.net/.eJwFwcsNwyAMANBdGADX5hPIuR2iR0QQQUoCws6lVXfve191z0OtahcZvAJsjXOfm2bpM9Wia-_1KGk01rmfkERS3s9yCQOSI1psMA5D8GiQAKN33vqAkR52iWQcPD-vt4lNj6uq3x_-lCIB.xXaomNw6mizFmBuOoed8GtoqztY.png
+[2016-06-26 13:20:53.530] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-06-26 13:20:53.651] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 13:20:53.710] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][search] : [Allows you to search the internet.](EVERYONE)
+
+[$$$][perms] : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][bash] : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$][eval] : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$][join] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][leave] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][json] : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][play] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 13:53:20.474] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 13:53:20.509] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[Usage:]$$$todo [Action] <Action Arguments>
+__Actions:__
+
+__**show [ListName]** - Shows all todo entries in the [ListName] TodoList.__
+       Example: `$$$todo show shopping-list` would display all entries in the `shopping-list` list.
+
+__**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).__
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+__**create [ListName]** - Creates a new todo list with name [ListName]__
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+
+[2016-06-26 13:53:20.553] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+[Todo Command]( Usage Cont. 2)
+__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__
+     __SubActions__:
+
+       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       __**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.__
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       __**list [ListName]** Lists the Owner and Auth'd users for the ListName list.__
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+__**clear [ListName]** - Clears all **completed** todo entries from a list.__
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+
+[2016-06-26 13:59:31.795] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 13:59:31.869] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[Usage:]$$$todo [Action] <Action Arguments>
+__Actions:__
+
+__**show [ListName]** - Shows all todo entries in the [ListName] TodoList.__
+       Example: `$$$todo show shopping-list` would display all entries in the `shopping-list` list.
+
+__**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).__
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+__**create [ListName]** - Creates a new todo list with name [ListName]__
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 13:59:31.931] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+[Todo Command]( Usage Cont. 2)
+__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__
+     __SubActions__:
+
+       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       __**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.__
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       __**list [ListName]** Lists the Owner and Auth'd users for the ListName list.__
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+__**clear [ListName]** - Clears all **completed** todo entries from a list.__
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+
+[2016-06-26 14:01:25.223] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:01:25.246] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[Usage:]$$$todo [Action] <Action Arguments>
+__Actions:__
+
+__**show [ListName]** - Shows all todo entries in the [ListName] TodoList.__
+       Example: `$$$todo show shopping-list` would display all entries in the `shopping-list` list.
+
+__**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).__
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+__**create [ListName]** - Creates a new todo list with name [ListName]__
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:01:25.364] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command]( Usage Cont. 2)
+__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__
+     __SubActions__:
+
+       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       __**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.__
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       __**list [ListName]** Lists the Owner and Auth'd users for the ListName list.__
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+__**clear [ListName]** - Clears all **completed** todo entries from a list.__
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:02:10.992] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: `:cry:`
+[2016-06-26 14:02:24.641] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: ` :cry: `
+[2016-06-26 14:04:58.354] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:04:58.340] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+__Actions:__
+
+__**show [ListName]** - Shows all todo entries in the [ListName] TodoList.__
+       Example: `$$$todo show shopping-list` would display all entries in the `shopping-list` list.
+
+__**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).__
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+__**create [ListName]** - Creates a new todo list with name [ListName]__
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:04:58.493] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__
+     __SubActions__:
+
+       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       __**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.__
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       __**list [ListName]** Lists the Owner and Auth'd users for the ListName list.__
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+__**clear [ListName]** - Clears all **completed** todo entries from a list.__
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:07:57.849] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: 
+```md
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |```
+[2016-06-26 14:09:24.435] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: 
+```xl
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+Quote break.
+
+> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. ```
+[2016-06-26 14:10:11.938] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: 
+```xl
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>```
+[2016-06-26 14:10:58.747] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: 
+```xl
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](http://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+```
+[2016-06-26 14:11:55.117] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: ###help
+[2016-06-26 14:11:58.852] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-06-26 14:11:58.842] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 14:11:58.978] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```xl
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][search] : [Allows you to search the internet.](EVERYONE)
+
+[$$$][perms] : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][bash] : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$][eval] : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$][join] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][leave] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][json] : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][play] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 14:12:44.046] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-06-26 14:12:44.115] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 14:12:44.177] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```xl
+[$$$](help) : [Command that helps use all other commands!](EVERYONE)
+
+[$$$](tran) : [Command that translates a message!](OP_ONLY)
+
+[$$$](calc) : [Calculates a given expression.](EVERYONE)
+
+[$$$](search) : [Allows you to search the internet.](EVERYONE)
+
+[$$$](perms) : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$](todo) : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$](rnum) : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$](fact) : [Command that generates a random fact!](EVERYONE)
+
+[$$$](bash) : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$](eval) : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$](join) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](leave) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](printQueue) : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$](latex) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](stats) : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$](json) : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$](nowplaying) : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$](pause) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](play) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](repeat) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](reset) : [Resets the audio player](EVERYONE)
+
+[$$$](restart) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](shuffle) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 14:15:19.766] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:15:20.070] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```xl
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+__Actions:__
+
+__**show [ListName]** - Shows all todo entries in the [ListName] TodoList.__
+       Example: `$$$todo show shopping-list` would display all entries in the `shopping-list` list.
+
+__**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).__
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+__**create [ListName]** - Creates a new todo list with name [ListName]__
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:15:20.042] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__
+     __SubActions__:
+
+       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       __**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.__
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       __**list [ListName]** Lists the Owner and Auth'd users for the ListName list.__
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+__**clear [ListName]** - Clears all **completed** todo entries from a list.__
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:16:20.478] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:16:20.567] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+__Actions:__
+
+__**show [ListName]** - Shows all todo entries in the [ListName] TodoList.__
+       Example: `$$$todo show shopping-list` would display all entries in the `shopping-list` list.
+
+__**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).__
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+__**create [ListName]** - Creates a new todo list with name [ListName]__
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:16:20.641] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__
+     __SubActions__:
+
+       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       __**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.__
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       __**list [ListName]** Lists the Owner and Auth'd users for the ListName list.__
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+__**clear [ListName]** - Clears all **completed** todo entries from a list.__
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:16:47.682] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: 
+```md
+<hi Hi>```
+[2016-06-26 14:20:43.715] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:20:43.795] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+       Example: <$$$todo show> shopping-list would display all entries in the <shopping-list> list.
+
+**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+**create [ListName]** - Creates a new todo list with name [ListName]
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:20:43.866] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:21:40.531] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:21:40.625] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+       [[Example:]($$$todo)][show] shopping-list would display all entries in the <shopping-list> list.
+
+**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).
+       Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+       Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+**create [ListName]** - Creates a new todo list with name [ListName]
+       Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.
+       Example: `$$$todo add project5 Fix bug where Users can delete System32`
+**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.
+       Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+       Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+       Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+       Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+       Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+     **Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:21:40.635] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:24:11.150] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:24:11.219] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+	[[Example:]($$$todo)][show] shopping-list would display all entries in the <shopping-list> list.
+
+**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).
+	Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+	Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+**create [ListName]** - Creates a new todo list with name [ListName]
+	Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.
+	Example: `$$$todo add project5 Fix bug where Users can delete System32`
+**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.
+	Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+	Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+	Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+	Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+	Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+	**Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:24:11.275] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:24:31.064] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:24:31.149] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] shopping-list would display all entries in the <shopping-list> list.
+
+**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).
+	Example 1: `$$$todo lists`  Displays lists owned by the User that executed the command.
+	Example 2: `$$$todo lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.
+
+**create [ListName]** - Creates a new todo list with name [ListName]
+	Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.
+	Example: `$$$todo add project5 Fix bug where Users can delete System32`
+**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.
+	Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+	Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+	Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+	Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+	Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+	**Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:24:31.179] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:29:09.889] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:29:09.912] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists] <Mentions...>** - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+**create [ListName]** - Creates a new todo list with name [ListName]
+Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.
+Example: `$$$todo add project5 Fix bug where Users can delete System32`
+**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.
+Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+**Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:29:10.013] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:29:42.347] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:29:42.425] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists]<Mentions...> - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+**create [ListName]** - Creates a new todo list with name [ListName]
+Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.
+Example: `$$$todo add project5 Fix bug where Users can delete System32`
+**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.
+Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+**Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:29:42.417] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:30:12.910] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:30:12.995] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+**create [ListName]** - Creates a new todo list with name [ListName]
+Example: `$$$todo create project5`  would create a todo list with the name `project5`
+
+**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.
+Example: `$$$todo add project5 Fix bug where Users can delete System32`
+**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.
+Example: `$$$todo madd project5 "fix house" "remove door" "eat lunch"`
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+**Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:30:13.070] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:39:07.452] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help  todo
+[2016-06-26 14:39:07.529] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5>  would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] project5 Fix bug where Users can delete System32
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.
+Example: `$$$todo edit project5 4 add more documentation for users of JDA API`
+
+**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.
+Example 1: `$$$todo mark project5 2` Marks the second entry in the project5 list as compelted.
+Example 2: `$$$todo unmark project5 3` Marks the third entry in the project5 list as incomplete.
+Example 3: `$$$todo mark project5 *` Marks **all** todo entries in the project5 list as completed.
+**Note:** You can also use `check` and `uncheck`.
+
+```
+[2016-06-26 14:39:07.588] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:45:18.817] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:45:18.989] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 14:45:19.045] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+       Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+       Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+     SubActions:
+
+       **add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+           Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+       **remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+           Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+       **list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+           Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+       Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+       Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:46:55.323] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: @Pear0 when you get on can you take a screen shot of the output of `$$$help` and send it to me? I
+[2016-06-26 14:47:23.688] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$help
+[2016-06-26 14:47:24.400] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 14:49:06.228] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:49:06.299] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 14:49:06.257] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+SubActions:
+
+**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:49:07.539] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: 
+[2016-06-26 14:50:22.679] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: ahhh. so youre not on a PC . hmmm.
+[2016-06-26 14:50:52.859] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:50:52.876] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 14:50:52.992] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+SubActions:
+
+**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:52:01.792] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:52:01.905] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 14:52:02.011] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+
+---------------------------------------------------------------------------------------------------------**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+SubActions:
+
+**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+---------------------------------------------------------------------------------------------------------
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+---------------------------------------------------------------------------------------------------------
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:52:48.212] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: 
+```md
+[hi][bye][hi](bye)
+-----------------------
+```
+[2016-06-26 14:53:22.840] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 14:53:22.924] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 14:53:22.985] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+
+________________________________________________________________________________________________________**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+SubActions:
+
+**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+________________________________________________________________________________________________________
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+---------------------------------------------------------------------------------------------------------
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 14:54:40.920] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+```md
+[purple][orange]
+[purple][cyan]
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+```
+[2016-06-26 14:54:59.690] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+$$$tag create mdSyntax ```md
+[purple][orange]
+[purple][cyan]
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+```
+[2016-06-26 14:54:59.713] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Created `mdsyntax` tag.
+[2016-06-26 14:55:46.354] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+$$$tag edit mdsyntax ```md
+[purple][orange]
+[purple](cyan)
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+```
+[2016-06-26 14:55:46.468] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Editted tag `mdsyntax`
+[2016-06-26 14:56:34.053] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: @everyone http://challonge.com/tournaments/signup/dpqzI0QSOk
+[2016-06-26 14:56:39.621] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: now stop asking
+[2016-06-26 14:56:44.541] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+$$$tag edit mdsyntax $$$tag edit mdsyntax ```md
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+```
+[2016-06-26 14:56:44.734] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Editted tag `mdsyntax`
+[2016-06-26 14:56:44.901] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[10:54:40:950][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[10:54:59:716][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[10:54:59:835][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[10:55:46:380][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[10:55:46:497][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[10:56:34:097][[TJ] Exace]](ID:114896070038913027) Wrote message in channel/guild [the-casino](Exace)``````md
+[[10:56:39:759][[TJ] Exace]](ID:114896070038913027) Wrote message in channel/guild [the-casino](Exace)``````md
+[[10:56:44:569][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[10:56:44:765][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-06-26 14:57:00.964] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: it will be tomorrow at 2:30 est
+[2016-06-26 14:57:30.762] [Exace#TC:the-casino(130167476460716033)] TheWithz: can we PRETTY PLEASE have a tournement tomorrow too 😏
+[2016-06-26 14:57:55.337] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: fuck you
+[2016-06-26 14:57:56.760] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: Kappa
+[2016-06-26 14:58:07.401] [Exace#TC:the-casino(130167476460716033)] TheWithz: kek
+[2016-06-26 14:59:01.377] [Exace#TC:the-casino(130167476460716033)] fuzionplays: I wish I could sign up, rip my internet
+[2016-06-26 15:00:26.289] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 15:00:26.378] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 15:00:26.362] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+
+________________________________________________________________________________________________________
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+SubActions:
+
+**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+________________________________________________________________________________________________________
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 15:00:56.216] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 15:00:56.298] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 15:00:56.353] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+
+________________________________________________________________________________________________________
+
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+SubActions:
+
+**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+________________________________________________________________________________________________________
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 15:01:11.674] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 15:01:11.702] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 15:01:11.876] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.
+Example 1: `$$$todo lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`
+Example 2: `$$$todo unlock project5` Unlocks the project5 list so that all users can modify it.
+________________________________________________________________________________________________________
+
+**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.
+SubActions:
+
+**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the ListName list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the project5 list.
+________________________________________________________________________________________________________
+
+**clear [ListName]** - Clears all **completed** todo entries from a list.
+Example: `$$$todo clear project5` Clears all **completed** todo entries in the project5 list
+
+**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.
+Example: `$$$todo remove project5` Completely deletes the project5 todo list.
+```
+[2016-06-26 15:01:57.403] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo add botfeatures make shit pretty looking
+[2016-06-26 15:01:57.487] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-06-26 15:01:57.773] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```

@@ -165,54 +165,58 @@ public class TodoCommand extends Command {
     public List<String> getUsageInstructionsEveryone() {
         return Arrays.asList(
                 String.format(
-                        "%1$s [Action] <Action Arguments>\n" +
-                                "__Actions:__\n" +
+                        "(%1$s)][Action] <Action Arguments>\n" +
+                                "<Actions:>\n" +
                                 "\n" +
-                                "__**show [ListName]** - Shows all todo entries in the [ListName] TodoList.__\n" +
-                                "       Example: `%1$s show shopping-list` would display all entries in the `shopping-list` list.\n" +
+                                "[show][ListName] - Shows all todo entries in the <ListName> TodoList.\n" +
+                                "[[Example:](%1$s)][show] <shopping-list> would display all entries in the <shopping-list> list.\n" +
                                 "\n" +
-                                "__**lists <Mentions...>** - Displays the todo lists owned by the provided user(s).__\n" +
-                                "       Example 1: `%1$s lists`  Displays lists owned by the User that executed the command.\n" +
-                                "       Example 2: `%1$s lists @DV8FromTheWorld`  Displays lists owned by DV8FromTheWorld.\n" +
+                                "[lists][Mentions...] - Displays the todo lists owned by the provided user(s).\n" +
+                                "[[Example 1:](%1$s)][lists] Displays lists owned by the User that executed the command.\n" +
+                                "[[Example 2:](%1$s)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.\n" +
                                 "\n" +
-                                "__**create [ListName]** - Creates a new todo list with name [ListName]__\n" +
-                                "       Example: `%1$s create project5`  would create a todo list with the name `project5`\n" +
+                                "[create][ListName] - Creates a new todo list with name <ListName>\n" +
+                                "[[Example:](%1$s)][create] <project5> would create a todo list with the name <project5>\n" +
                                 "\n" +
-                                "__**add [ListName] [Content...]** - Adds a todo entry to the [ListName] todo list.__\n" +
-                                "       Example: `%1$s add project5 Fix bug where Users can delete System32`\n" +
-                                "__**madd [ListName] [Content] [Content] [Content] etc.** - Adds multiple entries to the [ListName] todo list.__\n" +
-                                "       Example: `%1$s madd project5 \"fix house\" \"remove door\" \"eat lunch\"`\n" +
-                                "\n__**edit [ListName] [Entry ID] [Content...]** - Edits a todo entry from the [ListName] todo list.__\n" +
-                                "       Example: `%1$s edit project5 4 add more documentation for users of JDA API`\n" +
+                                "[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.\n" +
+                                "[Example:](%1$s)][add] <project5> \"Fix bug where Users can delete System32\"\n" +
                                 "\n" +
-                                "__**mark/unmark [TodoList] [EntryIndex]** - Marks a todo entry as **complete** or *incomplete**.__\n" +
-                                "       Example 1: `%1$s mark project5 2` Marks the second entry in the project5 list as compelted.\n" +
-                                "       Example 2: `%1$s unmark project5 3` Marks the third entry in the project5 list as incomplete.\n" +
-                                "       Example 3: `%1$s mark project5 *` Marks **all** todo entries in the project5 list as completed.\n" +
-                                "     **Note:** You can also use `check` and `uncheck`.\n" +
+                                "[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.\n" +
+                                "[[Example:](%1$s)][madd] <project5> \"fix house\" \"remove door\" \"eat lunch\"\n" +
+                                "\n" +
+                                "[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.\n" +
+                                "[[Example:](%1$s)][edit] <project5> <4> \"add more documentation for users of JDA API\"\n" +
+                                "\n" +
+                                "[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.\n" +
+                                "[[Example 1:](%1$s)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.\n" +
+                                "[[Example 2:](%1$s)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.\n" +
+                                "[[Example 3:](%1$s)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.\n" +
+                                "<Note:> You can also use <check> and <uncheck>.\n" +
                                 "\n",
                         getAliases().get(0)),
 
                 //Second Usage Message
                 String.format(
-                        "__**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.__\n" +
-                                "       Example 1: `%1$s lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`\n" +
-                                "       Example 2: `%1$s unlock project5` Unlocks the project5 list so that all users can modify it.\n" +
-                                "__**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.__\n" +
-                                "     __SubActions__:\n" +
+                        "\n**lock/unlock [ListName]** - Used to lock a todo list such that only Auth'd users can modify it.\n" +
+                                "Example 1: `%1$s lock project5` Locks the project5 list such that only Auth'd users can use `add`,`mark` and `clear`\n" +
+                                "Example 2: `%1$s unlock project5` Unlocks the project5 list so that all users can modify it.\n" +
+                                "________________________________________________________________________________________________________\n\n"+
+                                "**users [SubAction] [ListName] <SubAction Args>** Used add, remove and list the Auth'd users for a todo list.\n" +
+                                "SubActions:\n" +
                                 "\n" +
-                                "       __**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.__\n" +
-                                "           Example: `%1$s users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.\n" +
-                                "       __**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.__\n" +
-                                "           Example: `%1$s users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.\n" +
-                                "       __**list [ListName]** Lists the Owner and Auth'd users for the ListName list.__\n" +
-                                "           Example: `%1$s users list project5` Lists the owner and all Auth'd users for the project5 list.\n" +
+                                "**add [ListName] [@mentions...]** Adds the mentions users to the Auth'd users for ListName list.\n" +
+                                "Example: `%1$s users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the project5 list.\n\n" +
+                                "**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for ListName list.\n" +
+                                "Example: `%1$s users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the project5 list.\n\n" +
+                                "**list [ListName]** Lists the Owner and Auth'd users for the ListName list.\n" +
+                                "Example: `%1$s users list project5` Lists the owner and all Auth'd users for the project5 list.\n" +
+                                "________________________________________________________________________________________________________\n" +
                                 "\n" +
-                                "__**clear [ListName]** - Clears all **completed** todo entries from a list.__\n" +
-                                "       Example: `%1$s clear project5` Clears all **completed** todo entries in the project5 list\n" +
+                                "**clear [ListName]** - Clears all **completed** todo entries from a list.\n" +
+                                "Example: `%1$s clear project5` Clears all **completed** todo entries in the project5 list\n" +
                                 "\n" +
-                                "__**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.__\n" +
-                                "       Example: `%1$s remove project5` Completely deletes the project5 todo list.\n",
+                                "**remove [ListName]** - Completely deletes the ListName list. Only the list owner can do this.\n" +
+                                "Example: `%1$s remove project5` Completely deletes the project5 todo list.\n",
                         getAliases().get(0)));
     }
 
@@ -305,7 +309,7 @@ public class TodoCommand extends Command {
         for (User u : mentionedUsers) {
             MessageBuilder builder = new MessageBuilder();
             List<TodoList> lists = todoLists.values().stream().filter(list -> list.ownerId.equals(u.getId())).collect(Collectors.toList());
-            builder.appendString("__" + u.getUsername() + " owns **" + lists.size() + "** todo lists.__\n");
+            builder.appendString("" + u.getUsername() + " owns **" + lists.size() + "** todo lists.\n");
             for (TodoList list : lists) {
                 String listString = " - " + list.labelName + "\n";
                 if (builder.getLength() + listString.length() > 2000) {
@@ -634,14 +638,14 @@ public class TodoCommand extends Command {
             }
             case "list": {
                 MessageBuilder builder = new MessageBuilder();
-                builder.appendString("__Owner of `" + label + "`__\n");
+                builder.appendString("Owner of `" + label + "`\n");
                 User owner = RunBot.API.getUserById(todoList.ownerId);
                 if (owner != null)
                     builder.appendString(" - " + owner.getUsername());
                 else
                     builder.appendString(" - Unknown User ID: " + todoList.ownerId);
                 builder.appendString("\n");
-                builder.appendString("__Other Auth'd Users__\n");
+                builder.appendString("Other Auth'd Users\n");
 
                 for (String id : todoList.allowedUsers) {
                     User u = RunBot.API.getUserById(id);
