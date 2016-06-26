@@ -205,11 +205,11 @@ public class TodoCommand extends Command {
                                 "<SubActions:>\n" +
                                 "\n" +
                                 "[add][ListName] <@ mentions...> Adds the mentions users to the Auth'd users for <ListName> list.\n" +
-                                "Example: `%1$s users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the <project5> list.\n\n" +
-                                "**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for <ListName> list.\n" +
-                                "Example: `%1$s users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the <project5> list.\n\n" +
-                                "**list [ListName]** Lists the Owner and Auth'd users for the <ListName> list.\n" +
-                                "Example: `%1$s users list project5` Lists the owner and all Auth'd users for the <project5> list.\n" +
+                                "[Example:](%1$s)[users](add) <project5> <@ Joe> <@ DudeMan> Adds Joe and DudeMan Auth'd users for the <project5> list.\n\n" +
+                                "[remove][ListName] [@ mentions...] Removes the mentioned users from the Auth'd users for <ListName> list.\n" +
+                                "[Example:](%1$s)[users](remove) <project5> <@ MrCatMan> Removes <MrCatMan> from the Auth'd users for the <project5> list.\n\n" +
+                                "[list][ListName] Lists the Owner and Auth'd users for the <ListName> list.\n" +
+                                "[Example:](%1$s)[users](list) <project5> Lists the owner and all Auth'd users for the <project5> list.\n" +
                                 "________________________________________________________________________________________________________\n" +
                                 "\n" +
                                 "[clear][ListName] - Clears all <completed> todo entries from a list.\n" +

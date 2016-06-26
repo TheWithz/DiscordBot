@@ -2006,3 +2006,1320 @@ Todo for: botfeatures
 -18) make shit pretty looking
 
 ```
+[2016-06-26 15:40:42.699] [Exace#TC:the-casino(130167476460716033)] DiO| Detective IceWave❄️: LETS GOOOOO
+[2016-06-26 15:40:57.794] [Exace#TC:the-casino(130167476460716033)] DiO| Detective IceWave❄️: @[TJ] Exace advertise this somewhere
+[2016-06-26 15:41:49.374] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: i will be streaming after CEO
+[2016-06-26 15:42:02.367] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: it ends at 6:30 est
+[2016-06-26 15:44:00.639] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 15:44:00.713] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 15:44:00.713] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.
+[[Example 1:]($$$todo)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>
+[[Example 2:]($$$todo)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.
+________________________________________________________________________________________________________
+
+[[users][SubAction]](ListName) <SubAction Args> Used add, remove and list the Auth'd users for a todo list.
+<SubActions:>
+
+[add][ListName] <@ mentions...> Adds the mentions users to the Auth'd users for <ListName> list.
+Example: `$$$todo users add project5 @Joe @DudeMan` Adds Joe and DudeMan Auth'd users for the <project5> list.
+
+**remove [ListName] [@mentions...]** Removes the mentioned users from the Auth'd users for <ListName> list.
+Example: `$$$todo users remove project5 @MrCatMan` Removes MrCatMan from the Auth'd users for the <project5> list.
+
+**list [ListName]** Lists the Owner and Auth'd users for the <ListName> list.
+Example: `$$$todo users list project5` Lists the owner and all Auth'd users for the <project5> list.
+________________________________________________________________________________________________________
+
+[clear][ListName] - Clears all <completed> todo entries from a list.
+[[Example:]($$$todo)][clear] <project5> Clears all <completed> todo entries in the <project5> list
+
+[remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.
+[[Example:]($$$todo)][remove] <project5> Completely deletes the <project5> todo list.
+```
+[2016-06-26 16:10:03.632] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$help
+[2016-06-26 16:10:03.752] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: @Pear0: Help information was sent as a private message.
+[2016-06-26 16:10:03.816] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 16:10:25.704] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: https://gyazo.com/e14cf43447cb67566a7584a1225e7575
+[2016-06-26 16:14:30.092] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$help
+[2016-06-26 16:14:30.158] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: @Pear0: Help information was sent as a private message.
+[2016-06-26 16:14:30.272] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 16:14:38.203] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$tag lists
+[2016-06-26 16:14:38.338] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: Unknown Action argument: `lists` was provided. Please use `$$$help $$$tag` for more information.
+[2016-06-26 16:14:42.975] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$tag list
+[2016-06-26 16:14:43.067] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) ratelimit
+2) todo
+3) jdachart
+4) mdsyntax
+5) thinkingemoji
+6) moreemoji
+7) cryemoji
+8) rotatingbaseemoji
+9) emojigithub
+10) thewithzbotinvite
+```
+[2016-06-26 16:14:44.556] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:10:03:655][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:10:03:851][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:10:25:731][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:14:30:126][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:14:30:299][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:14:38:308][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:14:38:365][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:14:43:037][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:14:43:117][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-06-26 16:14:54.224] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo lists
+[2016-06-26 16:14:54.252] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+Pear0 owns **2** todo lists.
+ - test
+ - list
+
+[2016-06-26 16:15:06.877] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo show botfeatures
+[2016-06-26 16:15:06.941] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```
+[2016-06-26 16:15:07.063] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:15:07.244] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```
+[2016-06-26 16:15:23.033] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo complete 2
+[2016-06-26 16:15:23.095] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: Unknown Action argument: `complete` was provided. Please use `$$$help $$$todo` for more information.
+[2016-06-26 16:15:23.483] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:14:54:249][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:14:54:324][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:06:902][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:07:271][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:07:275][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:15:07:332][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:15:23:064][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:23:123][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-06-26 16:15:28.275] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo mark 2
+[2016-06-26 16:15:28.385] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: No todo EntryIndex was specified. Usage: `$$$todo mark/unmark [ListName] [EntryIndex]`
+[2016-06-26 16:15:28.428] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: No todo EntryIndex was specified. Usage: `$$$todo mark/unmark [ListName] [EntryIndex]`
+[2016-06-26 16:15:42.613] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo mark botfeatures 2
+[2016-06-26 16:15:42.684] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Item `2` in `botfeatures` was marked as **completed**
+[2016-06-26 16:15:42.726] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:15:42.957] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
++2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```
+[2016-06-26 16:15:56.531] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo show botfeatures
+[2016-06-26 16:15:56.497] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
++2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```
+[2016-06-26 16:15:56.692] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:15:56.895] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
++2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```
+[2016-06-26 16:15:59.500] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:15:28:355][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:28:473][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:28:474][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:42:645][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:42:984][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:42:985][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:15:42:987][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:15:56:555][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:56:919][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:15:56:921][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:15:56:922][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-26 16:16:09.726] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo unmark 2
+[2016-06-26 16:16:09.794] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: No todo EntryIndex was specified. Usage: `$$$todo mark/unmark [ListName] [EntryIndex]`
+[2016-06-26 16:16:09.827] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: No todo EntryIndex was specified. Usage: `$$$todo mark/unmark [ListName] [EntryIndex]`
+[2016-06-26 16:16:19.356] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo unmark botfeatures 2
+[2016-06-26 16:16:19.485] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Item `2` in `botfeatures` was marked as **incomplete**
+[2016-06-26 16:16:19.665] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:16:19.822] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```
+[2016-06-26 16:16:55.260] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo mark botfeatures 17
+[2016-06-26 16:16:55.280] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Item `17` in `botfeatures` was marked as **completed**
+[2016-06-26 16:16:55.493] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:16:55.669] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+```
+[2016-06-26 16:16:56.568] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:16:09:763][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:16:09:922][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:16:09:924][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:16:19:516][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:16:19:847][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:16:19:848][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:16:19:852][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:16:55:284][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:16:55:702][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:16:55:703][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:16:55:704][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-26 16:17:02.117] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo mark botfeatures 18
+[2016-06-26 16:17:02.186] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Item `18` in `botfeatures` was marked as **completed**
+[2016-06-26 16:17:02.287] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:17:02.427] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+```
+[2016-06-26 16:17:25.023] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$help $$$todo
+[2016-06-26 16:17:25.126] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: @Pear0: Help information was sent as a private message.
+[2016-06-26 16:17:52.648] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo add botfeatures test
+[2016-06-26 16:17:52.758] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-06-26 16:17:52.888] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:17:53.025] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
+```
+[2016-06-26 16:17:53.561] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:17:02:140][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:17:02:454][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:17:02:455][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:17:02:465][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:17:25:095][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:17:25:154][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:17:52:674][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:17:53:128][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:17:53:130][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:17:53:132][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-26 16:18:03.706] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo show botfeatures
+[2016-06-26 16:18:03.766] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
+```
+[2016-06-26 16:18:03.867] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:18:04.044] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
+```
+[2016-06-26 16:18:15.040] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo remove botfeatures 19
+[2016-06-26 16:18:15.095] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :name_badge: :name_badge: :name_badge: Are you sure you want to permanently delete the TodoList `botfeatures` ? If so, run the command again. :name_badge: :name_badge: :name_badge:
+[2016-06-26 16:18:15.193] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:18:15.841] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
+```
+[2016-06-26 16:18:17.571] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:18:03:730][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:18:04:071][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:18:04:073][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:18:04:073][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:18:15:063][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:18:15:872][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:18:15:873][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:18:15:874][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-26 16:18:53.549] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo add botfeatures "I can edit your todos xD"
+[2016-06-26 16:18:53.714] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-06-26 16:18:53.889] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:18:54.067] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
+-20) I can edit your todos xD
+
+```
+[2016-06-26 16:19:07.559] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo mark botfeatures 20
+[2016-06-26 16:19:07.714] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Item `20` in `botfeatures` was marked as **completed**
+[2016-06-26 16:19:07.792] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:19:08.015] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
++20) I can edit your todos xD
+
+```
+[2016-06-26 16:19:08.556] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:18:53:594][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:18:54:094][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:18:54:095][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:18:54:096][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:19:07:660][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:19:08:045][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:19:08:046][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:19:08:047][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-26 16:19:14.345] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$todo show botfeatures
+[2016-06-26 16:19:14.388] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
++20) I can edit your todos xD
+
+```
+[2016-06-26 16:19:14.519] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 16:19:14.587] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
++20) I can edit your todos xD
+
+```
+[2016-06-26 19:13:32.901] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: lol
+[2016-06-26 19:13:50.169] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: im in finals😏
+[2016-06-26 19:41:56.485] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: @[TJ] Exace is it ok if i advertise this tourney in my discord?
+[2016-06-26 19:42:22.316] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: absolutly
+[2016-06-26 19:42:24.114] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:19:14:367][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:19:14:708][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:19:14:710][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[12:19:14:711][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:13:33:027][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [the-casino](Exace)``````md
+[[15:13:50:198][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [the-casino](Exace)``````md
+[[15:41:56:518][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [the-casino](Exace)``````md
+[[15:42:22:353][[TJ] Exace]](ID:114896070038913027) Wrote message in channel/guild [the-casino](Exace)```
+[2016-06-26 19:42:29.113] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: get them my stream too
+[2016-06-26 19:42:34.851] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: k
+[2016-06-26 19:42:38.051] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: Twitch.tv/exace8
+[2016-06-26 19:53:54.942] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: hahaha yes ik
+[2016-06-26 19:54:03.283] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$todo lock botfeatures
+[2016-06-26 19:54:03.418] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The `botfeatures` todo list was `locked`
+[2016-06-26 19:54:03.470] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: this is temporary
+[2016-06-26 19:54:03.634] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
++17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
++20) I can edit your todos xD
+
+```
+[2016-06-26 19:54:05.926] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[15:42:29:138][[TJ] Exace]](ID:114896070038913027) Wrote message in channel/guild [the-casino](Exace)``````md
+[[15:42:34:879][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [the-casino](Exace)``````md
+[[15:42:38:076][[TJ] Exace]](ID:114896070038913027) Wrote message in channel/guild [the-casino](Exace)``````md
+[[15:53:54:982][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[15:54:03:312][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[15:54:03:746][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[15:54:03:747][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:54:03:747][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-26 19:54:17.363] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: now you can't
+[2016-06-26 19:55:31.571] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo unmark botfeatures 17
+[2016-06-26 19:55:31.682] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Item `17` in `botfeatures` was marked as **incomplete**
+[2016-06-26 19:55:31.854] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
++18) make shit pretty looking
+
+-19) test
+
++20) I can edit your todos xD
+
+```
+[2016-06-26 19:55:41.586] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo unmark botfeatures 18
+[2016-06-26 19:55:41.611] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Item `18` in `botfeatures` was marked as **incomplete**
+[2016-06-26 19:55:41.785] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
+-19) test
+
++20) I can edit your todos xD
+
+```
+[2016-06-26 19:55:49.428] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo mark botfeatures 19
+[2016-06-26 19:55:49.535] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Item `19` in `botfeatures` was marked as **completed**
+[2016-06-26 19:55:49.780] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
++1) make commands outputs look more appealing
+
+-2) add support for pandora unofficial API
+
++3) create terminal link between discord channel and bash prompt
+
+-4) fix premature cropping of images in LaTeX command
+
+-5) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-6) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-7) consider tying ownership to tags
+
++8) fix audio problems with youtube-dl
+
+-9) finish the logger in #logtest
+
+-10) finish inputting usage examples for all commands
+
+-11) add deletion / removeal / and creation to JSON command
+
+-12) add import and export command for todo lists in the form of a json file
+
+-13) once bot is hosted on web server. create phone app to communicate with it
+
+-14) add regex for todo marking numbers
+
+-15) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-16) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-17) write website to manage bot, display info, etc.
+
+-18) make shit pretty looking
+
++19) test
+
++20) I can edit your todos xD
+
+```
+[2016-06-26 19:55:50.965] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[15:54:17:393][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[15:55:31:591][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:31:952][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:31:953][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:41:610][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:41:911][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:42:306][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:49:501][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:49:815][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[15:55:49:816][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-26 19:55:56.706] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo clear botfeatures
+[2016-06-26 19:55:56.821] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Cleared **5** completed entries from the `botfeatures` todo list.
+[2016-06-26 19:55:57.068] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
+-12) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-13) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-14) write website to manage bot, display info, etc.
+
+-15) make shit pretty looking
+
+```
+[2016-06-26 20:07:28.394] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$help todo
+[2016-06-26 20:07:28.459] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: @TheWithz: Help information was sent as a private message.
+[2016-06-26 20:07:28.541] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 20:07:28.647] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.
+[[Example 1:]($$$todo)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>
+[[Example 2:]($$$todo)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.
+________________________________________________________________________________________________________
+
+[[users][SubAction]](ListName) <SubAction Args> Used add, remove and list the Auth'd users for a todo list.
+<SubActions:>
+
+[add][ListName] <@ mentions...> Adds the mentions users to the Auth'd users for <ListName> list.
+[[Example:]($$$todo)][users](add) <project5> <@ Joe> <@ DudeMan> Adds Joe and DudeMan Auth'd users for the <project5> list.
+
+[remove][ListName] [@ mentions...] Removes the mentioned users from the Auth'd users for <ListName> list.
+[[Example:]($$$todo)][users](remove) <project5> <@ MrCatMan> Removes <MrCatMan> from the Auth'd users for the <project5> list.
+
+[list][ListName] Lists the Owner and Auth'd users for the <ListName> list.
+[[Example:]($$$todo)][users](list) <project5> Lists the owner and all Auth'd users for the <project5> list.
+________________________________________________________________________________________________________
+
+[clear][ListName] - Clears all <completed> todo entries from a list.
+[[Example:]($$$todo)][clear] <project5> Clears all <completed> todo entries in the <project5> list
+
+[remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.
+[[Example:]($$$todo)][remove] <project5> Completely deletes the <project5> todo list.
+```
+[2016-06-26 20:08:22.742] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-06-26 20:08:22.829] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-06-26 20:08:22.998] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.
+[[Example 1:]($$$todo)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>
+[[Example 2:]($$$todo)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.
+________________________________________________________________________________________________________
+
+[[users][SubAction]](ListName) <SubAction Args> Used add, remove and list the Auth'd users for a todo list.
+<SubActions:>
+
+[add][ListName] <@ mentions...> Adds the mentions users to the Auth'd users for <ListName> list.
+[Example:]($$$todo)[users](add) <project5> <@ Joe> <@ DudeMan> Adds Joe and DudeMan Auth'd users for the <project5> list.
+
+[remove][ListName] [@ mentions...] Removes the mentioned users from the Auth'd users for <ListName> list.
+[Example:]($$$todo)[users](remove) <project5> <@ MrCatMan> Removes <MrCatMan> from the Auth'd users for the <project5> list.
+
+[list][ListName] Lists the Owner and Auth'd users for the <ListName> list.
+[Example:]($$$todo)[users](list) <project5> Lists the owner and all Auth'd users for the <project5> list.
+________________________________________________________________________________________________________
+
+[clear][ListName] - Clears all <completed> todo entries from a list.
+[[Example:]($$$todo)][clear] <project5> Clears all <completed> todo entries in the <project5> list
+
+[remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.
+[[Example:]($$$todo)][remove] <project5> Completely deletes the <project5> todo list.
+```
