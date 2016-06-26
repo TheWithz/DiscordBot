@@ -234,10 +234,7 @@ public class HelpCommand extends Command {
         }
 
         channel.sendMessage(new MessageBuilder()
-                                    .appendString("```css\nThe following commands are supported by the bot```")
-                                    .appendString("```fix\nUse ")
-                                    .appendString(RunBot.PREFIX)
-                                    .appendString(" to instantiate a command.```").build());
+                                    .appendString("```css\nThe following commands are supported by the bot```").build());
         for (StringBuilder builder : msgs) {
             channel.sendMessage(new MessageBuilder()
                                         .appendString("```md\n")
