@@ -91,8 +91,8 @@ public class EvalCommand extends Command {
     @Override
     public List<String> getUsageInstructionsOwner() {
         return Collections.singletonList(
-                RunBot.PREFIX + "eval <Groovy code>\n" +
-                        "    Example: `" + RunBot.PREFIX + "eval return \"5 + 5 is: \" + (5 + 5);\n" +
-                        "    This will print: 5 + 5 is: 10");
+                "(" + RunBot.PREFIX + ")][eval] <Groovy code>\n" +
+                        "[[Example:](" + RunBot.PREFIX + ")[eval] <return \"\\\"5 + 5 is: \\\" + (5 + 5);\">\n" +
+                        "<This will print: 5 + 5 is: 10>");
     }
 }

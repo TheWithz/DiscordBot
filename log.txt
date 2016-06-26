@@ -3323,3 +3323,323 @@ ________________________________________________________________________________
 [remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.
 [[Example:]($$$todo)][remove] <project5> Completely deletes the <project5> todo list.
 ```
+[2016-06-26 20:17:12.416] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-06-26 20:17:12.538] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 20:17:12.594] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$](help) : [Command that helps use all other commands!](EVERYONE)
+
+[$$$](tran) : [Command that translates a message!](OP_ONLY)
+
+[$$$](calc) : [Calculates a given expression.](EVERYONE)
+
+[$$$](search) : [Allows you to search the internet.](EVERYONE)
+
+[$$$](perms) : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$](todo) : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$](rnum) : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$](fact) : [Command that generates a random fact!](EVERYONE)
+
+[$$$](bash) : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$](eval) : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$](join) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](leave) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](printQueue) : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$](latex) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](stats) : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$](json) : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$](nowplaying) : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$](pause) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](play) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](repeat) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](reset) : [Resets the audio player](EVERYONE)
+
+[$$$](restart) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$](shuffle) : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 20:18:28.864] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-06-26 20:18:28.959] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 20:18:29.080] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][search] : [Allows you to search the internet.](EVERYONE)
+
+[$$$][perms] : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][bash] : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$][eval] : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$][join] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][leave] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][json] : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][play] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 20:32:15.973] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: good news.... I found the bug where it wasnt displaying the commands in $$$help
+[2016-06-26 20:32:56.389] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: bad news... my brain wont let me fix it. it's literally the easiest problem ive ever had and i just cant think of a solution
+[2016-06-26 20:33:41.783] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: scratch that. i think i figured it out
+[2016-06-26 20:34:05.850] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$help
+[2016-06-26 20:34:05.905] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: @TheWithz: Help information was sent as a private message.
+[2016-06-26 20:34:06.054] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-06-26 20:34:06.134] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][search] : [Allows you to search the internet.](EVERYONE)
+
+[$$$][perms] : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][bash] : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$][eval] : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$][join] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][leave] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][json] : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][play] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 20:34:06.166] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][skip] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stop] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][volume] : [Changes the volume of the audio player](EVERYONE)
+
+[$$$][tag] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 20:49:07.014] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: @Pear0 $$$help works again now
+[2016-06-26 20:53:38.607] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+$$$eval "System.out.print("A");
+channel.sendAsync(msg, m -> {print("B");});
+System.out.print("C");
+channel.sendAsync(msg, m -> {print("D");});
+System.out.print("E");"
+[2016-06-26 20:53:39.073] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:no_entry: **Did not compile!**
+```java
+startup failed:
+Script1.groovy: 2: expecting ')', found '->' @ line 2, column 26.
+   channel.sendAsync(msg, m -> {print(B);});
+                            ^
+
+1 error
+```
+
+[2016-06-26 20:57:06.116] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+$$$eval "System.out.print("A");
+channel.sendAsync(msg, {m -> {System.out.print("B");}});
+System.out.print("C");
+channel.sendAsync(msg, {m -> {System.out.print("D");}});
+System.out.print("E");"
+[2016-06-26 20:57:06.169] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:no_entry: **Did not compile!**
+```java
+startup failed:
+Script1.groovy: 2: Ambiguous expression could be either a parameterless closure expression or an isolated open code block;
+   solution: Add an explicit closure parameter list, e.g. {it -> ...}, or force it to be treated as an open block by giving it a label, e.g. L:{...} @ line 2, column 30.
+   channel.sendAsync(msg, {m -> {System.out.print(B);}});
+                                ^
+
+1 error
+```
+
+[2016-06-26 20:57:36.423] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+$$$eval "System.out.print("A");
+channel.sendAsync(msg, {m -> System.out.print("B");});
+System.out.print("C");
+channel.sendAsync(msg, {m -> System.out.print("D");});
+System.out.print("E");"
+[2016-06-26 20:57:36.616] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:no_entry: **Did not compile!**
+```java
+No such property: A for class: Script1```
+
+[2016-06-26 21:03:36.075] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I have to reinstall the raspi OS now...
+[2016-06-26 21:03:37.185] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[16:49:07:053][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[16:53:38:639][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[16:53:39:104][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[16:57:06:144][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[16:57:06:285][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[16:57:36:445][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[16:57:36:774][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:03:36:178][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 21:03:40.920] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: i hate myself
+[2016-06-26 21:04:04.868] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
+[2016-06-26 21:04:04.974] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Evaluate]
+[Description:][Takes Java or Javascript and executes it.]
+[Alliases:]($$$eval)
+[[Usage:]$$$eval <Groovy code>
+    Example: `$$$eval return "5 + 5 is: " + (5 + 5);
+    This will print: 5 + 5 is: 10```
+[2016-06-26 21:07:07.130] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
+[2016-06-26 21:07:07.215] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Evaluate]
+[Description:][Takes Java or Javascript and executes it.]
+[Alliases:]($$$eval)
+[[Usage:]($$$)][eval] <Groovy code>
+[[Example:]($$$)[eval] return "\"5 + 5 is: \" + (5 + 5);"
+<This will print: 5 + 5 is: 10>```
+[2016-06-26 21:07:36.767] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
+[2016-06-26 21:07:36.840] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Evaluate]
+[Description:][Takes Java or Javascript and executes it.]
+[Alliases:]($$$eval)
+[[Usage:]($$$)][eval] <Groovy code>
+[[Example:]($$$)[eval] <return "\"5 + 5 is: \" + (5 + 5);">
+<This will print: 5 + 5 is: 10>```
+[2016-06-26 21:07:59.769] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
+[2016-06-26 21:07:59.767] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Evaluate]
+[Description:][Takes Java or Javascript and executes it.]
+[Alliases:]($$$eval)
+[[Usage:]($$$)][eval] <Groovy code>
+[[Example:]($$$)[eval] <return "\"5 + 5 is: \" + (5 + 5);">
+			<This will print: 5 + 5 is: 10>```
+[2016-06-26 21:10:16.219] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: $$$eval channel.sendAsync(\"Hello world\", { m->println(\"abcd\")})
+[2016-06-26 21:10:16.369] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :no_entry: Only @TheWithz can use this command
+[2016-06-26 21:10:41.034] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval channel.sendAsync("Hello world", { m->println("abcd")})
+[2016-06-26 21:10:41.398] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:no_entry: **Did not compile!**
+```java
+startup failed:
+Script1.groovy: 1: unexpected token:  @ line 1, column 31.
+   channel.sendAsync(Hello world,
+                                 ^
+
+1 error
+```
+
+[2016-06-26 21:11:20.300] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval "channel.sendMessageAsync(\"Hello world\", { m->println(\"abcd\")})"
+[2016-06-26 21:11:20.456] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: Hello world
+[2016-06-26 21:11:20.554] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: **Compiled without errors!** 
+The above code did not return anything.
+
+[2016-06-26 21:12:01.734] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: interesting
+[2016-06-26 21:12:03.792] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[17:10:16:255][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:10:16:425][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:10:41:058][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:10:41:427][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:11:20:353][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:11:20:602][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:11:20:603][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[17:12:01:762][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-06-26 21:12:53.547] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: the abcd printed to the console. and not to the output stream... 😐 🤔
+[2016-06-26 21:13:29.678] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval System.out.println(\"I thought we fixed this\");
+[2016-06-26 21:13:29.897] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:no_entry: **Did not compile!**
+```java
+startup failed:
+Script1.groovy: 1: unexpected char: 0xFFFF @ line 1, column 22.
+   System.out.println("I
+                        ^
+
+1 error
+```
+
+[2016-06-26 21:14:35.044] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval "println(\"I thought we fixed this\");"
+[2016-06-26 21:14:35.199] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+I thought we fixed this
+:white_check_mark: **Compiled without errors!** 
+The above code did not return anything.
+
+[2016-06-26 21:14:39.807] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: uh
