@@ -72,7 +72,7 @@ public class PlayCommand extends Command {
             @Override
             public void run() {
                 try {
-                    JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
+                    JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Playlists.json"))));
                     handleUrl(event, new String[]{args[0], "url", obj.getString(args[2].toLowerCase())});
                 } catch (IOException e) {
                     sendMessage(event, e.getMessage());

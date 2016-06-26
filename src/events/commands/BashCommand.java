@@ -15,7 +15,8 @@ import java.util.List;
  */
 public class BashCommand extends Command {
 
-    private static String line = "";
+    private static String outLine = "";
+    private static String errLine = "";
     public static Process process;
 
     @Override
@@ -60,23 +61,30 @@ public class BashCommand extends Command {
     public static StringBuilder runLinuxCommand(String com) {
         try {
             process = Runtime.getRuntime().exec(com);
-            BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            return run(br);
+            BufferedReader brOut = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            BufferedReader brErr = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+            return run(brOut, brErr);
         } catch (Exception e) {
             return new StringBuilder(e.getMessage());
         }
     }
 
-    private static StringBuilder run(BufferedReader br) throws IOException, InterruptedException {
-        StringBuilder msg = new StringBuilder();
-        while ((line = br.readLine()) != null) {
-            msg.append(line);
-            msg.append("\n");
+    private static StringBuilder run(BufferedReader brOut, BufferedReader brErr) throws IOException, InterruptedException {
+        StringBuilder msgOut = new StringBuilder();
+        while ((outLine = brOut.readLine()) != null) {
+            msgOut.append(outLine);
+            msgOut.append("\n");
+        }
+        StringBuilder msgErr = new StringBuilder();
+        while ((errLine = brErr.readLine()) != null) {
+            msgErr.append(errLine);
+            msgErr.append("\n");
         }
         process.waitFor();
-        msg.append("exit: ")
-           .append(process.exitValue());
+        msgErr.append("exit: ")
+              .append(process.exitValue());
         process.destroy();
-        return msg;
+        StringBuilder finalOut = new StringBuilder();
+        return finalOut.append("```fix\nOutPut:```").append(msgOut.toString()).append("```fix\nError:```").append(msgErr.toString());
     }
 }

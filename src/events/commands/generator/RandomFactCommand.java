@@ -54,7 +54,7 @@ public class RandomFactCommand extends Command {
     private void generateRandomFact(MessageReceivedEvent e) {
         Scanner scanner = null;
         try {
-            scanner = new Scanner(new File("resources/randomFacts.txt"));
+            scanner = new Scanner(new File("randomFacts.txt"));
         } catch (FileNotFoundException m) {
             m.printStackTrace();
         }

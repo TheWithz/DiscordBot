@@ -41,7 +41,7 @@ public class LatexCommand extends Command {
     private void handleList(MessageReceivedEvent event) {
         StringBuilder builder = new StringBuilder();
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/commonLatex.json"))));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("commonLatex.json"))));
             builder.append("```fix\nLaTeX presets``````tex\n");
             ArrayList<String> presets = new ArrayList(obj.keySet());
             for (int i = 0; i < presets.size(); i++) {
@@ -101,7 +101,7 @@ public class LatexCommand extends Command {
         StringBuilder builder = new StringBuilder();
 
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/commonLatex.json"))));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("commonLatex.json"))));
             if (obj.keySet().contains(args[3])) {
                 System.out.println(obj.getString(args[3]));
                 builder = buildLatex(builder, obj.getString(args[3]));

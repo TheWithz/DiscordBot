@@ -13,7 +13,6 @@ import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import org.eclipse.egit.github.core.client.GitHubClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,15 +37,15 @@ public class RunBot {
     public static final String PREFIX = "$$$";
     public static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     public static String OWNER_REQUIRED = null;
-    private static final GitHubClient client = new GitHubClient();
+    // private static final GitHubClient client = new GitHubClient();
 
     public RunBot() {
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Config.json"))));
-            client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
-                    .getString("gitPassword"));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
+            //client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
+            //        .getString("gitPassword"));
             HelpCommand help = new HelpCommand();
-            API = new JDABuilder().setBotToken(obj.getString("testBotToken"))
+            API = new JDABuilder().setBotToken(obj.getString("releaseBotToken"))
                                   .addListener(new LoginHandler())
                                   .addListener(new LogHandler())
                                   .addListener(new TerminalHandler())
@@ -93,7 +92,7 @@ public class RunBot {
             JSONObject obj = new JSONObject();
             obj.put("botToken", "");
             try {
-                Files.write(Paths.get("resources/Config.json"), obj.toString(4).getBytes());
+                Files.write(Paths.get("Config.json"), obj.toString(4).getBytes());
                 System.out.println("No config file was found. Config.json has been generated, please populate it!");
             } catch (IOException e1) {
                 System.out.println("No config file was found and we failed to generate one.");
@@ -135,9 +134,9 @@ public class RunBot {
 
     public static void printAsFile(TextChannel channel, StringBuilder b, String fileName) {
         channel.sendTyping();
-        BashCommand.runLinuxCommand("touch resources/" + fileName + ".txt");
-        File file = new File("resources/" + fileName + ".txt");
-        Path path = Paths.get("resources/" + fileName + ".txt");
+        BashCommand.runLinuxCommand("touch " + fileName + ".txt");
+        File file = new File(fileName + ".txt");
+        Path path = Paths.get(fileName + ".txt");
         try (BufferedWriter writer = Files.newBufferedWriter(path)) {
             writer.write(b.toString());
         } catch (IOException e) {

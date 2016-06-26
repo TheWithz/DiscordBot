@@ -43,7 +43,7 @@ public class LogHandler extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         try (PrintWriter out = new PrintWriter(
-                new BufferedWriter(new FileWriter("resources/log.txt", true)))) {
+                new BufferedWriter(new FileWriter("log.txt", true)))) {
             if (!enabled) return;
 
             String content = event.getMessage().getContent();

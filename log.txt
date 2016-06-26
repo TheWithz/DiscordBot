@@ -1,0 +1,380 @@
+[2016-06-26 02:29:11.110] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: hm. so i have a problem
+[2016-06-26 02:29:45.638] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: my sd card is 32 gigs. but running df shows that `/` only has a total of 3.5 gigs of space.
+[2016-06-26 02:35:02.607] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 
+```sh
+du -hs /* | sort -h
+```
+[2016-06-26 02:35:12.081] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: way ahead of you
+[2016-06-26 02:35:22.142] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: apparently /usr/ is 2.1 gigs
+[2016-06-26 02:35:28.952] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: not so bad
+[2016-06-26 02:35:40.869] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: well. when your max capacity is 3.5 it is
+[2016-06-26 02:36:01.755] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: why does it only have 3.5?
+[2016-06-26 02:36:02.161] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:29:11:136][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:29:45:669][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:35:02:736][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:35:12:156][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:35:22:346][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:35:29:044][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:35:41:320][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:36:01:788][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 02:36:04.971] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: usr/share is 1.2 gigs
+[2016-06-26 02:36:10.929] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: time to pull out gparted
+[2016-06-26 02:36:13.284] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: and honeslty idk. the sd card is 32
+[2016-06-26 02:36:33.630] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: i dont think I can use gparted over ssh? lol
+[2016-06-26 02:37:05.313] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I believe it `parted` for the commend line
+[2016-06-26 02:40:04.299] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+wut ```Model: SD SD32G (sd/mmc)
+Disk /dev/mmcblk0: 31.1GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags: 
+
+Number  Start   End     Size    Type     File system  Flags
+ 1      1049kB  68.2MB  67.1MB  primary  fat16        boot, lba
+ 2      68.2MB  3932MB  3864MB  primary  ext4
+
+(parted)             ``` why they do this to me
+[2016-06-26 02:41:33.267] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: xD
+[2016-06-26 02:41:55.556] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: the arch wiki says it must be unmounted to resize the partition
+[2016-06-26 02:41:56.235] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:36:04:991][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:36:10:956][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:36:13:310][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:36:33:662][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:37:05:341][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:40:04:331][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:41:33:290][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:41:55:583][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 02:42:13.514] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+```(parted) print freespace                                                  
+Model: SD SD32G (sd/mmc)
+Disk /dev/mmcblk0: 31.1GB
+Sector size (logical/physical): 512B/512B
+Partition Table: msdos
+Disk Flags: 
+
+Number  Start   End     Size    Type     File system  Flags
+        32.3kB  1049kB  1016kB           Free Space
+ 1      1049kB  68.2MB  67.1MB  primary  fat16        boot, lba
+ 2      68.2MB  3932MB  3864MB  primary  ext4
+        3932MB  31.1GB  27.2GB           Free Space
+
+(parted)     ``` theres 27 gigs of unused space. just sitting there
+[2016-06-26 02:42:13.851] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: so you'll probably have to throw it in your computer to actually fix it
+[2016-06-26 02:42:32.292] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: what the fuck discord 😂
+[2016-06-26 02:43:30.071] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 
+```
+asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf asdf 
+```
+[2016-06-26 02:43:44.046] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I'm fairly certain I can edit the tables like it is now. thats what i did with fedora when it stopped working
+[2016-06-26 02:43:49.506] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: what are you doing?
+[2016-06-26 02:43:59.081] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: did it not format correctly?
+[2016-06-26 02:44:12.183] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: https://gyazo.com/0740875a79216f70e665320837837960
+[2016-06-26 02:44:14.187] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:42:13:551][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:42:13:870][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:42:32:334][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:43:30:102][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:43:44:076][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:43:49:565][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:43:59:216][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:44:12:212][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 02:44:18.775] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: omg
+[2016-06-26 02:44:27.168] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: idek how
+[2016-06-26 02:44:57.349] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: are you on the web version?
+[2016-06-26 02:45:43.120] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: nope
+[2016-06-26 02:45:57.840] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: latest windows version
+[2016-06-26 02:46:02.763] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: weird
+[2016-06-26 02:46:18.887] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 
+```
+                                                                                                                                                                                                  
+```
+this is a test
+[2016-06-26 02:46:34.701] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+```(parted) resize 1 20GB                                                    
+Error: The resize command has been removed in parted 3.0
+(parted)```
+[2016-06-26 02:46:35.314] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:44:18:804][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:44:27:230][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:44:57:367][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:45:43:198][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:45:57:863][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:46:02:782][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:46:18:910][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:46:34:781][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 02:46:38.031] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 😢
+[2016-06-26 02:47:01.287] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: it's `resizepart` now
+[2016-06-26 02:47:13.029] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: the man page lied to me
+[2016-06-26 02:50:08.995] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: do you see a scroll bar on my code block with hello world?
+[2016-06-26 02:50:12.468] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: so. i need to move the second partition before i can expand the second one
+[2016-06-26 02:50:14.779] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: and yes, i do
+[2016-06-26 02:50:22.633] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: can you use the scrollbar?
+[2016-06-26 02:50:26.981] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: and yes, i do
+[2016-06-26 02:50:29.373] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:46:38:061][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:47:01:379][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:47:13:135][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:50:09:100][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:50:12:538][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:50:14:812][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:50:22:664][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:50:27:005][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 02:50:30.894] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yep
+[2016-06-26 02:50:34.623] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: works fine
+[2016-06-26 02:50:54.499] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: huh, now they work
+[2016-06-26 02:51:12.505] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: so it turns out
+[2016-06-26 02:51:28.454] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I had my window add the exact perfect width to cause that overlay bug
+[2016-06-26 02:51:46.822] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: for your gparted logs you posted
+[2016-06-26 02:52:23.267] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: oh n
+[2016-06-26 02:52:29.442] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: i did a bad thing
+[2016-06-26 02:52:32.345] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:50:30:917][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:50:34:678][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:50:54:523][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:51:12:524][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:51:28:579][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:51:46:846][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:23:383][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:29:542][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 02:52:35.140] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: if you slowly shrink your discord window horizontally, you should eventually get scrollbars which push other stuff down. but they come up prematurely
+[2016-06-26 02:52:44.653] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: don't ou have to commit your changes in parted?
+[2016-06-26 02:52:57.013] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yes.
+[2016-06-26 02:53:12.587] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: i made the partition size negative
+[2016-06-26 02:53:15.117] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: lol
+[2016-06-26 02:54:08.257] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:52:35:159][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:44:670][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:57:086][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:53:12:980][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:53:15:135][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:53:58:067][Pear0]](ID:111581694250737664) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:53:58:068][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[22:54:06:240][Pear0]](ID:111581694250737664) Left channel/guild [General](ProgramDevelopment)```
+[2016-06-26 02:54:11.631] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: ?
+[2016-06-26 02:55:09.624] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: que?
+[2016-06-26 02:55:21.859] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: u joined the channel and then immediately left
+[2016-06-26 02:55:35.952] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I don't have a mic right now
+[2016-06-26 02:56:15.278] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I opened discord web to see if the overlay glitch happens (it doesn't, only in the client) and it joined me to the voice channel
+[2016-06-26 02:56:22.516] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: ahhhh
+[2016-06-26 02:58:29.987] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yeah, this isnt goiong to work
+[2016-06-26 02:58:50.941] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I dont have a sd reader on my desktop. and i dont trust windows to partition it correctly
+[2016-06-26 02:58:53.273] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:54:11:659][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:55:09:666][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:55:21:876][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:55:36:162][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:56:15:296][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:56:22:533][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:58:30:004][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:58:50:979][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-26 02:59:44.624] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: but i have a solution. Im goiing to image a usb with a live boot image. boot my laptop from the usb. use gparted. and then all will be well
+[2016-06-26 03:11:34.666] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: this is one way to attach a heat sync
+[2016-06-26 03:21:13.847] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+```xl
+Test Command | this command is used for testing things
+```
+[2016-06-26 03:21:54.495] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$tag show ratelimit
+[2016-06-26 03:21:54.629] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+```fix
+Showing tag: [ratelimit]``````xl
+REST:
+ bot:msg:dm | 5/5s | account-wide
+ bot:msg:server | 5/5s | guild-wide
+ bot:msg:global | 50/10s | account-wide except DMs
+ dmsg | 5/1s | guild-wide
+ bdmsg | 1/1s | guild-wide
+ guild_member | 10/10s | guild-wide
+guild_member_nick | 1/1s | guild-wide
+ |Username| | 2/3600s | account-wide
+
+WS Send:
+|Presence Update| | 5/60s
+ |Global| | 120/60s```
+[2016-06-26 03:39:43.160] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$help
+[2016-06-26 03:39:43.162] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: @TheWithz: Help information was sent as a private message.
+[2016-06-26 03:39:43.297] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot``````fix
+Use $$$ to instantiate a command.``````xl
+HELP | command that helps use all other commands!
+
+TRAN | command that translates a message!
+
+CALC | calculates a given expression.
+
+GOOGLE | allows you to search google. the aliases search wiki sites (not wikipedia exclusive) and urban dictionary.
+
+PERMS | used to modify the permissions of the provided user.
+
+TODO | used to create todo lists that can be checked off as things are completed.
+
+RNUM | command that generates a random number between 0 and the argument given!
+
+FACT | command that generates a random fact!
+
+BASH | no description has been provided for this command. sorry!
+
+EVAL | takes java or javascript and executes it.
+
+JOIN | no description has been provided for this command. sorry!
+
+LEAVE | no description has been provided for this command. sorry!
+
+PRINTQUEUE | prints out the list of songs left in the queue
+
+LATEX | no description has been provided for this command. sorry!
+
+STATS | prints statistics for thewithzbot
+
+JSON | stores a value and a key into a designated json file for later use
+
+NOWPLAYING | prints out information about the currently playing song
+
+PAUSE | no description has been provided for this command. sorry!
+
+PLAY | no description has been provided for this command. sorry!
+
+REPEAT | no description has been provided for this command. sorry!
+
+RESET | resets the audio player
+
+RESTART | no description has been provided for this command. sorry!
+
+SHUFFLE | no description has been provided for this command. sorry!
+
+SKIP | no description has been provided for this command. sorry!
+
+STOP | no description has been provided for this command. sorry!
+
+VOLUME | changes the volume of the audio player
+
+TAG | no description has been provided for this command. sorry!
+
+```
+[2016-06-26 03:40:30.337] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$FACT
+[2016-06-26 03:40:30.446] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: The elephant is the only mammal that can’t jump!
+[2016-06-26 03:40:49.008] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$FaCt
+[2016-06-26 03:40:49.087] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: The plastic things on the end of shoelaces are called aglets.
+[2016-06-26 03:44:04.123] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: 
+```md
+[$$$][ECHO] : [This is the desription](EVERYONE)
+```
+[2016-06-26 03:47:39.372] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$help
+[2016-06-26 03:47:39.440] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: @TheWithz: Help information was sent as a private message.
+[2016-06-26 03:52:25.508] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-06-26 03:52:25.493] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot``````fix
+Use $$$ to instantiate a command.```
+[2016-06-26 03:52:25.624] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][google] : [Allows you to search Google. The aliases search Wiki sites (not wikipedia exclusive) and Urban Dictionary.](EVERYONE)
+
+[$$$][perms] : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][bash] : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$][eval] : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$][join] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][leave] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][json] : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][play] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 03:55:51.820] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-06-26 03:55:51.900] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot``````fix
+Use $$$ to instantiate a command.```
+[2016-06-26 03:55:51.962] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][search] : [Allows you to search the internet.](EVERYONE)
+
+[$$$][perms] : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][bash] : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$][eval] : [Takes Java or Javascript and executes it.](OWNER_ONLY)
+
+[$$$][join] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][leave] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][json] : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][play] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-06-26 03:55:58.503] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help json

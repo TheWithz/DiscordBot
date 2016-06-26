@@ -5,7 +5,6 @@ import events.commands.Command;
 import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.PrivateChannel;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -88,21 +87,84 @@ public class HelpCommand extends Command {
     }
 
     private void handleEveryoneHelp(PrivateChannel channel, String[] args) {
+        if (args.length < 2)
+            handleEveryoneAll(channel);
+        else if (args.length < 3)
+            handleEveryoneSingle(channel, args);
+    }
+
+    private void handleEveryoneAll(PrivateChannel channel) {
+        StringBuilder s = new StringBuilder();
+        for (Command c : commands) {
+            if (c.getUsageInstructionsEveryone() == null)
+                continue;
+
+            s.append(c.getAliases().get(0).substring(RunBot.PREFIX.length()).toUpperCase())
+             .append(" | ")
+             .append(c.getDescription().toLowerCase()).append("\n\n");
+        }
+
+        channel.sendMessage(new MessageBuilder()
+                                    .appendString("```css\nThe following commands are supported by the bot```")
+                                    .appendString("```fix\nUse ")
+                                    .appendString(RunBot.PREFIX)
+                                    .appendString(" to instantiate a command.```")
+                                    .appendString("```xl\n")
+                                    .appendString(s.toString())
+                                    .appendString("```")
+                                    .build());
+    }
+
+    private void handleEveryoneSingle(PrivateChannel channel, String[] args) {
 
     }
 
     private void handleOpHelp(PrivateChannel channel, String[] args) {
+        if (args.length < 2)
+            handleOpAll(channel);
+        else if (args.length < 3)
+            handleOpSingle(channel, args);
+    }
+
+    private void handleOpAll(PrivateChannel channel) {
+        StringBuilder s = new StringBuilder();
+        for (Command c : commands) {
+            if (c.getUsageInstructionsOp() == null)
+                continue;
+
+            s.append(c.getAliases().get(0).substring(RunBot.PREFIX.length()).toUpperCase())
+             .append(" | ")
+             .append(c.getDescription().toLowerCase()).append("\n\n");
+        }
+
+        channel.sendMessage(new MessageBuilder()
+                                    .appendString("```css\nThe following commands are supported by the bot```")
+                                    .appendString("```fix\nUse ")
+                                    .appendString(RunBot.PREFIX)
+                                    .appendString(" to instantiate a command.```")
+                                    .appendString("```xl\n")
+                                    .appendString(s.toString())
+                                    .appendString("```")
+                                    .build());
+    }
+
+    private void handleOpSingle(PrivateChannel channel, String[] args) {
 
     }
 
     private void handleOwnerHelp(PrivateChannel channel, String[] args) {
+        if (args.length < 2)
+            handleOwnerAll(channel);
+        else if (args.length < 3)
+            handleOwnerSingle(channel, args);
+        /*
         if (args.length < 2) {
             StringBuilder s = new StringBuilder();
             for (Command c : commands) {
                 String description = c.getDescription();
                 description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
 
-                s.append(c.getAliases().get(0).substring(RunBot.PREFIX.length())).append("][");
+                s.append("[").append(c.getAliases().get(0).substring(RunBot.PREFIX.length())).append("][");
                 s.append(description).append("]\n\n");
             }
 
@@ -147,7 +209,46 @@ public class HelpCommand extends Command {
             channel.sendMessage(new MessageBuilder()
                                         .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
                                         .build());
+        }*/
+    }
+
+    private void handleOwnerAll(PrivateChannel channel) {
+        StringBuilder s = new StringBuilder();
+        ArrayList<StringBuilder> msgs = new ArrayList<>();
+        for (Command c : commands) {
+            if (s.length() >= 1800) {
+                msgs.add(s);
+                s = new StringBuilder();
+            }
+            String description = c.getDescription();
+            description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
+
+            s.append("[" + RunBot.PREFIX + "][")
+             .append(c.getAliases().get(0).substring(RunBot.PREFIX.length()))
+             .append("] : [")
+             .append(description)
+             .append("](")
+             .append(c.permission)
+             .append(")")
+             .append("\n\n");
         }
+
+        channel.sendMessage(new MessageBuilder()
+                                    .appendString("```css\nThe following commands are supported by the bot```")
+                                    .appendString("```fix\nUse ")
+                                    .appendString(RunBot.PREFIX)
+                                    .appendString(" to instantiate a command.```").build());
+        for (StringBuilder builder : msgs) {
+            channel.sendMessage(new MessageBuilder()
+                                        .appendString("```md\n")
+                                        .appendString(builder.toString())
+                                        .appendString("```")
+                                        .build());
+        }
+    }
+
+    private void handleOwnerSingle(PrivateChannel channel, String[] args) {
+
     }
 
     private void sendPrivate(PrivateChannel channel, String[] args, Perm permission) {

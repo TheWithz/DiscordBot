@@ -77,11 +77,11 @@ public class JsonCommand extends Command {
 
     private void handleLatex(MessageReceivedEvent event, String[] args) {
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/commonLatex.json"))));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("commonLatex.json"))));
             if (checkKeyExists(obj, event, args))
                 return;
             obj.put(args[3], args[4]);
-            Files.write(Paths.get("resources/commonLatex.json"), obj.toString().getBytes());
+            Files.write(Paths.get("commonLatex.json"), obj.toString().getBytes());
             sendMessage(event, ":white_check_mark: The JSON file was updated successfully.");
         } catch (IOException e) {
             sendMessage(event, ":x: " + e.getMessage());
@@ -90,11 +90,11 @@ public class JsonCommand extends Command {
 
     private void handlePlaylist(MessageReceivedEvent event, String[] args) {
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Playlists.json"))));
             if (checkKeyExists(obj, event, args))
                 return;
             obj.put(args[3], args[4]);
-            Files.write(Paths.get("resources/Playlists.json"), obj.toString().getBytes());
+            Files.write(Paths.get("Playlists.json"), obj.toString().getBytes());
             sendMessage(event, ":white_check_mark: The JSON file was updated successfully.");
         } catch (IOException e) {
             sendMessage(event, ":x: " + e.getMessage());
@@ -103,11 +103,11 @@ public class JsonCommand extends Command {
 
     private void handleConfig(MessageReceivedEvent event, String[] args) {
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Config.json"))));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
             if (checkKeyExists(obj, event, args))
                 return;
             obj.put(args[3], args[4]);
-            Files.write(Paths.get("resources/Config.json"), obj.toString().getBytes());
+            Files.write(Paths.get("Config.json"), obj.toString().getBytes());
             sendMessage(event, ":white_check_mark: The JSON file was updated successfully.");
         } catch (IOException e) {
             sendMessage(event, ":x: " + e.getMessage());
