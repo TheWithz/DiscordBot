@@ -24,27 +24,28 @@ public class LeaveCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Leaves the voice channel that "+ RunBot.BOT.getUsername() + " is connected to.";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Leave Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s)\n" +
+                "[Example:](%1$s) This will automatically remove <%2$s> from it's current audio channel.", getAliases().get(0),RunBot.BOT.getUsername()));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }
 

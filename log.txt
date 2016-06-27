@@ -3643,35 +3643,8 @@ I thought we fixed this
 The above code did not return anything.
 
 [2016-06-26 21:14:39.807] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: uh
-[2016-06-26 21:21:57.172] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: 👀
-[2016-06-26 21:22:26.522] [Exace#TC:diamonds(168502650638172160)] B1RCH_RULEZ: 👀
-[2016-06-26 21:22:27.760] [Exace#TC:the-casino(130167476460716033)] TheWithz: 🌾 🌾 🌾 🌾 👀 🌾 🌾 🌾 🌾
-[2016-06-26 21:22:54.631] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: 👀 👀 👀 👀  🌾 👀 👀 👀 👀
-[2016-06-26 21:23:06.512] [Exace#TC:the-casino(130167476460716033)] TheWithz: uh
-[2016-06-26 21:23:07.697] [Exace#TC:the-casino(130167476460716033)] TheWithz: lol
-[2016-06-26 21:23:12.772] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: 👀
-[2016-06-26 21:26:36.695] [Exace#TC:the-casino(130167476460716033)] [TJ] Exace: 👌
-[2016-06-26 21:26:37.033] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
-```md
-[[17:21:57:297][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [the-casino](Exace)``````md
-[[17:22:26:551][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [diamonds](Exace)``````md
-[[17:22:27:863][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [the-casino](Exace)``````md
-[[17:22:54:661][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [the-casino](Exace)``````md
-[[17:23:06:535][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [the-casino](Exace)``````md
-[[17:23:07:821][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [the-casino](Exace)``````md
-[[17:23:12:823][B1RCH_RULEZ]](ID:142082481695358976) Wrote message in channel/guild [the-casino](Exace)``````md
-[[17:26:36:732][[TJ] Exace]](ID:114896070038913027) Wrote message in channel/guild [the-casino](Exace)```
-[2016-06-26 21:27:19.634] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
-[2016-06-26 21:27:19.695] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
-```md
-[Name:][Evaluate]
-[Description:][Takes Java or Javascript and executes it.]
-[Alliases:]($$$eval)
-[[Usage:]($$$)][eval] <Groovy code>
-[[Example:]($$$)[eval] <return "\"5 + 5 is: \" + (5 + 5);">
-<This will print: 5 + 5 is: 10>```
-[2016-06-26 21:28:48.197] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
-[2016-06-26 21:28:48.337] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+[2016-06-27 10:39:57.040] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help todo
+[2016-06-27 10:39:57.452] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
 [Name:][Todo Command]
 [Description:][Used to create todo lists that can be checked off as things are completed.]
@@ -3705,7 +3678,7 @@ The above code did not return anything.
 <Note:> You can also use <check> and <uncheck>.
 
 ```
-[2016-06-26 21:28:48.481] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+[2016-06-27 10:39:57.680] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
 [Todo Command](Usage Cont. 2)
 
@@ -3733,227 +3706,51 @@ ________________________________________________________________________________
 [remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.
 [[Example:]($$$todo)][remove] <project5> Completely deletes the <project5> todo list.
 ```
-[2016-06-26 21:28:59.857] [Exace#TC:the-casino(130167476460716033)] B1RCH_RULEZ: SeemsGood
-[2016-06-26 21:31:15.919] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval "String.format(\"%1$s\",\"hi\");"
-[2016-06-26 21:31:16.476] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
-:no_entry: **Did not compile!**
-```java
-No such property: s for class: Script1```
-
-[2016-06-26 21:32:26.457] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval "String.format("%s","hi");"
-[2016-06-26 21:32:26.604] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
-:no_entry: **Did not compile!**
-```java
-startup failed:
-Script1.groovy: 1: expecting EOF, found '(' @ line 1, column 14.
-   String.format(%s,hi);
-                ^
-
-1 error
-```
-
-[2016-06-26 21:32:39.345] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval "String.format(\"%1$s\",\"hi\");"
-[2016-06-26 21:32:39.364] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
-:no_entry: **Did not compile!**
-```java
-No such property: s for class: Script1```
-
-[2016-06-26 21:37:19.455] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
-[2016-06-26 21:37:19.542] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+[2016-06-27 10:56:09.031] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help leave
+[2016-06-27 10:56:09.472] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
-[Name:][Evaluate]
-[Description:][Takes Java, Javascript, or Groovy code and executes it.]
-[Alliases:]($$$eval)
-[[Usage:]($$$) <Groovy code>
-[Example:]($$$) <return "\"5 + 5 is: \" + (5 + 5);">
-<This will print: 5 + 5 is: 10>```
-[2016-06-26 21:37:48.204] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
-[2016-06-26 21:37:48.244] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that <@192703711187959809> is connected to.]
+[Alliases:]($$$leave)
+[[Usage:]No usage instructions have been provided for this command. Sorry!```
+[2016-06-27 10:57:30.986] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help leave
+[2016-06-27 10:57:31.401] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
-[Name:][Evaluate]
-[Description:][Takes Java, Javascript, or Groovy code and executes it.]
-[Alliases:]($$$eval)
-[[Usage:]($$$eval) <Groovy code>
-[Example:]($$$eval) <return "\"5 + 5 is: \" + (5 + 5);">
-<This will print: 5 + 5 is: 10>```
-[2016-06-26 21:39:11.468] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: 
-[2016-06-26 21:41:25.408] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: https://cdn.discordapp.com/attachments/171365461479522304/196741175309238273/unknown.png
-[2016-06-26 21:41:48.369] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: @Pear0 how does that look? decent? too much?
-[2016-06-26 22:35:06.772] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: looks good
-[2016-06-26 22:36:01.918] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: and the async prints to the console because the code executes after it's finished evalutating
-[2016-06-26 22:36:30.267] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: well then
-[2016-06-27 00:00:51.856] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that <@192703711187959809> is connected to.]
+[Alliases:]($$$leave)
+[[Usage:]($$$leave)
+[Example:]($$$leave) This will automatically remove (<@192703711187959809>) from it's current audio channel.```
+[2016-06-27 10:57:59.991] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help volume
+[2016-06-27 11:00:25.018] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help volume
+[2016-06-27 11:00:25.469] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
-[[17:41:25:440][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
-[[17:41:48:419][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
-[[18:35:06:879][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
-[[18:36:01:945][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
-[[18:36:30:294][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:00:46:299][Pear0]](ID:111581694250737664) Joined channel/guild [General](ProgramDevelopment)``````md
-[[20:00:46:299][Pear0]](ID:111581694250737664) Muted themselves``````md
-[[20:00:49:619][Pear0]](ID:111581694250737664) Left channel/guild [General](ProgramDevelopment)``````md
-[[20:00:50:178][Pear0]](ID:111581694250737664) Joined channel/guild [General](ProgramDevelopment)```
-[2016-06-27 00:00:57.770] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$join General
-[2016-06-27 00:02:46.668] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$play url https://www.youtube.com/watch?v=0cfRjmZX7_U
-[2016-06-27 00:02:49.836] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
-[2016-06-27 00:28:54.518] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$play url https://www.youtube.com/watch?v=0cfRjmZX7_U
-[2016-06-27 00:28:57.863] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
-[2016-06-27 00:32:55.921] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: There's a repeat command so you don't have to keep doing that 😂
-[2016-06-27 00:33:48.276] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$repeat
-[2016-06-27 00:33:48.472] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The player been set to repeat.
-[2016-06-27 00:33:48.943] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+[Name:][Volume Command]
+[Description:][Changes the volume of the audio player]
+[Alliases:]($$$volume)
+[[Usage:]($$$volume) <volume>
+[Example:]($$$volume) <0.5> This will set (TheWithzTestingBot)'s audio player to 50 Percent.```
+[2016-06-27 11:00:41.986] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help leave
+[2016-06-27 11:00:42.129] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
-[[20:00:57:796][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:00:57:838][TheWithzBot]](ID:168796303726215168) Joined channel/guild [General](ProgramDevelopment)``````md
-[[20:02:46:700][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:02:50:180][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:28:54:546][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:28:57:896][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:32:55:942][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:33:48:381][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:33:48:494][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
-[2016-06-27 00:33:52.498] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$repeat
-[2016-06-27 00:33:52.550] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The player has been set to **not** repeat.
-[2016-06-27 00:33:56.914] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$repeat
-[2016-06-27 00:33:56.966] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The player been set to repeat.
-[2016-06-27 00:34:04.902] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$join AFK
-[2016-06-27 00:34:12.837] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$join afk
-[2016-06-27 00:34:17.913] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$join Testing
-[2016-06-27 00:34:29.910] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$help
-[2016-06-27 00:34:29.959] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: @Pear0: Help information was sent as a private message.
-[2016-06-27 00:34:30.111] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
-```css
-The following commands are supported by the bot```
-[2016-06-27 00:34:30.211] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that TheWithzTestingBot is connected to.]
+[Alliases:]($$$leave)
+[[Usage:]($$$leave)
+[Example:]($$$leave) This will automatically remove (TheWithzTestingBot) from it's current audio channel.```
+[2016-06-27 11:01:24.514] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help volume
+[2016-06-27 11:01:24.688] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
-[$$$][help] : [Command that helps use all other commands!](EVERYONE)
-
-[$$$][tran] : [Command that translates a message!](OP_ONLY)
-
-[$$$][calc] : [Calculates a given expression.](EVERYONE)
-
-[$$$][search] : [Allows you to search the internet.](EVERYONE)
-
-[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
-
-[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
-
-[$$$][fact] : [Command that generates a random fact!](EVERYONE)
-
-[$$$][join] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][leave] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
-
-[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
-
-[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
-
-[$$$][pause] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][play] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][reset] : [Resets the audio player](EVERYONE)
-
-[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][skip] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][stop] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-[$$$][volume] : [Changes the volume of the audio player](EVERYONE)
-
-[$$$][tag] : [No description has been provided for this command. Sorry!](EVERYONE)
-
-```
-[2016-06-27 00:34:30.945] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+[Name:][Volume Command]
+[Description:][Changes the volume of the audio player]
+[Alliases:]($$$volume)
+[[Usage:]($$$volume) <volume>
+[Example:]($$$volume) <0.5> This will set <TheWithzTestingBot>'s audio player to 50 Percent.```
+[2016-06-27 11:01:43.654] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help leave
+[2016-06-27 11:01:43.838] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
 ```md
-[[20:33:52:518][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:33:52:577][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:33:56:936][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:33:56:996][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:34:04:938][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:34:12:866][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:34:17:933][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:34:29:938][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:34:30:178][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
-[2016-06-27 00:34:46.621] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$join General
-[2016-06-27 00:34:54.300] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$join Music
-[2016-06-27 00:35:00.356] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: join's not working
-[2016-06-27 00:36:48.271] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$leave
-[2016-06-27 00:36:51.798] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$join AFK
-[2016-06-27 00:36:56.457] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$mute
-[2016-06-27 00:36:57.943] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
-```md
-[[20:34:46:651][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:34:54:323][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:35:00:395][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:36:48:297][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:36:48:335][TheWithzBot]](ID:168796303726215168) Left channel/guild [General](ProgramDevelopment)``````md
-[[20:36:51:817][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:36:51:846][TheWithzBot]](ID:168796303726215168) Has gone AFK``````md
-[[20:36:56:483][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
-[2016-06-27 00:37:00.068] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$unmute
-[2016-06-27 00:37:27.674] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$play url https://www.youtube.com/watch?v=wZZ7oFKsKzY
-[2016-06-27 00:37:30.856] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
-[2016-06-27 00:37:53.072] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$bash ls
-[2016-06-27 00:37:53.128] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :no_entry: Only @TheWithz can use this command
-[2016-06-27 00:38:16.228] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: Tisk tisk
-[2016-06-27 00:38:18.975] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
-```md
-[[20:37:00:111][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:37:27:702][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:37:30:887][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:37:33:793][Pear0]](ID:111581694250737664) Left channel/guild [General](ProgramDevelopment)``````md
-[[20:37:33:794][Pear0]](ID:111581694250737664) Has gone AFK``````md
-[[20:37:53:095][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:37:53:190][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:38:16:350][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
-[2016-06-27 00:38:30.303] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: it was worth a try
-[2016-06-27 00:39:05.560] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: Actually this is good. Can you do `$$$help bash` ? What does it show you?
-[2016-06-27 00:40:00.791] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$help bash
-[2016-06-27 00:40:01.002] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: @Pear0: Help information was sent as a private message.
-[2016-06-27 00:40:01.064] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: :no_entry: You do not have permission to view this command.
-[2016-06-27 00:40:11.127] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$help $$$bash
-[2016-06-27 00:40:11.186] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: :no_entry: You do not have permission to view this command.
-[2016-06-27 00:40:39.162] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I don't have perms for `$$$help bash` or `$$$help $$$bash`
-[2016-06-27 00:40:39.958] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
-```md
-[[20:38:30:321][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:39:05:626][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:40:00:813][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:40:01:098][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
-[[20:40:25:469][B1RCH_RULEZ]](ID:142082481695358976) Had a role removed. role/guild [Exace]([R:Hearts(168415536370286593)])``````md
-[[20:40:26:318][B1RCH_RULEZ]](ID:142082481695358976) Had a role added. role/guild [Exace]([R:Clubs(168415502291435520), R:Hearts(168415536370286593)])``````md
-[[20:40:29:461][B1RCH_RULEZ]](ID:142082481695358976) Had a role removed. role/guild [Exace]([R:Hearts(168415536370286593)])``````md
-[[20:40:39:182][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
-[2016-06-27 00:40:46.375] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$help help
-[2016-06-27 00:40:46.464] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
-```md
-[Name:][Help Command]
-[Description:][Command that helps use all other commands!]
-[Alliases:]($$$help, $$$commands)
-[[Usage:]$$$help **OR** $$$help *<command>*
-$$$help | returns the list of commands along with a simple description of each.
-$$$help <command> | returns the name, description, aliases, and usage information of a command.
-   - This can use the aliases of a command as input as well.
-__Example:__ $$$help stats```
-[2016-06-27 00:40:58.783] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$help rnum
-[2016-06-27 00:40:58.845] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
-```md
-[Name:][Random Number Command]
-[Description:][Command that generates a random number between 0 and the argument given!]
-[Alliases:]($$$rnum, $$$randomNumber, $$$randomNum, $$$randomnumber, $$$rNum)
-[[Usage:]$$$rnum <Integer>```
-[2016-06-27 00:41:00.800] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: It says both O.o 😭😭😭😭
-[2016-06-27 00:41:46.451] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: ?
-[2016-06-27 00:43:29.749] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I'm watching the epic fight in JDA#general
-[2016-06-27 00:43:48.572] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 😂
-[2016-06-27 01:12:22.322] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: lol wtf
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that TheWithzTestingBot is connected to.]
+[Alliases:]($$$leave)
+[[Usage:]($$$leave)
+[Example:]($$$leave) This will automatically remove <TheWithzTestingBot> from it's current audio channel.```
