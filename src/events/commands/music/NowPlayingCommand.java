@@ -7,6 +7,7 @@ import net.dv8tion.jda.player.source.AudioInfo;
 import net.dv8tion.jda.player.source.AudioTimestamp;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -49,7 +50,9 @@ public class NowPlayingCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return Arrays.asList(RunBot.PREFIX + "nowplaying", RunBot.PREFIX + "currentsong", RunBot.PREFIX + "current");
+        return Collections.singletonList(String.format("(%1$s)\n" +
+                "[Example: 1](%1$s) This will print out information about the song currently playing.\n" +
+                "[Example: 2](%2$s) This will print out information about the song currently playing.", getAliases().get(0), getAliases().get(2)));
     }
 
     @Override

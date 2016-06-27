@@ -38,27 +38,28 @@ public class JoinCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Creates an audio connection with the channel of your choosing.";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Join Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s) <Audio Channel>\n" +
+                "[Example:](%1$s) <General> This will have <%2$s> join the General Audio Channel", getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }
 

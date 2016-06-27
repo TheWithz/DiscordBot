@@ -3754,3 +3754,56 @@ ________________________________________________________________________________
 [Alliases:]($$$leave)
 [[Usage:]($$$leave)
 [Example:]($$$leave) This will automatically remove <TheWithzTestingBot> from it's current audio channel.```
+[2016-06-27 11:16:39.912] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help calc
+[2016-06-27 11:16:40.073] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Calculate Command]
+[Description:][Calculates a given expression.]
+[Alliases:]($$calc, $$calculate)
+[[Usage:]($$calc) <Mathematical Expression>
+[Example:]($$calc) <4 + 4 + 4 * 6> This will output 32.```
+[2016-06-27 11:17:03.681] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$calc "4 + 4 + 4 * 4"
+[2016-06-27 11:17:03.812] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: :white_check_mark: The answer to your expression is: 24.0
+[2016-06-27 11:17:34.008] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$calc "4 + 4 + 4 * 6"
+[2016-06-27 11:17:34.100] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: :white_check_mark: The answer to your expression is: 32.0
+[2016-06-27 11:17:54.978] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$help calc
+[2016-06-27 11:17:55.037] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzTestingBot: @TheWithz: Help information was sent as a private message.
+[2016-06-27 11:17:55.176] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Calculate Command]
+[Description:][Calculates a given expression.]
+[Alliases:]($$calc, $$calculate)
+[[Usage:]($$calc) <Mathematical Expression>
+[Example:]($$calc) <4 + 4 + 4 * 6> This will output 32.```
+[2016-06-27 11:23:02.713] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help join
+[2016-06-27 11:23:10.819] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$$help join
+[2016-06-27 11:23:17.570] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help join
+[2016-06-27 11:23:17.759] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Join Command]
+[Description:][Creates an audio connection with the channel of your choosing.]
+[Alliases:]($$join)
+[[Usage:]($$join) <Audio Channel>
+[Example:]($$join) <General> This will have <(TheWithzTestingBot)> join the General Audio Channel```
+[2016-06-27 11:27:58.054] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help current
+[2016-06-27 11:27:58.128] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][NowPlaying Command]
+[Description:][Prints out information about the currently playing song]
+[Alliases:]($$nowplaying, $$currentsong, $$current)
+[[Usage:]($$nowplaying)
+[Example: 1]($$nowplaying) This will print out information about the song currently playing.
+[Example: 2]($$current) This will print out information about the song currently playing.```
+[2016-06-27 11:30:18.757] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$join General
+[2016-06-27 11:30:37.532] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$play playlist sotlIntro
+[2016-06-27 11:31:09.624] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: right... now on linux. cant do that
+[2016-06-27 11:31:11.037] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[07:17:55:005][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:17:55:123][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:30:18:784][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:30:18:980][TheWithzTestingBot]](ID:192703711187959809) Joined channel/guild [General](ProgramDevelopment)``````md
+[[07:30:22:335][TheWithz]](ID:122764399961309184) Joined channel/guild [General](ProgramDevelopment)``````md
+[[07:30:22:336][TheWithz]](ID:122764399961309184) Muted themselves``````md
+[[07:30:37:561][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:31:09:653][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```

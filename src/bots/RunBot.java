@@ -34,7 +34,7 @@ public class RunBot {
     public static User BOT = null;
     public static TextChannel LOG = null;
     private static final Timer TIMER = new Timer();
-    public static final String PREFIX = "$$$";
+    public static final String PREFIX = "$$";
     public static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     public static String OWNER_REQUIRED = null;
     // private static final GitHubClient client = new GitHubClient();
