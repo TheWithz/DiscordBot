@@ -70,12 +70,12 @@ public class EvalCommand extends Command {
 
     @Override
     public String getDescription() {
-        return "Takes Java or Javascript and executes it.";
+        return "Takes Java, Javascript, or Groovy code and executes it.";
     }
 
     @Override
     public String getName() {
-        return "Evaluate";
+        return "Evaluate Command";
     }
 
     @Override
@@ -90,9 +90,9 @@ public class EvalCommand extends Command {
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return Collections.singletonList(
-                "(" + RunBot.PREFIX + ")][eval] <Groovy code>\n" +
-                        "[[Example:](" + RunBot.PREFIX + ")[eval] <return \"\\\"5 + 5 is: \\\" + (5 + 5);\">\n" +
-                        "<This will print: 5 + 5 is: 10>");
+        return Collections.singletonList(String.format(
+                "(%1$s) <Groovy code>\n" +
+                        "[Example:](%1$s) <return \"\\\"5 + 5 is: \\\" + (5 + 5);\">\n" +
+                        "<This will print: 5 + 5 is: 10>", getAliases().get(0)));
     }
 }
