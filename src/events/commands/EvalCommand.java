@@ -75,7 +75,7 @@ public class EvalCommand extends Command {
 
     @Override
     public String getName() {
-        return "Evaluate";
+        return "Evaluate Command";
     }
 
     @Override

@@ -44,7 +44,9 @@ public class VolumeCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return Collections.singletonList(RunBot.PREFIX + "volume");
+        return Collections.singletonList(
+                String.format("(%1$s) <volume>\n" +
+                        "[Example:](%1$s) <0.5> This will set <%2$s>'s audio player to 50 Percent.", getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override
