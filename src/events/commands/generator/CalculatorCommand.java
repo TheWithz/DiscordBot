@@ -37,7 +37,8 @@ public class CalculatorCommand extends Command {
 
     @Override
     public List<String> getUsageInstructionsEveryone() {
-        return Collections.singletonList(String.format("(%1$s)" + " <Mathematical Expression>", getAliases().get(0)));
+        return Collections.singletonList(String.format("(%1$s) <Mathematical Expression>\n" +
+                                                               "[Example:](%1$s) <4 + 4 + 4 * 6> This will output 32.", getAliases().get(0)));
     }
 
     @Override
