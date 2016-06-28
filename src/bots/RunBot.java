@@ -35,7 +35,7 @@ public class RunBot {
     public static TextChannel LOG = null;
     private static final Timer TIMER = new Timer();
     public static final String PREFIX = "$$";
-    public static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
+    private static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     public static String OWNER_REQUIRED = null;
     // private static final GitHubClient client = new GitHubClient();
 
@@ -132,7 +132,7 @@ public class RunBot {
                 seconds + (seconds != 1L ? " seconds " : " second");
     }
 
-    public static void printAsFile(TextChannel channel, StringBuilder b, String fileName) {
+    public static boolean printAsFile(TextChannel channel, StringBuilder b, String fileName) {
         channel.sendTyping();
         BashCommand.runLinuxCommand("touch " + fileName + ".txt");
         File file = new File(fileName + ".txt");
@@ -143,7 +143,7 @@ public class RunBot {
             e.printStackTrace();
         }
         channel.sendFile(file, new MessageBuilder().appendCodeBlock(fileName, "java").build());
-        file.delete();
+        return file.delete();
     }
 
     public static void checkArgs(String[] args, int index, String failMessage, MessageReceivedEvent e) {
