@@ -45,7 +45,7 @@ public class RunBot {
             //client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
             //        .getString("gitPassword"));
             HelpCommand help = new HelpCommand();
-            API = new JDABuilder().setBotToken(obj.getString("releaseBotToken"))
+            API = new JDABuilder().setBotToken(obj.getString("testBotToken"))
                                   .addListener(new LoginHandler())
                                   .addListener(new LogHandler())
                                   .addListener(new TerminalHandler())

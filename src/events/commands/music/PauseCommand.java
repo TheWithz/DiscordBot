@@ -14,8 +14,16 @@ public class PauseCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if (AudioUtil.player == null) {
+            event.getChannel().sendMessageAsync(":x: You cannot pause before you have started playing.", null);
+            return;
+        }
+        if (!AudioUtil.player.isPlaying()) {
+            event.getChannel().sendMessageAsync(String.format(":x: You cannot pause if %1$s has already stopped playing.", RunBot.BOT.getUsername()), null);
+            return;
+        }
         AudioUtil.player.pause();
-        event.getChannel().sendMessage("playback has been paused.");
+        event.getChannel().sendMessage(":white_check_mark: playback has been paused.");
     }
 
     @Override
@@ -25,26 +33,27 @@ public class PauseCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Pauses the audio player.";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Pause Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s)\n" +
+                "[Example:](%1$s) This will pause <%2$s> if there is audio playing", getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }

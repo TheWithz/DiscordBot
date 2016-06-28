@@ -143,17 +143,17 @@ public class PlayCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Plays music over an established audio connection.";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Play Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("",getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override
