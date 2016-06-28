@@ -4106,3 +4106,4 @@ Todo for: botfeatures
 [2016-06-28 04:09:46.871] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **completed**
 [2016-06-28 04:10:12.024] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo unmark botfeatures 7
 [2016-06-28 04:10:12.313] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **incomplete**
+[2016-06-28 04:49:50.410] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @Pear0 linux is reinstalled on the raspi... im going to use gparted this time....
