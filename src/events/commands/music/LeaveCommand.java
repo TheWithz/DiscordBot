@@ -2,6 +2,7 @@ package events.commands.music;
 
 import bots.RunBot;
 import events.commands.Command;
+import net.dv8tion.jda.events.audio.AudioUnableToConnectEvent;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Collections;
@@ -14,7 +15,10 @@ public class LeaveCommand extends Command {
     //Disconnect the audio connection with the VoiceChannel.
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if(AudioUtil.manager.isConnected())
         AudioUtil.manager.closeAudioConnection();
+        else
+            sendMessage(event, ":x: Cannot sever null audio connection.");
     }
 
     @Override

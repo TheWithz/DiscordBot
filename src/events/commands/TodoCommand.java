@@ -3,10 +3,12 @@ package events.commands;
 import bots.RunBot;
 import misc.Database;
 import net.dv8tion.jda.MessageBuilder;
+import net.dv8tion.jda.MessageHistory;
 import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.PreparedStatement;
@@ -126,7 +128,7 @@ public class TodoCommand extends Command {
                             "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
             }
             if (Arrays.asList(args).contains("botfeatures") && args[0].equals(RunBot.PREFIX + "todo")) {
-                refreshTodoChannel();
+                refreshTodoChannel(e, args);
             }
         } catch (SQLException e1) {
             sendMessage(e, ":x: An SQL error occurred while processing command.\nError Message: " + e1.getMessage());
@@ -136,14 +138,43 @@ public class TodoCommand extends Command {
         }
     }
 
-    private void refreshTodoChannel() {
+    private void refreshTodoChannel(MessageReceivedEvent e, String[] args) {
         TextChannel tc = RunBot.API.getTextChannelById("193539094410690561");
-        List hist = tc.getHistory().retrieveAll();
-        if (hist.size() < 2) {
-            tc.sendMessage("this is temporary");
+        Message message = tc.getMessageById("197201664996802561");
+        StringBuilder msg = getBotFeaturesShowMessage(tc, args);
+        if (message != null) {
+            message.updateMessageAsync(msg == null ? ":x: The message returned null." : msg.toString(), null);
         }
-        tc.deleteMessages(tc.getHistory().retrieveAll());
-        handleShow(tc, new String[]{"$$$todo", "show", "botfeatures"});
+        MessageHistory hist = tc.getHistory();
+        List<Message> l = hist.retrieveAll();
+        l.get(0).deleteMessage();
+        l.get(1).deleteMessage();
+    }
+
+    private StringBuilder getBotFeaturesShowMessage(TextChannel tc, String[] args) {
+        RunBot.checkArgs(args, 2, ":x: No todo ListName was specified. Usage: `" + getAliases().get(0) + " show [ListName]`", tc);
+
+        String label = args[2].toLowerCase();
+        TodoList todoList = todoLists.get(label);
+        if (todoList == null)
+            return null;
+
+        // Discord messages can only be 2000 characters.
+        StringBuilder builder = new StringBuilder();
+        builder.append("```fix\nTodo for: ")
+                .append(label).append("```")
+                .append("```diff\n");
+        for (int i = 0; i < todoList.entries.size(); i++) {
+            TodoEntry todoEntry = todoList.entries.get(i);
+            String todoEntryString = todoEntry.content;
+            if (todoEntry.checked) {
+                todoEntryString = "+" + (i + 1) + ") " + todoEntryString + "\n\n";
+            } else {
+                todoEntryString = "-" + (i + 1) + ") " + todoEntryString + "\n\n";
+            }
+            builder.append(todoEntryString);
+        }
+        return builder.append("```");
     }
 
     @Override

@@ -3807,3 +3807,302 @@ ________________________________________________________________________________
 [[07:30:22:336][TheWithz]](ID:122764399961309184) Muted themselves``````md
 [[07:30:37:561][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
 [[07:31:09:653][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-06-27 11:49:17.972] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[07:30:16:156][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:30:16:384][TheWithzTestingBot]](ID:192703711187959809) Joined channel/guild [General](ProgramDevelopment)``````md
+[[07:30:19:692][TheWithz]](ID:122764399961309184) Joined channel/guild [General](ProgramDevelopment)``````md
+[[07:30:19:720][TheWithz]](ID:122764399961309184) Muted themselves``````md
+[[07:30:34:912][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:31:07:017][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:31:08:424][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [logtest](ProgramDevelopment)``````md
+[[07:49:13:738][TheWithzTestingBot]](ID:192703711187959809) Joined channel/guild [General](ProgramDevelopment)```
+[2016-06-27 12:02:02.795] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$leave
+[2016-06-27 12:02:10.087] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help leave
+[2016-06-27 12:02:10.458] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that TheWithzTestingBot is connected to.]
+[Alliases:]($$leave)
+[[Usage:]($$leave)
+[Example:]($$leave) This will automatically remove <TheWithzTestingBot> from it's current audio channel.```
+[2016-06-27 12:05:09.451] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo mark botfeatures 12
+[2016-06-27 12:05:10.013] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `12` in `botfeatures` was marked as **completed**
+[2016-06-27 12:05:10.414] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
++12) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-13) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-14) write website to manage bot, display info, etc.
+
+-15) make shit pretty looking
+
+```
+[2016-06-27 12:05:11.089] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[07:55:23:636][TheWithzTestingBot]](ID:192703711187959809) Left channel/guild [General](ProgramDevelopment)``````md
+[[08:00:38:063][TheWithz]](ID:122764399961309184) Joined channel/guild [General](ProgramDevelopment)``````md
+[[08:01:01:702][TheWithzTestingBot]](ID:192703711187959809) Joined channel/guild [General](ProgramDevelopment)``````md
+[[08:01:25:458][TheWithz]](ID:122764399961309184) Left channel/guild [General](ProgramDevelopment)``````md
+[[08:03:01:486][TheWithzTestingBot]](ID:192703711187959809) Left channel/guild [General](ProgramDevelopment)``````md
+[[08:05:09:506][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:10:047][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:10:442][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-27 12:05:38.932] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo mark botfeatures 15
+[2016-06-27 12:05:39.073] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `15` in `botfeatures` was marked as **completed**
+[2016-06-27 12:05:39.873] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
++12) restructure commands again to make help messages easier to display EX. register commands as OP only, OWNER only, or EVERYONE
+
+-13) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-14) write website to manage bot, display info, etc.
+
++15) make shit pretty looking
+
+```
+[2016-06-27 12:05:48.666] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo clear botfeatures
+[2016-06-27 12:05:49.165] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Cleared **2** completed entries from the `botfeatures` todo list.
+[2016-06-27 12:05:49.827] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
+-12) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-13) write website to manage bot, display info, etc.
+
+```
+[2016-06-27 12:05:50.505] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[08:05:06:905][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:07:813][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:07:850][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:08:562][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [logtest](ProgramDevelopment)``````md
+[[08:05:36:311][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:37:473][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:37:563][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:46:231][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-06-27 12:06:52.449] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: it never occured to me that instead of deleting everything from the channel and reposting that i should just edit the todo message.... how have i been so stupid for so long
+[2016-06-27 12:06:52.998] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[08:05:38:961][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:39:146][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:39:904][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:48:717][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:49:235][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:49:854][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[08:05:50:538][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [logtest](ProgramDevelopment)``````md
+[[08:06:52:484][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-06-27 12:22:25.937] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo add botfeatures replace all sendMessage calls with sendMessageAsync
+[2016-06-27 12:22:26.577] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-06-27 12:22:27.375] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
+-12) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-13) write website to manage bot, display info, etc.
+
+-14) replace all sendMessage calls with sendMessageAsync
+
+```
+[2016-06-27 12:28:21.688] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo mark botfeatures 7
+[2016-06-27 12:28:21.989] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **completed**
+[2016-06-27 15:44:03.506] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: there's docs?
+[2016-06-27 15:44:05.892] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: xD
+[2016-06-27 15:50:20.727] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[11:44:00:177][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[11:44:02:549][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[11:47:31:541][Konoyarou]](ID:141010289243062282) Muted themselves``````md
+[[11:47:32:351][Konoyarou]](ID:141010289243062282) Deafened themselves``````md
+[[11:48:53:280][Konoyarou]](ID:141010289243062282) Undeafened themselves``````md
+[[11:48:53:483][Konoyarou]](ID:141010289243062282) Unmuted themselves``````md
+[[11:50:13:656][boris.li99]](ID:138326825360293888) Left channel/guild [Gaming](Marc Ivan and Other Miscreants)``````md
+[[11:50:16:214][boris.li99]](ID:138326825360293888) Joined channel/guild [Gaming](Marc Ivan and Other Miscreants)```
+[2016-06-27 17:31:41.658] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: omg please tell me youre not serious
+[2016-06-27 17:32:11.583] [Marc Ivan and Other Miscreants#TC:general(122764154443530243)] TheWithz: @╔────▐ that's the discord connectionm status yesterday
+[2016-06-27 17:32:26.054] [Marc Ivan and Other Miscreants#TC:general(122764154443530243)] TheWithz: marc said it disconnecting people
+[2016-06-27 17:33:22.083] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: are you referring to the discord docs?
+[2016-06-27 17:33:53.747] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: noi
+[2016-06-27 17:33:57.421] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: the JDA docs
+[2016-06-27 17:34:09.287] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: I use gradle for it, so when I search in the source, I see the docs
+[2016-06-27 17:34:29.827] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: ahh ok
+[2016-06-27 17:34:31.626] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[13:31:38:469][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:32:08:351][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](Marc Ivan and Other Miscreants)``````md
+[[13:32:22:857][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](Marc Ivan and Other Miscreants)``````md
+[[13:33:18:835][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:33:50:496][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:33:54:238][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:34:06:084][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:34:26:654][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-06-27 18:23:04.833] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[14:08:33:880][Albert]](ID:122766571213946880) Joined channel/guild [Coding](Marc Ivan and Other Miscreants)``````md
+[[14:09:16:849][bricktsre]](ID:109065089771900928) Has gone AFK``````md
+[[14:12:51:052][boris.li99]](ID:138326825360293888) Left channel/guild [Gaming](Marc Ivan and Other Miscreants)``````md
+[[14:14:01:934][bricktsre]](ID:109065089771900928) Is no longer AFK``````md
+[[14:22:33:093][Albert]](ID:122766571213946880) Left channel/guild [Coding](Marc Ivan and Other Miscreants)``````md
+[[14:22:33:094][Albert]](ID:122766571213946880) Joined channel/guild [Alex'sShitStorm](Marc Ivan and Other Miscreants)``````md
+[[14:22:43:179][Albert]](ID:122766571213946880) Muted themselves``````md
+[[14:23:00:215][Konoyarou]](ID:141010289243062282) Muted themselves```
+[2016-06-27 18:23:05.897] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[13:31:41:736][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:33:22:108][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:33:53:777][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:33:57:513][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:34:09:355][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:34:29:941][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:34:31:654][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [logtest](ProgramDevelopment)``````md
+[[14:23:04:883][TheWithzTestingBot]](ID:192703711187959809) Wrote message in channel/guild [logtest](ProgramDevelopment)```
+[2016-06-27 18:47:54.014] [Marc Ivan and Other Miscreants#TC:general(122764154443530243)] BoredMax: 
+[2016-06-27 18:48:00.740] [Marc Ivan and Other Miscreants#TC:general(122764154443530243)] BoredMax: 
+[2016-06-28 03:53:43.227] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo mark botfeatures 7
+[2016-06-28 03:53:43.649] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **completed**
+[2016-06-28 03:58:11.306] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo mark botfeatures 7
+[2016-06-28 03:58:11.529] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **completed**
+[2016-06-28 03:58:30.168] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo unmark botfeatures 7
+[2016-06-28 03:58:30.463] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **incomplete**
+[2016-06-28 04:01:23.131] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo mark botfeatures 7
+[2016-06-28 04:01:23.598] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **completed**
+[2016-06-28 04:07:52.462] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo unmark botfeatures 7
+[2016-06-28 04:07:52.734] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **incomplete**
+[2016-06-28 04:09:00.549] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo show botfeatures
+[2016-06-28 04:09:00.765] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
+-12) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-13) write website to manage bot, display info, etc.
+
+-14) replace all sendMessage calls with sendMessageAsync
+
+```
+[2016-06-28 04:09:46.498] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo mark botfeatures 7
+[2016-06-28 04:09:46.871] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **completed**
+[2016-06-28 04:10:12.024] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo unmark botfeatures 7
+[2016-06-28 04:10:12.313] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **incomplete**
