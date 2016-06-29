@@ -4107,3 +4107,141 @@ Todo for: botfeatures
 [2016-06-28 04:10:12.024] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$todo unmark botfeatures 7
 [2016-06-28 04:10:12.313] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzTestingBot: :white_check_mark: Item `7` in `botfeatures` was marked as **incomplete**
 [2016-06-28 04:49:50.410] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @Pear0 linux is reinstalled on the raspi... im going to use gparted this time....
+[2016-06-29 13:34:40.529] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help leave
+[2016-06-29 13:34:40.529] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help leave
+[2016-06-29 13:34:40.997] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that TheWithzTestingBot is connected to.]
+[Alliases:]($$leave)
+[[Usage:]($$leave)
+[Example:]($$leave) This will automatically remove <TheWithzTestingBot> from it's current audio channel.```
+[2016-06-29 13:34:41.067] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that TheWithzTestingBot is connected to.]
+[Alliases:]($$leave)
+[[Usage:]($$leave)
+[Example:]($$leave) This will automatically remove <TheWithzTestingBot> from it's current audio channel.```
+[2016-06-29 13:34:40.997] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that TheWithzTestingBot is connected to.]
+[Alliases:]($$leave)
+[[Usage:]($$leave)
+[Example:]($$leave) This will automatically remove <TheWithzTestingBot> from it's current audio channel.```
+[2016-06-29 13:34:41.067] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Leave Command]
+[Description:][Leaves the voice channel that TheWithzTestingBot is connected to.]
+[Alliases:]($$leave)
+[[Usage:]($$leave)
+[Example:]($$leave) This will automatically remove <TheWithzTestingBot> from it's current audio channel.```
+[2016-06-29 13:34:56.636] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help join
+[2016-06-29 13:34:56.636] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help join
+[2016-06-29 13:34:56.760] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Join Command]
+[Description:][Creates an audio connection with the channel of your choosing.]
+[Alliases:]($$join)
+[[Usage:]($$join) <Audio Channel>
+[Example:]($$join) <General> This will have <TheWithzTestingBot> join the General Audio Channel```
+[2016-06-29 13:34:56.760] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Join Command]
+[Description:][Creates an audio connection with the channel of your choosing.]
+[Alliases:]($$join)
+[[Usage:]($$join) <Audio Channel>
+[Example:]($$join) <General> This will have <TheWithzTestingBot> join the General Audio Channel```
+[2016-06-29 13:34:56.762] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Join Command]
+[Description:][Creates an audio connection with the channel of your choosing.]
+[Alliases:]($$join)
+[[Usage:]($$join) <Audio Channel>
+[Example:]($$join) <General> This will have <TheWithzTestingBot> join the General Audio Channel```
+[2016-06-29 13:34:56.762] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Join Command]
+[Description:][Creates an audio connection with the channel of your choosing.]
+[Alliases:]($$join)
+[[Usage:]($$join) <Audio Channel>
+[Example:]($$join) <General> This will have <TheWithzTestingBot> join the General Audio Channel```
+[2016-06-29 13:35:14.479] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help help
+[2016-06-29 13:35:14.479] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help help
+[2016-06-29 13:35:14.631] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]$$help **OR** $$help *<command>*
+$$help | returns the list of commands along with a simple description of each.
+$$help <command> | returns the name, description, aliases, and usage information of a command.
+   - This can use the aliases of a command as input as well.
+__Example:__ $$help stats```
+[2016-06-29 13:35:14.631] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]$$help **OR** $$help *<command>*
+$$help | returns the list of commands along with a simple description of each.
+$$help <command> | returns the name, description, aliases, and usage information of a command.
+   - This can use the aliases of a command as input as well.
+__Example:__ $$help stats```
+[2016-06-29 13:35:14.531] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]$$help **OR** $$help *<command>*
+$$help | returns the list of commands along with a simple description of each.
+$$help <command> | returns the name, description, aliases, and usage information of a command.
+   - This can use the aliases of a command as input as well.
+__Example:__ $$help stats```
+[2016-06-29 13:35:14.531] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]$$help **OR** $$help *<command>*
+$$help | returns the list of commands along with a simple description of each.
+$$help <command> | returns the name, description, aliases, and usage information of a command.
+   - This can use the aliases of a command as input as well.
+__Example:__ $$help stats```
+[2016-06-29 13:53:20.450] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help help
+[2016-06-29 13:53:20.592] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]($$help)
+[Example: 1]($$help) Shows all <TheWithzTestingBot's> commands with permission level <EVERYONE>
+[Example: 2]($$help) <todo> Shows <TheWithzTestingBot's> usage information for the todo command if it is in the <EVERYONE> permission level```
+[2016-06-29 13:56:08.528] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help help
+[2016-06-29 13:56:08.713] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]($$help)
+[Example: 1]($$help) Shows all <TheWithzTestingBot's> commands with permission level <OWNER_ONLY>
+[Example: 2]($$help) <todo> Shows <TheWithzTestingBot's> usage information for the todo command if it is in the <OWNER_ONLY> permission level```
+[2016-06-29 13:58:32.093] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help help
+[2016-06-29 13:58:32.291] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]($$help)
+[Example: 1]($$help) Shows all <TheWithzTestingBot's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>
+[Example: 2]($$help) <todo> Shows <TheWithzTestingBot's> usage information for the todo command if it is in the <EVERYONE> permission level```
+[2016-06-29 13:59:43.340] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithz: $$help help
+[2016-06-29 13:59:43.593] [<@122764399961309184>#PC:TheWithz(194149594077069321)] TheWithzTestingBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$help, $$commands)
+[[Usage:]($$help)
+[Example: 1]($$help) Shows all <TheWithzTestingBot's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>
+[Example: 2]($$help) <todo> Shows <TheWithzTestingBot's> usage information for the todo command if it is in the <EVERYONE> or <OP_ONLY> or <OWNER_ONLY> permission level```
