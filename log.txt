@@ -4245,3 +4245,126 @@ __Example:__ $$help stats```
 [[Usage:]($$help)
 [Example: 1]($$help) Shows all <TheWithzTestingBot's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>
 [Example: 2]($$help) <todo> Shows <TheWithzTestingBot's> usage information for the todo command if it is in the <EVERYONE> or <OP_ONLY> or <OWNER_ONLY> permission level```
+[2016-06-29 14:59:31.341] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[10:27:58:074][Fragarach]](ID:140566192988487680) Has gone AFK``````md
+[[10:28:05:049][Fragarach]](ID:140566192988487680) Is no longer AFK``````md
+[[10:29:15:305][CanYuNot]](ID:151152380170207233) Has gone AFK``````md
+[[10:57:53:725][TR-8RJ0s]](ID:122763729061412866) Joined channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)``````md
+[[10:58:02:639][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)``````md
+[[10:58:18:467][TR-8RJ0s]](ID:122763729061412866) Joined channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[10:59:26:641][Fragarach]](ID:140566192988487680) Has gone AFK``````md
+[[10:59:26:642][Fragarach]](ID:140566192988487680) Muted themselves```
+[2016-06-29 15:55:52.996] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[11:15:08:184][Alex♥]](ID:122771361910358016) Joined channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[11:33:12:357][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[11:44:32:354][Brian3780]](ID:137727811984162818) Joined channel/guild [General](Marc Ivan and Other Habibis)``````md
+[[11:48:39:176][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[11:50:39:085][Brian3780]](ID:137727811984162818) Left channel/guild [General](Marc Ivan and Other Habibis)``````md
+[[11:50:39:092][Brian3780]](ID:137727811984162818) Joined channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[11:54:42:928][lemurback]](ID:140514662922846209) Joined channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[11:55:48:339][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[11:55:48:340][TR-8RJ0s]](ID:122763729061412866) Joined channel/guild [Coding](Marc Ivan and Other Habibis)```
+[2016-06-29 16:00:10.097] [Marc Ivan and Other Habibis#TC:general(122764154443530243)] Brian3780: http://imgur.com/7ctunkU
+[2016-06-29 16:01:16.159] [Marc Ivan and Other Habibis#TC:general(122764154443530243)] lemurback: 
+[2016-06-29 16:01:17.085] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[11:56:42:435][Alex♥]](ID:122771361910358016) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[11:56:42:436][Alex♥]](ID:122771361910358016) Joined channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[11:56:48:517][Alex♥]](ID:122771361910358016) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[11:56:48:518][Alex♥]](ID:122771361910358016) Joined channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[11:56:49:108][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[11:56:49:109][TR-8RJ0s]](ID:122763729061412866) Joined channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[12:00:05:861][Brian3780]](ID:137727811984162818) Wrote message in channel/guild [general](Marc Ivan and Other Habibis)``````md
+[[12:01:12:159][lemurback]](ID:140514662922846209) Wrote message in channel/guild [general](Marc Ivan and Other Habibis)```
+[2016-06-29 16:08:15.021] [Marc Ivan and Other Habibis#TC:general(122764154443530243)] TR-8RJ0s: 🍆
+[2016-06-29 16:40:11.623] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[12:01:35:386][Konoyarou]](ID:141010289243062282) Joined channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[12:08:10:762][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](Marc Ivan and Other Habibis)``````md
+[[12:08:50:953][CanYuNot]](ID:151152380170207233) Is no longer AFK``````md
+[[12:21:54:004][bricktsre]](ID:109065089771900928) Joined channel/guild [Gaming](Marc Ivan and Other Habibis)``````md
+[[12:22:07:733][Alex♥]](ID:122771361910358016) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[12:25:32:373][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[12:40:04:647][lemurback]](ID:140514662922846209) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[12:40:04:648][lemurback]](ID:140514662922846209) Joined channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[12:40:05:351][lemurback]](ID:140514662922846209) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[12:40:05:352][lemurback]](ID:140514662922846209) Joined channel/guild [Gaming](Marc Ivan and Other Habibis)``````md
+[[12:40:05:518][lemurback]](ID:140514662922846209) Left channel/guild [Gaming](Marc Ivan and Other Habibis)``````md
+[[12:40:05:519][lemurback]](ID:140514662922846209) Joined channel/guild [Watching](Marc Ivan and Other Habibis)```
+[2016-06-29 17:26:54.298] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[12:59:30:030][lemurback]](ID:140514662922846209) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[12:59:30:031][lemurback]](ID:140514662922846209) Joined channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[12:59:53:980][Konoyarou]](ID:141010289243062282) Muted themselves``````md
+[[12:59:53:982][Konoyarou]](ID:141010289243062282) Deafened themselves``````md
+[[12:59:54:577][lemurback]](ID:140514662922846209) Muted themselves``````md
+[[12:59:54:577][lemurback]](ID:140514662922846209) Deafened themselves``````md
+[[13:26:29:177][CanYuNot]](ID:151152380170207233) Has gone AFK``````md
+[[13:26:47:846][CanYuNot]](ID:151152380170207233) Is no longer AFK``````md
+[[13:26:47:847][CanYuNot]](ID:151152380170207233) Joined channel/guild [Coding](Marc Ivan and Other Habibis)```
+[2016-06-29 17:33:59.283] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[13:28:44:336][Konoyarou]](ID:141010289243062282) Unmuted themselves``````md
+[[13:28:44:337][Konoyarou]](ID:141010289243062282) Undeafened themselves``````md
+[[13:28:59:691][Konoyarou]](ID:141010289243062282) Muted themselves``````md
+[[13:28:59:692][Konoyarou]](ID:141010289243062282) Deafened themselves``````md
+[[13:29:02:007][CanYuNot]](ID:151152380170207233) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[13:33:51:963][Fragarach]](ID:140566192988487680) Is no longer AFK``````md
+[[13:33:51:964][Fragarach]](ID:140566192988487680) Joined channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[13:33:52:872][Fragarach]](ID:140566192988487680) Unmuted themselves```
+[2016-06-29 18:14:08.264] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[13:34:03:124][Fragarach]](ID:140566192988487680) Muted themselves``````md
+[[13:53:26:433][Albert]](ID:122766571213946880) Joined channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)``````md
+[[14:10:16:139][Konoyarou]](ID:141010289243062282) Unmuted themselves``````md
+[[14:10:16:169][Konoyarou]](ID:141010289243062282) Undeafened themselves``````md
+[[14:10:22:572][lemurback]](ID:140514662922846209) Unmuted themselves``````md
+[[14:10:22:573][lemurback]](ID:140514662922846209) Undeafened themselves``````md
+[[14:13:59:833][Fragarach]](ID:140566192988487680) Unmuted themselves``````md
+[[14:14:02:300][Brian3780]](ID:137727811984162818) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[14:14:02:301][Brian3780]](ID:137727811984162818) Joined channel/guild [Coding](Marc Ivan and Other Habibis)```
+[2016-06-29 18:47:59.063] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[14:31:39:766][lemurback]](ID:140514662922846209) Muted themselves``````md
+[[14:31:39:767][lemurback]](ID:140514662922846209) Deafened themselves``````md
+[[14:34:43:894][Konoyarou]](ID:141010289243062282) Muted themselves``````md
+[[14:34:43:895][Konoyarou]](ID:141010289243062282) Deafened themselves``````md
+[[14:40:11:838][Fragarach]](ID:140566192988487680) Muted themselves``````md
+[[14:40:12:503][Fragarach]](ID:140566192988487680) Deafened themselves``````md
+[[14:44:08:744][bricktsre]](ID:109065089771900928) Left channel/guild [Gaming](Marc Ivan and Other Habibis)``````md
+[[14:47:51:355][Gerry]](ID:139206350671577088) Joined channel/guild [Coding](Marc Ivan and Other Habibis)```
+[2016-06-29 19:20:15.458] [Marc Ivan and Other Habibis#TC:general(122764154443530243)] Gerry: g2g
+[2016-06-29 19:20:17.389] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[14:57:44:488][Fragarach]](ID:140566192988487680) Undeafened themselves``````md
+[[14:57:47:411][Fragarach]](ID:140566192988487680) Unmuted themselves``````md
+[[15:14:06:072][lemurback]](ID:140514662922846209) Unmuted themselves``````md
+[[15:14:06:073][lemurback]](ID:140514662922846209) Undeafened themselves``````md
+[[15:14:34:128][lemurback]](ID:140514662922846209) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[15:14:34:129][lemurback]](ID:140514662922846209) Joined channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[15:20:01:069][Gerry]](ID:139206350671577088) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[15:20:11:352][Gerry]](ID:139206350671577088) Wrote message in channel/guild [general](Marc Ivan and Other Habibis)```
+[2016-06-29 19:20:48.696] [Marc Ivan and Other Habibis#TC:general(122764154443530243)] Gerry: jk
+[2016-06-29 19:20:56.561] [Marc Ivan and Other Habibis#TC:general(122764154443530243)] Fragarach: LMAO
+[2016-06-29 19:20:59.327] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[15:20:18:755][lemurback]](ID:140514662922846209) Left channel/guild [Watching](Marc Ivan and Other Habibis)``````md
+[[15:20:18:757][lemurback]](ID:140514662922846209) Joined channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[15:20:19:570][lemurback]](ID:140514662922846209) Muted themselves``````md
+[[15:20:19:570][lemurback]](ID:140514662922846209) Deafened themselves``````md
+[[15:20:29:569][Fragarach]](ID:140566192988487680) Muted themselves``````md
+[[15:20:29:913][Fragarach]](ID:140566192988487680) Deafened themselves``````md
+[[15:20:44:157][Gerry]](ID:139206350671577088) Wrote message in channel/guild [general](Marc Ivan and Other Habibis)``````md
+[[15:20:51:965][Fragarach]](ID:140566192988487680) Wrote message in channel/guild [general](Marc Ivan and Other Habibis)```
+[2016-06-29 19:38:02.647] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzTestingBot: 
+```md
+[[15:21:19:475][Brian3780]](ID:137727811984162818) Muted themselves``````md
+[[15:21:23:024][Fragarach]](ID:140566192988487680) Undeafened themselves``````md
+[[15:21:23:318][Fragarach]](ID:140566192988487680) Unmuted themselves``````md
+[[15:29:08:645][Konoyarou]](ID:141010289243062282) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[15:37:55:728][Brian3780]](ID:137727811984162818) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[15:37:55:729][Brian3780]](ID:137727811984162818) Has gone AFK``````md
+[[15:37:56:740][Brian3780]](ID:137727811984162818) Unmuted themselves``````md
+[[15:37:57:579][Fragarach]](ID:140566192988487680) Muted themselves```
