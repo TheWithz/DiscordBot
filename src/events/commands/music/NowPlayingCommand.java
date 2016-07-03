@@ -10,23 +10,42 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import static events.commands.music.AudioUtil.player;
+
 /**
  * Created by TheWithz on 4/24/16.
  */
 public class NowPlayingCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        if (AudioUtil.player.isPlaying()) {
-            AudioTimestamp currentTime = AudioUtil.player.getCurrentTimestamp();
-            AudioInfo info = AudioUtil.player.getCurrentAudioSource().getInfo();
+        if (player == null) {
+            event.getChannel().sendMessage(":x: Cannot show information for a song that is not playing!");
+            return;
+        }
+        if (player.isPlaying() || player.isPaused() || player.isStopped()) {
+            AudioTimestamp currentTime = player.getCurrentTimestamp();
+            AudioTimestamp total = player.getCurrentAudioSource().getInfo().getDuration();
+            AudioInfo info = player.getCurrentAudioSource().getInfo();
             if (info.getError() == null) {
-                event.getChannel().sendMessage(
-                        ":white_check_mark: **Playing:** " + info.getTitle() + "\n" +
-                                "**Time:**    [" + currentTime.getTimestamp() + " / " + info.getDuration().getTimestamp() + "]");
+                if (player.isPlaying()) {
+                    event.getChannel().sendMessage(
+                            ":white_check_mark: **Playing:** " + info.getTitle() + "\n" +
+                                    convert(total, currentTime, player.getVolume(), "play", player.isRepeat(), player.isShuffle()));
+                } else if (player.isPaused()) {
+                    event.getChannel().sendMessage(
+                            ":white_check_mark: **Playing:** " + info.getTitle() + "\n" +
+                                    convert(total, currentTime, player.getVolume(), "pause", player.isRepeat(), player.isShuffle()));
+                }
             } else {
-                event.getChannel().sendMessage(
-                        ":white_check_mark: **Playing:** Info Error. Known source: " + AudioUtil.player.getCurrentAudioSource().getSource() + "\n" +
-                                "**Time:**    [" + currentTime.getTimestamp() + " / (N/A)]");
+                if (player.isPlaying()) {
+                    event.getChannel().sendMessage(
+                            ":x: **Playing:** Info Error. Known source: " + player.getCurrentAudioSource().getSource() + "\n" +
+                                    convert(total, currentTime, player.getVolume(), "play", player.isRepeat(), player.isShuffle()));
+                } else if (player.isPaused()) {
+                    event.getChannel().sendMessage(
+                            ":x: **Playing:** Info Error. Known source: " + player.getCurrentAudioSource().getSource() + "\n" +
+                                    convert(total, currentTime, player.getVolume(), "pause", player.isRepeat(), player.isShuffle()));
+                }
             }
         } else {
             event.getChannel().sendMessage(":x: The player is not currently playing anything!");
@@ -51,8 +70,9 @@ public class NowPlayingCommand extends Command {
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(String.format("(%1$s)\n" +
-                "[Example: 1](%1$s) This will print out information about the song currently playing.\n" +
-                "[Example: 2](%2$s) This will print out information about the song currently playing.", getAliases().get(0), getAliases().get(2)));
+                                                               "[Example: 1](%1$s) This will print out information about the song currently playing.\n" +
+                                                               "[Example: 2](%2$s) This will print out information about the song currently playing.", getAliases().get(0), getAliases()
+                                                               .get(2)));
     }
 
     @Override
@@ -63,5 +83,39 @@ public class NowPlayingCommand extends Command {
     @Override
     public List<String> getUsageInstructionsOwner() {
         return getUsageInstructionsEveryone();
+    }
+
+    public static String convert(AudioTimestamp totalSeconds, AudioTimestamp current, float vol, String status, boolean isRepeat, boolean isShuffle) {
+        String bar = " **[`" + current.getTimestamp() + "`/`" + totalSeconds.getTimestamp() + "`]** ";
+        //   bar += playOrPause.equals("play") ? Symbols.PLAY.toString() : Symbols.PAUSE.toString();
+        switch (status) {
+            case "play":
+                bar += Symbols.PLAY.toString();
+                if (isRepeat) {
+                    bar += Symbols.REPEAT.toString();
+                } else if (isShuffle) {
+                    bar += Symbols.SHUFFLE.toString();
+                }
+                break;
+            case "pause":
+                bar += Symbols.PAUSE.toString();
+                break;
+        }
+        int percentage = (int) (((double) current.getTotalSeconds() / totalSeconds.getTotalSeconds()) * 10);
+        int i;
+        for (i = 0; i < percentage; i++) {
+            bar += Symbols.SPACE;
+        }
+
+        bar += Symbols.CURRENT;
+
+        while (i < 10) {
+            bar += Symbols.SPACE;
+            i++;
+        }
+
+        bar += (vol > .25f) ? vol > .5f ? Symbols.LOUD_VOLUME : Symbols.MED_VOLUME : vol < .1f ? Symbols.MUTE : Symbols.LOW_VOLUME;
+
+        return bar;
     }
 }

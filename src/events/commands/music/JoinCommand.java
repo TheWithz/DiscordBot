@@ -8,11 +8,15 @@ import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import java.util.Collections;
 import java.util.List;
 
+import static events.commands.music.AudioUtil.manager;
+
 /**
  * Created by TheWithz on 4/24/16.
  */
 public class JoinCommand extends Command {
     //Start an audio connection with a VoiceChannel
+    String prevChannel = null;
+
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         RunBot.checkArgs(args, 1, ":x: No Channel was specified to join. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
@@ -27,8 +31,25 @@ public class JoinCommand extends Command {
             event.getChannel().sendMessage(":x: There isn't a VoiceChannel in this Guild with the name: '" + chanName + "'");
             return;
         }
+        if (manager != null && manager.isConnected()) {
+            String prevGuild = AudioUtil.manager.getGuild().getName();
+            AudioUtil.setManagerAndPlayer(event);
+            AudioUtil.manager.moveAudioConnection(channel);
+            event.getChannel()
+                 .sendMessage(String.format(":white_check_mark: Successfully moved from **{**`%1$s`**}**`/`**(**`%2$s`**)** to **{**`%3$s`**}**`/`**(**`%4$s`**)**",
+                                            prevGuild,
+                                            prevChannel,
+                                            event.getGuild().getName(),
+                                            chanName));
+            return;
+        }
         AudioUtil.setManagerAndPlayer(event);
-        AudioUtil.manager.openAudioConnection(channel);
+        manager.openAudioConnection(channel);
+        prevChannel = chanName;
+        event.getChannel()
+             .sendMessage(String.format(":white_check_mark: Successfully joined **{**`%1$s`**}**`/`**(**`%2$s`**)**",
+                                        event.getGuild().getName(),
+                                        chanName));
     }
 
     @Override
@@ -49,7 +70,7 @@ public class JoinCommand extends Command {
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(String.format("(%1$s) <Audio Channel>\n" +
-                "[Example:](%1$s) <General> This will have <%2$s> join the General Audio Channel", getAliases().get(0), RunBot.BOT.getUsername()));
+                                                               "[Example:](%1$s) <General> This will have <%2$s> join the General Audio Channel", getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override

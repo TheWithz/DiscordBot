@@ -4368,3 +4368,300 @@ __Example:__ $$help stats```
 [[15:37:55:729][Brian3780]](ID:137727811984162818) Has gone AFK``````md
 [[15:37:56:740][Brian3780]](ID:137727811984162818) Unmuted themselves``````md
 [[15:37:57:579][Fragarach]](ID:140566192988487680) Muted themselves```
+[2016-07-03 15:30:27.535] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$help help
+[2016-07-03 15:30:27.676] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: @TheWithz: Help information was sent as a private message.
+[2016-07-03 15:30:27.742] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$$help, $$$commands)
+[[Usage:]($$$help)
+[Example: 1]($$$help) Shows all <TheWithzBot's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>
+[Example: 2]($$$help) <todo> Shows <TheWithzBot's> usage information for the todo command if it is in the <EVERYONE> or <OP_ONLY> or <OWNER_ONLY> permission level```
+[2016-07-03 15:53:27.565] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join General
+[2016-07-03 15:53:45.427] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$play playlist 90smix
+[2016-07-03 15:53:46.121] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:30:27:637][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:30:27:770][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:53:27:601][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:53:27:662][TheWithzBot]](ID:168796303726215168) Joined channel/guild [General](ProgramDevelopment)``````md
+[[11:53:29:479][TheWithz]](ID:122764399961309184) Unmuted themselves``````md
+[[11:53:29:480][TheWithz]](ID:122764399961309184) Undeafened themselves``````md
+[[11:53:29:630][TheWithz]](ID:122764399961309184) Muted themselves``````md
+[[11:53:45:466][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-03 15:53:46.548] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:white_check_mark: Found a playlist with **79** entries.
+Proceeding to gather information and queue sources. This may take some time...
+[2016-07-03 15:53:55.736] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$skip
+[2016-07-03 15:53:55.818] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Skipped the current song.
+[2016-07-03 15:54:01.343] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$shuffle
+[2016-07-03 15:54:01.333] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The player been set to shuffle.
+[2016-07-03 15:54:10.439] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$current
+[2016-07-03 15:54:10.495] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:white_check_mark: **Playing:** Shakira - Whenever, Wherever
+**Time:**    [00:14 / 03:17]
+[2016-07-03 15:54:41.991] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:x: Error detected, skipping source. Error:
+ERROR: YeqOLxRDsV8: YouTube said: This video contains content from SME, who has blocked it in your country on copyright grounds.
+
+[2016-07-03 15:54:42.972] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:53:46:587][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:53:55:788][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:53:55:864][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:54:01:384][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:54:01:446][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:54:10:476][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:54:10:533][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:54:42:027][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-03 15:55:22.507] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:x: Error detected, skipping source. Error:
+ERROR: wb7GIk1gM_Q: YouTube said: This video contains content from SME, who has blocked it in your country on copyright grounds.
+
+[2016-07-03 15:55:30.649] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Finished queuing provided playlist. Successfully queued **77** sources
+[2016-07-03 16:01:40.091] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join General
+[2016-07-03 16:01:45.934] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Music
+[2016-07-03 16:03:27.441] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join General
+[2016-07-03 16:04:07.979] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join General
+[2016-07-03 16:04:12.161] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Music
+[2016-07-03 16:04:33.513] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$play playlist sotlIntro
+[2016-07-03 16:04:38.331] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:04:08:032][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:04:08:091][TheWithzBot]](ID:168796303726215168) Joined channel/guild [General](ProgramDevelopment)``````md
+[[12:04:12:284][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:04:12:313][TheWithzBot]](ID:168796303726215168) Left channel/guild [General](ProgramDevelopment)``````md
+[[12:04:12:341][TheWithzBot]](ID:168796303726215168) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[12:04:14:543][TheWithz]](ID:122764399961309184) Left channel/guild [General](ProgramDevelopment)``````md
+[[12:04:14:543][TheWithz]](ID:122764399961309184) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[12:04:36:456][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-03 16:04:39.661] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-03 16:04:46.840] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$repeat
+[2016-07-03 16:04:46.916] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The player been set to repeat.
+[2016-07-03 16:18:37.826] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join General
+[2016-07-03 16:18:41.987] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Music
+[2016-07-03 16:18:42.065] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Successfully moved from *{ProgramDevelopment}(General)* to {ProgramDevelopment}(Music)
+[2016-07-03 16:26:32.763] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$Join Music
+[2016-07-03 16:26:54.856] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Testing
+[2016-07-03 16:26:54.947] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Successfully moved from **{ProgramDevelopment}(Music)** to **{ProgramDevelopment}(Testing)**
+[2016-07-03 16:28:05.564] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join General
+[2016-07-03 16:28:09.098] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Music
+[2016-07-03 16:28:09.171] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Successfully moved from **{**`ProgramDevelopment`**}** / **(**`General`**)** to **{**`ProgramDevelopment`**}** / **(**`Music`**)**
+[2016-07-03 16:29:02.671] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Music
+[2016-07-03 16:29:02.814] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}** / **(**`Music`**)**
+[2016-07-03 16:32:31.124] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: that looks fancy
+[2016-07-03 16:33:11.180] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: wait till you see what i have next 😏
+[2016-07-03 16:33:41.783] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 🤔
+[2016-07-03 16:34:54.413] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Music
+[2016-07-03 16:34:54.502] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}** `/` **(**`Music`**)**
+[2016-07-03 16:35:00.276] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$play playlist GOT
+[2016-07-03 16:35:02.889] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-03 16:35:08.607] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$current
+[2016-07-03 16:35:08.681] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:white_check_mark: **Playing:** Game of Thrones Title Theme Song (HD Direct Rip) + DL Link
+ **[`00:05`/`01:40`]** ▶🔘▬▬▬▬▬▬▬▬▬▬🔉
+[2016-07-03 16:35:28.088] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$volume .7
+[2016-07-03 16:35:28.149] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: volume was changed to: 0.7
+[2016-07-03 16:35:28.423] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:34:54:480][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:34:54:600][TheWithzBot]](ID:168796303726215168) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[12:34:54:860][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:35:00:337][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:35:02:952][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:35:08:676][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:35:08:751][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:35:28:155][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:35:28:217][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-03 16:35:31.265] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$current
+[2016-07-03 16:35:31.280] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:white_check_mark: **Playing:** Game of Thrones Title Theme Song (HD Direct Rip) + DL Link
+ **[`00:28`/`01:40`]** ▶▬▬🔘▬▬▬▬▬▬▬▬🔊
+[2016-07-03 16:36:16.488] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: disclaimer. I did steal this idea. but like, it was too cool not to implement it myself
+[2016-07-03 16:38:33.678] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$join Music
+[2016-07-03 16:38:33.763] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}**`/`**(**`Music`**)**
+[2016-07-03 16:38:39.816] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play playlist GOT
+[2016-07-03 16:38:42.398] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-03 16:38:45.096] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: now if only it retrieved its old status comments and it updated the time bar and play/pause live
+[2016-07-03 16:39:11.282] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I feel like that would be way too complicated though
+[2016-07-03 16:40:07.873] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: why would you want it in the first place though? itll get pushed up the chat and youll have to type the command again anyway
+[2016-07-03 16:40:09.067] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:38:33:757][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:38:34:108][TheWithzBot]](ID:168796303726215168) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[12:38:34:426][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:38:39:878][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:38:42:462][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:38:45:164][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:39:11:347][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:40:07:971][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-03 16:40:16.297] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$pause
+[2016-07-03 16:40:16.359] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: playback has been paused.
+[2016-07-03 16:40:22.291] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$current
+[2016-07-03 16:40:22.261] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: The player is not currently playing anything!
+[2016-07-03 16:52:52.274] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: ?
+[2016-07-03 16:58:29.555] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$join Music
+[2016-07-03 16:58:29.647] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}**`/`**(**`Music`**)**
+[2016-07-03 16:58:35.226] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play playlist 90smix
+[2016-07-03 16:58:36.388] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: Found a playlist with **79** entries.
+Proceeding to gather information and queue sources. This may take some time...
+[2016-07-03 16:58:45.143] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$current
+[2016-07-03 16:58:45.126] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: **Playing:** Maroon 5 - She Will Be Loved
+ **[`00:07`/`04:27`]** ▶🔘▬▬▬▬▬▬▬▬▬▬🔉
+[2016-07-03 16:58:48.571] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$pause
+[2016-07-03 16:58:48.690] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: playback has been paused.
+[2016-07-03 16:58:49.113] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:58:29:635][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:29:754][TheWithzBot]](ID:168796303726215168) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[12:58:30:043][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:35:312][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:36:465][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:45:220][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:45:276][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:48:711][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:48:774][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-03 16:58:51.228] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$current
+[2016-07-03 16:58:51.405] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: **Playing:** Maroon 5 - She Will Be Loved
+ **[`00:10`/`04:27`]** :pause_button:🔘▬▬▬▬▬▬▬▬▬▬🔉
+[2016-07-03 16:58:56.630] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$repeat
+[2016-07-03 16:58:56.694] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The player been set to repeat.
+[2016-07-03 16:59:01.791] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$current
+[2016-07-03 16:59:01.861] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: **Playing:** Maroon 5 - She Will Be Loved
+ **[`00:10`/`04:27`]** :pause_button:🔘▬▬▬▬▬▬▬▬▬▬🔉
+[2016-07-03 16:59:17.390] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play
+[2016-07-03 16:59:17.503] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: playback as been resumed.
+[2016-07-03 16:59:19.102] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:58:51:410][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:51:481][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:56:708][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:58:56:774][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:01:868][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:01:944][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:17:523][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:17:582][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-03 16:59:19.916] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$current
+[2016-07-03 16:59:19.939] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: **Playing:** Maroon 5 - She Will Be Loved
+ **[`00:13`/`04:27`]** ▶:repeat_one:🔘▬▬▬▬▬▬▬▬▬▬🔉
+[2016-07-03 16:59:27.707] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$shuffle
+[2016-07-03 16:59:27.770] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: Cannot shuffle a playlist if repeat is **on**.
+[2016-07-03 16:59:29.848] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:x: Error detected, skipping source. Error:
+ERROR: YeqOLxRDsV8: YouTube said: This video contains content from SME, who has blocked it in your country on copyright grounds.
+
+[2016-07-03 16:59:35.919] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$repeat
+[2016-07-03 16:59:35.887] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The player has been set to **not** repeat.
+[2016-07-03 16:59:40.286] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$shuffle
+[2016-07-03 16:59:40.310] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The player been set to shuffle.
+[2016-07-03 16:59:43.103] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:59:19:999][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:20:055][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:27:780][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:27:863][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:29:924][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:36:007][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:36:066][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:40:360][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[12:59:40:472][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-03 16:59:43.505] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$current
+[2016-07-03 16:59:43.537] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: **Playing:** Maroon 5 - She Will Be Loved
+ **[`00:37`/`04:27`]** ▶:twisted_rightwards_arrows:▬🔘▬▬▬▬▬▬▬▬▬🔉
+[2016-07-03 16:59:59.093] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$repeat
+[2016-07-03 16:59:59.115] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: Cannot set repeat if shuffle is **on**.
+[2016-07-03 17:00:08.346] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:x: Error detected, skipping source. Error:
+ERROR: wb7GIk1gM_Q: YouTube said: This video contains content from SME, who has blocked it in your country on copyright grounds.
+
+[2016-07-03 17:00:14.600] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:x: Error detected, skipping source. Error:
+A JSONObject text must begin with '{' at 1 [character 2 line 1]
+[2016-07-03 17:00:16.319] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Finished queuing provided playlist. Successfully queued **76** sources
+[2016-07-03 17:00:53.292] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$join Music
+[2016-07-03 17:00:53.368] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}**`/`**(**`Music`**)**
+[2016-07-03 17:01:00.125] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play playlist GOT
+[2016-07-03 17:01:02.736] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-03 17:01:09.466] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$shuffle
+[2016-07-03 17:01:09.497] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The player been set to shuffle.
+[2016-07-03 17:01:12.423] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$repeat
+[2016-07-03 17:01:12.524] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: Cannot repeat a song if shuffle is **on**.
+[2016-07-03 17:01:15.308] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[13:00:53:374][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:00:53:458][TheWithzBot]](ID:168796303726215168) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[13:00:53:715][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:00:206][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:02:894][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:09:542][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:09:658][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:12:543][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:12:616][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-03 17:01:17.754] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$current
+[2016-07-03 17:01:17.813] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:white_check_mark: **Playing:** Game of Thrones Title Theme Song (HD Direct Rip) + DL Link
+ **[`00:14`/`01:40`]** ▶:twisted_rightwards_arrows:▬🔘▬▬▬▬▬▬▬▬▬🔉
+[2016-07-03 17:01:26.022] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$stop
+[2016-07-03 17:01:26.121] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: playback has been completely stopped.
+[2016-07-03 17:01:29.978] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$leave
+[2016-07-03 17:01:32.854] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play
+[2016-07-03 17:01:32.924] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: The current audio queue is empty! Add something to the queue first!
+[2016-07-03 17:01:33.320] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[13:01:17:832][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:17:907][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:26:134][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:26:229][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:30:065][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:30:105][TheWithzBot]](ID:168796303726215168) Left channel/guild [Music](ProgramDevelopment)``````md
+[[13:01:32:931][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:01:33:022][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-03 17:01:44.294] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play playlist GOt
+[2016-07-03 17:01:46.856] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-03 17:01:51.234] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: uh
+[2016-07-03 17:04:14.605] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: only if the channel is active
+[2016-07-03 17:05:40.680] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: true. idk. I like it the way it is. plus it would be even mroe work now that ive finished adding in ⏸ 🔂 🔀
+[2016-07-03 17:05:51.132] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: 💯
+[2016-07-03 17:05:57.674] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: maybe 5 minutes more work... but still
+[2016-07-03 17:06:05.986] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$join Music
+[2016-07-03 17:06:06.989] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}**`/`**(**`Music`**)**
+[2016-07-03 17:06:12.315] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play playlist GOT
+[2016-07-03 17:06:15.155] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-03 17:06:15.864] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[13:05:40:767][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[13:05:51:229][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:05:57:765][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[13:06:06:934][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:06:07:104][TheWithzBot]](ID:168796303726215168) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[13:06:07:377][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:06:12:668][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:06:15:236][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-03 17:06:18.463] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$leave
+[2016-07-03 17:06:24.659] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$play playlist GOT
+[2016-07-03 17:06:24.720] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :x: You cannot play songs without establishing an audio connection first.
+[2016-07-03 17:06:31.019] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: ok now it works
+[2016-07-03 17:06:47.557] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: now if only discord had button hooks for bots to listen to entities being clicked in their comments
+[2016-07-03 17:07:00.794] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: THAT would be cool
+[2016-07-03 17:07:01.004] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[13:06:18:633][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:06:19:042][TheWithzBot]](ID:168796303726215168) Left channel/guild [Music](ProgramDevelopment)``````md
+[[13:06:24:744][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:06:24:808][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:06:31:097][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[13:06:47:715][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[13:06:52:296][TheWithz]](ID:122764399961309184) Left channel/guild [Music](ProgramDevelopment)``````md
+[[13:07:00:873][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-03 17:07:12.765] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: your status emote could be a play/pause
+[2016-07-03 17:07:14.018] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yo wait
+[2016-07-03 17:07:19.800] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: that would be frickin awesome
+[2016-07-03 17:07:30.707] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: there has to be a way for us to do that...
+[2016-07-03 17:10:28.590] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I just put in a request. now we wait lol

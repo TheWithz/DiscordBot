@@ -1,5 +1,7 @@
 package bots;
 
+import com.robrua.orianna.api.core.RiotAPI;
+import com.robrua.orianna.type.core.common.Region;
 import events.LogHandler;
 import events.LoginHandler;
 import events.TerminalHandler;
@@ -34,9 +36,10 @@ public class RunBot {
     public static User BOT = null;
     public static TextChannel LOG = null;
     private static final Timer TIMER = new Timer();
-    public static final String PREFIX = "$$";
+    public static final String PREFIX = "$$$";
     private static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     public static String OWNER_REQUIRED = null;
+    public static final Region REGION = Region.NA;
     // private static final GitHubClient client = new GitHubClient();
 
     public RunBot() {
@@ -44,8 +47,10 @@ public class RunBot {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
             //client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
             //        .getString("gitPassword"));
+            RiotAPI.setRegion(REGION);
+            RiotAPI.setAPIKey(obj.getString("riotApiToken"));
             HelpCommand help = new HelpCommand();
-            API = new JDABuilder().setBotToken(obj.getString("testBotToken"))
+            API = new JDABuilder().setBotToken(obj.getString("releaseBotToken"))
                                   .addListener(new LoginHandler())
                                   .addListener(new LogHandler())
                                   .addListener(new TerminalHandler())
