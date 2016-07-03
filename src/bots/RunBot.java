@@ -49,6 +49,7 @@ public class RunBot {
             //        .getString("gitPassword"));
             RiotAPI.setRegion(REGION);
             RiotAPI.setAPIKey(obj.getString("riotApiToken"));
+            RiotAPI.getChampionByName("yasuo");
             HelpCommand help = new HelpCommand();
             API = new JDABuilder().setBotToken(obj.getString("releaseBotToken"))
                                   .addListener(new LoginHandler())
