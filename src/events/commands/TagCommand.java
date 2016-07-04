@@ -20,7 +20,8 @@ public class TagCommand extends Command {
 
     //Database Methods
     public static final String ADD_TAG = "addTag";
-    public static final String EDIT_TAG = "editTag";
+    public static final String EDIT_TAG_LABEL = "editTagLabel";
+    public static final String EDIT_TAG_CONTENT = "editTagContent";
     public static final String GET_TAG = "getTag";
     public static final String GET_TAGS = "getTags";
     public static final String REMOVE_TAG = "removeTag";
@@ -66,7 +67,7 @@ public class TagCommand extends Command {
                     break;
                 case "list":
                 case "print":
-                    handleList(e, args);
+                    handleList(e);
                     break;
                 case "owner":
                     handleOwner(e, args);
@@ -173,12 +174,12 @@ public class TagCommand extends Command {
             return;
         }
 
-        PreparedStatement removeTodoList = Database.getInstance().getStatement(REMOVE_TAG);
-        removeTodoList.setInt(1, tag.id);
-        //removeTodoList.setString(2, tag.label);
-        if (removeTodoList.executeUpdate() == 0)
+        PreparedStatement removeTagList = Database.getInstance().getStatement(REMOVE_TAG);
+        removeTagList.setInt(1, tag.id);
+        //removeTagList.setString(2, tag.label);
+        if (removeTagList.executeUpdate() == 0)
             throw new SQLException(REMOVE_TAG + " reported no updated rows!");
-        removeTodoList.clearParameters();
+        removeTagList.clearParameters();
 
         tags.remove(label);
         sendMessage(e, ":white_check_mark: Deleted the `" + label + "` tag.");
@@ -188,26 +189,67 @@ public class TagCommand extends Command {
         if (RunBot.OpRequired(e))
             return;
 
-        RunBot.checkArgs(args, 2, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`",e );
-        RunBot.checkArgs(args, 3, ":x: No Content was specified. Cannot edit a tag so that it does not exist" +
-                "Usage: `" + getAliases().get(0) + " edit [TagLabel] [Content...]`",e );
+        RunBot.checkArgs(args, 2, ":x: No subject was specified. Usage: `" + getAliases().get(0) + " edit [subject] [TagLabel] [Content...]`", e);
+        RunBot.checkArgs(args, 3, ":x: No TagLabel was specified. Usage: `" + getAliases().get(0) + " edit [subject] [TagLabel] [Content...]`", e);
+        RunBot.checkArgs(args, 4, ":x: No Content was specified. Cannot edit a tag so that it does not exist" +
+                "Usage: `" + getAliases().get(0) + " edit [subject] [TagLabel] [Content...]`", e);
 
-        String label = args[2].toLowerCase();
-        String content = StringUtils.join(args, " ", 3, args.length);
-        Tag tag = tags.get(label);
+        switch (args[2]) {
+            case "content":
+                handleEditContent(e, args);
+                break;
+            case "label":
+                handleEditLabel(e, args);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    private void handleEditLabel(MessageReceivedEvent e, String[] args) throws SQLException {
+        String oldLabel = args[3].toLowerCase();
+        String newLabel = args[4].toLowerCase();
+        Tag tag = tags.get(oldLabel);
 
         if (tag == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list. " +
-                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            sendMessage(e, ":x: Sorry, `" + oldLabel + "` isn't a known tag. " +
+                    "Try using `" + getAliases().get(0) + " create " + oldLabel + "` to create a new tag by this name.");
             return;
         }
 
-        PreparedStatement editTodoEntry = Database.getInstance().getStatement(EDIT_TAG);
-        editTodoEntry.setString(1, content);
-        editTodoEntry.setInt(2, tag.id);
-        editTodoEntry.setString(3, label);
-        if (editTodoEntry.executeUpdate() == 0)
-            throw new SQLException(EDIT_TAG + " reported no modified rows!");
+        PreparedStatement editTagEntry = Database.getInstance().getStatement(EDIT_TAG_LABEL);
+        editTagEntry.setString(1, newLabel);
+        editTagEntry.setInt(2, tag.id);
+        editTagEntry.setString(3, oldLabel);
+        if (editTagEntry.executeUpdate() == 0)
+            throw new SQLException(EDIT_TAG_LABEL + " reported no modified rows!");
+
+        tags.remove(oldLabel);
+        tags.put(newLabel, new Tag(
+                tag.id, newLabel, tag.content
+        ));
+
+        sendMessage(e, ":white_check_mark: Renamed tag `" + oldLabel + "` to '" + newLabel + "'");
+    }
+
+    private void handleEditContent(MessageReceivedEvent e, String[] args) throws SQLException {
+        String label = args[3].toLowerCase();
+        String content = StringUtils.join(args, " ", 4, args.length);
+        Tag tag = tags.get(label);
+
+        if (tag == null) {
+            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known tag. " +
+                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new tag by this name.");
+            return;
+        }
+
+        PreparedStatement editTagEntry = Database.getInstance().getStatement(EDIT_TAG_CONTENT);
+        editTagEntry.setString(1, content);
+        editTagEntry.setInt(2, tag.id);
+        editTagEntry.setString(3, label);
+        if (editTagEntry.executeUpdate() == 0)
+            throw new SQLException(EDIT_TAG_CONTENT + " reported no modified rows!");
 
         tags.remove(label);
         tags.put(label, new Tag(
@@ -215,11 +257,10 @@ public class TagCommand extends Command {
         ));
         tag.content = content;
 
-        sendMessage(e, ":white_check_mark: Editted tag `" + label + "`");
-
+        sendMessage(e, ":white_check_mark: Edited tag `" + label + "`");
     }
 
-    private void handleList(MessageReceivedEvent e, String[] args) {
+    private void handleList(MessageReceivedEvent e) {
         StringBuilder builder = new StringBuilder();
         builder.append("```fix\nShowing list of tags``````css\n");
         List<String> labels = new ArrayList<>(tags.keySet());
@@ -230,7 +271,7 @@ public class TagCommand extends Command {
     }
 
     private void handleOwner(MessageReceivedEvent e, String[] args) {
-        //TODO: 6/23/16 consider tying ownership to tags
+        //todo: 6/23/16 consider tying ownership to tags
     }
 
     private static class Tag {

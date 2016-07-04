@@ -84,7 +84,8 @@ public class Database {
 
             //TagCommand
             preparedStatements.put(TagCommand.ADD_TAG, conn.prepareStatement("INSERT INTO Tags (label, content) VALUES (?, ?)"));
-            preparedStatements.put(TagCommand.EDIT_TAG, conn.prepareStatement("UPDATE Tags SET content = ? WHERE id = ? AND label = ?"));
+            preparedStatements.put(TagCommand.EDIT_TAG_LABEL, conn.prepareStatement("UPDATE Tags SET label = ? WHERE id = ? AND label = ?"));
+            preparedStatements.put(TagCommand.EDIT_TAG_CONTENT, conn.prepareStatement("UPDATE Tags SET content = ? WHERE id = ? AND label = ?"));
             preparedStatements.put(TagCommand.GET_TAG, conn.prepareStatement("SELECT content FROM Tags WHERE id = ? AND label = ?"));
             preparedStatements.put(TagCommand.GET_TAGS, conn.prepareStatement("SELECT id, label, content FROM Tags"));
             preparedStatements.put(TagCommand.REMOVE_TAG, conn.prepareStatement("DELETE FROM Tags WHERE id = ?"));

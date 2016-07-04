@@ -153,16 +153,19 @@ public class PlayCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return Collections.singletonList(String.format("",getAliases().get(0), RunBot.BOT.getUsername()));
+        return Collections.singletonList(String.format("(%1$s)] **OR** [[Usage:](%1$s)][playlist] <Playlist Name>\n" +
+                                                               "[Example 1:](%1$s)] Resumes playback of previously playing song.\n" +
+                                                               "[[Example 2:](%1$s)][playlist] <90smix> Starts queueing the playlist <90smix>.\n",
+                                                       getAliases().get(0)));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }

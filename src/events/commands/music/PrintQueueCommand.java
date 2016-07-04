@@ -22,6 +22,10 @@ import java.util.List;
 public class PrintQueueCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if (AudioUtil.player == null) {
+            sendMessage(event, ":x: Cannot show the queue of a playlist that hasn't been created yet!");
+            return;
+        }
         if (args.length == 1) {
             java.util.List<AudioSource> queue = AudioUtil.player.getAudioQueue();
             if (queue.isEmpty()) {
@@ -82,7 +86,7 @@ public class PrintQueueCommand extends Command {
 
     @Override
     public java.util.List<String> getAliases() {
-        return Arrays.asList(RunBot.PREFIX + "printQueue", RunBot.PREFIX + "listQueue");
+        return Arrays.asList(RunBot.PREFIX + "printQueue", RunBot.PREFIX + "listQueue", RunBot.PREFIX + "queue");
     }
 
     @Override
@@ -97,7 +101,10 @@ public class PrintQueueCommand extends Command {
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return Collections.singletonList(RunBot.PREFIX + "printQueue");
+        return Collections.singletonList(String.format("(%1$s)] \n" +
+                                                               "[Example:](%1$s) Shows information for songs currently in <%2$s's> queue.",
+                                                       getAliases().get(0),
+                                                       RunBot.BOT.getUsername()));
     }
 
     @Override

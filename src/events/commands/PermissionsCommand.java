@@ -76,17 +76,14 @@ public class PermissionsCommand extends Command {
     @Override
     public List<String> getUsageInstructionsOwner() {
         return Collections.singletonList(
-                RunBot.PREFIX + "perms *<group> <action> <user>*\n"
-                        + "Groups:  [op]\n"
-                        + "Actions: [add, remove, list]\n"
-                        + "User:  Must be an @Mentioned user.\n"
-                        + "__Example:__  " + RunBot.PREFIX + "perms op add @DV8FromTheWorld\n"
-                        + " - This would add the user 'DV8FromTheWorld' to the OPs list.\n"
-                        + "__Example 2:__ " + RunBot.PREFIX + "perms op list\n"
-                        + " - This would list all bot OPs.\n"
-                        + "\n"
-                        + "**NOTE:** you can skip the " + RunBot.PREFIX + " perms and jump straight to the group by using the group alias.\n"
-                        + "__Example:__ " + RunBot.PREFIX + "op remove @BananaPhone");
+                String.format("(%1$s)] <group> <action> <user>\n"
+                                      + "[Groups:][op]\n"
+                                      + "[Actions:][add, remove, list]\n"
+                                      + "[User:][Must be an @Mentioned user]\n"
+                                      + "[Example 1:](%1$s) <op> <add> <@ TheWithz> This would add the user <TheWithz> to the OPs list.\n"
+                                      + "[Example 2:](%1$s) <op> <list> This would list all bot OPs.\n"
+                                      + "NOTE: you can skip <%1$s> and jump straight to the group by using the group alias <%2$s>.\n"
+                                      + "[Example:](%2$s) <remove> <@ BananaPhone>", getAliases().get(0), getAliases().get(2)));
     }
 
     private void processOp(MessageReceivedEvent e, String[] args) {

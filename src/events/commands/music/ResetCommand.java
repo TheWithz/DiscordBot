@@ -8,16 +8,22 @@ import net.dv8tion.jda.player.MusicPlayer;
 import java.util.Collections;
 import java.util.List;
 
+import static events.commands.music.AudioUtil.player;
+
 /**
  * Created by TheWithz on 4/24/16.
  */
 public class ResetCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        AudioUtil.player.stop();
-        AudioUtil.player = new MusicPlayer();
-        AudioUtil.player.setVolume(AudioUtil.DEFAULT_VOLUME);
-        AudioUtil.manager.setSendingHandler(AudioUtil.player);
+        if (player == null) {
+            sendMessage(event, ":x: Cannot reset the player if it hasn't been created yet!");
+            return;
+        }
+        player.stop();
+        player = new MusicPlayer();
+        player.setVolume(AudioUtil.DEFAULT_VOLUME);
+        AudioUtil.manager.setSendingHandler(player);
         event.getChannel().sendMessage(":white_check_mark: Music player has been completely reset.");
     }
 
@@ -38,7 +44,8 @@ public class ResetCommand extends Command {
 
     @Override
     public List<String> getUsageInstructionsEveryone() {
-        return Collections.singletonList(RunBot.PREFIX + "reset");
+        return Collections.singletonList(String.format("(%1$s)]\n" +
+                                                               "[Example:](%1$s) This will reset <%2$s's> audio player.", getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override

@@ -15,6 +15,10 @@ import static events.commands.music.AudioUtil.player;
 public class RepeatCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if (player == null) {
+            sendMessage(event, ":x: Cannot repeat a song if there is no song playing.");
+            return;
+        }
         if (player.isShuffle()) {
             event.getChannel().sendMessage(":x: Cannot repeat a song if shuffle is **on**.");
             return;
@@ -35,27 +39,31 @@ public class RepeatCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Sets the current song to repeat";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Repeat Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s)]\n" +
+                                                               "[Example:](%1$s) This will set the current song <%2$s> is playing, to repeat. Running the command again will turn" +
+                                                               " repeat off.",
+                                                       getAliases().get(0),
+                                                       RunBot.BOT.getUsername()));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }
 

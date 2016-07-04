@@ -8,7 +8,6 @@ import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.PreparedStatement;
@@ -140,7 +139,7 @@ public class TodoCommand extends Command {
 
     private void refreshTodoChannel(MessageReceivedEvent e, String[] args) {
         TextChannel tc = RunBot.API.getTextChannelById("193539094410690561");
-        Message message = tc.getMessageById("197201664996802561");
+        Message message = tc.getMessageById("199349805099646976");
         StringBuilder msg = getBotFeaturesShowMessage(tc, args);
         if (message != null) {
             message.updateMessageAsync(msg == null ? ":x: The message returned null." : msg.toString(), null);
@@ -162,8 +161,8 @@ public class TodoCommand extends Command {
         // Discord messages can only be 2000 characters.
         StringBuilder builder = new StringBuilder();
         builder.append("```fix\nTodo for: ")
-                .append(label).append("```")
-                .append("```diff\n");
+               .append(label).append("```")
+               .append("```diff\n");
         for (int i = 0; i < todoList.entries.size(); i++) {
             TodoEntry todoEntry = todoList.entries.get(i);
             String todoEntryString = todoEntry.content;
@@ -231,7 +230,7 @@ public class TodoCommand extends Command {
                         "\n[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.\n" +
                                 "[[Example 1:](%1$s)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>\n" +
                                 "[[Example 2:](%1$s)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.\n" +
-                                "________________________________________________________________________________________________________\n\n"+
+                                "________________________________________________________________________________________________________\n\n" +
                                 "[[users][SubAction]](ListName) <SubAction Args> Used add, remove and list the Auth'd users for a todo list.\n" +
                                 "<SubActions:>\n" +
                                 "\n" +

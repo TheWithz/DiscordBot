@@ -15,6 +15,10 @@ import static events.commands.music.AudioUtil.player;
 public class ShuffleCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
+        if (player == null) {
+            sendMessage(event, ":x: Cannot shuffle a song if there is no song playing.");
+            return;
+        }
         if (player.isRepeat()) {
             event.getChannel().sendMessage(":x: Cannot shuffle a playlist if repeat is **on**.");
             return;
@@ -35,26 +39,30 @@ public class ShuffleCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Shuffles the current playlist of songs";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Shuffle Command";
     }
 
     @Override
     public List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s)]\n" +
+                                                               "[Example:](%1$s) This will set <%2$s's> current playlist to shuffle. Running the command again will turn shuffle " +
+                                                               "off. ",
+                                                       getAliases().get(0),
+                                                       RunBot.BOT.getUsername()));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }

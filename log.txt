@@ -4665,3 +4665,717 @@ A JSONObject text must begin with '{' at 1 [character 2 line 1]
 [2016-07-03 17:07:19.800] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: that would be frickin awesome
 [2016-07-03 17:07:30.707] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: there has to be a way for us to do that...
 [2016-07-03 17:10:28.590] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I just put in a request. now we wait lol
+[2016-07-04 00:59:54.667] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-07-04 00:59:54.928] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-07-04 00:59:55.017] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.
+[[Example 1:]($$$todo)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>
+[[Example 2:]($$$todo)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.
+________________________________________________________________________________________________________
+
+[[users][SubAction]](ListName) <SubAction Args> Used add, remove and list the Auth'd users for a todo list.
+<SubActions:>
+
+[add][ListName] <@ mentions...> Adds the mentions users to the Auth'd users for <ListName> list.
+[Example:]($$$todo)[users](add) <project5> <@ Joe> <@ DudeMan> Adds Joe and DudeMan Auth'd users for the <project5> list.
+
+[remove][ListName] [@ mentions...] Removes the mentioned users from the Auth'd users for <ListName> list.
+[Example:]($$$todo)[users](remove) <project5> <@ MrCatMan> Removes <MrCatMan> from the Auth'd users for the <project5> list.
+
+[list][ListName] Lists the Owner and Auth'd users for the <ListName> list.
+[Example:]($$$todo)[users](list) <project5> Lists the owner and all Auth'd users for the <project5> list.
+________________________________________________________________________________________________________
+
+[clear][ListName] - Clears all <completed> todo entries from a list.
+[[Example:]($$$todo)][clear] <project5> Clears all <completed> todo entries in the <project5> list
+
+[remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.
+[[Example:]($$$todo)][remove] <project5> Completely deletes the <project5> todo list.
+```
+[2016-07-04 01:03:50.976] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help play
+[2016-07-04 01:03:51.077] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Play Command]
+[Description:][Plays music over an established audio connection.]
+[Alliases:]($$$play)
+[[Usage:]No usage instructions have been provided for this command. Sorry!```
+[2016-07-04 01:04:26.800] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help play
+[2016-07-04 01:04:26.947] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Play Command]
+[Description:][Plays music over an established audio connection.]
+[Alliases:]($$$play)
+[[Usage:]($$$play)] **OR** [[Usage:]($$$play)][playlist] <Playlist Name>
+[Example 1:]($$$play)] Resumes playback of previously playing song.
+[[Example 2:]($$$play)][playlist] <90smix> Starts queueing the playlist <90smix>.
+```
+[2016-07-04 01:05:55.758] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help
+[2016-07-04 01:05:55.870] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-07-04 01:05:55.940] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][search] : [Allows you to search the internet.](EVERYONE)
+
+[$$$][perms] : [Used to modify the permissions of the provided user.](OWNER_ONLY)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][bash] : [No description has been provided for this command. Sorry!](OWNER_ONLY)
+
+[$$$][eval] : [Takes Java, Javascript, or Groovy code and executes it.](OWNER_ONLY)
+
+[$$$][join] : [Creates an audio connection with the channel of your choosing.](EVERYONE)
+
+[$$$][leave] : [Leaves the voice channel that TheWithzBot is connected to.](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][json] : [Stores a value and a key into a designated json file for later use](OWNER_ONLY)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [Pauses the audio player.](EVERYONE)
+
+[$$$][play] : [Plays music over an established audio connection.](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-07-04 01:05:56.007] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[$$$][skip] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stop] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][volume] : [Changes the volume of the audio player](EVERYONE)
+
+[$$$][tag] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-07-04 01:07:39.667] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help queue
+[2016-07-04 01:07:39.848] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][PrintQueue Command]
+[Description:][Prints out the list of songs left in the queue]
+[Alliases:]($$$printQueue, $$$listQueue, $$$queue)
+[[Usage:]$$$printQueue```
+[2016-07-04 01:07:56.323] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$queue
+[2016-07-04 01:11:35.688] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help queue
+[2016-07-04 01:11:35.775] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][PrintQueue Command]
+[Description:][Prints out the list of songs left in the queue]
+[Alliases:]($$$printQueue, $$$listQueue, $$$queue)
+[[Usage:]($$$printQueue)] 
+[Example:]($$$printQueue) Will show information for songs currently in <TheWithzBot's> queue.```
+[2016-07-04 01:12:44.397] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag ratelimuit
+[2016-07-04 01:12:44.583] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :x: Unknown Action argument: `ratelimuit` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-04 01:12:51.273] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag ratelimit
+[2016-07-04 01:12:51.260] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :x: Unknown Action argument: `ratelimit` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-04 01:12:58.232] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag ratelimits
+[2016-07-04 01:12:58.263] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :x: Unknown Action argument: `ratelimits` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-04 01:13:05.154] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag list
+[2016-07-04 01:13:05.166] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) ratelimit
+2) todo
+3) jdachart
+4) mdsyntax
+5) thinkingemoji
+6) moreemoji
+7) cryemoji
+8) rotatingbaseemoji
+9) emojigithub
+10) thewithzbotinvite
+```
+[2016-07-04 01:13:12.846] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag show ratelimit
+[2016-07-04 01:13:12.997] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```fix
+Showing tag: [ratelimit]``````xl
+REST:
+ bot:msg:dm | 5/5s | account-wide
+ bot:msg:server | 5/5s | guild-wide
+ bot:msg:global | 50/10s | account-wide except DMs
+ dmsg | 5/1s | guild-wide
+ bdmsg | 1/1s | guild-wide
+ guild_member | 10/10s | guild-wide
+guild_member_nick | 1/1s | guild-wide
+ |Username| | 2/3600s | account-wide
+
+WS Send:
+|Presence Update| | 5/60s
+ |Global| | 120/60s```
+[2016-07-04 01:19:13.059] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: http://media.journeys.com/images/products/1_4386_ZM.JPG
+[2016-07-04 01:26:01.478] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+@Pear0  is this something I'm allowed to do in sql? ```sql
+"UPDATE Tags SET label = ? WHERE id = ? AND label = ?"```
+[2016-07-04 01:29:16.997] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I think so
+[2016-07-04 01:29:22.117] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: probably
+[2016-07-04 01:32:47.686] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: lets find out...
+[2016-07-04 01:32:51.157] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag list
+[2016-07-04 01:32:51.198] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) ratelimit
+2) todo
+3) jdachart
+4) mdsyntax
+5) thinkingemoji
+6) moreemoji
+7) cryemoji
+8) rotatingbaseemoji
+9) emojigithub
+10) thewithzbotinvite
+```
+[2016-07-04 01:33:10.968] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag edit label emojigithub thegitthing
+[2016-07-04 01:33:11.038] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Renamed tag `emojigithub` to 'thegitthing'
+[2016-07-04 01:33:15.439] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag list
+[2016-07-04 01:33:15.465] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) ratelimit
+2) todo
+3) jdachart
+4) mdsyntax
+5) thinkingemoji
+6) moreemoji
+7) cryemoji
+8) rotatingbaseemoji
+9) thewithzbotinvite
+10) thegitthing
+```
+[2016-07-04 01:33:23.652] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: eyyyy it works
+[2016-07-04 01:33:26.323] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:32:47:756][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:32:51:225][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:32:51:298][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:11:007][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:11:083][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:15:488][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:15:564][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:23:689][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-04 01:33:52.555] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: great
+[2016-07-04 01:34:50.602] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help tag
+[2016-07-04 01:34:50.694] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Tag Command]
+[Description:][No description has been provided for this command. Sorry!]
+[Alliases:]($$$tag)
+[[Usage:]No usage instructions have been provided for this command. Sorry!```
+[2016-07-04 01:35:11.582] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$help
+[2016-07-04 01:35:11.629] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
+```css
+The following commands are supported by the bot```
+[2016-07-04 01:35:11.651] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
+```md
+[$$$][help] : [Command that helps use all other commands!](EVERYONE)
+
+[$$$][tran] : [Command that translates a message!](OP_ONLY)
+
+[$$$][calc] : [Calculates a given expression.](EVERYONE)
+
+[$$$][search] : [Allows you to search the internet.](EVERYONE)
+
+[$$$][todo] : [Used to create todo lists that can be checked off as things are completed.](EVERYONE)
+
+[$$$][rnum] : [Command that generates a random number between 0 and the argument given!](EVERYONE)
+
+[$$$][fact] : [Command that generates a random fact!](EVERYONE)
+
+[$$$][join] : [Creates an audio connection with the channel of your choosing.](EVERYONE)
+
+[$$$][leave] : [Leaves the voice channel that TheWithzBot is connected to.](EVERYONE)
+
+[$$$][printQueue] : [Prints out the list of songs left in the queue](EVERYONE)
+
+[$$$][latex] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stats] : [Prints statistics for TheWithzBot](EVERYONE)
+
+[$$$][nowplaying] : [Prints out information about the currently playing song](EVERYONE)
+
+[$$$][pause] : [Pauses the audio player.](EVERYONE)
+
+[$$$][play] : [Plays music over an established audio connection.](EVERYONE)
+
+[$$$][repeat] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][reset] : [Resets the audio player](EVERYONE)
+
+[$$$][restart] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][shuffle] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][skip] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][stop] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+[$$$][volume] : [Changes the volume of the audio player](EVERYONE)
+
+[$$$][tag] : [No description has been provided for this command. Sorry!](EVERYONE)
+
+```
+[2016-07-04 01:35:20.059] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag edit label ratelimit "DiscordRateLimit"
+[2016-07-04 01:35:20.210] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Renamed tag `ratelimit` to 'discordratelimit'
+[2016-07-04 01:35:24.267] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$fact
+[2016-07-04 01:35:24.305] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: :white_check_mark: Over 75% of people who read this will try to lick their elbow.
+[2016-07-04 01:35:31.470] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag lisr
+[2016-07-04 01:35:31.528] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :x: Unknown Action argument: `lisr` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-04 01:35:35.101] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag list
+[2016-07-04 01:35:35.162] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) todo
+2) discordratelimit
+3) jdachart
+4) mdsyntax
+5) thinkingemoji
+6) moreemoji
+7) cryemoji
+8) rotatingbaseemoji
+9) thewithzbotinvite
+10) thegitthing
+```
+[2016-07-04 01:35:46.513] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$latex x
+[2016-07-04 01:35:51.138] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag clear thegitthing
+[2016-07-04 01:35:51.254] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :x: Unknown Action argument: `clear` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-04 01:35:53.261] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:33:52:676][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:20:182][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:20:248][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:31:509][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:31:575][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:35:138][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:35:214][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:51:208][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:35:51:311][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-04 01:36:44.935] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag delete thegitthing
+[2016-07-04 01:36:45.057] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: Deleted the `thegitthing` tag.
+[2016-07-04 01:36:49.102] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag list
+[2016-07-04 01:36:49.085] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) todo
+2) discordratelimit
+3) jdachart
+4) mdsyntax
+5) thinkingemoji
+6) moreemoji
+7) cryemoji
+8) rotatingbaseemoji
+9) thewithzbotinvite
+```
+[2016-07-04 01:36:57.740] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag delete todo
+[2016-07-04 01:36:57.832] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: Deleted the `todo` tag.
+[2016-07-04 01:37:06.840] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag delete thinkingemoji
+[2016-07-04 01:37:06.857] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: Deleted the `thinkingemoji` tag.
+[2016-07-04 01:37:13.408] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag delete cryemoji
+[2016-07-04 01:37:13.503] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: Deleted the `cryemoji` tag.
+[2016-07-04 01:37:31.206] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag delete rotatingbaseemoji
+[2016-07-04 01:37:31.272] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: Deleted the `rotatingbaseemoji` tag.
+[2016-07-04 01:37:39.215] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag delete moreemoji
+[2016-07-04 01:37:39.302] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: Deleted the `moreemoji` tag.
+[2016-07-04 01:37:40.115] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: l
+[2016-07-04 01:37:44.245] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag list
+[2016-07-04 01:37:44.376] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) discordratelimit
+2) jdachart
+3) mdsyntax
+4) thewithzbotinvite
+```
+[2016-07-04 01:37:59.520] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tag show mdsyntax
+[2016-07-04 01:37:59.613] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```fix
+Showing tag: [mdsyntax]```$$$tag edit mdsyntax ```md
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+```
+[2016-07-04 01:38:17.120] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag show mdsyntax
+[2016-07-04 01:38:17.218] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing tag: [mdsyntax]```$$$tag edit mdsyntax ```md
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+```
+[2016-07-04 01:38:33.269] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: ?
+[2016-07-04 01:38:43.889] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag show mdsyntax
+[2016-07-04 01:38:43.953] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing tag: [mdsyntax]```$$$tag edit mdsyntax ```md
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+```
+[2016-07-04 01:38:44.329] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[21:36:13:683][TC:spawn][199337542376488960](ProgramDevelopment) Channel was created``````md
+[21:36:19:409][TC:spam][199337542376488960](ProgramDevelopment) Channel renamed from/to [spawn](spam)``````md
+[21:36:34:034][TC:spam][199337542376488960](ProgramDevelopment) Channel was deleted``````md
+[[21:38:17:157][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:38:17:296][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:38:33:317][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:38:43:929][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:38:44:001][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-04 01:38:49.432] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: uh
+[2016-07-04 01:38:56.242] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: why is it doing that
+[2016-07-04 01:40:28.495] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+$$$tag edit content mdsyntax "```md
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------```"
+[2016-07-04 01:40:28.748] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Edited tag `mdsyntax`
+[2016-07-04 01:40:37.733] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag show madsyntax
+[2016-07-04 01:40:37.877] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :x: Sorry, `madsyntax` isn't a known tag.
+[2016-07-04 01:40:43.727] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag show mdsyntax
+[2016-07-04 01:40:43.773] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing tag: [mdsyntax]``````md
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------```
+[2016-07-04 01:40:44.343] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:38:49:539][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:38:56:296][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:40:28:625][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:40:28:891][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:40:37:856][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:40:37:920][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:40:43:765][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:40:43:846][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-04 01:40:46.822] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: weird
+[2016-07-04 01:41:10.655] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag list
+[2016-07-04 01:41:10.793] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) discordratelimit
+2) jdachart
+3) mdsyntax
+4) thewithzbotinvite
+```
+[2016-07-04 01:41:26.425] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag show discordratelimit
+[2016-07-04 01:41:26.467] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing tag: [discordratelimit]``````xl
+REST:
+ bot:msg:dm | 5/5s | account-wide
+ bot:msg:server | 5/5s | guild-wide
+ bot:msg:global | 50/10s | account-wide except DMs
+ dmsg | 5/1s | guild-wide
+ bdmsg | 1/1s | guild-wide
+ guild_member | 10/10s | guild-wide
+guild_member_nick | 1/1s | guild-wide
+ |Username| | 2/3600s | account-wide
+
+WS Send:
+|Presence Update| | 5/60s
+ |Global| | 120/60s```
+[2016-07-04 01:41:37.978] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: you know what would be awesome...
+[2016-07-04 01:41:46.513] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: tab completion for the bots
+[2016-07-04 01:41:47.760] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: lol
+[2016-07-04 01:41:50.268] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:40:46:869][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:41:10:774][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:41:10:837][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:41:26:485][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:41:26:592][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:41:38:016][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[21:41:46:559][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[21:41:47:862][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-04 01:45:43.644] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+```xl
+DEVELOPMENT:
+  bot : request | 10/10s | account-wide
+  bot : request | 500/10m | account-wide
+```
+[2016-07-04 01:46:27.211] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+$$$tag create riotratelimit "```xl
+DEVELOPMENT:
+  bot : request | 10/10s | account-wide
+  bot : request | 500/10m | account-wide
+PROJECT:
+  none yet... waiting to be accepted
+```"
+[2016-07-04 01:46:27.333] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Created `riotratelimit` tag.
+[2016-07-04 01:46:35.780] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag show riotratelimit
+[2016-07-04 01:46:35.893] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing tag: [riotratelimit]``````xl
+DEVELOPMENT:
+  bot : request | 10/10s | account-wide
+  bot : request | 500/10m | account-wide
+PROJECT:
+  none yet... waiting to be accepted
+```
+[2016-07-04 01:50:36.851] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help reset
+[2016-07-04 01:50:36.919] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Reset Command]
+[Description:][Resets the audio player]
+[Alliases:]($$$reset)
+[[Usage:]($$$reset)]
+[Example:]($$$reset) This will reset <TheWithzBot's> audio player.```
+[2016-07-04 01:59:14.823] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help repeat
+[2016-07-04 01:59:14.948] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Repeat Command]
+[Description:][Sets the current song to repeat]
+[Alliases:]($$$repeat)
+[[Usage:]($$$repeat)]
+[Example:]($$$repeat) This will set the current song <TheWithzBot> is playing to repeat```
+[2016-07-04 02:12:59.769] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help repeat
+[2016-07-04 02:12:59.941] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Repeat Command]
+[Description:][Sets the current song to repeat]
+[Alliases:]($$$repeat)
+[[Usage:]($$$repeat)]
+[Example:]($$$repeat) This will set the current song <TheWithzBot> is playing, to repeat. Running the command again will turn repeat off```
+[2016-07-04 02:14:08.772] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help shuffle
+[2016-07-04 02:14:08.942] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Shuffle Command]
+[Description:][Shuffles the current playlist of songs]
+[Alliases:]($$$shuffle)
+[[Usage:]($$$shuffle)]
+[Example:]($$$shuffle) This will set <TheWithzBot's> current playlist to shuffle. Running the command again will turn shuffle off. ```
+[2016-07-04 02:14:14.647] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help reset
+[2016-07-04 02:14:14.796] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Reset Command]
+[Description:][Resets the audio player]
+[Alliases:]($$$reset)
+[[Usage:]($$$reset)]
+[Example:]($$$reset) This will reset <TheWithzBot's> audio player.```
+[2016-07-04 02:14:19.508] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help restart
+[2016-07-04 02:14:19.536] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Restart Command]
+[Description:][Restarts the audio player]
+[Alliases:]($$$restart)
+[[Usage:]($$$restart)]
+[Example:]($$$restart) This will restart <TheWithzBot's> current audio player.```
+[2016-07-04 02:14:46.524] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: ooh yeah
+[2016-07-04 02:15:06.630] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: or an autocorrecter thing
+[2016-07-04 02:15:56.977] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: https://github.com/nvbn/thefuck
+[2016-07-04 02:16:29.463] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help op
+[2016-07-04 02:16:29.508] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Permissions Management]
+[Description:][Used to modify the permissions of the provided user.]
+[Alliases:]($$$perms, $$$permissions, $$$op)
+[[Usage:]$$$perms *<group> <action> <user>*
+Groups:  [op]
+Actions: [add, remove, list]
+User:  Must be an @Mentioned user.
+__Example:__  $$$perms op add @DV8FromTheWorld
+ - This would add the user 'DV8FromTheWorld' to the OPs list.
+__Example 2:__ $$$perms op list
+ - This would list all bot OPs.
+
+**NOTE:** you can skip the $$$ perms and jump straight to the group by using the group alias.
+__Example:__ $$$op remove @BananaPhone```
+[2016-07-04 02:17:28.572] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: lol i have that installed in my bash terminal
+[2016-07-04 02:22:40.517] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo add botfeatures "add *fuck* style command that catches errors and runs the intended command for you."
+[2016-07-04 02:22:40.691] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-07-04 02:23:21.765] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo show botfeatures
+[2016-07-04 02:23:21.874] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
+-12) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-13) write website to manage bot, display info, etc.
+
+-14) replace all sendMessage calls with sendMessageAsync
+
+-15) add *fuck* style command that catches errors and runs the intended command for you.
+
+```
+[2016-07-04 02:23:24.195] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:14:46:582][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[22:15:06:686][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[22:15:57:029][Pear0]](ID:111581694250737664) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[22:17:28:662][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[22:22:40:567][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[22:22:40:856][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[22:23:21:810][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)``````md
+[[22:23:22:176][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-07-04 02:24:57.187] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo show botfeatures
+[2016-07-04 02:24:57.276] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: 
+```fix
+Todo for: botfeatures
+
+``````diff
+-1) add support for pandora unofficial API
+
+-2) fix premature cropping of images in LaTeX command
+
+-3) add face command that takes an emoji as an argument, and sets the bot's avatar to that emoji
+
+-4) add ignore and listen commands where ignore would make the bot ignore a channel and listen would undo the ignore command
+
+-5) consider tying ownership to tags
+
+-6) finish the logger in #logtest
+
+-7) finish inputting usage examples for all commands
+
+-8) add deletion / removeal / and creation to JSON command
+
+-9) add import and export command for todo lists in the form of a json file
+
+-10) once bot is hosted on web server. create phone app to communicate with it
+
+-11) add regex for todo marking numbers
+
+-12) if someone sends a message to the gaming channel, have it reroute to overwatch chat.
+
+-13) write website to manage bot, display info, etc.
+
+-14) replace all sendMessage calls with sendMessageAsync
+
+-15) add *fuck* style command that catches errors and runs the intended command for you.
+
+```
+[2016-07-04 02:26:52.609] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo add botfeatures "($$$lol <subactions>) command for all things league of legends related"
+[2016-07-04 02:26:53.284] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-07-04 02:29:49.162] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: is it useful?
+[2016-07-04 02:34:24.459] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help perms
+[2016-07-04 02:34:24.549] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Permissions Management]
+[Description:][Used to modify the permissions of the provided user.]
+[Alliases:]($$$perms, $$$permissions, $$$op)
+[[Usage:]($$$perms)] <group> <action> <user>
+Groups:  [op]
+Actions: [add, remove, list]
+User:  Must be an @Mentioned user.
+[Example 1:]($$$perms) <op> <add> @ TheWithz This would add the user <TheWithz> to the OPs list.
+[Example 2:]($$$perms) <op> <list> This would list all bot OPs.
+NOTE: you can skip <$$$perms> and jump straight to the group by using the group alias <$$$op>.
+[Example:]($$$op) <remove> <@ BananaPhone>```
+[2016-07-04 02:35:32.576] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help perms
+[2016-07-04 02:35:32.673] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Permissions Management]
+[Description:][Used to modify the permissions of the provided user.]
+[Alliases:]($$$perms, $$$permissions, $$$op)
+[[Usage:]($$$perms)] <group> <action> <user>
+[Groups:][op]
+[Actions:][add, remove, list]
+[User:][Must be an @Mentioned user]
+[Example 1:]($$$perms) <op> <add> <@ TheWithz> This would add the user <TheWithz> to the OPs list.
+[Example 2:]($$$perms) <op> <list> This would list all bot OPs.
+NOTE: you can skip <$$$perms> and jump straight to the group by using the group alias <$$$op>.
+[Example:]($$$op) <remove> <@ BananaPhone>```
+[2016-07-04 02:36:04.216] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: not really. but I do use it sometimes
