@@ -4,7 +4,8 @@ import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -23,27 +24,28 @@ public class StopCommand extends Command {
 
     @Override
     public String getDescription() {
-        return null;
+        return "Stops the audio player completely.";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Stop Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s)]\n" +
+                                                               "[Example:](%1$s) Stops <%2$s's> audio player", getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }
 

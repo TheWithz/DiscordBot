@@ -42,18 +42,20 @@ public class SearchCommand extends Command {
 
     @Override
     public String getDescription() {
-        return "Allows you to search the internet.";
+        return "Searches the internet for the keywords you provide";
     }
 
     @Override
     public String getName() {
-        return "Google Search";
+        return "Search Command";
     }
 
     @Override
     public List<String> getUsageInstructionsEveryone() {
-        return Collections.singletonList(
-                RunBot.PREFIX + "google *<search terms>  **OR** " + RunBot.PREFIX + "wiki *<search terms>*  **OR**  " + RunBot.PREFIX + "urban *<search terms>*\n");
+        return Collections.singletonList(String.format("(%1$s)] <Search Terms>\n" +
+                                                               "[Example:](%1$s) <\"who won the cold war\"> This will search the internet with the string literal <\"who won " +
+                                                               "the cold war\"> as a keyword",
+                                                       getAliases().get(0)));
     }
 
     @Override

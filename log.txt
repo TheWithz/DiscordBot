@@ -5379,3 +5379,289 @@ NOTE: you can skip <$$$perms> and jump straight to the group by using the group 
 NOTE: you can skip <$$$perms> and jump straight to the group by using the group alias <$$$op>.
 [Example:]($$$op) <remove> <@ BananaPhone>```
 [2016-07-04 02:36:04.216] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: not really. but I do use it sometimes
+[2016-07-05 11:40:33.720] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help search
+[2016-07-05 11:40:33.859] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Search Command]
+[Description:][Searches the internet for the keywords you provide]
+[Alliases:]($$$search, $$$google, $$$g, $$$wiki, $$$urban)
+[[Usage:]($$$search)] <Search Terms>
+[Example 1:]($$$search) <"who won the cold war"> This will search the internet with the string literal <"who won the cold war"> as a keyword```
+[2016-07-05 11:45:25.156] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help bash
+[2016-07-05 11:45:25.267] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Bash Command]
+[Description:][Runs the given arguments as a command in a bash terminal]
+[Alliases:]($$$bash)
+[[Usage:]($$$bash)] <bash command>
+[Example:]($$$bash) <"touch hello.txt"> This will create a file called <Hello.txt> in <TheWithzBot's> working directory```
+[2016-07-05 11:50:28.268] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help eval
+[2016-07-05 11:50:28.467] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Evaluate Command]
+[Description:][Takes Java, Javascript, or Groovy code and executes it.]
+[Alliases:]($$$eval)
+[[Usage:]($$$eval) <Groovy code>
+[Example:]($$$eval) <return "\"5 + 5 is: \" + (5 + 5);">
+<This will print: 5 + 5 is: 10>```
+[2016-07-05 11:52:50.860] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help perms
+[2016-07-05 11:52:51.068] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Permissions Management]
+[Description:][Used to modify the permissions of the provided user.]
+[Alliases:]($$$perms, $$$permissions, $$$op)
+[[Usage:]($$$perms)] <group> <action> <user>
+[Groups:][op]
+[Actions:][add, remove, list]
+[User:][Must be an @Mentioned user]
+[Example 1:]($$$perms) <op> <add> <@ TheWithz> This would add the user <TheWithz> to the OPs list.
+[Example 2:]($$$perms) <op> <list> This would list all bot OPs.
+NOTE: you can skip <$$$perms> and jump straight to the group by using the group alias <$$$op>.
+[Example:]($$$op) <remove> <@ BananaPhone>```
+[2016-07-05 11:55:30.505] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help skip
+[2016-07-05 11:55:30.558] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Skip Command]
+[Description:][Skips the currently playing song and moves to the next one in the queue.]
+[Alliases:]($$$skip)
+[[Usage:]($$$skip)]
+[Example:]($$$skip) This will skip the song <TheWithzBot> is currently playing and then move to the next song in the queue```
+[2016-07-05 11:57:18.298] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help todo
+[2016-07-05 11:57:18.315] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Todo Command]
+[Description:][Used to create todo lists that can be checked off as things are completed.]
+[Alliases:]($$$todo)
+[[Usage:]($$$todo)][Action] <Action Arguments>
+<Actions:>
+
+[show][ListName] - Shows all todo entries in the <ListName> TodoList.
+[[Example:]($$$todo)][show] <shopping-list> would display all entries in the <shopping-list> list.
+
+[lists][Mentions...] - Displays the todo lists owned by the provided user(s).
+[[Example 1:]($$$todo)][lists] Displays lists owned by the User that executed the command.
+[[Example 2:]($$$todo)][lists] <@ TheWithz> Displays lists owned by <TheWithz>.
+
+[create][ListName] - Creates a new todo list with name <ListName>
+[[Example:]($$$todo)][create] <project5> would create a todo list with the name <project5>
+
+[add][ListName] <Content...> - Adds a todo entry to the <ListName> todo list.
+[Example:]($$$todo)][add] <project5> "Fix bug where Users can delete System32"
+
+[madd][ListName] <Content> <Content> <Content> etc. - Adds multiple entries to the <ListName> todo list.
+[[Example:]($$$todo)][madd] <project5> "fix house" "remove door" "eat lunch"
+
+[edit][ListName] <Entry ID> <Content...> - Edits a todo entry from the <ListName> todo list.
+[[Example:]($$$todo)][edit] <project5> <4> "add more documentation for users of JDA API"
+
+[mark/unmark][TodoList] <Entry Index> - Marks a todo entry as <complete> or <incomplete>.
+[[Example 1:]($$$todo)][mark] <project5> <2> Marks the <second> entry in the <project5> list as <compelted>.
+[[Example 2:]($$$todo)][unmark] <project5> <3> Marks the <third> entry in the <project5> list as <incomplete>.
+[[Example 3:]($$$todo)][mark] <project5> <*> Marks <all> todo entries in the <project5> list as <completed>.
+<Note:> You can also use <check> and <uncheck>.
+
+```
+[2016-07-05 11:57:18.464] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Todo Command](Usage Cont. 2)
+
+[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.
+[[Example 1:]($$$todo)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>
+[[Example 2:]($$$todo)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.
+________________________________________________________________________________________________________
+
+[[users][SubAction]](ListName) <SubAction Args> Used add, remove and list the Auth'd users for a todo list.
+<SubActions:>
+
+[add][ListName] <@ mentions...> Adds the mentions users to the Auth'd users for <ListName> list.
+[Example:]($$$todo)[users](add) <project5> <@ Joe> <@ DudeMan> Adds Joe and DudeMan Auth'd users for the <project5> list.
+
+[remove][ListName] [@ mentions...] Removes the mentioned users from the Auth'd users for <ListName> list.
+[Example:]($$$todo)[users](remove) <project5> <@ MrCatMan> Removes <MrCatMan> from the Auth'd users for the <project5> list.
+
+[list][ListName] Lists the Owner and Auth'd users for the <ListName> list.
+[Example:]($$$todo)[users](list) <project5> Lists the owner and all Auth'd users for the <project5> list.
+________________________________________________________________________________________________________
+
+[clear][ListName] - Clears all <completed> todo entries from a list.
+[[Example:]($$$todo)][clear] <project5> Clears all <completed> todo entries in the <project5> list
+
+[remove][ListName] - Completely deletes the <ListName> list. Only the list owner can do this.
+[[Example:]($$$todo)][remove] <project5> Completely deletes the <project5> todo list.
+```
+[2016-07-05 11:58:26.787] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help stop
+[2016-07-05 11:58:26.861] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Stop Command]
+[Description:][Stops the audio player completely.]
+[Alliases:]($$$stop)
+[[Usage:]($$$stop)]
+[Example:]($$$stop) Stops <TheWithzBot's> audio player```
+[2016-07-05 11:58:45.774] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help tag
+[2016-07-05 11:58:45.866] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Tag Command]
+[Description:][No description has been provided for this command. Sorry!]
+[Alliases:]($$$tag)
+[[Usage:]No usage instructions have been provided for this command. Sorry!```
+[2016-07-05 11:58:51.363] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help latex
+[2016-07-05 11:58:51.438] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][No name provided for this command. Sorry!]
+[Description:][No description has been provided for this command. Sorry!]
+[Alliases:]($$$latex)
+[[Usage:]No usage instructions have been provided for this command. Sorry!```
+[2016-07-05 12:08:08.164] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help tran
+[2016-07-05 12:08:08.664] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Translate Command]
+[Description:][Command that translates a message!]
+[Alliases:]($$$tran, $$$translate)
+[[Usage:]($$$tran)] <Original Language> <Language to change to> <Content...>```
+[2016-07-05 12:11:12.249] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$tran english spanish Hello, my name is John Cena.
+[2016-07-05 12:11:13.025] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :white_check_mark: `mi nombre es John Cena.`
+[2016-07-05 12:12:27.846] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help tran
+[2016-07-05 12:12:27.918] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Translate Command]
+[Description:][Command that translates a message!]
+[Alliases:]($$$tran, $$$translate)
+[[Usage:]($$$tran)] <Original Language> <Language to change to> <Content...>
+[Example:]($$$tran) <English> <Spanish> <"Hello, my name is John Cena."> This will return <"mi nombre es John Cena.">```
+[2016-07-05 12:15:11.027] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help tran
+[2016-07-05 12:15:11.095] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Translate Command]
+[Description:][Command that translates a message!]
+[Alliases:]($$$tran, $$$translate)
+[[Usage:]($$$tran)] <Original Language> <Language to change to> <Content...>
+[Example:]($$$tran) <English> <Spanish> <"Hello, my name is John Cena"> This will return <"mi nombre es John Cena">```
+[2016-07-05 12:17:16.752] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help statid
+[2016-07-05 12:17:16.927] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :x: The provided command '**statid**' does not exist. Use $$$help to list all commands.
+[2016-07-05 12:17:23.137] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help stat
+[2016-07-05 12:17:23.253] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: :x: The provided command '**stat**' does not exist. Use $$$help to list all commands.
+[2016-07-05 12:17:30.520] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help stats
+[2016-07-05 12:17:30.659] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Stat Command]
+[Description:][Prints statistics]
+[Alliases:]($$$stats, $$$uptime)
+[[Usage:]($$$stats)]
+[Example:]($$$stats) This will print <TheWithzBot's> statistics```
+[2016-07-05 12:18:41.422] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo mark botfeatures 7
+[2016-07-05 12:18:41.576] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Item `7` in `botfeatures` was marked as **completed**
+[2016-07-05 12:20:07.410] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @Pear0 FINALLY finished writing all the help information. well... for the commands that are finished anyway. I didnt feel like doing a ton of work when i know im going to change it later anyway
+[2016-07-05 12:20:49.622] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval jda.shutdown(true);
+[2016-07-05 12:20:50.117] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+:no_entry: **Did not compile!**
+```java
+No such property: jda for class: Script1```
+
+[2016-07-05 12:22:10.970] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval jda.shutdown(true);
+[2016-07-05 12:30:17.806] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+wish I knew about this a long time ago ```java
+@NotNull
+    private StringBuilder buildLatex(StringBuilder builder, String... strs) {
+        builder.append("\\documentclass{article}\n")
+               .append("\\usepackage{amsmath}")
+               .append("\\pagestyle{empty}\n\n")
+               .append("\\begin{document}\n")
+               .append("\\Huge\n");
+        for (int i = 0; i < strs.length; i++) {
+            builder.append(strs[i]).append("\n");
+        }
+        return builder.append("\\end{document}");
+    }``` makes life so much easier
+[2016-07-05 12:34:42.481] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: i think tag, latex, and json are really the only things i have left to do form a coding stand point, unless im seriously considering a couple more commands
+[2016-07-05 12:42:44.216] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Well that's good
+[2016-07-05 12:43:50.495] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: What if all the help information was read from an xml file?
+[2016-07-05 12:44:35.808] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: You  could "hotswap" info without restarting the bot
+[2016-07-05 12:55:53.325] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+hmmm that's a good idea. but I would probably use SQL instead. and read in the info from a json array. so like ```json
+"EVAL":
+    "usage":""
+    "name":""
+    "aliases":""
+    "examples":""```
+[2016-07-05 12:56:28.339] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I supposed examples will need to be a json array as well
+[2016-07-05 12:57:00.304] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: but you know what that would mean... restructuring the bot. AGAIN lol
+[2016-07-05 12:57:03.105] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[08:30:17:866][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:34:42:500][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:42:44:256][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:43:50:512][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:44:35:830][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:55:53:336][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:56:28:360][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:57:00:317][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-05 12:58:11.774] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: oh, but if I use sql then I would have to restart the bot anyway. fuck. I guess I'd just use the json thing then
+[2016-07-05 12:58:34.888] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: unless i want to have a timer check for updates every minute or so.
+[2016-07-05 12:59:02.558] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: but If i did that, then if the bot shuts off or goes offline before the database code can update it then those chanegs are lsot
+[2016-07-05 13:03:43.188] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: what a dilema
+[2016-07-05 13:04:22.157] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: why do you do this to me 😢 lmao
+[2016-07-05 13:07:10.471] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: oh
+[2016-07-05 13:07:21.206] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: aliases needs to be an array too
+[2016-07-05 13:09:20.952] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo add botfeatures restructure bot AGAIN to support live updating of the help command. make it into a json. where each command is an array, with name, usage as key value pairs and aliases and examples as jspon arrays
+[2016-07-05 13:09:21.076] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-07-05 13:09:21.088] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[08:58:11:850][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:58:34:902][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[08:59:02:576][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:03:43:247][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:04:22:174][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:07:10:491][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:07:21:240][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:09:20:976][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [todolist](ProgramDevelopment)```
+[2016-07-05 13:10:29.265] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo add botfeatures add support for saving json arrays via JSON command. right now, it's just boring key value pairs
+[2016-07-05 13:10:29.404] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-07-05 13:11:27.974] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: this todo list. kill me now
+[2016-07-05 13:16:27.468] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$json create Help.json
+[2016-07-05 13:16:27.529] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: new json Help.json was generated successfully.
+[2016-07-05 13:22:14.449] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithz: $$$help help
+[2016-07-05 13:22:14.601] [<@122764399961309184>#PC:TheWithz(171365461479522304)] TheWithzBot: 
+```md
+[Name:][Help Command]
+[Description:][Command that helps use all other commands!]
+[Alliases:]($$$help, $$$commands)
+[[Usage:]($$$help)
+[Example: 1]($$$help) Shows all <TheWithzBot's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>
+[Example: 2]($$$help) <todo> Shows <TheWithzBot's> usage information for the todo command if it is in the <EVERYONE> or <OP_ONLY> or <OWNER_ONLY> permission level```
+[2016-07-05 13:42:05.232] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+```{
+  "HELP": [
+    {
+      "name": "[Name:][Help Command]"
+    },
+    {
+      "description": "[Description:][Command that helps use all other commands!]"
+    },
+    {
+      "usage": "[Usage:](PREFIXhelp)"
+    },
+    {
+      "aliases": [
+        {
+          "0": "[Alias 1:]PREFIXhelp"
+        },
+        {
+          "1": "[Alias 2:]PREIFXcommands"
+        }
+      ]
+    },
+    {
+      "examples": [
+        {
+          "0": "[Example: 1](PREFIXhelp) Shows all <CURRENTBOT's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>"
+        },
+        {
+          "1": "[Example: 2](PREFIXhelp) <todo> Shows <CURRENTBOT's> usage information for the todo command if it is in your permission level"
+        }
+      ]
+    }
+  ]
+}```
+[2016-07-05 13:42:18.743] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I think I'll do it this way.
+[2016-07-05 13:43:51.373] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: do you have a better solution for things that are dynamic? right now I figure I'll just use a `String.replace("PREFIX",Runbot.PREFIX);` and same thing for CURRENTBOT since I dont want to have t reedit the file every single time I change those. can I use java variables in a json? cause that would make my life so much easier
+[2016-07-05 13:46:39.187] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I dotn think I did this right now that I think about it, it looks like Im making aliases and examples new json objects rather than arrays of key value pairs

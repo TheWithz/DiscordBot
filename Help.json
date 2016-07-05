@@ -1,0 +1,33 @@
+{
+  "HELP": [
+    {
+      "name": "[Name:][Help Command]"
+    },
+    {
+      "description": "[Description:][Command that helps use all other commands!]"
+    },
+    {
+      "usage": "[Usage:](PREFIXhelp)"
+    },
+    {
+      "aliases": [
+        {
+          "0": "[Alias 1:]PREFIXhelp"
+        },
+        {
+          "1": "[Alias 2:]PREIFXcommands"
+        }
+      ]
+    },
+    {
+      "examples": [
+        {
+          "0": "[Example: 1](PREFIXhelp) Shows all <CURRENTBOT's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>"
+        },
+        {
+          "1": "[Example: 2](PREFIXhelp) <todo> Shows <CURRENTBOT's> usage information for the todo command if it is in your permission level"
+        }
+      ]
+    }
+  ]
+}

@@ -42,7 +42,7 @@ public class EvalCommand extends Command {
         binding.setVariable("event", e);
         binding.setVariable("channel", e.getChannel());
         binding.setVariable("args", args);
-        binding.setVariable("api", e.getJDA());
+        binding.setVariable("jda", e.getJDA());
         binding.setVariable("bot", RunBot.BOT);
         GroovyShell shell = new GroovyShell(binding);
 
@@ -93,6 +93,6 @@ public class EvalCommand extends Command {
         return Collections.singletonList(String.format(
                 "(%1$s) <Groovy code>\n" +
                         "[Example:](%1$s) <return \"\\\"5 + 5 is: \\\" + (5 + 5);\">\n" +
-                        "<This will print: 5 + 5 is: 10>", getAliases().get(0)));
+                        "<This will print: \"5 + 5 is: 10\">", getAliases().get(0)));
     }
 }

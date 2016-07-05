@@ -5,6 +5,7 @@ import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class StatCommand extends Command {
 
     @Override
     public String getDescription() {
-        return "Prints statistics for TheWithzBot";
+        return "Prints statistics";
     }
 
     @Override
@@ -33,7 +34,9 @@ public class StatCommand extends Command {
 
     @Override
     public List<String> getUsageInstructionsEveryone() {
-        return Arrays.asList(RunBot.PREFIX + "stats", RunBot.PREFIX + "uptime");
+        return Collections.singletonList(String.format("(%1$s)]\n" +
+                                                               "[Example:](%1$s) This will print <%2$s's> statistics",
+                                                       getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override

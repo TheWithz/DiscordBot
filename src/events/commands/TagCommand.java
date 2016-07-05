@@ -202,6 +202,8 @@ public class TagCommand extends Command {
                 handleEditLabel(e, args);
                 break;
             default:
+                sendMessage(e, ":x: Unknown Modifier argument: `" + args[1] + "` was provided. " +
+                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
                 break;
         }
 

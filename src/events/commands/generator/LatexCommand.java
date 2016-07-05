@@ -34,6 +34,8 @@ public class LatexCommand extends Command {
                 handleList(event);
                 break;
             default:
+                sendMessage(event, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
                 break;
         }
     }
@@ -41,7 +43,7 @@ public class LatexCommand extends Command {
     private void handleList(MessageReceivedEvent event) {
         StringBuilder builder = new StringBuilder();
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("commonLatex.json"))));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("CommonLatex.json"))));
             builder.append("```fix\nLaTeX presets``````tex\n");
             ArrayList<String> presets = new ArrayList(obj.keySet());
             for (int i = 0; i < presets.size(); i++) {
@@ -71,6 +73,8 @@ public class LatexCommand extends Command {
                 handleRaw(event, args);
                 break;
             default:
+                sendMessage(event, ":x: Unknown Modifier argument: `" + args[1] + "` was provided. " +
+                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
                 break;
         }
     }
@@ -101,7 +105,7 @@ public class LatexCommand extends Command {
         StringBuilder builder = new StringBuilder();
 
         try {
-            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("commonLatex.json"))));
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("CommonLatex.json"))));
             if (obj.keySet().contains(args[3])) {
                 System.out.println(obj.getString(args[3]));
                 builder = buildLatex(builder, obj.getString(args[3]));
@@ -123,8 +127,8 @@ public class LatexCommand extends Command {
                .append("\\pagestyle{empty}\n\n")
                .append("\\begin{document}\n")
                .append("\\Huge\n");
-        for (int i = 0; i < strs.length; i++) {
-            builder.append(strs[i]).append("\n");
+        for (String str : strs) {
+            builder.append(str).append("\n");
         }
         return builder.append("\\end{document}");
     }

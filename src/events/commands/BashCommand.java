@@ -35,12 +35,12 @@ public class BashCommand extends Command {
     // TODO: 2/27/16 fill out override methods
     @Override
     public String getDescription() {
-        return null;
+        return "Runs the given arguments as a command in a bash terminal";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Bash Command";
     }
 
     @Override
@@ -55,7 +55,10 @@ public class BashCommand extends Command {
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s)] <bash command>\n" +
+                                                               "[Example:](%1$s) <\"touch Hello.txt\"> This will create a file called <Hello.txt> in <%2$s's> working directory",
+                                                       getAliases().get(0),
+                                                       RunBot.BOT.getUsername()));
     }
 
     public static StringBuilder runLinuxCommand(String com) {

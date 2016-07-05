@@ -4,7 +4,8 @@ import bots.RunBot;
 import events.commands.Command;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -23,26 +24,29 @@ public class SkipCommand extends Command {
 
     @Override
     public String getDescription() {
-        return "";
+        return "Skips the currently playing song and moves to the next one in the queue.";
     }
 
     @Override
     public String getName() {
-        return null;
+        return "Skip Command";
     }
 
     @Override
     public java.util.List<String> getUsageInstructionsEveryone() {
-        return null;
+        return Collections.singletonList(String.format("(%1$s)]\n" +
+                                                               "[Example:](%1$s) This will skip the song <%2$s> is currently playing and then move to the next song in the queue",
+                                                       getAliases().get(0),
+                                                       RunBot.BOT.getUsername()));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
-        return null;
+        return getUsageInstructionsEveryone();
     }
 }
