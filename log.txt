@@ -6839,3 +6839,60 @@ TypeError: quote_from_bytes() expected bytes```
 [[08:34:07:546][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
 [2016-07-06 12:34:10.522] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
 [2016-07-06 12:34:13.516] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:16.481] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:19.516] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:22.480] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:25.517] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:28.421] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:31.520] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:32.203] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[08:34:10:543][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:13:537][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:16:535][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:19:542][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:22:537][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:25:546][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:28:540][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:31:539][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-06 12:34:34.519] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:37.516] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:40.532] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:43.519] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:46.516] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:49.517] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:52.527] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:55.517] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:56.152] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[08:34:34:547][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:37:538][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:40:556][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:43:541][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:46:538][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:49:548][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:52:548][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:55:540][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-06 12:34:58.517] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:01.474] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:04.516] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:07.524] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:10.540] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:13.520] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:16.504] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:19.436] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:20.144] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[08:34:58:552][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:35:01:536][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:35:04:536][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:35:07:545][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:35:10:589][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:35:13:541][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:35:16:545][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:35:19:538][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-06 12:35:26.532] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:29.517] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:32.454] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:35.538] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:35:38.517] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
