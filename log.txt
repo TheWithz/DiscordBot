@@ -5665,3 +5665,1177 @@ hmmm that's a good idea. but I would probably use SQL instead. and read in the i
 [2016-07-05 13:42:18.743] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I think I'll do it this way.
 [2016-07-05 13:43:51.373] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: do you have a better solution for things that are dynamic? right now I figure I'll just use a `String.replace("PREFIX",Runbot.PREFIX);` and same thing for CURRENTBOT since I dont want to have t reedit the file every single time I change those. can I use java variables in a json? cause that would make my life so much easier
 [2016-07-05 13:46:39.187] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I dotn think I did this right now that I think about it, it looks like Im making aliases and examples new json objects rather than arrays of key value pairs
+[2016-07-05 13:48:24.619] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: time for work. be back eventually
+[2016-07-05 18:38:31.736] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: $$$tag list
+[2016-07-05 18:38:31.951] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) discordratelimit
+2) jdachart
+3) mdsyntax
+4) thewithzbotinvite
+5) riotratelimit
+```
+[2016-07-05 18:38:36.913] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: $$$Tag mdsyntax
+[2016-07-05 18:38:37.010] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :x: Unknown Action argument: `mdsyntax` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-05 18:38:39.161] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[09:42:05:256][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:42:18:768][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:43:51:410][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:46:39:214][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[09:48:24:644][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[14:38:31:831][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:38:31:995][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:38:36:942][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:38:37:165][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)```
+[2016-07-05 18:38:44.664] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: $$$tag show mdsyntax
+[2016-07-05 18:38:44.748] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: 
+```fix
+Showing tag: [mdsyntax]``````md
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------```
+[2016-07-05 18:41:12.285] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+```md
+# hello?
+```
+[2016-07-05 18:41:14.295] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: oooh
+[2016-07-05 18:41:23.029] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+[purple][orange] - must be at front of line. eg. cannot have spaces or tabs in front of it.
+[purple](cyan) - must be at front of line. eg. cannot have spaces or tabs in front of it.
+<blue>
+<blue orange>
+
+this is redish text underlined by hyphens
+----------------------------------------------
+[2016-07-05 18:44:34.515] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+```md
+ [hi](hi)```
+[2016-07-05 18:45:19.186] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag edit mdsyntax ```md
+[purple][orange]
+[purple](cyan)
+<blue>
+<blue orange>
+
+# redish text fallows a hashtag / pound symbol
+
+this is redish text underlined by hyphens
+----------------------------------------------```
+[2016-07-05 18:45:19.357] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :x: Unknown Modifier argument: `edit` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-05 18:45:21.056] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[14:38:44:704][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:38:45:061][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:41:12:318][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:41:14:318][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:41:23:078][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:44:34:550][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:45:19:220][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:45:19:415][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)```
+[2016-07-05 18:45:59.746] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag edit content mdsyntax ```md
+[purple][orange]
+[purple](cyan)
+<blue>
+<blue orange>
+
+# redish text fallows a hashtag / pound symbol
+
+this is redish text underlined by hyphens
+----------------------------------------------```
+[2016-07-05 18:45:59.805] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Edited tag `mdsyntax`
+[2016-07-05 18:47:01.832] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+```xl
+lowercase is blue
+Upercase Is Yellow
+2314 numbers are cyan
+```
+
+```diff
++ plus gives green line
+- minus gives red line
+! bang gives orange line
+```
+
+```fix
+all text yellow
+```
+
+```css
+most text green
+```
+
+```tex
+$ dollar sign highlights blue
+```
+
+```ini
+[ after brace is blue
+```
+
+```md
+[purple](green)
+[purple][orange]
+```
+[2016-07-05 18:47:58.540] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag create syntaxhighlighting ᠎```xl
+lowercase is blue
+Upercase Is Yellow
+2314 numbers are cyan
+```
+
+```diff
++ plus gives green line
+- minus gives red line
+! bang gives orange line
+```
+
+```fix
+all text yellow
+```
+
+```css
+most text green
+```
+
+```tex
+$ dollar sign highlights blue
+```
+
+```ini
+[ after brace is blue
+```
+[2016-07-05 18:47:58.638] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Created `syntaxhighlighting` tag.
+[2016-07-05 18:48:08.694] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: $$$tag show syntaxhighlightin
+[2016-07-05 18:48:08.809] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :x: Sorry, `syntaxhighlightin` isn't a known tag.
+[2016-07-05 18:48:16.805] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: $$$tag show syntaxhighlighting
+[2016-07-05 18:48:16.789] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: 
+```fix
+Showing tag: [syntaxhighlighting]```᠎```xl
+lowercase is blue
+Upercase Is Yellow
+2314 numbers are cyan
+```
+
+```diff
++ plus gives green line
+- minus gives red line
+! bang gives orange line
+```
+
+```fix
+all text yellow
+```
+
+```css
+most text green
+```
+
+```tex
+$ dollar sign highlights blue
+```
+
+```ini
+[ after brace is blue
+```
+[2016-07-05 18:48:17.952] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[14:45:59:772][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:45:59:917][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:47:01:931][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:47:58:584][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:47:58:722][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:48:08:822][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:48:08:884][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:48:16:853][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:48:16:921][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)```
+[2016-07-05 18:49:20.680] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: $$$tag delete syntaxhighlighting
+[2016-07-05 18:49:20.814] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Deleted the `syntaxhighlighting` tag.
+[2016-07-05 18:49:22.569] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: ls
+[2016-07-05 18:52:57.405] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag create fixsyntax ```fix
+all text yellow```
+[2016-07-05 18:52:57.552] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Created `fixsyntax` tag.
+[2016-07-05 18:53:51.827] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag create texsyntax ```tex
+$ dollar sign highlights blue```
+[2016-07-05 18:53:52.009] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Created `texsyntax` tag.
+[2016-07-05 18:54:30.651] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag create css ```css
+most text is green```
+[2016-07-05 18:54:30.718] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Created `css` tag.
+[2016-07-05 18:54:33.088] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[14:49:20:720][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:49:20:855][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:49:22:599][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:52:57:436][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:52:57:595][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:53:51:908][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:53:52:060][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:54:30:686][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [random](ProgramDevelopment)``````md
+[[14:54:30:837][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [random](ProgramDevelopment)```
+[2016-07-05 18:54:58.125] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag create xlsyntax ```xl
+lowercase is blue
+Upercase Is Yellow
+2314 numbers are cyan```
+[2016-07-05 18:54:58.164] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Created `xlsyntax` tag.
+[2016-07-05 18:55:18.885] [ProgramDevelopment#TC:random(184850090391896064)] TheWithz: 
+$$$tag create diffsyntax ```diff
++ plus gives green line
+- minus gives red line
+! bang gives orange line```
+[2016-07-05 18:55:18.967] [ProgramDevelopment#TC:random(184850090391896064)] TheWithzBot: :white_check_mark: Created `diffsyntax` tag.
+[2016-07-05 18:58:33.459] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @Pear0 do you still have the code for the thue interpretter on your website?
+[2016-07-05 19:01:08.308] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: oh also, how do you get the path to your current directory in python?
+[2016-07-05 19:30:38.833] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: nvm about the current directory i figured i tout
+[2016-07-05 19:30:56.897] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: os.cwp()
+[2016-07-05 19:31:09.666] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Yes and there's probably a function in the os module to get the working directory
+[2016-07-05 19:31:21.085] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Oh cool
+[2016-07-05 19:31:40.157] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: can I have the python file you use to interpret the thue? I want to revamp the eval command
+[2016-07-05 19:32:07.019] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: so instead of just default java, itll be `$$$eval <language> <code>`
+[2016-07-05 19:32:50.136] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: That'll be cool
+[2016-07-05 19:33:08.061] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I can't send you the file right now though
+[2016-07-05 19:33:09.378] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[15:30:38:960][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:30:56:979][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:31:09:688][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:31:21:111][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:31:40:185][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:32:07:105][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:32:50:233][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:33:08:088][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-05 19:33:21.720] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: ok thats fine, it doesnt have to be right away
+[2016-07-05 19:33:23.323] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I'm in the middle of nowhere Pennsylvania
+[2016-07-05 19:33:27.514] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: hahahahaha
+[2016-07-05 19:33:31.463] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: with your cousins right?
+[2016-07-05 19:33:48.887] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Yeah
+[2016-07-05 19:35:33.224] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: And their <2mbps internet with 200ms ping on the best days
+[2016-07-05 19:36:02.896] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: omg.... that's awful
+[2016-07-05 19:37:27.330] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Yes, and are you aware how SSH works?
+[2016-07-05 19:37:30.372] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[15:33:21:746][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:33:23:350][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:33:27:546][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:33:31:489][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:33:48:915][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:35:33:331][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:36:02:936][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:37:27:353][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-05 19:38:32.225] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yeah, well, mostly
+[2016-07-05 19:39:56.799] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: If you're on a network with high latency, there will be a large delay between when you press a key and when you see it on screen
+[2016-07-05 19:40:14.321] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: oh, yes, Ive seen that happen to my raspi a lot
+[2016-07-05 19:40:49.380] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Really?
+[2016-07-05 19:41:13.613] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Are they on your local network?
+[2016-07-05 19:41:30.197] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yeah rememeber, it downloads at like 8 bytes per second 😝 😭
+[2016-07-05 19:41:49.889] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: thats just because like you said before, its literally inside a microwav
+[2016-07-05 19:42:09.501] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I wired it via ribbon cable into a 7 inch tablet touch screen
+[2016-07-05 19:42:12.385] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[15:38:32:251][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:39:56:830][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:40:14:356][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:40:49:426][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:41:13:664][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:41:30:228][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:41:49:918][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[15:42:09:528][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-05 19:42:31.551] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: so usually when I do ssh I just dont turn on the screen
+[2016-07-05 22:22:37.517] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag thewithzbotinvite
+[2016-07-05 22:22:37.507] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :x: Unknown Action argument: `thewithzbotinvite` was provided. Please use `$$$help $$$tag` for more information.
+[2016-07-05 22:22:42.855] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag list
+[2016-07-05 22:22:42.917] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing list of tags``````css
+1) discordratelimit
+2) jdachart
+3) css
+4) mdsyntax
+5) texsyntax
+6) diffsyntax
+7) fixsyntax
+8) thewithzbotinvite
+9) riotratelimit
+10) xlsyntax
+```
+[2016-07-05 22:22:54.484] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tag show thewithzbotinvite
+[2016-07-05 22:22:54.550] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+```fix
+Showing tag: [thewithzbotinvite]```https://discordapp.com/oauth2/authorize?&client_id=168796197396545537&scope=bot&permissions=0
+[2016-07-05 23:48:36.896] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: http://hastebin.com/oherifisut.py
+[2016-07-05 23:48:49.186] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: that's my modified thue interpreter
+[2016-07-05 23:49:14.158] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: it will read from stdin if there is no file `file.thue` and it outputs to stdout
+[2016-07-05 23:49:39.258] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: it separates thue rules from the input by the `:::`
+[2016-07-06 01:12:36.333] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: nope python 3
+[2016-07-06 01:12:49.129] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:13:01.472] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yeah i figured it out. I was doing something stupid with my sdk
+[2016-07-06 01:14:47.025] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo add botfeatures add language support to eval command. so $$$eval <language> <code>
+[2016-07-06 01:14:47.205] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Added to `botfeatures` todo list.
+[2016-07-06 01:22:00.294] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: ah okay
+[2016-07-06 01:22:04.739] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:29:53.416] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:29:58.100] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:30:54.205] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:30:55.234] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:22:00:352][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:22:04:803][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:22:28:269][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:29:53:523][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:29:53:625][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:29:58:159][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:30:22:954][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:30:54:354][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:30:54:551][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)```
+[2016-07-06 01:30:58.255] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:32:24.121] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:32:26.804] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:32:35.504] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb stop
+[2016-07-06 01:32:40.103] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb leave
+[2016-07-06 01:32:43.184] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:30:58:390][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:32:07:713][bricktsre]](ID:109065089771900928) Has gone AFK``````md
+[[21:32:14:420][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:32:24:183][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:32:24:358][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:32:26:965][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:32:35:574][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:32:40:174][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:32:40:293][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)```
+[2016-07-06 01:32:46.059] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:33:02.610] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:33:05.791] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:37:37.105] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:32:46:152][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:02:676][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:02:785][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:33:05:867][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:33:11:278][boris.li99]](ID:138326825360293888) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[21:33:19:582][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:37:34:899][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[21:37:34:899][TR-8RJ0s]](ID:122763729061412866) Joined channel/guild [General](ProgramDevelopment)```
+[2016-07-06 01:38:21.417] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join generaL
+[2016-07-06 01:38:26.280] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:40:13.851] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:40:16.147] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:37:42:822][BoredMax]](ID:122763722564304897) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[21:37:43:076][Alex♥]](ID:122771361910358016) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[21:37:43:076][Alex♥]](ID:122771361910358016) Joined channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)``````md
+[[21:38:15:367][bricktsre]](ID:109065089771900928) Is no longer AFK``````md
+[[21:38:21:478][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:38:21:572][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:38:26:436][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:40:13:926][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 01:40:24.030] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:42:25.301] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:42:28.265] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pg play sp
+[2016-07-06 01:42:33.486] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:42:40.232] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:40:24:183][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:42:11:402][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:42:25:372][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:42:25:519][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:42:28:328][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:42:33:549][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:42:38:117][chaz_rebar]](ID:126102141742874624) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[21:42:38:117][chaz_rebar]](ID:126102141742874624) Joined channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)```
+[2016-07-06 01:43:11.185] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pjoin general
+[2016-07-06 01:43:15.514] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:43:53.105] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:43:59.873] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:44:02.952] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:44:04.204] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:42:56:750][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:43:02:726][chaz_rebar]](ID:126102141742874624) Left channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)``````md
+[[21:43:11:307][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:43:15:594][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:43:53:273][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:43:59:944][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:44:00:110][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:44:03:026][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 01:47:25.139] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:47:28.116] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:51:14.220] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:51:16.152] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:44:40:844][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[21:44:45:423][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[21:46:59:816][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:47:25:217][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:47:25:398][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:47:28:185][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:48:46:111][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:51:14:287][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:51:15:098][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)```
+[2016-07-06 01:51:19.464] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:54:58.220] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:51:19:574][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:53:36:002][Pear0]](ID:111581694250737664) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:53:37:765][Pear0]](ID:111581694250737664) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:53:46:685][Pear0]](ID:111581694250737664) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:54:31:461][Pear0]](ID:111581694250737664) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:54:31:461][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[21:54:53:699][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[21:54:57:117][Pear0]](ID:111581694250737664) Muted themselves```
+[2016-07-06 01:55:14.459] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 01:55:17.292] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 01:55:45.197] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 01:57:10.236] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:55:04:489][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:55:14:595][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:55:14:685][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[21:55:17:385][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:55:45:270][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[21:55:59:540][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[21:57:09:588][Alex♥]](ID:122771361910358016) Left channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)``````md
+[[21:57:09:588][Alex♥]](ID:122771361910358016) Joined channel/guild [Coding](Marc Ivan and Other Habibis)```
+[2016-07-06 02:00:04.760] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:00:08.552] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:01:27.633] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:01:28.259] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[21:57:20:086][Alex♥]](ID:122771361910358016) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[21:57:20:086][Alex♥]](ID:122771361910358016) Joined channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)``````md
+[[22:00:04:831][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:00:04:926][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:00:08:621][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:01:08:403][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:01:27:681][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:01:27:829][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)```
+[2016-07-06 02:01:30.475] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:01:36.622] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:01:56.985] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:03:25.179] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:03:55.218] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:01:30:523][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:01:36:663][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:01:57:072][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:02:00:483][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[22:02:15:931][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[22:03:13:110][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[22:03:25:232][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:03:54:402][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)```
+[2016-07-06 02:04:05.931] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:04:08.712] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:05:12.583] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:05:15.151] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:05:58.302] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:04:05:978][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:04:06:111][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:04:08:757][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:04:59:733][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:05:12:617][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:05:12:741][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:05:15:213][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:05:56:630][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)```
+[2016-07-06 02:06:07.735] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:06:10.241] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:07:49.331] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:07:52.684] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:09:49.201] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:06:07:772][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:06:07:885][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:06:10:356][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:07:33:409][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:07:49:413][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:07:49:548][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:07:52:714][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:09:47:612][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)```
+[2016-07-06 02:15:59.655] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:16:02.810] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:17:58.022] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:18:01.288] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:18:49.359] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:15:59:811][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:15:59:900][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:16:02:831][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:17:53:609][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:17:58:044][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:17:58:207][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:18:01:336][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:18:46:896][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)```
+[2016-07-06 02:18:59.850] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:19:03.446] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:20:05.188] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: what was that?
+[2016-07-06 02:20:10.220] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I know
+[2016-07-06 02:20:30.949] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb joi general
+[2016-07-06 02:20:31.344] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:18:59:875][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:18:59:993][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:19:03:476][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:19:53:552][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[22:20:05:212][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:20:07:295][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:20:10:237][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:20:31:036][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:20:32.290] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: its my music machine
+[2016-07-06 02:20:34.564] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: lol
+[2016-07-06 02:20:34.696] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:20:41.180] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play xp.mp3
+[2016-07-06 02:20:43.513] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: u typod
+[2016-07-06 02:21:11.448] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play resource xp.mp3
+[2016-07-06 02:21:11.951] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 02:21:13.368] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:20:32:411][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:20:34:584][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:20:34:814][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:20:34:898][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:20:41:200][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:20:43:614][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:21:11:488][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:21:11:988][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:21:37.889] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: omg
+[2016-07-06 02:21:40.303] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: it played perf
+[2016-07-06 02:21:42.627] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I can hear you
+[2016-07-06 02:22:01.690] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: *intel*
+[2016-07-06 02:22:11.298] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play resource xp.mp3
+[2016-07-06 02:22:12.230] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 02:22:30.980] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: really?
+[2016-07-06 02:23:49.603] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:23:52.381] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:21:37:948][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:21:40:318][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:21:42:731][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:22:02:270][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:22:11:358][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:22:12:256][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:22:31:012][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:23:49:618][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:25:49.251] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:25:54.027] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:26:15.195] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 02:26:47.305] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:26:51.536] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:28:37.361] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:25:49:282][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:25:54:077][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:26:07:809][TheWithz]](ID:122764399961309184) Left channel/guild [Coding](Marc Ivan and Other Habibis)``````md
+[[22:26:07:810][TheWithz]](ID:122764399961309184) Has gone AFK``````md
+[[22:26:15:251][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:26:47:335][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:26:51:565][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:28:35:104][Alex♥]](ID:122771361910358016) Left channel/guild [Alex'sShitStorm](Marc Ivan and Other Habibis)```
+[2016-07-06 02:30:08.559] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:30:12.570] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:30:35.152] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: RICK ROLL
+[2016-07-06 02:30:40.849] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: que es?
+[2016-07-06 02:30:44.304] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: the song
+[2016-07-06 02:30:46.371] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:29:25:644][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:30:08:633][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:30:08:702][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:30:12:602][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:30:29:375][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:30:35:204][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:30:40:871][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:30:44:373][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:30:49.010] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: is rick astley
+[2016-07-06 02:30:53.841] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: never gonna give you up
+[2016-07-06 02:30:58.534] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I mean you're not wrong
+[2016-07-06 02:31:01.841] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: WOO
+[2016-07-06 02:31:07.278] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: that was hard
+[2016-07-06 02:31:10.523] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: but this is an abomination
+[2016-07-06 02:31:13.637] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: yeah
+[2016-07-06 02:31:13.648] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: no the song
+[2016-07-06 02:31:15.485] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: oh
+[2016-07-06 02:31:16.309] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:30:49:085][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:30:53:849][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:30:58:552][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:01:881][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:07:302][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:10:535][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:13:653][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:13:678][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:15:537][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:31:23.206] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:31:29.460] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:31:44.219] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: sounds like some weird nightcore
+[2016-07-06 02:31:49.655] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: see
+[2016-07-06 02:31:56.934] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: it does sound like a high freq voice
+[2016-07-06 02:32:03.339] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: yeah
+[2016-07-06 02:32:07.878] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: it doesnt sound thaaaat bad
+[2016-07-06 02:32:10.370] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:31:23:219][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:23:279][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:31:29:492][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:44:231][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:49:679][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:31:56:946][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:32:03:377][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:32:07:900][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:32:15.941] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: just mostly bad
+[2016-07-06 02:32:29.427] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: so what are you even trying to do
+[2016-07-06 02:33:04.558] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: a feature
+[2016-07-06 02:33:15.211] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 🤐
+[2016-07-06 02:34:51.832] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:34:54.902] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:36:44.220] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pjoin general
+[2016-07-06 02:36:46.405] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:32:15:962][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:32:29:452][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:33:04:591][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:33:15:255][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:34:51:850][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:34:54:916][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:36:34:842][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:36:44:243][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:36:49.604] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:36:52.315] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:37:24.066] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:37:27.168] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:37:55.404] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:36:49:620][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:36:49:751][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:36:52:341][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:37:15:460][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:37:24:088][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:37:24:312][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:37:27:191][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:37:54:680][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)```
+[2016-07-06 02:38:03.787] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:38:18.375] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:38:21.068] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:44:39.431] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:44:42.451] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 02:44:43.376] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:38:03:815][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:38:18:393][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:38:18:589][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:38:21:143][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:40:03:193][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:44:39:452][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:44:39:620][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:44:42:470][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:52:01.974] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:52:08.551] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play "Uptown Funk"
+[2016-07-06 02:52:23.649] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Uptown Funk"
+[2016-07-06 02:52:30.526] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 😂
+[2016-07-06 02:52:34.835] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: kind of
+[2016-07-06 02:55:20.601] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Sorry"
+[2016-07-06 02:55:22.348] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:50:55:454][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:52:02:065][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:02:181][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:52:08:579][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:23:665][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:30:541][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:52:34:854][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:55:20:685][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 02:55:55.270] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Blank Space"
+[2016-07-06 02:57:02.343] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 02:57:04.408] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:55:55:290][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:56:48:916][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:56:58:949][TheWithz]](ID:122764399961309184) Is no longer AFK``````md
+[[22:56:58:949][TheWithz]](ID:122764399961309184) Joined channel/guild [General](ProgramDevelopment)``````md
+[[22:56:58:950][TheWithz]](ID:122764399961309184) Muted themselves``````md
+[[22:57:00:701][TheWithz]](ID:122764399961309184) Unmuted themselves``````md
+[[22:57:02:363][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:57:02:530][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)```
+[2016-07-06 02:57:16.311] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Blank Space"
+[2016-07-06 02:57:31.456] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 😂
+[2016-07-06 02:57:38.706] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 02:59:26.721] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I need to find one
+[2016-07-06 03:00:08.984] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: who doesn't have a mic?
+[2016-07-06 03:00:12.064] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: u
+[2016-07-06 03:00:13.428] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[22:57:16:426][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:57:31:541][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:57:38:792][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[22:57:41:996][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[22:57:53:912][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[22:59:26:749][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:00:08:998][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:00:12:083][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:00:16.982] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I have a mic
+[2016-07-06 03:00:26.398] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: you said it broke 😐
+[2016-07-06 03:00:30.747] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I don't have a working one
+[2016-07-06 03:00:41.896] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I just need to figure out how to make it play nice with linux
+[2016-07-06 03:00:47.659] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: oh lol
+[2016-07-06 03:00:52.162] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yeah took me a bit
+[2016-07-06 03:01:07.631] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: I tried playing minecraft today, on windows i get 240-260 fps
+[2016-07-06 03:01:11.525] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: on linux. i got 12
+[2016-07-06 03:01:13.431] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:00:17:015][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:00:26:475][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:00:30:770][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:00:41:916][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:00:47:779][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:00:52:179][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:01:07:664][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:01:11:616][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:01:30.643] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: mostly because my current version of ubuntu doesnt work with nvidia drivers
+[2016-07-06 03:04:19.734] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 03:04:22.431] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:01:30:659][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:02:51:382][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[23:02:53:768][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[23:02:55:515][Pear0]](ID:111581694250737664) Left channel/guild [General](ProgramDevelopment)``````md
+[[23:02:58:854][Pear0]](ID:111581694250737664) Joined channel/guild [General](ProgramDevelopment)``````md
+[[23:03:35:768][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[23:04:19:759][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:04:19:961][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)```
+[2016-07-06 03:04:25.168] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Sorry"
+[2016-07-06 03:04:31.521] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 03:05:08.887] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 03:05:13.670] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 03:05:20.966] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 03:05:49.261] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: https://github.com/TheWithz/DiscordBot/commit/ae940d33c0650230f7bf31ef49ad071a839bf541
+[2016-07-06 03:05:49.430] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:04:25:280][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:04:31:574][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:04:50:989][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[23:05:09:002][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:05:09:145][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[23:05:13:687][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:05:20:997][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:05:46:703][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)```
+[2016-07-06 03:06:43.892] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 03:06:54.862] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp
+[2016-07-06 03:07:01.160] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 03:07:27.543] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play yt https://www.youtube.com/watch?v=dRpzxKsSEZg
+[2016-07-06 03:07:28.313] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing youtube
+[2016-07-06 03:07:28.450] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:06:26:975][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[23:06:30:674][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[23:06:31:575][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[23:06:43:995][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:06:44:071][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[23:06:54:879][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:07:01:196][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:07:27:665][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:07:37.364] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 03:08:30.702] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 03:09:21.053] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 03:09:31.398] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play yt https://www.youtube.com/watch?v=dRpzxKsSEZg
+[2016-07-06 03:09:31.690] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing youtube
+[2016-07-06 03:09:34.506] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:07:37:397][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:08:09:710][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[23:08:30:787][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:08:30:861][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[23:08:54:027][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[23:09:21:093][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:09:31:467][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:09:31:722][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:10:32.567] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play resource xp.mp3
+[2016-07-06 03:10:32.902] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:05.688] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:05.877] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:18.299] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:18.299] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:20.706] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:20.704] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:20.815] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:20.912] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:21.132] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:21.161] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:22.450] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:10:28:108][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[23:10:32:592][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:10:32:947][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:05:805][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:05:896][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:18:322][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:18:387][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:20:734][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:20:795][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:20:919][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:21:000][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:21:158][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:21:229][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:11:24.025] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:25.013] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:30.135] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:30.166] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:11:34.447] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:11:34.441] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:12:01.631] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Never gonna give you up"
+[2016-07-06 03:13:42.776] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: this is amazing ^^^
+[2016-07-06 03:13:43.443] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:11:24:045][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:25:032][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:30:186][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:30:260][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:34:469][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:11:34:529][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:12:01:651][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:13:42:801][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:14:03.209] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 03:14:15.963] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play sp "Sucker for Pain"
+[2016-07-06 03:14:50.881] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb play sp "Sucker for Pain"
+[2016-07-06 03:15:56.736] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 03:16:04.326] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Sucker for pain"
+[2016-07-06 03:16:16.554] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb pause
+[2016-07-06 03:16:19.360] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:14:03:321][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:14:16:007][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:14:50:938][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:15:23:761][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[23:15:56:759][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:15:56:869][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[23:16:04:346][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:16:16:581][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:16:28.631] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb play
+[2016-07-06 03:16:41.315] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb leave
+[2016-07-06 03:17:04.610] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play resource xp.mp3
+[2016-07-06 03:17:05.231] [ProgramDevelopment#TC:general(147158335387336705)] PearBot:  playing
+[2016-07-06 03:18:10.552] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tran english french "maybe this will help, my bot can translate my messages to different languages, do you mean to say you are not in alpha yet, but when you are, you will open source?"
+[2016-07-06 03:18:10.662] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :x: No Content was specified to translate. See $$$help $$$tran
+[2016-07-06 03:18:33.505] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tran english french "maybe this will help, my bot can translate my messages to different languages, do you mean to say you are not in alpha yet, but when you are, you will open source?"
+[2016-07-06 03:18:33.576] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :x: No Content was specified to translate. See $$$help $$$tran
+[2016-07-06 03:18:34.403] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:16:28:678][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:16:41:336][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:16:41:443][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[23:17:04:686][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:17:05:309][PearBot]](ID:193353810587025408) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:18:10:572][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:18:10:685][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:18:33:542][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:18:33:604][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:18:43.521] [<@111581694250737664>#PC:Pear0(183729975160078337)] Pear0: $$$help $$$tran
+[2016-07-06 03:18:43.611] [<@111581694250737664>#PC:Pear0(183729975160078337)] TheWithzBot: 
+```md
+[Name:][Translate Command]
+[Description:][Command that translates a message!]
+[Alliases:]($$$tran, $$$translate)
+[[Usage:]($$$tran)] <Original Language> <Language to change to> <Content...>
+[Example:]($$$tran) <English> <Spanish> <"Hello, my name is John Cena"> This will return <"mi nombre es John Cena">```
+[2016-07-06 03:18:45.613] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$tran english french maybe this will help, my bot can translate my messages to different languages, do you mean to say you are not in alpha yet, but when you are, you will open source?
+[2016-07-06 03:18:46.405] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: `Cela vous aidera, mon bot peut se traduire mes messages en différentes langues, tu veux dire que vous n’êtes pas en alpha, mais lorsque vous êtes, vous ouvrirez la source ?`
+[2016-07-06 03:22:48.764] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: The baccalauréat
+[2016-07-06 03:26:29.116] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: https://en.wikipedia.org/wiki/LOLCODE
+[2016-07-06 03:26:59.255] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: https://en.wikipedia.org/wiki/Computer_programming_in_the_punched_card_era
+[2016-07-06 03:27:30.896] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: Brainfuck == b****fuck
+[2016-07-06 03:29:08.234] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: 
+[2016-07-06 03:29:23.222] [Marc Ivan and Other Habibis#TC:coding(123139096896995330)] TR-8RJ0s: Fuck me. i suck at coding
+[2016-07-06 03:29:25.539] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:18:45:647][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:18:46:516][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:22:48:785][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:26:29:231][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:26:59:331][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:27:30:917][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:29:08:323][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:29:23:350][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [coding](Marc Ivan and Other Habibis)```
+[2016-07-06 03:32:56.975] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+{
+  "HELP": [
+    {
+      "name": "[Name:][Help Command]"
+    },
+    {
+      "description": "[Description:][Command that helps use all other commands!]"
+    },
+    {
+      "usage": "[Usage:](PREFIXhelp)"
+    },
+    {
+      "aliases": [
+        {
+          "0": "[Alias 1:]PREFIXhelp"
+        },
+        {
+          "1": "[Alias 2:]PREIFXcommands"
+        }
+      ]
+    },
+    {
+      "examples": [
+        {
+          "0": "[Example: 1](PREFIXhelp) Shows all <CURRENTBOT's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>"
+        },
+        {
+          "1": "[Example: 2](PREFIXhelp) <todo> Shows <CURRENTBOT's> usage information for the todo command if it is in your permission level"
+        }
+      ]
+    }
+  ]
+}
+[2016-07-06 03:35:22.056] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: 
+```java
+timer.schedule(new TimerTask() {
+            public void run() {
+                if (summoner.getCurrentGame() != null) {
+                    summoner.getCurrentGame()
+                            .getParticipants()
+                            .stream()
+                            .filter(participant -> participant.getSummonerID() == summoner.getID())
+                            .filter(participant -> summoner.getCurrentGame().getLength() < 1000)
+                            //.filter(participant -> participant.getChampionID() == champion.getID())
+                            .filter(participant -> summoner.getCurrentGame().getQueueType().toString().contains("RANKED"))
+                            .forEach(participant -> RunBot.API.getTextChannelById("147169039049949184")
+                                                              .sendMessageAsync(new MessageBuilder().appendString("oh god... Alex is playing Ashe again :cry:").build(), null));
+                }
+            }
+        }, 0, 3 * 1000); // runs every 5 seconds *i think*```
+[2016-07-06 03:35:34.810] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: 
+File "C:/Users/MI/PycharmProjects/Riot/AlexisBad.py", line 39, in <module>
+    isPlaying(riotapi.get_summoner_by_id(x))
+  File "C:/Users/MI/PycharmProjects/Riot/AlexisBad.py", line 13, in isPlaying
+    summoner = riotapi.get_summoner_by_name(name)
+  File "C:\Python35\Lib\site-packages\cassiopeia\core\summonerapi.py", line 100, in get_summoner_by_name
+    summoner = cassiopeia.dto.summonerapi.get_summoners_by_name(name)[__standardize(name)]
+  File "C:\Python35\Lib\site-packages\cassiopeia\dto\summonerapi.py", line 18, in get_summoners_by_name
+    name_string = ",".join(urllib.parse.quote(x) for x in summoner_names) if isinstance(summoner_names, list) else urllib.parse.quote(summoner_names)
+  File "C:\Python35\lib\urllib\parse.py", line 712, in quote
+    return quote_from_bytes(string, safe)
+  File "C:\Python35\lib\urllib\parse.py", line 737, in quote_from_bytes
+    raise TypeError("quote_from_bytes() expected bytes")
+TypeError: quote_from_bytes() expected bytes
+[2016-07-06 03:35:47.524] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: 
+```File "C:/Users/MI/PycharmProjects/Riot/AlexisBad.py", line 39, in <module>
+    isPlaying(riotapi.get_summoner_by_id(x))
+  File "C:/Users/MI/PycharmProjects/Riot/AlexisBad.py", line 13, in isPlaying
+    summoner = riotapi.get_summoner_by_name(name)
+  File "C:\Python35\Lib\site-packages\cassiopeia\core\summonerapi.py", line 100, in get_summoner_by_name
+    summoner = cassiopeia.dto.summonerapi.get_summoners_by_name(name)[__standardize(name)]
+  File "C:\Python35\Lib\site-packages\cassiopeia\dto\summonerapi.py", line 18, in get_summoners_by_name
+    name_string = ",".join(urllib.parse.quote(x) for x in summoner_names) if isinstance(summoner_names, list) else urllib.parse.quote(summoner_names)
+  File "C:\Python35\lib\urllib\parse.py", line 712, in quote
+    return quote_from_bytes(string, safe)
+  File "C:\Python35\lib\urllib\parse.py", line 737, in quote_from_bytes
+    raise TypeError("quote_from_bytes() expected bytes")
+TypeError: quote_from_bytes() expected bytes```
+[2016-07-06 03:40:12.694] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 03:42:48.088] [Marc Ivan and Other Habibis#TC:general(122764154443530243)] Pear0: http://www.asphaltfacts.com/
+[2016-07-06 03:44:28.340] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb camo TheWithz
+[2016-07-06 03:44:29.828] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb camo TR-8RJ0s
+[2016-07-06 03:46:48.186] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb camo TheWithzBot
+[2016-07-06 03:47:05.899] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb camo Pear0
+[2016-07-06 03:47:09.860] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: rip
+[2016-07-06 03:47:09.992] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:42:48:123][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](Marc Ivan and Other Habibis)``````md
+[[23:44:28:391][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:44:28:473][PearBot]](ID:193353810587025408) Changed their nickname on Guild [ProgramDevelopment] from/to [PearBot](TheWithz)``````md
+[[23:44:29:849][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:44:29:921][PearBot]](ID:193353810587025408) Changed their nickname on Guild [ProgramDevelopment] from/to [TheWithz](TR-8RJ0s)``````md
+[[23:46:48:206][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:47:06:412][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:47:09:894][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 03:47:46.466] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: https://www.google.com/maps/place/3804+Greene+Meadow+Dr,+Collegeville,+PA+19426/@40.1786811,-75.432684,3a,60y,239.79h,78.38t/data=!3m6!1e1!3m4!1sPy4wXZhr73yTI50Dfn8OpQ!2e0!7i13312!8i6656!4m5!3m4!1s0x89c6974b4063c809:0xef297f233af9dbe!8m2!3d40.178538!4d-75.433184!6m1!1e1
+[2016-07-06 03:48:05.568] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb camo none
+[2016-07-06 03:48:11.092] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb camo none
+[2016-07-06 03:49:29.677] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: https://www.google.com/maps/place/3804+Greene+Meadow+Dr,+Collegeville,+PA+19426/@40.1786811,-75.432684,3a,60y,239.79h,78.38t/data=!3m6!1e1!3m4!1sPy4wXZhr73yTI50Dfn8OpQ!2e0!7i13312!8i6656!4m5!3m4!1s0x89c6974b4063c809:0xef297f233af9dbe!8m2!3d40.178538!4d-75.433184!6m1!1e1
+[2016-07-06 03:51:23.646] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: ^^ THIS IS A JOKE ALEX
+[2016-07-06 03:53:50.226] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: https://www.youtube.com/watch?v=IWTH7mB4rXk
+[2016-07-06 04:03:00.116] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: http://hastebin.com/otahorifox.py
+[2016-07-06 04:03:01.005] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[23:47:46:490][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:48:05:691][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:48:05:753][PearBot]](ID:193353810587025408) Changed their nickname on Guild [ProgramDevelopment] from/to [TR-8RJ0s](PearBot)``````md
+[[23:48:11:112][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:49:29:757][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:51:23:680][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[23:53:50:307][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:03:00:155][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 04:03:47.109] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @sp play sp "She Wolf"
+[2016-07-06 04:04:04.246] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "She Wolf"
+[2016-07-06 04:04:31.829] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 04:04:32.540] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb play sp "This probably doesnt work anymore"
+[2016-07-06 04:04:42.628] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "She Wolf"
+[2016-07-06 04:04:50.270] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @pb play sp "shakira hips"
+[2016-07-06 04:04:51.957] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[00:03:47:129][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:04:04:294][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:04:20:411][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[00:04:31:867][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:04:31:956][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[00:04:32:569][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:04:42:646][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:04:50:352][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 04:05:01.067] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb puase
+[2016-07-06 04:05:03.725] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play
+[2016-07-06 04:05:07.065] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join General
+[2016-07-06 04:05:07.173] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}**`/`**(**`General`**)**
+[2016-07-06 04:05:13.515] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$play playlist shakirahips
+[2016-07-06 04:05:16.318] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-06 04:05:18.981] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[00:05:01:089][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:03:754][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:07:122][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:07:211][TheWithzBot]](ID:168796303726215168) Joined channel/guild [General](ProgramDevelopment)``````md
+[[00:05:07:459][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:10:876][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[00:05:13:567][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:16:414][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 04:05:30.403] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb join general
+[2016-07-06 04:05:36.643] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "She Wolf"
+[2016-07-06 04:05:41.572] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb pause
+[2016-07-06 04:05:42.136] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$volume .01
+[2016-07-06 04:05:42.250] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: volume was changed to: 0.01
+[2016-07-06 04:05:52.706] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$volume .15
+[2016-07-06 04:05:52.851] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: volume was changed to: 0.15
+[2016-07-06 04:05:54.943] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[00:05:30:463][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:30:547][PearBot]](ID:193353810587025408) Joined channel/guild [General](ProgramDevelopment)``````md
+[[00:05:36:666][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:41:607][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:42:200][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:42:278][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:52:787][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:05:52:937][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 04:07:09.482] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play sp "She Wolf Sia"
+[2016-07-06 04:07:59.228] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: @pb play sp "She Wolf David Guetta"
+[2016-07-06 04:08:48.418] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: @pb play sp "Blank Space"
+[2016-07-06 04:12:03.245] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$play url https://www.youtube.com/watch?v=Uf7nGBJOR9I
+[2016-07-06 04:12:05.751] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-06 04:14:19.075] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[00:07:09:516][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:07:59:643][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:08:48:528][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:12:03:271][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:12:05:787][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:12:53:756][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[00:12:57:960][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[00:14:18:948][Pear0]](ID:111581694250737664) Muted themselves```
+[2016-07-06 04:14:45.293] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$current
+[2016-07-06 04:14:45.389] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:white_check_mark: **Playing:** Logic - Fade Away (Official Audio)
+ **[`02:39`/`03:19`]** ▶▬▬▬▬▬▬▬🔘▬▬▬🔈
+[2016-07-06 04:15:05.273] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: $$$current
+[2016-07-06 04:15:05.344] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:white_check_mark: **Playing:** Logic - Fade Away (Official Audio)
+ **[`02:59`/`03:19`]** ▶▬▬▬▬▬▬▬▬🔘▬▬🔈
+[2016-07-06 04:15:16.303] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$pause
+[2016-07-06 04:15:16.636] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: playback has been paused.
+[2016-07-06 04:15:19.095] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$current
+[2016-07-06 04:15:19.154] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: 
+:white_check_mark: **Playing:** Logic - Fade Away (Official Audio)
+ **[`03:11`/`03:19`]** :pause_button:▬▬▬▬▬▬▬▬▬🔘▬🔈
+[2016-07-06 04:15:22.018] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[00:14:20:024][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[00:14:45:406][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:14:45:479][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:15:05:396][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:15:05:474][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:15:16:592][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:15:16:673][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:15:19:118][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:15:19:192][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-06 04:23:41.799] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 
+[2016-07-06 04:29:23.520] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: cant talk
+[2016-07-06 04:29:26.047] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: sisters
+[2016-07-06 04:47:10.160] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[00:23:41:937][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:27:25:628][TheWithz]](ID:122764399961309184) Muted themselves``````md
+[[00:29:23:605][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:29:25:026][PearBot]](ID:193353810587025408) Left channel/guild [General](ProgramDevelopment)``````md
+[[00:29:26:096][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[00:32:45:809][TheWithz]](ID:122764399961309184) Deafened themselves``````md
+[[00:33:58:528][Fragarach]](ID:140566192988487680) Is no longer AFK``````md
+[[00:47:09:545][Pear0]](ID:111581694250737664) Muted themselves```
+[2016-07-06 05:03:40.198] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[00:47:11:827][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[00:50:29:526][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[00:53:00:007][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[01:01:46:491][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[01:03:14:282][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[01:03:14:759][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[01:03:20:346][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[01:03:37:321][TR-8RJ0s]](ID:122763729061412866) Muted themselves```
+[2016-07-06 05:15:13.679] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: http://www.quakejs.com/
+[2016-07-06 06:08:34.332] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[01:06:31:000][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[01:14:18:053][Pear0]](ID:111581694250737664) Muted themselves``````md
+[[01:14:19:150][Pear0]](ID:111581694250737664) Unmuted themselves``````md
+[[01:15:13:702][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[01:22:48:782][Pear0]](ID:111581694250737664) Left channel/guild [General](ProgramDevelopment)``````md
+[[01:55:12:035][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [General](ProgramDevelopment)``````md
+[[02:08:33:443][TheWithz]](ID:122764399961309184) Left channel/guild [General](ProgramDevelopment)``````md
+[[02:08:33:444][TheWithz]](ID:122764399961309184) Has gone AFK```
+[2016-07-06 11:31:06.115] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$play url https://www.youtube.com/watch?v=Uf7nGBJOR9I
+[2016-07-06 11:31:06.243] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :x: You cannot play songs without establishing an audio connection first.
+[2016-07-06 11:31:12.288] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$join Music
+[2016-07-06 11:31:12.309] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: Successfully joined **{**`ProgramDevelopment`**}**`/`**(**`Music`**)**
+[2016-07-06 11:31:19.779] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[07:31:06:142][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:31:06:284][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:31:12:362][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:31:12:440][TheWithzBot]](ID:168796303726215168) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[07:31:12:672][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[07:31:14:768][TheWithz]](ID:122764399961309184) Is no longer AFK``````md
+[[07:31:14:768][TheWithz]](ID:122764399961309184) Joined channel/guild [Music](ProgramDevelopment)``````md
+[[07:31:17:148][TheWithz]](ID:122764399961309184) Unmuted themselves``````md
+[[07:31:17:148][TheWithz]](ID:122764399961309184) Undeafened themselves``````md
+[[07:31:17:985][TheWithz]](ID:122764399961309184) Muted themselves```
+[2016-07-06 11:31:19.817] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$play url https://www.youtube.com/watch?v=Uf7nGBJOR9I
+[2016-07-06 11:31:22.546] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The provided URL has been added the to queue and the player has started playing.
+[2016-07-06 11:31:24.046] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$repeat
+[2016-07-06 11:31:24.180] [ProgramDevelopment#TC:general(147158335387336705)] TheWithzBot: :white_check_mark: The player been set to repeat.
+[2016-07-06 12:33:46.495] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:33:49.515] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:33:52.464] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:33:55.514] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:33:58.519] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:01.519] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:04.527] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:07.515] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:08.201] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[08:33:46:577][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:33:49:539][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:33:52:542][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:33:55:539][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:33:58:538][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:01:541][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:04:564][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[08:34:07:546][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)```
+[2016-07-06 12:34:10.522] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
+[2016-07-06 12:34:13.516] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot

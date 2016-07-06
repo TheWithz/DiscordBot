@@ -15,6 +15,8 @@ import java.util.List;
  * Created by TheWithz on 4/29/16.
  */
 public class JsonCommand extends Command {
+    private boolean allowRemove = false;
+    private String fileToRemove = "";
 
     //todo 5/7/16 finish this!
     @Override
@@ -30,8 +32,12 @@ public class JsonCommand extends Command {
                 handleSave(event, args);
                 break;
             case "remove":
-            case "delete":
                 handleRemove(event, args);
+                break;
+            case "delete":
+                if (RunBot.OwnerRequired(event))
+                    return;
+                handleDelete(event, args);
                 break;
             case "new":
             case "create":
@@ -41,6 +47,35 @@ public class JsonCommand extends Command {
                 sendMessage(event, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
                         "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
                 break;
+        }
+
+    }
+
+    private void handleDelete(MessageReceivedEvent event, String[] args) {
+        RunBot.checkArgs(args, 2, ":x: No json was specified to delete. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+
+        if (!allowRemove) {
+            sendMessage(event, ":name_badge: :name_badge: :name_badge: Are you sure you want to permanently delete the json file " + args[2] + "If so, run the command again. " +
+                    ":name_badge: :name_badge: :name_badge:");
+            allowRemove = true;
+            fileToRemove = args[2];
+            return;
+        }
+
+        try {
+            if (!args[2].equals(fileToRemove)) {
+                sendMessage(event, ":name_badge: :name_badge: :name_badge: Be careful!! you almost permanently deleted the json file " + args[2] + " by accident! :name_badge: " +
+                        ":name_badge: :name_badge:");
+                allowRemove = false;
+                fileToRemove = "";
+                return;
+            }
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get(args[2]))));
+            BashCommand.runLinuxCommand("rm " + args[2]);
+            sendMessage(event, ":white_check_mark: the json file " + args[2] + " was successfully deleted.");
+        } catch (IOException e) {
+            sendMessage(event, ":x: " + e.getMessage());
+            allowRemove = false;
         }
 
     }
@@ -68,7 +103,7 @@ public class JsonCommand extends Command {
 
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get(args[2]))));
-            if (!checkKeyExists(obj, args)) {
+            if (!checkKeyExists(obj, args[3])) {
                 sendMessage(event, ":x: The key you provided does not exist!");
                 return;
             }
@@ -92,7 +127,7 @@ public class JsonCommand extends Command {
 
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get(args[2]))));
-            if (checkKeyExists(obj, args)) {
+            if (checkKeyExists(obj, args[3])) {
                 sendMessage(event, ":x: The key you provided already has a corresponding object!");
                 return;
             }
@@ -104,9 +139,9 @@ public class JsonCommand extends Command {
         }
     }
 
-    private boolean checkKeyExists(JSONObject obj, String[] args) {
+    private boolean checkKeyExists(JSONObject obj, String key) {
         try {
-            obj.getString(args[2]);
+            obj.getString(key);
         } catch (JSONException e) {
             return false;
         }

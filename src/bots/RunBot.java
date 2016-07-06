@@ -1,14 +1,7 @@
 package bots;
 
-import com.robrua.orianna.api.core.RiotAPI;
-import com.robrua.orianna.type.core.common.QueueType;
 import com.robrua.orianna.type.core.common.Region;
-import com.robrua.orianna.type.core.league.League;
-import com.robrua.orianna.type.core.staticdata.Champion;
-import com.robrua.orianna.type.core.summoner.Summoner;
-import events.LogHandler;
-import events.LoginHandler;
-import events.TerminalHandler;
+import events.*;
 import events.commands.*;
 import events.commands.generator.*;
 import events.commands.music.*;
@@ -19,6 +12,7 @@ import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.eclipse.egit.github.core.client.GitHubClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,7 +25,6 @@ import java.lang.management.RuntimeMXBean;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
@@ -45,21 +38,19 @@ public class RunBot {
     private static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     public static String OWNER_REQUIRED = null;
     public static final Region REGION = Region.NA;
-    // private static final GitHubClient client = new GitHubClient();
+    public static final GitHubClient CLIENT = new GitHubClient();
 
     public RunBot() {
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
-            //client.setOAuth2Token(obj.getString("gitApiToken")).setCredentials(obj.getString("gitUserName"), obj
-            //        .getString("gitPassword"));
-
-            handleLOLTest(obj);
 
             HelpCommand help = new HelpCommand();
             API = new JDABuilder().setBotToken(obj.getString("releaseBotToken"))
                                   .addListener(new LoginHandler())
                                   .addListener(new LogHandler())
                                   .addListener(new TerminalHandler())
+                                  .addListener(new LeagueHandler(obj.getString("riotApiToken")))
+                                  .addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName"), obj.getString("gitPassword")))
                                   .addListener(help.registerCommand(help, Permissions.Perm.EVERYONE))
                                   .addListener(help.registerCommand(new TranslateCommand(), Permissions.Perm.OP_ONLY))
                                   .addListener(help.registerCommand(new CalculatorCommand(), Permissions.Perm.EVERYONE))
@@ -120,20 +111,6 @@ public class RunBot {
                 }
             }
         }, 0, 3 * 1000); // runs every 5 seconds *i think*
-    }
-
-    private void handleLOLTest(JSONObject obj) {
-        RiotAPI.setRegion(REGION);
-        RiotAPI.setAPIKey(obj.getString("riotApiToken"));
-        Summoner summoner = RiotAPI.getSummonerByName("FatalElement");
-        System.out.println(summoner.getName() + " is a level " + summoner.getLevel() + " summoner on the NA server.");
-
-        List<Champion> champions = RiotAPI.getChampions();
-        System.out.println("He enjoys playing LoL on all different champions, like " + champions.get((int) (champions.size() * Math.random())) + ".");
-
-        League challenger = RiotAPI.getChallenger(QueueType.RANKED_SOLO_5x5);
-        Summoner bestNA = challenger.getEntries().get(0).getSummoner();
-        System.out.println("He's much better at writing Java code than he is at LoL. He'll never be as good as " + bestNA + ".");
     }
 
     public static String getUptime() {
