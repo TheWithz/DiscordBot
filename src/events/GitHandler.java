@@ -37,6 +37,7 @@ public class GitHandler extends ListenerAdapter {
     public static void startTimer() {
         timer.schedule(new TimerTask() {
             public void run() {
+                System.out.println(discordRepo.getPushedAt() + " : " + lastCommit);
                 if (!discordRepo.getPushedAt().equals(lastCommit)) {
                     TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
                     textChannel.sendMessageAsync(":white_check_mark: a new Commit has been pushed to DiscordBot", null);
