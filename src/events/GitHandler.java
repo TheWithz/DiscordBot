@@ -65,8 +65,8 @@ aa9fd8b Fixed issues when JDA received a create event for a new Private channel.
             textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s)\n`%4$s` %5$s [%6$s]",
                                                        commit.getAuthor().getLogin(),
                                                        discordRepo.getName(),
-                                                       discordRepo.getDefaultBranch(),
                                                        branch,
+                                                       commit.getSHA1(),
                                                        commit.getCommitShortInfo().getMessage(),
                                                        github.getMyself().getName()), null);
             lastCommit = discordRepo.getPushedAt();
