@@ -6919,3 +6919,6 @@ TypeError: quote_from_bytes() expected bytes```
 [2016-07-09 14:11:36.472] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
 ***TheWithz*** / **DiscordBot** (master)
 `fe5ccbf8da28e467f0fb204aeb9b0191905f9f06` used SHA1 instead of ID [Nathan Withers]
+[2016-07-09 14:20:06.577] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***TheWithz*** / **DiscordBot** (master)
+`646e77f662d50786397eda61fdffa09e75573167` started support for detecting pull requests [Nathan Withers]
