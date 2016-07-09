@@ -3,6 +3,7 @@ package events;
 import bots.RunBot;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.hooks.ListenerAdapter;
+import org.kohsuke.github.GHCommit;
 import org.kohsuke.github.GHRepository;
 import org.kohsuke.github.GitHub;
 import org.kohsuke.github.GitHubBuilder;
@@ -42,13 +43,14 @@ aa9fd8b Fixed issues when JDA received a create event for a new Private channel.
                 try {
                     discordRepo = github.getMyself().getRepository("DiscordBot");
                     if (!discordRepo.getPushedAt().equals(lastCommit)) {
-
+                        GHCommit commit = discordRepo.listCommits().asList().get(0);
                         TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
-                        textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s)\n`%4$s` this is where the commit message will go when I figure out how to do it " +
-                                                                           "[%5$s]", discordRepo.getCollaborators().byLogin("TheWithz").getLogin(),
+                        textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s)\n`%4$s` %5$s [%6$s]", commit.getAuthor(),
                                                                    discordRepo.getName(),
                                                                    discordRepo.getDefaultBranch(),
-                                                                   discordRepo.getId(), github.getMyself().getName()), null);
+                                                                   discordRepo.getId(),
+                                                                   commit.getCommitShortInfo().getMessage(),
+                                                                   github.getMyself().getName()), null);
                         lastCommit = discordRepo.getPushedAt();
                     }
                 } catch (IOException e) {
