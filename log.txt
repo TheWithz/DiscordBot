@@ -6906,3 +6906,6 @@ TypeError: quote_from_bytes() expected bytes```
 `***DiscordBot*** / **DiscordBot** (master)
 `52209879` thisis where the commit message will go when I figure out hwo to do it [Nathan Withers]
 [2016-07-09 13:43:29.196] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: wow. that is a mess
+[2016-07-09 13:46:42.063] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***GHUser@1482d835[login=TheWithz,location=<null>,blog=<null>,email=<null>,name=<null>,company=<null>,followers=0,following=0,url=https://api.github.com/users/TheWithz,id=8269545]*** / **DiscordBot** (master)
+`52209879` this is where the commit message will go when I figure out how to do it [Nathan Withers]
