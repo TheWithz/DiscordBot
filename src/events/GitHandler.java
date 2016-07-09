@@ -42,23 +42,32 @@ aa9fd8b Fixed issues when JDA received a create event for a new Private channel.
             public void run() {
                 try {
                     discordRepo = github.getMyself().getRepository("DiscordBot");
-                    if (!discordRepo.getPushedAt().equals(lastCommit)) {
-                        GHCommit commit = discordRepo.listCommits().asList().get(0);
-                        TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
-                        textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s)\n`%4$s` %5$s [%6$s]",
-                                                                   commit.getAuthor().getLogin(),
-                                                                   discordRepo.getName(),
-                                                                   discordRepo.getDefaultBranch(),
-                                                                   commit.getSHA1(),
-                                                                   commit.getCommitShortInfo().getMessage(),
-                                                                   github.getMyself().getName()), null);
-                        lastCommit = discordRepo.getPushedAt();
-                    }
+                    checkCommit();
+                    checkPullRequest();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }, 0, 10 * 1000);
+    }
+
+    private static void checkPullRequest() {
+
+    }
+
+    private static void checkCommit() throws IOException {
+        if (!discordRepo.getPushedAt().equals(lastCommit)) {
+            GHCommit commit = discordRepo.listCommits().asList().get(0);
+            TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
+            textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s)\n`%4$s` %5$s [%6$s]",
+                                                       commit.getAuthor().getLogin(),
+                                                       discordRepo.getName(),
+                                                       discordRepo.getDefaultBranch(),
+                                                       commit.getSHA1(),
+                                                       commit.getCommitShortInfo().getMessage(),
+                                                       github.getMyself().getName()), null);
+            lastCommit = discordRepo.getPushedAt();
+        }
     }
 
 }
