@@ -12,7 +12,6 @@ import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import org.eclipse.egit.github.core.client.GitHubClient;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,7 +37,6 @@ public class RunBot {
     private static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     public static String OWNER_REQUIRED = null;
     public static final Region REGION = Region.NA;
-    public static final GitHubClient CLIENT = new GitHubClient();
 
     public RunBot() {
         try {
@@ -50,7 +48,7 @@ public class RunBot {
                                   .addListener(new LogHandler())
                                   .addListener(new TerminalHandler())
                                   .addListener(new LeagueHandler(obj.getString("riotApiToken")))
-                                  .addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName"), obj.getString("gitPassword")))
+                                  .addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName")))
                                   .addListener(help.registerCommand(help, Permissions.Perm.EVERYONE))
                                   .addListener(help.registerCommand(new TranslateCommand(), Permissions.Perm.OP_ONLY))
                                   .addListener(help.registerCommand(new CalculatorCommand(), Permissions.Perm.EVERYONE))
