@@ -6902,3 +6902,7 @@ TypeError: quote_from_bytes() expected bytes```
 [2016-07-06 18:31:58.914] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: $$$eval "System.exit(0);"
 [2016-07-09 13:18:28.997] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: :white_check_mark: a new Commit has been pushed to DiscordBot
 [2016-07-09 13:18:33.890] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: eyyyyy
+[2016-07-09 13:43:10.717] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+`***DiscordBot*** / **DiscordBot** (master)
+`52209879` thisis where the commit message will go when I figure out hwo to do it [Nathan Withers]
+[2016-07-09 13:43:29.196] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: wow. that is a mess
