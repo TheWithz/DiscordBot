@@ -35,7 +35,7 @@ public class GitHandler extends ListenerAdapter {
         timer.schedule(new TimerTask() {
             public void run() {
                 try {
-                    System.out.println(discordRepo.getPushedAt() + " : " + lastCommit + " : " + discordRepo.getUpdatedAt());
+                    System.out.println(github.getMyself().getRepository("DiscordBot").getPushedAt() + " : " + lastCommit);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
