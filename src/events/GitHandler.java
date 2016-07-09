@@ -55,7 +55,7 @@ aa9fd8b Fixed issues when JDA received a create event for a new Private channel.
     private static void checkCommit() throws IOException {
         if (!discordRepo.getPushedAt().equals(lastCommit)) {
             GHCommit commit = discordRepo.listCommits().asList().get(0);
-            GHBranch branch = null;
+            GHBranch branch = discordRepo.getBranches().get(discordRepo.getDefaultBranch());
             for (String br : discordRepo.getBranches().keySet()) {
                 if (discordRepo.getBranches().get(br).getSHA1().equals(commit.getSHA1())) {
                     branch = discordRepo.getBranches().get(br);
@@ -65,7 +65,7 @@ aa9fd8b Fixed issues when JDA received a create event for a new Private channel.
             textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s)\n`%4$s` %5$s [%6$s]",
                                                        commit.getAuthor().getLogin(),
                                                        discordRepo.getName(),
-                                                       branch,
+                                                       branch.getName(),
                                                        commit.getSHA1(),
                                                        commit.getCommitShortInfo().getMessage(),
                                                        github.getMyself().getName()), null);

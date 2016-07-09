@@ -6925,3 +6925,6 @@ TypeError: quote_from_bytes() expected bytes```
 [2016-07-09 14:27:11.888] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
 ***TheWithz*** / **DiscordBot** (master)
 `Branch:master in https://api.github.com/repos/TheWithz/DiscordBot` started support for detecting pull requests [Nathan Withers]
+[2016-07-09 14:28:05.595] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***TheWithz*** / **DiscordBot** (Branch:master in https://api.github.com/repos/TheWithz/DiscordBot)
+`eda38cac2a3ec31807325cca704b59985e756960` fixed branch always defaulting to master [Nathan Withers]
