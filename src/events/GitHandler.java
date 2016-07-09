@@ -31,20 +31,31 @@ public class GitHandler extends ListenerAdapter {
         }
     }
 
+    /*
+    DV8FromTheWorld/JDA (development)
+aa9fd8b Fixed issues when JDA received a create event for a new Private channel. [Austin Keener]
+     */
+
     static void startTimer() {
         timer.schedule(new TimerTask() {
             public void run() {
                 try {
                     discordRepo = github.getMyself().getRepository("DiscordBot");
+                    if (!discordRepo.getPushedAt().equals(lastCommit)) {
+
+                        TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
+                        textChannel.sendMessageAsync(String.format("`***%1$s*** / **%2$s** (%3$s)\n`%4$s` thisis where the commit message will go when I figure out hwo to do it " +
+                                                                           "[%5$s]", discordRepo.getName(),
+                                                                   discordRepo.getName(),
+                                                                   discordRepo.getDefaultBranch(),
+                                                                   discordRepo.getId(), github.getMyself().getName()), null);
+                        lastCommit = discordRepo.getPushedAt();
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-                if (!discordRepo.getPushedAt().equals(lastCommit)) {
-                    TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
-                    textChannel.sendMessageAsync(":white_check_mark: a new Commit has been pushed to DiscordBot", null);
-                    lastCommit = discordRepo.getPushedAt();
                 }
             }
         }, 0, 10 * 1000);
     }
+
 }
