@@ -6912,3 +6912,7 @@ TypeError: quote_from_bytes() expected bytes```
 [2016-07-09 13:47:58.907] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
 ***TheWithz*** / **DiscordBot** (master)
 `52209879` this is where the commit message will go when I figure out how to do it [Nathan Withers]
+[2016-07-09 14:10:03.479] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***GHMyself@31e1fdbd[login=TheWithz,location=<null>,blog=<null>,email=<null>,name=Nathan Withers,company=<null>,followers=0,following=2,url=https://api.github.com/users/TheWithz,id=8269545]*** / **DiscordBot** (master)
+`52209879` maybe commit info works now? [Nathan Withers]
+[2016-07-09 14:10:20.600] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: fuck yeah
