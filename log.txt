@@ -6928,3 +6928,156 @@ TypeError: quote_from_bytes() expected bytes```
 [2016-07-09 14:28:05.595] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
 ***TheWithz*** / **DiscordBot** (Branch:master in https://api.github.com/repos/TheWithz/DiscordBot)
 `eda38cac2a3ec31807325cca704b59985e756960` fixed branch always defaulting to master [Nathan Withers]
+[2016-07-09 14:30:27.017] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***TheWithz*** / **DiscordBot** (master)
+`165ab87f04bc398bc8299b13762b3a3eef9b07ea` fixed possible null pointer [Nathan Withers]
+[2016-07-09 14:49:54.831] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] TheWithz: http://www.galaxyrom.com/2016/04/update-galaxy-s6-sm-g920v-g920vvru4cpc2-android-6-0-1.html
+[2016-07-09 14:57:29.592] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] chaz_rebar: https://www.youtube.com/watch?v=xon7yWh-Ajg
+[2016-07-09 14:57:43.122] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[10:30:27:142][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[10:49:54:871][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[10:57:29:619][chaz_rebar]](ID:126102141742874624) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[10:57:33:583][Brian3780]](ID:137727811984162818) Is no longer AFK``````md
+[[10:57:33:583][Brian3780]](ID:137727811984162818) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[10:57:35:915][Brian3780]](ID:137727811984162818) Unmuted themselves``````md
+[[10:57:35:915][Brian3780]](ID:137727811984162818) Undeafened themselves``````md
+[[10:57:41:083][Brian3780]](ID:137727811984162818) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[10:57:41:942][Brian3780]](ID:137727811984162818) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)```
+[2016-07-09 15:01:57.042] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] BoredMax: https://www.youtube.com/watch?v=k29o8LIhsbI
+[2016-07-09 15:20:54.816] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] chaz_rebar: https://philadelphia.craigslist.org/cto/5674257364.html
+[2016-07-09 15:29:06.305] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] chaz_rebar: https://philadelphia.craigslist.org/cto/5660037816.html
+[2016-07-09 15:45:02.125] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: @everyone you guys need to play this game
+[2016-07-09 15:45:12.280] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: its called `The Human Resource Machine`
+[2016-07-09 15:45:46.731] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: Should have bought it during the sale
+[2016-07-09 15:45:58.162] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: How much is it?
+[2016-07-09 15:46:08.145] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: meh. it's worth the full price honeslty. 10$
+[2016-07-09 15:46:10.238] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:01:57:064][BoredMax]](ID:122763722564304897) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[11:20:54:842][chaz_rebar]](ID:126102141742874624) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[11:29:06:337][chaz_rebar]](ID:126102141742874624) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[11:45:02:157][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:45:12:304][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:45:46:774][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:45:58:183][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:46:08:169][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-09 15:46:27.927] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: marc is poor and cheep, so he wont play with us
+[2016-07-09 15:46:50.544] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: 😂
+[2016-07-09 15:47:11.857] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I think I have $10.11 in steam
+[2016-07-09 15:47:41.912] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: thats amazing,
+[2016-07-09 15:47:51.017] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: that is no coincedence
+[2016-07-09 16:02:10.125] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: okay I bought it
+[2016-07-09 16:02:10.391] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:46:27:949][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:46:50:568][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:47:11:976][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:47:42:003][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:47:51:040][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[11:59:35:679][Brian3780]](ID:137727811984162818) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[11:59:35:679][Brian3780]](ID:137727811984162818) Has gone AFK``````md
+[[12:02:10:155][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)```
+[2016-07-09 16:02:45.320] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: it's like a programming game, I guess?
+[2016-07-09 16:16:06.336] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yeah. I think it's based on assembly
+[2016-07-09 16:25:25.157] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: the copy thing is nice
+[2016-07-09 16:25:49.081] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: it prints an assembly-like representation of the program
+[2016-07-09 16:30:05.741] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: it's so much fun. ive spent most of my time trying to find the most complicated solution I can to the problems 😝
+[2016-07-09 16:30:53.953] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: the animations are pretty cool too
+[2016-07-09 16:39:31.540] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:02:45:395][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:16:06:398][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:25:25:217][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:25:49:421][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:30:05:765][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:30:53:979][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:32:17:983][BoredMax]](ID:122763722564304897) Muted themselves``````md
+[[12:39:30:243][chaz_rebar]](ID:126102141742874624) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)```
+[2016-07-09 16:44:19.725] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: inlining a few iterations of the loop works surprisingly often to get the number of iterations challenge
+[2016-07-09 16:50:02.621] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: yeah, a couple of them are pretty hard
+[2016-07-09 16:50:56.327] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: oh man, countdown
+[2016-07-09 16:51:38.160] [ProgramDevelopment#TC:general(147158335387336705)] Pear0: I have jumps everywhere to get the iteration target
+[2016-07-09 16:58:07.592] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[12:44:19:752][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:47:25:171][BoredMax]](ID:122763722564304897) Unmuted themselves``````md
+[[12:50:02:719][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:50:56:579][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:51:38:202][Pear0]](ID:111581694250737664) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[12:52:17:617][TR-8RJ0s]](ID:122763729061412866) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[12:52:31:665][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[12:58:05:030][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves```
+[2016-07-09 17:17:22.650] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[13:13:35:817][Brian3780]](ID:137727811984162818) Is no longer AFK``````md
+[[13:13:35:817][Brian3780]](ID:137727811984162818) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[13:14:57:452][Brian3780]](ID:137727811984162818) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[13:14:57:452][Brian3780]](ID:137727811984162818) Has gone AFK``````md
+[[13:15:01:095][Konoyarou]](ID:141010289243062282) Joined channel/guild [Watching](Marc Ivan and Some White Males... and a few chinks)``````md
+[[13:17:16:873][CanYuNot]](ID:151152380170207233) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[13:17:21:277][CanYuNot]](ID:151152380170207233) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[13:17:21:277][CanYuNot]](ID:151152380170207233) Joined channel/guild [Watching](Marc Ivan and Some White Males... and a few chinks)```
+[2016-07-09 17:40:21.150] [ProgramDevelopment#TC:general(147158335387336705)] TR-8RJ0s: 10 dolla 2 much
+[2016-07-09 18:07:36.912] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] TR-8RJ0s: 
+[2016-07-09 18:18:10.486] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] TheWithz: 
+[2016-07-09 18:18:28.434] [Marc Ivan and Some White Males... and a few chinks#TC:coding(123139096896995330)] TheWithz: 
+[2016-07-09 18:18:28.875] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[13:31:39:260][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[13:37:42:516][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[13:40:21:183][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[14:02:06:440][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[14:07:36:942][TR-8RJ0s]](ID:122763729061412866) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:09:12:485][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[14:18:10:517][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:18:28:458][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [coding](Marc Ivan and Some White Males... and a few chinks)```
+[2016-07-09 18:33:22.994] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[14:29:57:912][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[14:31:06:546][neet]](ID:98169291421016064) Joined channel/guild [Watching](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:31:09:185][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[14:33:20:002][Albert]](ID:122766571213946880) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:33:20:002][Albert]](ID:122766571213946880) Muted themselves``````md
+[[14:33:20:002][Albert]](ID:122766571213946880) Deafened themselves``````md
+[[14:33:21:781][Albert]](ID:122766571213946880) Unmuted themselves``````md
+[[14:33:21:781][Albert]](ID:122766571213946880) Undeafened themselves```
+[2016-07-09 18:37:21.569] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: this fucking thing is trying to tell me that 8 times 3 is 6 and not 24...
+[2016-07-09 18:47:20.052] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[14:37:21:628][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [general](ProgramDevelopment)``````md
+[[14:42:35:207][TR-8RJ0s]](ID:122763729061412866) Muted themselves``````md
+[[14:44:48:788][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[14:46:32:052][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:46:33:907][TR-8RJ0s]](ID:122763729061412866) Joined channel/guild [Kazoo](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:46:59:651][TheWithz]](ID:122764399961309184) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:46:59:651][TheWithz]](ID:122764399961309184) Joined channel/guild [Kazoo](Marc Ivan and Some White Males... and a few chinks)``````md
+[[14:47:17:001][TR-8RJ0s]](ID:122763729061412866) Muted themselves```
+[2016-07-09 19:28:20.256] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[14:48:31:749][TR-8RJ0s]](ID:122763729061412866) Unmuted themselves``````md
+[[14:53:34:109][BoredMax]](ID:122763722564304897) Muted themselves``````md
+[[15:04:03:778][TR-8RJ0s]](ID:122763729061412866) Left channel/guild [Kazoo](Marc Ivan and Some White Males... and a few chinks)``````md
+[[15:04:18:200][TheWithz]](ID:122764399961309184) Left channel/guild [Kazoo](Marc Ivan and Some White Males... and a few chinks)``````md
+[[15:04:18:200][TheWithz]](ID:122764399961309184) Joined channel/guild [General](ProgramDevelopment)``````md
+[[15:07:30:904][Albert]](ID:122766571213946880) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[15:24:45:729][Konoyarou]](ID:141010289243062282) Muted themselves``````md
+[[15:28:17:471][Konoyarou]](ID:141010289243062282) Unmuted themselves```
+[2016-07-09 20:11:39.486] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] Marc Ivan: 
+[2016-07-09 20:11:43.421] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] Marc Ivan: Baltimore has a lot of stuff
+[2016-07-09 20:11:44.440] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[16:02:10:063][chaz_rebar]](ID:126102141742874624) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[16:02:13:042][BoredMax]](ID:122763722564304897) Unmuted themselves``````md
+[[16:02:52:099][BoredMax]](ID:122763722564304897) Left channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[16:02:52:099][BoredMax]](ID:122763722564304897) Has gone AFK``````md
+[[16:02:53:933][BoredMax]](ID:122763722564304897) Is no longer AFK``````md
+[[16:02:53:933][BoredMax]](ID:122763722564304897) Joined channel/guild [Coding](Marc Ivan and Some White Males... and a few chinks)``````md
+[[16:11:39:542][Marc Ivan]](ID:192857661182705664) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)``````md
+[[16:11:43:451][Marc Ivan]](ID:192857661182705664) Wrote message in channel/guild [general](Marc Ivan and Some White Males... and a few chinks)```
+[2016-07-09 20:11:57.594] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] Marc Ivan: Like 6 gyms within a 2 minute walk
+[2016-07-09 20:24:14.638] [Marc Ivan and Some White Males... and a few chinks#TC:general(122764154443530243)] BoredMax: https://www.youtube.com/watch?v=TJG4aEtKeUw
+[2016-07-12 01:38:18.649] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$joke
+[2016-07-12 01:40:53.183] [ProgramDevelopment#TC:general(147158335387336705)] TheWithz: $$$joke
+[2016-07-12 01:46:22.878] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithz: $$$todo mark botfeatures 8
+[2016-07-12 01:46:23.028] [ProgramDevelopment#TC:todolist(193539094410690561)] TheWithzBot: :white_check_mark: Item `8` in `botfeatures` was marked as **completed**
