@@ -1,6 +1,7 @@
 import os
-import sys
 from string import whitespace
+
+import sys
 
 
 # removes whitespace including tabs, line breaks, and spaces
@@ -56,6 +57,8 @@ def run_program(rules, input_state, max_steps=1000000, max_size=1000000, print_s
                 return state
 
         return {"correct": False, "error": "Program threw an error"}
+
+
 #
 
 if __name__ == "__main__":
@@ -73,6 +76,6 @@ if __name__ == "__main__":
     for state in states:
         if state == "":
             continue
-        print(run_program(string_to_code(rules), state, print_steps=True))
+        print(run_program(string_to_code(rules), state, print_steps=(sys.argv[2] == "True" or sys.argv[2] == "true")))
         print()
         #

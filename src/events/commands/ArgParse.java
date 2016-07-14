@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Created by thewithz on 6/16/16.
  */
+
 public class ArgParse {
 
     private class FSM {
@@ -15,6 +16,7 @@ public class ArgParse {
         private ArrayList<String> tokens;
         private StringBuilder acc;
         private boolean isQuoted;
+        private boolean isInCodeBlock;
 
         FSM(char[] input) {
             this.input = input;
@@ -45,15 +47,18 @@ public class ArgParse {
         }
 
         private void pass() {
-            if (matches("\\\"")) {
+            if (!isInCodeBlock && matches("\\\"")) {
                 acc.append("\"");
                 index += 2;
-            } else if (matches("\"")) {
+            } else if (!isInCodeBlock && matches("\"")) {
                 isQuoted = !isQuoted;
                 index++;
-            } else if (!isQuoted && matches(" ")) {
+            } else if (!isInCodeBlock && !isQuoted && matches(" ")) {
                 endToken();
                 index++;
+            } else if (!isInCodeBlock && matches("```")) {
+                isInCodeBlock = !isInCodeBlock;
+                acc.append(input[index++]).append(input[index++]).append(input[index++]);
             } else {
                 acc.append(input[index]);
                 index++;
@@ -73,11 +78,13 @@ public class ArgParse {
 
     }
 
+    public ArgParse() {
+
+    }
+
     public String[] parse(String string) {
         FSM fsm = new FSM(string.toCharArray());
         fsm.execute();
         return fsm.getTokens().toArray(new String[0]);
     }
-
-
 }

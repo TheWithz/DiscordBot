@@ -4,6 +4,7 @@ import bots.RunBot;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -29,15 +30,33 @@ public class EvalCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        RunBot.checkArgs(args, 1, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+        RunBot.checkArgs(args, 1, ":x: No language was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
         if (RunBot.OwnerRequired(e))
             return;
 
-        executeScript(e, new DiscordAsOutputStream(e.getTextChannel()), args);
+        switch (args[1]) {
+            case "java":
+            case "groovy":
+            case "javascript":
+                handleJava(e, new DiscordAsOutputStream(e.getTextChannel()), args);
+                break;
+            case "python":
+                handlePython(e, new DiscordAsOutputStream(e.getTextChannel()), args);
+                break;
+            case "thue":
+                handleThue(e, new DiscordAsOutputStream(e.getTextChannel()), args);
+                break;
+            default:
+                sendMessage(e, ":x: Unknown Language argument: `" + args[2] + "` was provided. " +
+                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+                break;
+        }
     }
 
-    public Object executeScript(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
+    private Object handleJava(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
+        RunBot.checkArgs(args, 2, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+
         Binding binding = new Binding();
         binding.setVariable("event", e);
         binding.setVariable("channel", e.getChannel());
@@ -61,6 +80,36 @@ public class EvalCommand extends Command {
             outStream.myPrint();
         }
         return value;
+    }
+
+    private void handlePython(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
+        RunBot.checkArgs(args, 2, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+
+    }
+
+    private void handleThue(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
+        RunBot.checkArgs(args, 2, ":x: No rules were specified. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+        RunBot.checkArgs(args, 3, ":x: No content was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+        RunBot.checkArgs(args, 4, ":x: Show_steps was not specified as true or false. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+
+        // redirect output:
+        PrintStream oldOut = System.out;
+        Object value;
+        try {
+            System.setOut(new PrintStream(outStream));
+            value = BashCommand.runLinuxCommand(String.format("python ThueInterpreter.py %1$s:::%2$s %3$s",
+                                                              args[2].replace(" ", ""),
+                                                              StringUtils.join(args, " ", 3, args.length),
+                                                              args[4]));
+            System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
+        } catch (RuntimeException exception) {
+            System.out.println(":no_entry: **Did not compile!**");
+            System.out.println("```java\n" + exception.getMessage() + "```");
+        } finally {
+            System.setOut(oldOut);
+            outStream.myPrint();
+        }
+
     }
 
     @Override

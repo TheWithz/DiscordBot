@@ -88,6 +88,6 @@ public class BashCommand extends Command {
               .append(process.exitValue());
         process.destroy();
         StringBuilder finalOut = new StringBuilder();
-        return finalOut.append("```fix\nOutPut:```").append(msgOut.toString()).append("```fix\nError:```").append(msgErr.toString());
+        return finalOut.append("```fix\nOutPut:``````\n").append(msgOut.toString()).append("``````fix\nError:``````\n").append(msgErr.toString()).append("```");
     }
 }
