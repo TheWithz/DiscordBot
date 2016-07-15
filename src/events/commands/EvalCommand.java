@@ -9,9 +9,12 @@ import org.apache.commons.lang3.StringUtils;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by TheWithz on 3/4/16.
@@ -42,7 +45,7 @@ public class EvalCommand extends Command {
                 handleJava(e, new DiscordAsOutputStream(e.getTextChannel()), args);
                 break;
             case "python":
-                handlePython(e, new DiscordAsOutputStream(e.getTextChannel()), args);
+                handlePython(e, args);
                 break;
             case "thue":
                 handleThue(e, new DiscordAsOutputStream(e.getTextChannel()), args);
@@ -82,9 +85,75 @@ public class EvalCommand extends Command {
         return value;
     }
 
-    private void handlePython(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
+    private void handlePython(MessageReceivedEvent e, String[] args) {
         RunBot.checkArgs(args, 2, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
+        File f = new File("Template.py");
+
+        try {
+            // Create Python file
+            f.createNewFile();
+            f.deleteOnExit();
+            OutputStream stream = new BufferedOutputStream(new FileOutputStream(f));
+            stream.write(StringUtils.join(args, " ", 2, args.length).getBytes());
+            stream.close();
+
+            // Start process
+            ProcessBuilder builder = new ProcessBuilder();
+            builder.command("python", f.getName());
+            Process p = builder.start();
+
+            // Create Stream Scanner
+            Scanner sc = new Scanner(p.getInputStream());
+            Scanner scErr = new Scanner(p.getErrorStream());
+            /*ChannelListener listener = new ChannelListener(event.channel, 1, m -> { // input
+                try
+				{
+					p.getOutputStream().write(m.getContent().getBytes());
+				} catch (IOException e)
+				{
+					LOG.log(e);
+				}
+			});*/
+
+            // Read streams
+            Thread t = new Thread(() -> {
+                if (sc.hasNext() || scErr.hasNext()) {
+                    if (sc.hasNext())
+                        e.getChannel().sendMessageAsync(read(sc), null);
+                    if (scErr.hasNext())
+                        e.getChannel().sendMessageAsync(":no_entry: " + read(scErr), null);
+                } else
+                    e.getChannel().sendMessageAsync(":white_check_mark:", null);
+            }, "PythonEval-Read");
+            t.start();
+
+            // Destroy Process
+            if (p.waitFor(1, TimeUnit.MINUTES))
+                p.destroy();
+            else {
+                p.destroyForcibly();
+                e.getChannel().sendMessageAsync(":x: Process has been terminated. Exceeded time limit.", null);
+            }
+            //listener.shutdown();
+            //e.getChannel().sendMessageAsync("Process Destroyed", null);
+        } catch (Exception ex) {
+            e.getChannel().sendMessageAsync(":x: Something went wrong trying to eval your query.", null);
+            e.getChannel().sendMessageAsync("```python\n" + ex.getMessage() + "```", null);
+        }
+    }
+
+    private static String read(Scanner in) {
+        assert in != null;
+        String s = "";
+
+        try {
+            while (in.hasNext() && s.length() < 1000) {
+                s += in.nextLine() + "\n";
+            }
+        } catch (IllegalStateException | NoSuchElementException ignored) {
+        }
+        return s;
     }
 
     private void handleThue(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
@@ -99,7 +168,7 @@ public class EvalCommand extends Command {
             System.setOut(new PrintStream(outStream));
             value = BashCommand.runLinuxCommand(String.format("python ThueInterpreter.py %1$s:::%2$s %3$s",
                                                               args[2].replace(" ", ""),
-                                                              StringUtils.join(args, " ", 3, args.length),
+                                                              args[3],
                                                               args[4]));
             System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
         } catch (RuntimeException exception) {
@@ -140,8 +209,10 @@ public class EvalCommand extends Command {
     @Override
     public List<String> getUsageInstructionsOwner() {
         return Collections.singletonList(String.format(
-                "(%1$s) <Groovy code>\n" +
-                        "[Example:](%1$s) <return \"\\\"5 + 5 is: \\\" + (5 + 5);\">\n" +
-                        "<This will print: \"5 + 5 is: 10\">", getAliases().get(0)));
+                "(%1$s) <language> <code> or [Usage:](%1$s) <thue> <rules> <input> <show trace>\n" +
+                        "[Example: 1](%1$s) groovy <return \"\\\"5 + 5 is: \\\" + (5 + 5);\">\n" +
+                        "<This will print: \"5 + 5 is: 10\">\n" +
+                        "[Example: 2](%1$s) thue <\"a=b; b=c; c=d;\"> <\"aaaaabbbbbbbccccccdddddd\"> <false>\n" +
+                        "<This will print: dddddddddddddddddddddddd>", getAliases().get(0)));
     }
 }
