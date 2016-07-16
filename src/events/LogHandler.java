@@ -23,50 +23,19 @@ import net.dv8tion.jda.events.user.UserOnlineStatusUpdateEvent;
 import net.dv8tion.jda.events.voice.*;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
-import static java.time.format.DateTimeFormatter.ofPattern;
 
 /**
  * Created by TheWithz on 2/21/16.
  */
 public class LogHandler extends ListenerAdapter {
-    private boolean enabled = true;
     public static ArrayList<String> logGrouper = new ArrayList<>();
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-        try (PrintWriter out = new PrintWriter(
-                new BufferedWriter(new FileWriter("log.txt", true)))) {
-            if (!enabled) return;
 
-            String content = event.getMessage().getContent();
-            String message = (content.contains("\n")) ? "\n" + content : content;
-            if (!event.isPrivate()) {
-                out.printf("[%s] [%s#%s] %s: %s\n",
-                           event.getMessage().getTime().format(ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
-                           event.getGuild().getName(),
-                           event.getChannel().toString(),
-                           event.getAuthor().getUsername(),
-                           message);
-            } else {
-                out.printf("[%s] [%s#%s] %s: %s\n",
-                           event.getMessage().getTime().format(ofPattern("yyyy-MM-dd HH:mm:ss.SSS")),
-                           event.getPrivateChannel().getUser().getAsMention(),
-                           event.getChannel().toString(),
-                           event.getAuthor().getUsername(),
-                           message);
-            }
-
-        } catch (IOException error) {
-            System.out.println("Message not written to text file");
-        }
     }
 
     @Override
@@ -94,11 +63,11 @@ public class LogHandler extends ListenerAdapter {
         }
         User user = event.getAuthor();
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Wrote message in channel/guild [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          user.getUsername(),
-                                                                          user.getId(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     user.getUsername(),
+                                     user.getId(),
+                                     event.getChannel().getName(),
+                                     event.getGuild().getName()));
     }
 
     @Override
@@ -120,146 +89,146 @@ public class LogHandler extends ListenerAdapter {
     public void onTextChannelDelete(TextChannelDeleteEvent event) {
         super.onTextChannelDelete(event);
         logGrouper.add(String.format("```md\n[%s][TC:%s][%s](%s) Channel was deleted```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onTextChannelUpdateName(TextChannelUpdateNameEvent event) {
         super.onTextChannelUpdateName(event);
         logGrouper.add(String.format("```md\n[%s][TC:%s][%s](%s) Channel renamed from/to [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getOldName(),
-                                                                          event.getChannel().getName()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getOldName(),
+                                     event.getChannel().getName()));
     }
 
     @Override
     public void onTextChannelUpdateTopic(TextChannelUpdateTopicEvent event) {
         super.onTextChannelUpdateTopic(event);
         logGrouper.add(String.format("```md\n[%s][TC:%s][%s](%s) Channel topic was updated```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onTextChannelUpdatePosition(TextChannelUpdatePositionEvent event) {
         super.onTextChannelUpdatePosition(event);
         logGrouper.add(String.format("```md\n[%s][TC:%s][ID:%s](%s) Channel was moved out of position [%s]```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getOldPosition()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getOldPosition()));
     }
 
     @Override
     public void onTextChannelUpdatePermissions(TextChannelUpdatePermissionsEvent event) {
         super.onTextChannelUpdatePermissions(event);
         logGrouper.add(String.format("```md\n[%s][TC:%s][ID:%s](%s) Channel permissions were updated \n Changed Roles: [%s]\n Users with " +
-                                                                                  "Permissions: (%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getChangedRoles().toString(),
-                                                                          event.getUsersWithPermissionChanges().toString()));
+                                             "Permissions: (%s)```",
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getChangedRoles().toString(),
+                                     event.getUsersWithPermissionChanges().toString()));
     }
 
     @Override
     public void onTextChannelCreate(TextChannelCreateEvent event) {
         super.onTextChannelCreate(event);
         logGrouper.add(String.format("```md\n[%s][TC:%s][%s](%s) Channel was created```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onVoiceChannelUpdateName(VoiceChannelUpdateNameEvent event) {
         super.onVoiceChannelUpdateName(event);
         logGrouper.add(String.format("```md\n[%s][VC:%s][%s](%s) Channel renamed from/to [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getOldName(),
-                                                                          event.getChannel().getName()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getOldName(),
+                                     event.getChannel().getName()));
     }
 
     @Override
     public void onVoiceChannelDelete(VoiceChannelDeleteEvent event) {
         super.onVoiceChannelDelete(event);
         logGrouper.add(String.format("```md\n[%s][VC:%s][%s](%s) Channel was deleted```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onVoiceChannelUpdatePosition(VoiceChannelUpdatePositionEvent event) {
         super.onVoiceChannelUpdatePosition(event);
         logGrouper.add(String.format("```md\n[%s][VC:%s][ID:%s](%s) Channel was moved out of position [%s]```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getOldPosition()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getOldPosition()));
     }
 
     @Override
     public void onVoiceChannelUpdateUserLimit(VoiceChannelUpdateUserLimitEvent event) {
         super.onVoiceChannelUpdateUserLimit(event);
         logGrouper.add(String.format("```md\n[%s][VC:%s][ID:%s](%s) Channel user limit changed from/to [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getOldUserLimit(),
-                                                                          event.getChannel().getUserLimit()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getOldUserLimit(),
+                                     event.getChannel().getUserLimit()));
     }
 
     @Override
     public void onVoiceChannelUpdateBitrate(VoiceChannelUpdateBitrateEvent event) {
         super.onVoiceChannelUpdateBitrate(event);
         logGrouper.add(String.format("```md\n[%s][VC:%s][ID:%s](%s) Channel bitrate changed from/to [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getOldBitrate(),
-                                                                          event.getChannel().getBitrate()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getOldBitrate(),
+                                     event.getChannel().getBitrate()));
     }
 
     @Override
     public void onVoiceChannelUpdatePermissions(VoiceChannelUpdatePermissionsEvent event) {
         super.onVoiceChannelUpdatePermissions(event);
         logGrouper.add(String.format("```md\n[%s][VC:%s][ID:%s](%s) Channel permissions were updated \n Changed Roles: [%s]\n Users with " +
-                                                                                  "Permissions: (%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getChangedRoles().toString(),
-                                                                          event.getUsersWithPermissionChanges().toString()));
+                                             "Permissions: (%s)```",
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName(),
+                                     event.getChangedRoles().toString(),
+                                     event.getUsersWithPermissionChanges().toString()));
     }
 
     @Override
     public void onVoiceChannelCreate(VoiceChannelCreateEvent event) {
         super.onVoiceChannelCreate(event);
         logGrouper.add(String.format("```md\n[%s][VC:%s][%s](%s) Channel was created```",
-                                                                          getCurrentTime(),
-                                                                          event.getChannel().getName(),
-                                                                          event.getChannel().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getChannel().getName(),
+                                     event.getChannel().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
@@ -281,62 +250,62 @@ public class LogHandler extends ListenerAdapter {
     public void onGuildMemberJoin(GuildMemberJoinEvent event) {
         super.onGuildMemberJoin(event);
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Joined Guild {%s}```",
-                                                                          getCurrentTime(),
-                                                                          event.getUser().getUsername(),
-                                                                          event.getUser().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getUser().getUsername(),
+                                     event.getUser().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onGuildMemberLeave(GuildMemberLeaveEvent event) {
         super.onGuildMemberLeave(event);
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Left Guild {%s}```",
-                                                                          getCurrentTime(),
-                                                                          event.getUser().getUsername(),
-                                                                          event.getUser().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getUser().getUsername(),
+                                     event.getUser().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onGuildMemberBan(GuildMemberBanEvent event) {
         super.onGuildMemberBan(event);
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Was banned from Guild [%s]```",
-                                                                          getCurrentTime(),
-                                                                          event.getUser().getUsername(),
-                                                                          event.getUser().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getUser().getUsername(),
+                                     event.getUser().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onGuildMemberUnban(GuildMemberUnbanEvent event) {
         super.onGuildMemberUnban(event);
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Was unbanned from Guild [%s]```",
-                                                                          getCurrentTime(),
-                                                                          event.getUser().getUsername(),
-                                                                          event.getUser().getId(),
-                                                                          event.getGuild().getName()));
+                                     getCurrentTime(),
+                                     event.getUser().getUsername(),
+                                     event.getUser().getId(),
+                                     event.getGuild().getName()));
     }
 
     @Override
     public void onGuildMemberRoleAdd(GuildMemberRoleAddEvent event) {
         super.onGuildMemberRoleAdd(event);
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Had a role added. role/guild [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getUser().getUsername(),
-                                                                          event.getUser().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getRoles()));
+                                     getCurrentTime(),
+                                     event.getUser().getUsername(),
+                                     event.getUser().getId(),
+                                     event.getGuild().getName(),
+                                     event.getRoles()));
     }
 
     @Override
     public void onGuildMemberRoleRemove(GuildMemberRoleRemoveEvent event) {
         super.onGuildMemberRoleRemove(event);
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Had a role removed. role/guild [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          event.getUser().getUsername(),
-                                                                          event.getUser().getId(),
-                                                                          event.getGuild().getName(),
-                                                                          event.getRoles()));
+                                     getCurrentTime(),
+                                     event.getUser().getUsername(),
+                                     event.getUser().getId(),
+                                     event.getGuild().getName(),
+                                     event.getRoles()));
     }
 
     @Override
@@ -347,12 +316,12 @@ public class LogHandler extends ListenerAdapter {
         String oldNick = event.getPrevNick() == null ? name : event.getPrevNick();
         String newNick = event.getNewNick() == null ? name : event.getNewNick();
         logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Changed their nickname on Guild [%s] from/to [%s](%s)```",
-                                                                          getCurrentTime(),
-                                                                          name,
-                                                                          user.getId(),
-                                                                          event.getGuild().getName(),
-                                                                          oldNick,
-                                                                          newNick));
+                                     getCurrentTime(),
+                                     name,
+                                     user.getId(),
+                                     event.getGuild().getName(),
+                                     oldNick,
+                                     newNick));
     }
 
     @Override
@@ -401,16 +370,16 @@ public class LogHandler extends ListenerAdapter {
         // TODO 6/17/16 make sure when server mute or deafen are called, regular mute and deafen are not
         if (event.getVoiceStatus().isServerMuted()) {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Was server muted in Guild [%s]```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId(),
-                                                                              event.getGuild().getName()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId(),
+                                         event.getGuild().getName()));
         } else {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Was server unmuted in Guild [%s]```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId(),
-                                                                              event.getGuild().getName()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId(),
+                                         event.getGuild().getName()));
         }
     }
 
@@ -420,16 +389,16 @@ public class LogHandler extends ListenerAdapter {
         // TODO 6/17/16 make sure when server mute or deafen are called, regular mute and deafen are not
         if (event.getVoiceStatus().isServerDeaf()) {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Was server deafened in Guild [%s]```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId(),
-                                                                              event.getGuild().getName()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId(),
+                                         event.getGuild().getName()));
         } else {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Was server undeafened in Guild [%s]```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId(),
-                                                                              event.getGuild().getName()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId(),
+                                         event.getGuild().getName()));
         }
     }
 
@@ -438,14 +407,14 @@ public class LogHandler extends ListenerAdapter {
         super.onVoiceMute(event);
         if (event.getVoiceStatus().isMuted()) {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Muted themselves```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId()));
         } else {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Unmuted themselves```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId()));
         }
     }
 
@@ -454,14 +423,14 @@ public class LogHandler extends ListenerAdapter {
         super.onVoiceDeaf(event);
         if (event.getVoiceStatus().isDeaf()) {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Deafened themselves```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId()));
         } else {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Undeafened themselves```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId()));
         }
     }
 
@@ -471,16 +440,16 @@ public class LogHandler extends ListenerAdapter {
         // if they entered the AFK channel
         if (RunBot.API.getVoiceChannelByName("AFK").contains(event.getChannel())) {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Has gone AFK```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId()));
         } else {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Joined channel/guild [%s](%s)```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId(),
-                                                                              event.getChannel().getName(),
-                                                                              event.getGuild().getName()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId(),
+                                         event.getChannel().getName(),
+                                         event.getGuild().getName()));
         }
     }
 
@@ -490,16 +459,16 @@ public class LogHandler extends ListenerAdapter {
         // if they left the AFK channel
         if (RunBot.API.getVoiceChannelByName("AFK").contains(event.getOldChannel())) {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Is no longer AFK```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId()));
         } else {
             logGrouper.add(String.format("```md\n[[%s][%s]](ID:%s) Left channel/guild [%s](%s)```",
-                                                                              getCurrentTime(),
-                                                                              event.getUser().getUsername(),
-                                                                              event.getUser().getId(),
-                                                                              event.getOldChannel().getName(),
-                                                                              event.getGuild().getName()));
+                                         getCurrentTime(),
+                                         event.getUser().getUsername(),
+                                         event.getUser().getId(),
+                                         event.getOldChannel().getName(),
+                                         event.getGuild().getName()));
         }
     }
 
