@@ -62,10 +62,11 @@ aa9fd8b Fixed issues when JDA received a create event for a new Private channel.
                 }
             }
             TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
-            textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s)\n`%4$s` %5$s [%6$s]",
+            textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s) <%4$s>\n`%5$s` %6$s [%7$s]",
                                                        commit.getAuthor().getLogin(),
                                                        discordRepo.getName(),
                                                        branch.getName(),
+                                                       discordRepo.getHtmlUrl(),
                                                        commit.getSHA1(),
                                                        commit.getCommitShortInfo().getMessage(),
                                                        github.getMyself().getName()), null);

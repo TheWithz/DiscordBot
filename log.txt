@@ -25535,3 +25535,88 @@ print('<@' +'122764399961309184> it works')
 [2016-07-15 19:01:51.109] [Discord Bots#TC:general(110373943822540800)] Semaphorism: idk
 [2016-07-16 15:24:10.546] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: dt:register
 [2016-07-16 15:24:10.735] [Discord Bots#TC:testing-^_`(113743192305827841)] dTeams: @Jayden, :warning: The server **Discord Bots** (`110373943822540800`) is already registered
+[2016-07-16 15:24:47.664] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***TheWithz*** / **DiscordBot** (master)
+`be54b38317f9e340033de1623807788a83e4d227` wrote threads into eval so each command can run async [Nathan Withers]
+[2016-07-16 15:24:52.238] [Discord Bots#TC:general(110373943822540800)] ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █: this is so cancer
+[2016-07-16 15:24:58.498] [Discord Bots#TC:general(110373943822540800)] ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █: i cant disable my nickname now
+[2016-07-16 15:25:13.050] [Discord Bots#TC:general(110373943822540800)] Dean: if you dont like it
+[2016-07-16 15:25:14.393] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:24:10:594][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:24:10:865][dTeams]](ID:203881093043060738) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:24:47:700][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[11:24:48:134][APixel Visuals]](ID:196795781410324480) Was banned from Guild [Discord Bots]``````md
+[[11:24:52:291][▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █]](ID:99808569574031360) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:24:54:820][APixel Visuals]](ID:196795781410324480) Was banned from Guild [Discord Bots]``````md
+[[11:24:58:547][▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █]](ID:99808569574031360) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:25:13:105][Dean]](ID:134122930828214273) Wrote message in channel/guild [general](Discord Bots)```
+[2016-07-16 15:25:18.649] [Discord Bots#TC:general(110373943822540800)] Dean: 🚪 👈🏼
+[2016-07-16 15:25:21.225] [Discord Bots#TC:general(110373943822540800)] Dean: ¯\_(ツ)_/¯
+[2016-07-16 15:25:26.919] [Discord Bots#TC:general(110373943822540800)] ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █: no its not that
+[2016-07-16 15:25:31.138] [Discord Bots#TC:general(110373943822540800)] ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █: i cant disable my nickname on this server
+[2016-07-16 15:25:37.389] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: dt:register
+[2016-07-16 15:25:37.774] [Discord Bots#TC:testing-^_`(113743192305827841)] dTeams: @Jayden, :thumbsup: Registered server: **Discord Bots** (`110373943822540800`)
+[2016-07-16 15:25:39.510] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: dt:register
+[2016-07-16 15:25:39.817] [Discord Bots#TC:testing-^_`(113743192305827841)] dTeams: @Jayden, :thumbsup: Registered server: **Discord Bots** (`110373943822540800`)
+[2016-07-16 15:25:41.346] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:25:18:786][Dean]](ID:134122930828214273) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:25:21:287][Dean]](ID:134122930828214273) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:25:26:980][▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █]](ID:99808569574031360) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:25:31:238][▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █]](ID:99808569574031360) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:25:37:457][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:25:37:823][dTeams]](ID:203881093043060738) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:25:39:565][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:25:39:872][dTeams]](ID:203881093043060738) Wrote message in channel/guild [testing-^_`](Discord Bots)```
+[2016-07-16 15:25:51.642] [Discord Bots#TC:testing-nsfw(116705171312082950)] Vex: >imgur boobies --nsfw 5
+[2016-07-16 15:25:52.256] [Discord Bots#TC:testing-nsfw(116705171312082950)] Xavio: 
+http://i.imgur.com/lMhyfsZ.jpg **(NSFW)**
+Vera U
+[2016-07-16 15:25:52.326] [Discord Bots#TC:testing-nsfw(116705171312082950)] Xavio: 
+http://i.imgur.com/ugMSdof.jpg **(NSFW)**
+Josephine
+[2016-07-16 15:25:52.343] [Discord Bots#TC:testing-nsfw(116705171312082950)] Xavio: 
+http://i.imgur.com/N9Ssw1T.jpg **(NSFW)**
+Patricia Farinelli
+[2016-07-16 15:25:52.345] [Discord Bots#TC:testing-nsfw(116705171312082950)] Xavio: 
+http://i.imgur.com/EX8FvBA.jpg **(NSFW)**
+Lucy V (aka Lucy Vixen, Lucy Collett)
+[2016-07-16 15:25:52.256] [Discord Bots#TC:testing-nsfw(116705171312082950)] Xavio: 
+http://i.imgur.com/1DEevRc.jpg **(NSFW)**
+Deep cleavage
+[2016-07-16 15:26:03.278] [Discord Bots#TC:general(110373943822540800)] AnonymousDapper: /nick
+[2016-07-16 15:26:08.295] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:25:51:788][Vex]](ID:118547889931812868) Wrote message in channel/guild [testing-nsfw](Discord Bots)``````md
+[[11:25:52:388][Xavio]](ID:175893020036562944) Wrote message in channel/guild [testing-nsfw](Discord Bots)``````md
+[[11:25:52:389][Xavio]](ID:175893020036562944) Wrote message in channel/guild [testing-nsfw](Discord Bots)``````md
+[[11:25:52:406][Xavio]](ID:175893020036562944) Wrote message in channel/guild [testing-nsfw](Discord Bots)``````md
+[[11:25:52:442][Xavio]](ID:175893020036562944) Wrote message in channel/guild [testing-nsfw](Discord Bots)``````md
+[[11:25:52:454][Xavio]](ID:175893020036562944) Wrote message in channel/guild [testing-nsfw](Discord Bots)``````md
+[[11:26:03:334][AnonymousDapper]](ID:163521874872107009) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:26:07:885][▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █]](ID:99808569574031360) Changed their nickname on Guild [Discord Bots] from/to [Vix](▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █)```
+[2016-07-16 15:26:11.795] [Discord Bots#TC:general(110373943822540800)] ▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █: oh it works
+[2016-07-16 15:26:16.127] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Lubbock: @Lubbot penis
+[2016-07-16 15:26:16.519] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Lubbot: 8===D
+[2016-07-16 15:26:50.879] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Vex: >ping
+[2016-07-16 15:26:51.036] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Xavio: **pong**
+[2016-07-16 15:26:51.045] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Trpkit: 
+Pong! Took 0.122176118ms.
+
+[2016-07-16 15:26:51.060] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Pickle: Pong
+[2016-07-16 15:26:51.252] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Miki: Pong! 210ms!
+[2016-07-16 15:26:51.915] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] PikaBot01: Pong!
+[2016-07-16 15:26:53.013] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: yyyyy
+[2016-07-16 15:26:55.107] [Discord Bots#TC:general(110373943822540800)] fishyfing: !rename @▄ █ ▄ █ ▄ ▄ █ ▄ █ ▄ █ cancer
+[2016-07-16 15:26:55.563] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:26:51:010][Vex]](ID:118547889931812868) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:26:51:082][Xavio]](ID:175893020036562944) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:26:51:106][Trpkit]](ID:194975066855964673) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:26:51:141][Pickle]](ID:198257282901999627) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:26:51:381][Miki]](ID:160105994217586689) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:26:52:009][PikaBot01]](ID:169678500893163520) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:26:53:072][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:26:55:169][fishyfing]](ID:116079569349378049) Wrote message in channel/guild [general](Discord Bots)```
+[2016-07-16 15:26:57.920] [Discord Bots#TC:general(110373943822540800)] FishBot: I cannot do that, I lack the "Manage Nicknames" permission.
