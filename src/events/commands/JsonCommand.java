@@ -2,21 +2,40 @@ package events.commands;
 
 import bots.RunBot;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by TheWithz on 4/29/16.
  */
 public class JsonCommand extends Command {
-    private boolean allowRemove = false;
-    private String fileToRemove = "";
+    private boolean allowRemove;
+    private String fileToRemove;
+    private HashMap<String, File> jsonFiles;
+
+    public JsonCommand() {
+        allowRemove = false;
+        fileToRemove = "";
+        jsonFiles = new HashMap<>();
+
+        File file = new File(".");
+        Collection<File> files = FileUtils.listFiles(file, null, false);
+        files.stream()
+             .filter(file1 -> file1.getName().length() >= 6)
+             .filter(file1 -> file1.getName().contains(".json"))
+             .filter(file1 -> !file1.getName().contains("Config"))
+             .forEach(file1 -> jsonFiles.put(file1.getName(), file1));
+    }
 
     //todo 5/7/16 finish this!
     @Override
@@ -43,10 +62,15 @@ public class JsonCommand extends Command {
                 break;
             case "new":
             case "create":
+                if (RunBot.OwnerRequired(event))
+                    return;
                 handleMakeNewJson(event, args);
                 break;
             case "show":
                 handleShowJsonContents(event, args);
+                break;
+            case "list":
+                handleListJsonFiles(event);
                 break;
             default:
                 event.getChannel().sendMessageAsync(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
@@ -54,6 +78,13 @@ public class JsonCommand extends Command {
                 break;
         }
 
+    }
+
+    private void handleListJsonFiles(MessageReceivedEvent event) {
+        StringBuilder builder = new StringBuilder();
+        builder.append("```md\n");
+        jsonFiles.forEach((key, value) -> builder.append("<").append(key).append(">\n"));
+        event.getChannel().sendMessageAsync(builder.append("```").toString(), null);
     }
 
     private void handleShowJsonContents(MessageReceivedEvent event, String[] args) {
@@ -71,12 +102,16 @@ public class JsonCommand extends Command {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get(args[2]))));
             builder.append("```md\n");
             for (Object object : obj.keySet()) {
-                builder.append("[").append(object.toString()).append("](<").append(obj.get(object.toString())).append(">)\n");
+                builder.append("<")
+                       .append(object.toString())
+                       .append("><")
+                       .append(obj.get(object.toString()))
+                       .append(">\n");
             }
             builder.append("```");
             event.getChannel().sendMessageAsync(builder.toString(), null);
         } catch (IOException e) {
-            event.getChannel().sendMessageAsync(":x: The specified file to delete `" + args[2] + "` does not exist.", null);
+            event.getChannel().sendMessageAsync(":x: The specified file to show `" + args[2] + "` does not exist.", null);
         }
     }
 
@@ -103,6 +138,7 @@ public class JsonCommand extends Command {
             }
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get(args[2]))));
             BashCommand.runLinuxCommand("rm " + args[2]);
+            jsonFiles.remove(args[2]);
             event.getChannel().sendMessageAsync(":white_check_mark: the json file " + args[2] + " was successfully deleted.", null);
         } catch (IOException e) {
             event.getChannel().sendMessageAsync(":x: The specified file to delete `" + args[2] + "` does not exist.", null);
@@ -114,6 +150,16 @@ public class JsonCommand extends Command {
     private void handleMakeNewJson(MessageReceivedEvent event, String[] args) {
         RunBot.checkArgs(args, 2, ":x: No json was specified to create. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
+        if (jsonFiles.containsKey(args[2])) {
+            event.getChannel().sendMessageAsync(":x: A json file `" + args[2] + "` already exists.", null);
+            return;
+        }
+
+        if (!args[2].contains(".json")) {
+            event.getChannel().sendMessageAsync(":x: A json file needs to have the `.json` extension.", null);
+            return;
+        }
+
         if (args[2].contains("\\") || args[2].contains("/")) {
             event.getChannel().sendMessageAsync(":x: Nice try. :joy:", null);
             return;
@@ -122,6 +168,7 @@ public class JsonCommand extends Command {
         JSONObject obj = new JSONObject();
         try {
             Files.write(Paths.get(args[2]), obj.toString(4).getBytes());
+            jsonFiles.put(args[2], new File(args[2]));
             event.getChannel().sendMessageAsync(":white_check_mark: new json `" + args[2] + "` was generated successfully.", null);
         } catch (IOException e1) {
             event.getChannel().sendMessageAsync(":x: new json `" + args[2] + "` was **not** generated successfully.", null);
@@ -142,7 +189,7 @@ public class JsonCommand extends Command {
             Files.write(Paths.get(args[2]), obj.toString().getBytes());
             event.getChannel().sendMessageAsync(":white_check_mark: " + args[2] + " was updated successfully by removing " + args[3], null);
         } catch (IOException e) {
-            event.getChannel().sendMessageAsync(":x: The specified file to delete `" + args[2] + "` does not exist.", null);
+            event.getChannel().sendMessageAsync(":x: The specified file to remove from `" + args[2] + "` does not exist.", null);
         }
     }
 
@@ -166,7 +213,7 @@ public class JsonCommand extends Command {
             Files.write(Paths.get(args[2]), obj.toString().getBytes());
             event.getChannel().sendMessageAsync(":white_check_mark: " + args[2] + " was updated successfully by adding " + args[3], null);
         } catch (IOException e) {
-            event.getChannel().sendMessageAsync(":x: The specified file to delete `" + args[2] + "` does not exist.", null);
+            event.getChannel().sendMessageAsync(":x: The specified file to save to `" + args[2] + "` does not exist.", null);
         }
     }
 
