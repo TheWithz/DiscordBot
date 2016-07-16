@@ -25647,3 +25647,30 @@ bot.registerCommand('penis', '8==========D overrides old penis')
 [2016-07-16 15:27:40.819] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: y u break
 [2016-07-16 15:27:48.968] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: dt:register
 [2016-07-16 15:27:49.543] [Discord Bots#TC:testing-^_`(113743192305827841)] dTeams: @Jayden, :thumbsup: Registered server: **Discord Bots** (`110373943822540800`)
+[2016-07-16 15:27:59.185] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***TheWithz*** / **DiscordBot** (master) https://github.com/TheWithz/DiscordBot
+`86576f4e2dc454708a38cc24b1e2ad16ab6b3039` added <> to stop embed [Nathan Withers]
+[2016-07-16 15:28:11.956] [Discord Bots#TC:general(110373943822540800)] AnonymousDapper: holy crap
+[2016-07-16 15:28:21.105] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: <https://github.com/TheWithz/DiscordBot>
+[2016-07-16 15:28:23.744] [Discord Bots#TC:general(110373943822540800)] AnonymousDapper: my jaw is partially dislocated
+[2016-07-16 15:28:31.451] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Lubbock: 
+@Lubbot ```js
+bot.disconnect()
+```
+[2016-07-16 15:28:31.808] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:27:40:869][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:27:49:019][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:27:49:666][dTeams]](ID:203881093043060738) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:27:59:219][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[11:28:12:008][AnonymousDapper]](ID:163521874872107009) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:28:21:136][TheWithz]](ID:122764399961309184) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[11:28:23:808][AnonymousDapper]](ID:163521874872107009) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:28:31:540][Lubbock]](ID:100382580146196480) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)```
+[2016-07-16 15:28:34.482] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: huh
+[2016-07-16 15:28:38.643] [ProgramDevelopment#TC:bot_development(147169039049949184)] Pear0: I just opened discord, that's fancy
+[2016-07-16 15:28:49.609] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: even though i added the <>
+[2016-07-16 15:28:54.361] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithz: it still embeds the link
+[2016-07-16 15:29:57.660] [Discord Bots#TC:general(110373943822540800)] Master: Just punch it back in place
+[2016-07-16 15:30:12.148] [Discord Bots#TC:general(110373943822540800)] Wyndrik: or
+[2016-07-16 15:30:21.797] [Discord Bots#TC:general(110373943822540800)] Wyndrik: yawn like shit

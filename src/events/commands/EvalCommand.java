@@ -33,6 +33,10 @@ public class EvalCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
+
+        if (RunBot.OwnerRequired(e))
+            return;
+
         RunBot.checkArgs(args, 1, ":x: No language was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
         if (e.getAuthor().isBot()) {
@@ -44,16 +48,12 @@ public class EvalCommand extends Command {
             case "java":
             case "groovy":
             case "javascript":
-                if (RunBot.OwnerRequired(e))
-                    return;
                 handleJava(e, new DiscordAsOutputStream(e.getTextChannel()), args);
                 break;
             case "python":
                 handlePython(e, args);
                 break;
             case "thue":
-                if (RunBot.OwnerRequired(e))
-                    return;
                 handleThue(e, new DiscordAsOutputStream(e.getTextChannel()), args);
                 break;
             default:
