@@ -14,7 +14,7 @@ public class StopCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         AudioUtil.player.stop();
-        event.getChannel().sendMessage(":white_check_mark: playback has been completely stopped.");
+        event.getChannel().sendMessageAsync(":white_check_mark: playback has been completely stopped.", null);
     }
 
     @Override

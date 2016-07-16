@@ -17,14 +17,14 @@ public class ResetCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            sendMessage(event, ":x: Cannot reset the player if it hasn't been created yet!");
+            event.getChannel().sendMessageAsync(":x: Cannot reset the player if it hasn't been created yet!", null);
             return;
         }
         player.stop();
         player = new MusicPlayer();
         player.setVolume(AudioUtil.DEFAULT_VOLUME);
         AudioUtil.manager.setSendingHandler(player);
-        event.getChannel().sendMessage(":white_check_mark: Music player has been completely reset.");
+        event.getChannel().sendMessageAsync(":white_check_mark: Music player has been completely reset.", null);
     }
 
     @Override

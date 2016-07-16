@@ -34,8 +34,8 @@ public class LatexCommand extends Command {
                 handleList(event);
                 break;
             default:
-                sendMessage(event, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
-                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+                event.getChannel().sendMessageAsync(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
                 break;
         }
     }
@@ -54,9 +54,9 @@ public class LatexCommand extends Command {
                        .append("\n");
             }
         } catch (IOException e) {
-            sendMessage(event, ":x: " + e.getMessage());
+            event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);
         }
-        event.getChannel().sendMessage(builder.append("```").toString());
+        event.getChannel().sendMessageAsync(builder.append("```").toString(), null);
     }
 
     private void handleShow(MessageReceivedEvent event, String[] args) {
@@ -73,8 +73,8 @@ public class LatexCommand extends Command {
                 handleRaw(event, args);
                 break;
             default:
-                sendMessage(event, ":x: Unknown Modifier argument: `" + args[1] + "` was provided. " +
-                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+                event.getChannel().sendMessageAsync(":x: Unknown Modifier argument: `" + args[1] + "` was provided. " +
+                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
                 break;
         }
     }
@@ -116,7 +116,7 @@ public class LatexCommand extends Command {
                 event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[3], "tex").build());
             }
         } catch (IOException e) {
-            sendMessage(event, ":x: " + e.getMessage());
+            event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);
         }
     }
 

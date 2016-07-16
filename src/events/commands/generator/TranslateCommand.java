@@ -70,10 +70,10 @@ public class TranslateCommand extends Command {
             translatedText = Translate.execute(StringUtils.join(commandArguments, " ", 4, commandArguments.length), Language.valueOf(commandArguments[1].toUpperCase()), Language
                     .valueOf(commandArguments[2].toUpperCase()));
         } catch (Exception e) {
-            sendMessage(event, ":x: " + e.getMessage());
+            event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);
         }
         if (translatedText != null)
-            event.getChannel().sendMessage(":white_check_mark: `" + translatedText + "`");
+            event.getChannel().sendMessageAsync(":white_check_mark: `" + translatedText + "`", null);
     }
 
 }

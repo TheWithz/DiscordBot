@@ -19,7 +19,7 @@ public class NowPlayingCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            event.getChannel().sendMessage(":x: Cannot show information for a song that is not playing!");
+            event.getChannel().sendMessageAsync(":x: Cannot show information for a song that is not playing!", null);
             return;
         }
         if (player.isPlaying() || player.isPaused() || player.isStopped()) {
@@ -28,27 +28,27 @@ public class NowPlayingCommand extends Command {
             AudioInfo info = player.getCurrentAudioSource().getInfo();
             if (info.getError() == null) {
                 if (player.isPlaying()) {
-                    event.getChannel().sendMessage(
+                    event.getChannel().sendMessageAsync(
                             ":white_check_mark: **Playing:** " + info.getTitle() + "\n" +
-                                    convert(total, currentTime, player.getVolume(), "play", player.isRepeat(), player.isShuffle()));
+                                    convert(total, currentTime, player.getVolume(), "play", player.isRepeat(), player.isShuffle()), null);
                 } else if (player.isPaused()) {
-                    event.getChannel().sendMessage(
+                    event.getChannel().sendMessageAsync(
                             ":white_check_mark: **Playing:** " + info.getTitle() + "\n" +
-                                    convert(total, currentTime, player.getVolume(), "pause", player.isRepeat(), player.isShuffle()));
+                                    convert(total, currentTime, player.getVolume(), "pause", player.isRepeat(), player.isShuffle()), null);
                 }
             } else {
                 if (player.isPlaying()) {
-                    event.getChannel().sendMessage(
+                    event.getChannel().sendMessageAsync(
                             ":x: **Playing:** Info Error. Known source: " + player.getCurrentAudioSource().getSource() + "\n" +
-                                    convert(total, currentTime, player.getVolume(), "play", player.isRepeat(), player.isShuffle()));
+                                    convert(total, currentTime, player.getVolume(), "play", player.isRepeat(), player.isShuffle()), null);
                 } else if (player.isPaused()) {
-                    event.getChannel().sendMessage(
+                    event.getChannel().sendMessageAsync(
                             ":x: **Playing:** Info Error. Known source: " + player.getCurrentAudioSource().getSource() + "\n" +
-                                    convert(total, currentTime, player.getVolume(), "pause", player.isRepeat(), player.isShuffle()));
+                                    convert(total, currentTime, player.getVolume(), "pause", player.isRepeat(), player.isShuffle()), null);
                 }
             }
         } else {
-            event.getChannel().sendMessage(":x: The player is not currently playing anything!");
+            event.getChannel().sendMessageAsync(":x: The player is not currently playing anything!", null);
         }
     }
 
@@ -85,7 +85,7 @@ public class NowPlayingCommand extends Command {
         return getUsageInstructionsEveryone();
     }
 
-    public static String convert(AudioTimestamp totalSeconds, AudioTimestamp current, float vol, String status, boolean isRepeat, boolean isShuffle) {
+    private static String convert(AudioTimestamp totalSeconds, AudioTimestamp current, float vol, String status, boolean isRepeat, boolean isShuffle) {
         String bar = " **[`" + current.getTimestamp() + "`/`" + totalSeconds.getTimestamp() + "`]** ";
         //   bar += playOrPause.equals("play") ? Symbols.PLAY.toString() : Symbols.PAUSE.toString();
         switch (status) {

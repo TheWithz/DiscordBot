@@ -16,19 +16,19 @@ public class ShuffleCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            sendMessage(event, ":x: Cannot shuffle a song if there is no song playing.");
+            event.getChannel().sendMessageAsync(":x: Cannot shuffle a song if there is no song playing.", null);
             return;
         }
         if (player.isRepeat()) {
-            event.getChannel().sendMessage(":x: Cannot shuffle a playlist if repeat is **on**.");
+            event.getChannel().sendMessageAsync(":x: Cannot shuffle a playlist if repeat is **on**.", null);
             return;
         }
         if (player.isShuffle()) {
             player.setShuffle(false);
-            event.getChannel().sendMessage(":white_check_mark: The player has been set to **not** shuffle.");
+            event.getChannel().sendMessageAsync(":white_check_mark: The player has been set to **not** shuffle.", null);
         } else {
             player.setShuffle(true);
-            event.getChannel().sendMessage(":white_check_mark: The player been set to shuffle.");
+            event.getChannel().sendMessageAsync(":white_check_mark: The player been set to shuffle.", null);
         }
     }
 

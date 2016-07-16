@@ -17,7 +17,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        e.getChannel().sendMessage(calculate(args));
+        e.getChannel().sendMessageAsync(calculate(args), null);
     }
 
     @Override

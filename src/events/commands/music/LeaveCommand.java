@@ -20,7 +20,7 @@ public class LeaveCommand extends Command {
             AudioUtil.manager = null;
             AudioUtil.player = null;
         } else
-            sendMessage(event, ":x: Cannot sever null audio connection.");
+            event.getChannel().sendMessageAsync(":x: Cannot sever null audio connection.", null);
     }
 
     @Override

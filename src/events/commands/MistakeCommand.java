@@ -12,7 +12,7 @@ public class MistakeCommand extends Command {
     public void onMessageReceived(MessageReceivedEvent e) {
         super.onMessageReceived(e);
         if (e.getMessage().getContent().equals("fuck")) {
-            e.getChannel().sendMessage(findMatchingCommand());
+            e.getChannel().sendMessageAsync(findMatchingCommand(), null);
         }
     }
 

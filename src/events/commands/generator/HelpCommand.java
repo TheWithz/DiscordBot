@@ -60,30 +60,33 @@ public class HelpCommand extends Command {
     @Override
     public List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(String.format("(%1$s)\n" +
-                "[Example: 1](%1$s) Shows all <%2$s's> commands with permission level <%3$s>\n" +
-                "[Example: 2](%1$s) <todo> Shows <%2$s's> usage information for the todo command if it is in the <%3$s> permission level", getAliases().get(0), RunBot.BOT.getUsername(), Perm.EVERYONE));
+                                                               "[Example: 1](%1$s) Shows all <%2$s's> commands with permission level <%3$s>\n" +
+                                                               "[Example: 2](%1$s) <todo> Shows <%2$s's> usage information for the todo command if it is in the <%3$s> permission level", getAliases()
+                                                               .get(0), RunBot.BOT.getUsername(), Perm.EVERYONE));
     }
 
     @Override
     public List<String> getUsageInstructionsOp() {
         return Collections.singletonList(String.format("(%1$s)\n" +
-                "[Example: 1](%1$s) Shows all <%2$s's> commands with permission level <%3$s> and <%4$s>\n" +
-                "[Example: 2](%1$s) <todo> Shows <%2$s's> usage information for the todo command if it is in the <%3$s> or <%4$s> permission level", getAliases().get(0), RunBot.BOT.getUsername(), Perm.EVERYONE, Perm.OP_ONLY));
+                                                               "[Example: 1](%1$s) Shows all <%2$s's> commands with permission level <%3$s> and <%4$s>\n" +
+                                                               "[Example: 2](%1$s) <todo> Shows <%2$s's> usage information for the todo command if it is in the <%3$s> or <%4$s> permission level", getAliases()
+                                                               .get(0), RunBot.BOT.getUsername(), Perm.EVERYONE, Perm.OP_ONLY));
     }
 
     @Override
     public List<String> getUsageInstructionsOwner() {
         return Collections.singletonList(String.format("(%1$s)\n" +
-                "[Example: 1](%1$s) Shows all <%2$s's> commands with permission level <%3$s> and <%4$s> and <%5$s>\n" +
-                "[Example: 2](%1$s) <todo> Shows <%2$s's> usage information for the todo command if it is in the <%3$s> or <%4$s> or <%5$s> permission level", getAliases().get(0), RunBot.BOT.getUsername(), Perm.EVERYONE, Perm.OP_ONLY, Perm.OWNER_ONLY));
+                                                               "[Example: 1](%1$s) Shows all <%2$s's> commands with permission level <%3$s> and <%4$s> and <%5$s>\n" +
+                                                               "[Example: 2](%1$s) <todo> Shows <%2$s's> usage information for the todo command if it is in the <%3$s> or <%4$s> or <%5$s> permission level", getAliases()
+                                                               .get(0), RunBot.BOT.getUsername(), Perm.EVERYONE, Perm.OP_ONLY, Perm.OWNER_ONLY));
     }
 
     private void sendConfirmation(MessageReceivedEvent e, String[] args, Perm permission) {
         if (!e.isPrivate()) {
-            e.getTextChannel().sendMessage(new MessageBuilder()
-                    .appendMention(e.getAuthor())
-                    .appendString(": Help information was sent as a private message.")
-                    .build());
+            e.getTextChannel().sendMessageAsync(new MessageBuilder()
+                                                        .appendMention(e.getAuthor())
+                                                        .appendString(": Help information was sent as a private message.")
+                                                        .build(), null);
         }
         sendPrivate(e.getAuthor().getPrivateChannel(), args, permission);
     }
@@ -106,13 +109,13 @@ public class HelpCommand extends Command {
             description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
 
             s.append("[" + RunBot.PREFIX + "][")
-                    .append(c.getAliases().get(0).substring(RunBot.PREFIX.length()))
-                    .append("] : [")
-                    .append(description)
-                    .append("](")
-                    .append(c.permission)
-                    .append(")")
-                    .append("\n\n");
+             .append(c.getAliases().get(0).substring(RunBot.PREFIX.length()))
+             .append("] : [")
+             .append(description)
+             .append("](")
+             .append(c.permission)
+             .append(")")
+             .append("\n\n");
             if (s.length() >= 1800) {
                 msgs.add(s);
                 s = new StringBuilder();
@@ -120,14 +123,14 @@ public class HelpCommand extends Command {
         }
         if (s.length() < 1800 && s.length() > 0)
             msgs.add(s);
-        channel.sendMessage(new MessageBuilder()
-                .appendString("```css\nThe following commands are supported by the bot```").build());
+        channel.sendMessageAsync(new MessageBuilder()
+                                         .appendString("```css\nThe following commands are supported by the bot```").build(), null);
         for (StringBuilder builder : msgs) {
             channel.sendMessageAsync(new MessageBuilder()
-                    .appendString("```md\n")
-                    .appendString(builder.toString())
-                    .appendString("```")
-                    .build(), null);
+                                             .appendString("```md\n")
+                                             .appendString(builder.toString())
+                                             .appendString("```")
+                                             .build(), null);
         }
 
     }
@@ -139,7 +142,7 @@ public class HelpCommand extends Command {
         for (Command c : commands) {
             if (c.getAliases().contains(command)) {
                 if (c.permission == Perm.OWNER_ONLY || c.permission == Perm.OP_ONLY) {
-                    channel.sendMessage(":no_entry: You do not have permission to view this command.");
+                    channel.sendMessageAsync(":no_entry: You do not have permission to view this command.", null);
                     return;
                 }
                 String name = c.getName();
@@ -149,29 +152,29 @@ public class HelpCommand extends Command {
                 description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
                 usageInstructions = (usageInstructions == null || usageInstructions.isEmpty()) ? Collections.singletonList(NO_USAGE) : usageInstructions;
 
-                channel.sendMessage(new MessageBuilder()
-                        .appendString("```md\n")
-                        .appendString("[Name:][" + name + "]\n")
-                        .appendString("[Description:][" + description + "]\n")
-                        .appendString("[Alliases:](" + StringUtils.join(c.getAliases(), ", ") + ")\n")
-                        .appendString("[[Usage:]")
-                        .appendString(usageInstructions.get(0))
-                        .appendString("```")
-                        .build());
+                channel.sendMessageAsync(new MessageBuilder()
+                                                 .appendString("```md\n")
+                                                 .appendString("[Name:][" + name + "]\n")
+                                                 .appendString("[Description:][" + description + "]\n")
+                                                 .appendString("[Alliases:](" + StringUtils.join(c.getAliases(), ", ") + ")\n")
+                                                 .appendString("[[Usage:]")
+                                                 .appendString(usageInstructions.get(0))
+                                                 .appendString("```")
+                                                 .build(), null);
                 for (int i = 1; i < usageInstructions.size(); i++) {
-                    channel.sendMessage(new MessageBuilder()
-                            .appendString("```md\n")
-                            .appendString("[" + name + "](Usage Cont. " + (i + 1) + ")\n")
-                            .appendString(usageInstructions.get(i))
-                            .appendString("```")
-                            .build());
+                    channel.sendMessageAsync(new MessageBuilder()
+                                                     .appendString("```md\n")
+                                                     .appendString("[" + name + "](Usage Cont. " + (i + 1) + ")\n")
+                                                     .appendString(usageInstructions.get(i))
+                                                     .appendString("```")
+                                                     .build(), null);
                 }
                 return;
             }
         }
-        channel.sendMessage(new MessageBuilder()
-                .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
-                .build());
+        channel.sendMessageAsync(new MessageBuilder()
+                                         .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
+                                         .build(), null);
     }
 
     private void handleOpHelp(PrivateChannel channel, String[] args) {
@@ -192,13 +195,13 @@ public class HelpCommand extends Command {
             description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
 
             s.append("[" + RunBot.PREFIX + "][")
-                    .append(c.getAliases().get(0).substring(RunBot.PREFIX.length()))
-                    .append("] : [")
-                    .append(description)
-                    .append("](")
-                    .append(c.permission)
-                    .append(")")
-                    .append("\n\n");
+             .append(c.getAliases().get(0).substring(RunBot.PREFIX.length()))
+             .append("] : [")
+             .append(description)
+             .append("](")
+             .append(c.permission)
+             .append(")")
+             .append("\n\n");
             if (s.length() >= 1800) {
                 msgs.add(s);
                 s = new StringBuilder();
@@ -206,14 +209,14 @@ public class HelpCommand extends Command {
         }
         if (s.length() < 1800 && s.length() > 0)
             msgs.add(s);
-        channel.sendMessage(new MessageBuilder()
-                .appendString("```css\nThe following commands are supported by the bot```").build());
+        channel.sendMessageAsync(new MessageBuilder()
+                                         .appendString("```css\nThe following commands are supported by the bot```").build(), null);
         for (StringBuilder builder : msgs) {
             channel.sendMessageAsync(new MessageBuilder()
-                    .appendString("```md\n")
-                    .appendString(builder.toString())
-                    .appendString("```")
-                    .build(), null);
+                                             .appendString("```md\n")
+                                             .appendString(builder.toString())
+                                             .appendString("```")
+                                             .build(), null);
         }
 
     }
@@ -225,7 +228,7 @@ public class HelpCommand extends Command {
         for (Command c : commands) {
             if (c.getAliases().contains(command)) {
                 if (c.permission == Perm.OWNER_ONLY) {
-                    channel.sendMessage(":no_entry: You do not have permission to view this command.");
+                    channel.sendMessageAsync(":no_entry: You do not have permission to view this command.", null);
                     return;
                 }
                 String name = c.getName();
@@ -235,29 +238,29 @@ public class HelpCommand extends Command {
                 description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
                 usageInstructions = (usageInstructions == null || usageInstructions.isEmpty()) ? Collections.singletonList(NO_USAGE) : usageInstructions;
 
-                channel.sendMessage(new MessageBuilder()
-                        .appendString("```md\n")
-                        .appendString("[Name:][" + name + "]\n")
-                        .appendString("[Description:][" + description + "]\n")
-                        .appendString("[Alliases:](" + StringUtils.join(c.getAliases(), ", ") + ")\n")
-                        .appendString("[[Usage:]")
-                        .appendString(usageInstructions.get(0))
-                        .appendString("```")
-                        .build());
+                channel.sendMessageAsync(new MessageBuilder()
+                                                 .appendString("```md\n")
+                                                 .appendString("[Name:][" + name + "]\n")
+                                                 .appendString("[Description:][" + description + "]\n")
+                                                 .appendString("[Alliases:](" + StringUtils.join(c.getAliases(), ", ") + ")\n")
+                                                 .appendString("[[Usage:]")
+                                                 .appendString(usageInstructions.get(0))
+                                                 .appendString("```")
+                                                 .build(), null);
                 for (int i = 1; i < usageInstructions.size(); i++) {
-                    channel.sendMessage(new MessageBuilder()
-                            .appendString("```md\n")
-                            .appendString("[" + name + "](Usage Cont. " + (i + 1) + ")\n")
-                            .appendString(usageInstructions.get(i))
-                            .appendString("```")
-                            .build());
+                    channel.sendMessageAsync(new MessageBuilder()
+                                                     .appendString("```md\n")
+                                                     .appendString("[" + name + "](Usage Cont. " + (i + 1) + ")\n")
+                                                     .appendString(usageInstructions.get(i))
+                                                     .appendString("```")
+                                                     .build(), null);
                 }
                 return;
             }
         }
-        channel.sendMessage(new MessageBuilder()
-                .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
-                .build());
+        channel.sendMessageAsync(new MessageBuilder()
+                                         .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
+                                         .build(), null);
     }
 
     private void handleOwnerHelp(PrivateChannel channel, String[] args) {
@@ -275,13 +278,13 @@ public class HelpCommand extends Command {
             description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
 
             s.append("[" + RunBot.PREFIX + "][")
-                    .append(c.getAliases().get(0).substring(RunBot.PREFIX.length()))
-                    .append("] : [")
-                    .append(description)
-                    .append("](")
-                    .append(c.permission)
-                    .append(")")
-                    .append("\n\n");
+             .append(c.getAliases().get(0).substring(RunBot.PREFIX.length()))
+             .append("] : [")
+             .append(description)
+             .append("](")
+             .append(c.permission)
+             .append(")")
+             .append("\n\n");
             if (s.length() >= 1800) {
                 msgs.add(s);
                 s = new StringBuilder();
@@ -289,14 +292,14 @@ public class HelpCommand extends Command {
         }
         if (s.length() < 1800 && s.length() > 0)
             msgs.add(s);
-        channel.sendMessage(new MessageBuilder()
-                .appendString("```css\nThe following commands are supported by the bot```").build());
+        channel.sendMessageAsync(new MessageBuilder()
+                                         .appendString("```css\nThe following commands are supported by the bot```").build(), null);
         for (StringBuilder builder : msgs) {
             channel.sendMessageAsync(new MessageBuilder()
-                    .appendString("```md\n")
-                    .appendString(builder.toString())
-                    .appendString("```")
-                    .build(), null);
+                                             .appendString("```md\n")
+                                             .appendString(builder.toString())
+                                             .appendString("```")
+                                             .build(), null);
         }
     }
 
@@ -313,29 +316,29 @@ public class HelpCommand extends Command {
                 description = (description == null || description.isEmpty()) ? NO_DESCRIPTION : description;
                 usageInstructions = (usageInstructions == null || usageInstructions.isEmpty()) ? Collections.singletonList(NO_USAGE) : usageInstructions;
 
-                channel.sendMessage(new MessageBuilder()
-                        .appendString("```md\n")
-                        .appendString("[Name:][" + name + "]\n")
-                        .appendString("[Description:][" + description + "]\n")
-                        .appendString("[Alliases:](" + StringUtils.join(c.getAliases(), ", ") + ")\n")
-                        .appendString("[[Usage:]")
-                        .appendString(usageInstructions.get(0))
-                        .appendString("```")
-                        .build());
+                channel.sendMessageAsync(new MessageBuilder()
+                                                 .appendString("```md\n")
+                                                 .appendString("[Name:][" + name + "]\n")
+                                                 .appendString("[Description:][" + description + "]\n")
+                                                 .appendString("[Alliases:](" + StringUtils.join(c.getAliases(), ", ") + ")\n")
+                                                 .appendString("[[Usage:]")
+                                                 .appendString(usageInstructions.get(0))
+                                                 .appendString("```")
+                                                 .build(), null);
                 for (int i = 1; i < usageInstructions.size(); i++) {
-                    channel.sendMessage(new MessageBuilder()
-                            .appendString("```md\n")
-                            .appendString("[" + name + "](Usage Cont. " + (i + 1) + ")\n")
-                            .appendString(usageInstructions.get(i))
-                            .appendString("```")
-                            .build());
+                    channel.sendMessageAsync(new MessageBuilder()
+                                                     .appendString("```md\n")
+                                                     .appendString("[" + name + "](Usage Cont. " + (i + 1) + ")\n")
+                                                     .appendString(usageInstructions.get(i))
+                                                     .appendString("```")
+                                                     .build(), null);
                 }
                 return;
             }
         }
-        channel.sendMessage(new MessageBuilder()
-                .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
-                .build());
+        channel.sendMessageAsync(new MessageBuilder()
+                                         .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
+                                         .build(), null);
     }
 
     private void sendPrivate(PrivateChannel channel, String[] args, Perm permission) {

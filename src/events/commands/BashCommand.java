@@ -17,14 +17,14 @@ public class BashCommand extends Command {
 
     private static String outLine = "";
     private static String errLine = "";
-    public static Process process;
+    private static Process process;
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
         if (RunBot.OwnerRequired(e))
             return;
 
-        sendMessage(e, runLinuxCommand(StringUtils.join(args, " ", 1, args.length)).toString());
+        e.getChannel().sendMessageAsync(runLinuxCommand(StringUtils.join(args, " ", 1, args.length)).toString(), null);
     }
 
     @Override

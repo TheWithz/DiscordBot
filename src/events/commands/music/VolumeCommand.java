@@ -17,14 +17,14 @@ public class VolumeCommand extends Command {
         RunBot.checkArgs(args, 1, ":x: No volume was specified to change to. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         if (AudioUtil.player == null) {
-            event.getChannel().sendMessage(":x: Cannot change volume of player at this time");
+            event.getChannel().sendMessageAsync(":x: Cannot change volume of player at this time", null);
             return;
         }
 
         float volume = Float.parseFloat(args[1]);
         volume = Math.min(1F, Math.max(0F, volume));
         AudioUtil.player.setVolume(volume);
-        event.getChannel().sendMessage(":white_check_mark: volume was changed to: " + volume);
+        event.getChannel().sendMessageAsync(":white_check_mark: volume was changed to: " + volume, null);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class VolumeCommand extends Command {
     public java.util.List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(
                 String.format("(%1$s) <volume>\n" +
-                        "[Example:](%1$s) <0.5> This will set <%2$s>'s audio player to 50 Percent.", getAliases().get(0), RunBot.BOT.getUsername()));
+                                      "[Example:](%1$s) <0.5> This will set <%2$s>'s audio player to 50 Percent.", getAliases().get(0), RunBot.BOT.getUsername()));
     }
 
     @Override

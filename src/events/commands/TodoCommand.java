@@ -123,23 +123,23 @@ public class TodoCommand extends Command {
                     handleRemove(e, args);
                     break;
                 default:
-                    sendMessage(e, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
-                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+                    e.getChannel().sendMessageAsync(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
             }
             if (Arrays.asList(args).contains("botfeatures") && args[0].equals(RunBot.PREFIX + "todo")) {
                 refreshTodoChannel(e, args);
             }
         } catch (SQLException e1) {
-            sendMessage(e, ":x: An SQL error occurred while processing command.\nError Message: " + e1.getMessage());
+            e.getChannel().sendMessageAsync(":x: An SQL error occurred while processing command.\nError Message: " + e1.getMessage(), null);
             e1.printStackTrace();
         } catch (IllegalArgumentException e2) {
-            sendMessage(e, e2.getMessage());
+            e.getChannel().sendMessageAsync(e2.getMessage(), null);
         }
     }
 
     private void refreshTodoChannel(MessageReceivedEvent e, String[] args) {
         TextChannel tc = RunBot.API.getTextChannelById("193539094410690561");
-        Message message = tc.getMessageById("199349805099646976");
+        Message message = tc.getMessageById("203919282260803586");
         StringBuilder msg = getBotFeaturesShowMessage(tc, args);
         if (message != null) {
             message.updateMessageAsync(msg == null ? ":x: The message returned null." : msg.toString(), null);
@@ -267,7 +267,7 @@ public class TodoCommand extends Command {
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list.", null);
             return;
         }
 
@@ -290,8 +290,8 @@ public class TodoCommand extends Command {
             builder.appendString(todoEntryString);
         }
 
-        todoMessages.forEach(message -> sendMessage(e, message));
-        sendMessage(e, builder.appendString("```").build());
+        todoMessages.forEach(message -> e.getChannel().sendMessageAsync(message, null));
+        e.getChannel().sendMessageAsync(builder.appendString("```").build(), null);
     }
 
     //alias show [ListName]
@@ -301,7 +301,7 @@ public class TodoCommand extends Command {
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
         if (todoList == null) {
-            tc.sendMessage(":x: Sorry, `" + label + "` isn't a known todo list.");
+            tc.sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list.", null);
             return;
         }
 
@@ -324,8 +324,8 @@ public class TodoCommand extends Command {
             builder.appendString(todoEntryString);
         }
 
-        todoMessages.forEach(tc::sendMessage);
-        tc.sendMessage(builder.appendString("```").build());
+        todoMessages.forEach(todoMessage -> tc.sendMessageAsync(todoMessage, null));
+        tc.sendMessageAsync(builder.appendString("```").build(), null);
     }
 
     //alias lists
@@ -351,7 +351,7 @@ public class TodoCommand extends Command {
             messages.add(builder.build());
         }
 
-        messages.forEach(msg -> sendMessage(e, msg));
+        messages.forEach(msg -> e.getChannel().sendMessageAsync(msg, null));
     }
 
     //alias create [ListName]
@@ -362,7 +362,7 @@ public class TodoCommand extends Command {
         TodoList todoList = todoLists.get(label);
 
         if (todoList != null) {
-            sendMessage(e, ":x: A todo list already exists with the name `" + label + "`.");
+            e.getChannel().sendMessageAsync(":x: A todo list already exists with the name `" + label + "`.", null);
             return;
         }
 
@@ -377,8 +377,8 @@ public class TodoCommand extends Command {
         todoLists.put(label, todoList);
         addTodoList.clearParameters();
 
-        sendMessage(e, ":white_check_mark: Created `" + label + "` todo list. Use `" + getAliases().get(0) + " add " + label + " [content...]` " +
-                "to add entries to this todo list.");
+        e.getChannel().sendMessageAsync(":white_check_mark: Created `" + label + "` todo list. Use `" + getAliases().get(0) + " add " + label + " [content...]` " +
+                                                "to add entries to this todo list.", null);
     }
 
     //alias add [ListName] [Content ... ]
@@ -392,13 +392,13 @@ public class TodoCommand extends Command {
         TodoList todoList = todoLists.get(label);
 
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list. " +
-                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list. " +
+                                                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.", null);
             return;
         }
 
         if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
-            sendMessage(e, ":x: Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.", null);
             return;
         }
 
@@ -412,7 +412,7 @@ public class TodoCommand extends Command {
         todoList.entries.add(new TodoEntry(Database.getAutoIncrement(addTodoEntry, 1), content, false));
         addTodoEntry.clearParameters();
 
-        sendMessage(e, ":white_check_mark: Added to `" + label + "` todo list.");
+        e.getChannel().sendMessageAsync(":white_check_mark: Added to `" + label + "` todo list.", null);
     }
 
     private void handleMultipleAdd(MessageReceivedEvent e, String[] args) throws SQLException {
@@ -424,13 +424,13 @@ public class TodoCommand extends Command {
         TodoList todoList = todoLists.get(label);
 
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list. " +
-                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list. " +
+                                                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.", null);
             return;
         }
 
         if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
-            sendMessage(e, ":x: Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.", null);
             return;
         }
 
@@ -446,9 +446,9 @@ public class TodoCommand extends Command {
             todoList.entries.add(new TodoEntry(Database.getAutoIncrement(addTodoEntry, 1), content, false));
             addTodoEntry.clearParameters();
 
-            //sendMessage(e, ":white_check_mark: Added to `" + label + "` todo list.");
+            // e.getChannel().sendMessageAsync(":white_check_mark: Added to `" + label + "` todo list.");
         }
-        sendMessage(e, ":white_check_mark: All entries added successfully to todo list.");
+        e.getChannel().sendMessageAsync(":white_check_mark: All entries added successfully to todo list.", null);
     }
 
     //alias edit [listname] [index of entry] [content]
@@ -470,23 +470,23 @@ public class TodoCommand extends Command {
             // This means that the entry index they enter will actually be 1 greater than the actual entry.
             todoEntryIndex = Integer.parseInt(todoEntryString) - 1;
         } catch (NumberFormatException ex) {
-            sendMessage(e, ":x: The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`");
+            e.getChannel().sendMessageAsync(":x: The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`", null);
             return;
         }
         if (todoEntryIndex < 0 || todoEntryIndex + 1 > todoList.entries.size()) {
             //We add 1 back to the todoEntry because we subtracted 1 from it above. (Basically, we make it human readable again)
-            sendMessage(e, ":x: The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`");
+            e.getChannel().sendMessageAsync(":x: The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`", null);
             return;
         }
 
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list. " +
-                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list. " +
+                                                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new list by this name.", null);
             return;
         }
 
         if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
-            sendMessage(e, ":x: Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` is a locked todo list and you do not have permission to modify it.", null);
             return;
         }
 
@@ -501,7 +501,7 @@ public class TodoCommand extends Command {
 
         todoEntry.content = content;
 
-        sendMessage(e, ":white_check_mark: Editted entry " + (todoEntryIndex + 1) + " in `" + label + "` todo list.");
+        e.getChannel().sendMessageAsync(":white_check_mark: Editted entry " + (todoEntryIndex + 1) + " in `" + label + "` todo list.", null);
     }
 
     //alias check [ListName] [EntryIndex]
@@ -516,7 +516,7 @@ public class TodoCommand extends Command {
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list.", null);
             return;
         }
 
@@ -531,7 +531,7 @@ public class TodoCommand extends Command {
 
             todoList.entries.forEach(todoEntry -> todoEntry.checked = completed);
 
-            sendMessage(e, ":white_check_mark: Set all entries in the `" + label + "` todo list to **" + (completed ? "complete**" : "incomplete**"));
+            e.getChannel().sendMessageAsync(":white_check_mark: Set all entries in the `" + label + "` todo list to **" + (completed ? "complete**" : "incomplete**"), null);
         } else {
             int todoEntryIndex;
             try {
@@ -540,13 +540,13 @@ public class TodoCommand extends Command {
                 // This means that the entry index they enter will actually be 1 greater than the actual entry.
                 todoEntryIndex = Integer.parseInt(todoEntryString) - 1;
             } catch (NumberFormatException ex) {
-                sendMessage(e, ":x: The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`");
+                e.getChannel().sendMessageAsync(":x: The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`", null);
                 return;
             }
 
             if (todoEntryIndex < 0 || todoEntryIndex + 1 > todoList.entries.size()) {
                 //We add 1 back to the todoEntry because we subtracted 1 from it above. (Basically, we make it human readable again)
-                sendMessage(e, ":x: The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`");
+                e.getChannel().sendMessageAsync(":x: The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`", null);
                 return;
             }
 
@@ -561,7 +561,8 @@ public class TodoCommand extends Command {
                 todoEntry.checked = completed;
             }
 
-            sendMessage(e, ":white_check_mark: Item `" + (todoEntryIndex + 1) + "` in `" + label + "` was marked as **" + (completed ? "completed**" : "incomplete**"));
+            e.getChannel()
+             .sendMessageAsync(":white_check_mark: Item `" + (todoEntryIndex + 1) + "` in `" + label + "` was marked as **" + (completed ? "completed**" : "incomplete**"), null);
         }
     }
 
@@ -572,12 +573,12 @@ public class TodoCommand extends Command {
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list.", null);
             return;
         }
 
         if (!todoList.isAuthUser(e.getAuthor())) {
-            sendMessage(e, ":x: Sorry, you do not have permission to lock or unlock the `" + label + "` todo list.");
+            e.getChannel().sendMessageAsync(":x: Sorry, you do not have permission to lock or unlock the `" + label + "` todo list.", null);
             return;
         }
 
@@ -589,7 +590,7 @@ public class TodoCommand extends Command {
         setTodoListLocked.clearParameters();
 
         todoList.locked = locked;
-        sendMessage(e, ":white_check_mark: The `" + label + "` todo list was `" + (locked ? "locked`" : "unlocked`"));
+        e.getChannel().sendMessageAsync(":white_check_mark: The `" + label + "` todo list was `" + (locked ? "locked`" : "unlocked`"), null);
     }
 
     //alias users add [ListName] @mention @mention ...
@@ -603,19 +604,19 @@ public class TodoCommand extends Command {
         String label = args[3].toLowerCase();
         TodoList todoList = todoLists.get(label);
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list.", null);
             return;
         }
 
         switch (action) {
             case "add": {
                 if (!todoList.ownerId.equals(e.getAuthor().getId())) {
-                    sendMessage(e, ":x: Sorry, but only the Owner of a list has permission add users to a todo list.");
+                    e.getChannel().sendMessageAsync(":x: Sorry, but only the Owner of a list has permission add users to a todo list.", null);
                     return;
                 }
 
                 if (e.getMessage().getMentionedUsers().size() == 0) {
-                    sendMessage(e, ":x: No users were specified to add to the `" + label + "` todo list.");
+                    e.getChannel().sendMessageAsync(":x: No users were specified to add to the `" + label + "` todo list.", null);
                     return;
                 }
 
@@ -634,17 +635,17 @@ public class TodoCommand extends Command {
                     }
                 }
 
-                sendMessage(e, ":white_check_mark: Added **" + addedUsers + "** users to the `" + label + "` todo list.");
+                e.getChannel().sendMessageAsync(":white_check_mark: Added **" + addedUsers + "** users to the `" + label + "` todo list.", null);
                 break;
             }
             case "remove": {
                 if (!todoList.ownerId.equals(e.getAuthor().getId())) {
-                    sendMessage(e, ":x: Sorry, but only the Owner of a list has permission remove users from a todo list.");
+                    e.getChannel().sendMessageAsync(":x: Sorry, but only the Owner of a list has permission remove users from a todo list.", null);
                     return;
                 }
 
                 if (e.getMessage().getMentionedUsers().size() == 0) {
-                    sendMessage(e, ":x: No users were specified to add to the `" + label + "` todo list.");
+                    e.getChannel().sendMessageAsync(":x: No users were specified to add to the `" + label + "` todo list.", null);
                     return;
                 }
 
@@ -663,7 +664,7 @@ public class TodoCommand extends Command {
                     }
                 }
 
-                sendMessage(e, ":white_check_mark: Removed **" + removedUsers + "** users from the `" + label + "` todo list.");
+                e.getChannel().sendMessageAsync(":white_check_mark: Removed **" + removedUsers + "** users from the `" + label + "` todo list.", null);
                 break;
             }
             case "list": {
@@ -687,12 +688,12 @@ public class TodoCommand extends Command {
                 }
                 if (todoList.allowedUsers.isEmpty())
                     builder.appendString(" - None.");
-                sendMessage(e, builder.build());
+                e.getChannel().sendMessageAsync(builder.build(), null);
                 break;
             }
             default: {
-                sendMessage(e, ":x: Sorry, the provided sub-action argument for the `users` action is not recognized. " +
-                        "Provided argument: `" + action + "`");
+                e.getChannel().sendMessageAsync(":x: Sorry, the provided sub-action argument for the `users` action is not recognized. " +
+                                                        "Provided argument: `" + action + "`", null);
             }
         }
     }
@@ -704,12 +705,12 @@ public class TodoCommand extends Command {
         String label = args[2];
         TodoList todoList = todoLists.get(label);
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list.", null);
             return;
         }
 
         if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
-            sendMessage(e, ":x: Sorry, the `" + label + "` todo list is locked and you do not have permission to modify it.");
+            e.getChannel().sendMessageAsync(":x: Sorry, the `" + label + "` todo list is locked and you do not have permission to modify it.", null);
             return;
         }
 
@@ -727,7 +728,7 @@ public class TodoCommand extends Command {
                 clearedEntries++;
             }
         }
-        sendMessage(e, ":white_check_mark: Cleared **" + clearedEntries + "** completed entries from the `" + label + "` todo list.");
+        e.getChannel().sendMessageAsync(":white_check_mark: Cleared **" + clearedEntries + "** completed entries from the `" + label + "` todo list.", null);
     }
 
     //alias remove [ListName]
@@ -737,28 +738,32 @@ public class TodoCommand extends Command {
         String label = args[2].toLowerCase();
         TodoList todoList = todoLists.get(label);
         if (todoList == null) {
-            sendMessage(e, ":x: Sorry, `" + label + "` isn't a known todo list.");
+            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known todo list.", null);
             allowRemove = false;
             listToRemove = "";
             return;
         }
 
         if (todoList.locked && !todoList.isAuthUser(e.getAuthor())) {
-            sendMessage(e, ":x: Sorry, the `" + label + "` todo list is locked and you do not have permission to modify it.");
+            e.getChannel().sendMessageAsync(":x: Sorry, the `" + label + "` todo list is locked and you do not have permission to modify it.", null);
             allowRemove = false;
             listToRemove = "";
             return;
         }
 
         if (!allowRemove) {
-            sendMessage(e, ":name_badge: :name_badge: :name_badge: Are you sure you want to permanently delete the TodoList `" + label + "` ? If so, run the command again. :name_badge: :name_badge: :name_badge:");
+            e.getChannel()
+             .sendMessageAsync(":name_badge: :name_badge: :name_badge: Are you sure you want to permanently delete the TodoList `" + label + "` ? If so, run the command again. " +
+                                       ":name_badge: :name_badge: :name_badge:", null);
             allowRemove = true;
             listToRemove = label;
             return;
         }
 
         if (!listToRemove.equals(label)) {
-            sendMessage(e, ":name_badge: :name_badge: :name_badge: Be careful!! you almost permanently deleted the TodoList `" + label + "` by accident! :name_badge: :name_badge: :name_badge:");
+            e.getChannel()
+             .sendMessageAsync(":name_badge: :name_badge: :name_badge: Be careful!! you almost permanently deleted the TodoList `" + label + "` by accident! :name_badge: " +
+                                       ":name_badge: :name_badge:", null);
             allowRemove = false;
             listToRemove = "";
             return;
@@ -771,7 +776,7 @@ public class TodoCommand extends Command {
         removeTodoList.clearParameters();
 
         todoLists.remove(label);
-        sendMessage(e, ":white_check_mark: Deleted the `" + label + "` todo list.");
+        e.getChannel().sendMessageAsync(":white_check_mark: Deleted the `" + label + "` todo list.", null);
         allowRemove = false;
     }
 

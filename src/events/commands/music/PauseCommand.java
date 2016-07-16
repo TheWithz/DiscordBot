@@ -23,7 +23,7 @@ public class PauseCommand extends Command {
             return;
         }
         AudioUtil.player.pause();
-        event.getChannel().sendMessage(":white_check_mark: playback has been paused.");
+        event.getChannel().sendMessageAsync(":white_check_mark: playback has been paused.", null);
     }
 
     @Override

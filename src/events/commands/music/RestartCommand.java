@@ -16,19 +16,19 @@ public class RestartCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            sendMessage(event, ":x: Cannot restart a song if there hasn't been a song played yet.");
+            event.getChannel().sendMessageAsync(":x: Cannot restart a song if there hasn't been a song played yet.", null);
             return;
         }
         if (player.isStopped()) {
             if (player.getPreviousAudioSource() != null) {
                 player.reload(true);
-                event.getChannel().sendMessage(":white_check_mark: The previous song has been restarted.");
+                event.getChannel().sendMessageAsync(":white_check_mark: The previous song has been restarted.", null);
             } else {
-                event.getChannel().sendMessage(":x: The player has never played a song, so it cannot restart a song.");
+                event.getChannel().sendMessageAsync(":x: The player has never played a song, so it cannot restart a song.", null);
             }
         } else {
             player.reload(true);
-            event.getChannel().sendMessage(":white_check_mark: The currently playing song has been restarted!");
+            event.getChannel().sendMessageAsync(":white_check_mark: The currently playing song has been restarted!", null);
         }
     }
 

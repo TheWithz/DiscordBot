@@ -23,13 +23,13 @@ public class PrintQueueCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (AudioUtil.player == null) {
-            sendMessage(event, ":x: Cannot show the queue of a playlist that hasn't been created yet!");
+            event.getChannel().sendMessageAsync(":x: Cannot show the queue of a playlist that hasn't been created yet!", null);
             return;
         }
         if (args.length == 1) {
             java.util.List<AudioSource> queue = AudioUtil.player.getAudioQueue();
             if (queue.isEmpty()) {
-                event.getChannel().sendMessage(":x: The queue is currently empty!");
+                event.getChannel().sendMessageAsync(":x: The queue is currently empty!", null);
                 return;
             }
 
@@ -65,19 +65,17 @@ public class PrintQueueCommand extends Command {
             builder.appendString("\n:white_check_mark: Total Queue Time Length: " + AudioTimestamp.fromSeconds(totalSeconds).getTimestamp());
             if (error)
                 builder.appendString(":x: `An error occured calculating total time. Might not be completely valid.`");
-            event.getChannel().sendMessage(builder.build());
+            event.getChannel().sendMessageAsync(builder.build(), null);
         } else if (args.length == 2 && args[1].equals("playlists")) {
             try {
                 StringBuilder builder = new StringBuilder();
                 JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("resources/Playlists.json"))));
-                obj.keySet().stream().forEach(jsonKey -> {
-                    builder.append("[ **");
-                    builder.append(obj.getString(jsonKey));
-                    builder.append("** ]");
-                    builder.append('\n');
-                    builder.append("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-                });
-                event.getChannel().sendMessage(builder.toString());
+                obj.keySet().forEach(jsonKey -> builder.append("[ **")
+                                                       .append(obj.getString(jsonKey))
+                                                       .append("** ]")
+                                                       .append('\n')
+                                                       .append("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"));
+                event.getChannel().sendMessageAsync(builder.toString(), null);
             } catch (IOException e) {
                 e.printStackTrace();
             }

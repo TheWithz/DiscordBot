@@ -24,7 +24,7 @@ public class PlayCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (AudioUtil.player == null) {
-            sendMessage(event, ":x: You cannot play songs without establishing an audio connection first.");
+            event.getChannel().sendMessageAsync(":x: You cannot play songs without establishing an audio connection first.", null);
             return;
         }
 
@@ -41,8 +41,8 @@ public class PlayCommand extends Command {
                 handlePlaylist(event, args);
                 break;
             default:
-                sendMessage(event, ":x: Unknown Action argument: `" + args[1] + "` was provided. " +
-                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+                event.getChannel().sendMessageAsync(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
                 break;
         }
 
@@ -50,17 +50,17 @@ public class PlayCommand extends Command {
 
     private void handlePlay(MessageReceivedEvent event) {
         if (AudioUtil.player.isPlaying()) {
-            event.getChannel().sendMessage(":x: player is already playing!");
+            event.getChannel().sendMessageAsync(":x: player is already playing!", null);
         } else if (AudioUtil.player.isPaused()) {
             AudioUtil.player.play();
-            event.getChannel().sendMessage(":white_check_mark: playback as been resumed.");
+            event.getChannel().sendMessageAsync(":white_check_mark: playback as been resumed.", null);
         } else {
             if (AudioUtil.player.getAudioQueue().isEmpty())
                 event.getChannel()
-                     .sendMessage(":x: The current audio queue is empty! Add something to the queue first!");
+                     .sendMessageAsync(":x: The current audio queue is empty! Add something to the queue first!", null);
             else {
                 AudioUtil.player.play();
-                event.getChannel().sendMessage(":white_check_mark: player has started playing!");
+                event.getChannel().sendMessageAsync(":white_check_mark: player has started playing!", null);
             }
         }
     }
@@ -75,7 +75,7 @@ public class PlayCommand extends Command {
                     JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Playlists.json"))));
                     handleUrl(event, new String[]{args[0], "url", obj.getString(args[2].toLowerCase())});
                 } catch (IOException e) {
-                    sendMessage(event, e.getMessage());
+                    event.getChannel().sendMessageAsync(e.getMessage(), null);
                 }
             }
         };
@@ -93,8 +93,8 @@ public class PlayCommand extends Command {
 //                AudioSource source = new LocalSource(new File(url));
 //                AudioInfo info = source.getInfo();   //Preload the audio info.
         if (sources.size() > 1) {
-            event.getChannel().sendMessage(":white_check_mark: Found a playlist with **" + sources.size() + "** entries.\n" +
-                                                   "Proceeding to gather information and queue sources. This may take some time...");
+            event.getChannel().sendMessageAsync(":white_check_mark: Found a playlist with **" + sources.size() + "** entries.\n" +
+                                                        "Proceeding to gather information and queue sources. This may take some time...", null);
             final MusicPlayer fPlayer = AudioUtil.player;
             Thread thread = new Thread() {
                 @Override
@@ -109,12 +109,12 @@ public class PlayCommand extends Command {
                                 fPlayer.play();
                         } else {
                             event.getChannel()
-                                 .sendMessage(":x: Error detected, skipping source. Error:\n" + info.getError());
+                                 .sendMessageAsync(":x: Error detected, skipping source. Error:\n" + info.getError(), null);
                             it.remove();
                         }
                     }
                     event.getChannel()
-                         .sendMessage(":white_check_mark: Finished queuing provided playlist. Successfully queued **" + sources.size() + "** sources");
+                         .sendMessageAsync(":white_check_mark: Finished queuing provided playlist. Successfully queued **" + sources.size() + "** sources", null);
                 }
             };
             thread.start();
@@ -128,10 +128,10 @@ public class PlayCommand extends Command {
                     AudioUtil.player.play();
                     msg += " and the player has started playing";
                 }
-                event.getChannel().sendMessage(msg + ".");
+                event.getChannel().sendMessageAsync(msg + ".", null);
             } else {
-                event.getChannel().sendMessage(":x: There was an error while loading the provided URL.\n" +
-                                                       "Error: " + info.getError());
+                event.getChannel().sendMessageAsync(":x: There was an error while loading the provided URL.\n" +
+                                                            "Error: " + info.getError(), null);
             }
         }
     }

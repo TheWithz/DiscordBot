@@ -51,9 +51,9 @@ public class RandomNumberCommand extends Command {
         RunBot.checkArgs(args, 1, ":x: No Integer was provided. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
         try {
             long rnum = (long) (Long.parseLong(args[1]) * Math.random() + 1);
-            e.getChannel().sendMessage(":white_check_mark: your number is: " + rnum);
+            e.getChannel().sendMessageAsync(":white_check_mark: your number is: " + rnum, null);
         } catch (NumberFormatException error) {
-            e.getChannel().sendMessage(":x: either your number is too big or you have not input an integer");
+            e.getChannel().sendMessageAsync(":x: either your number is too big or you have not input an integer", null);
         }
     }
 }

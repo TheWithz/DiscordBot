@@ -40,7 +40,7 @@ public class EvalCommand extends Command {
         RunBot.checkArgs(args, 1, ":x: No language was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
         if (e.getAuthor().isBot()) {
-            sendMessage(e, ":x: Bots cannot use this command, for obvious reasons.");
+            e.getChannel().sendMessageAsync(":x: Bots cannot use this command, for obvious reasons.", null);
             return;
         }
 
@@ -57,8 +57,8 @@ public class EvalCommand extends Command {
                 handleThue(e, new DiscordAsOutputStream(e.getTextChannel()), args);
                 break;
             default:
-                sendMessage(e, ":x: Unknown Language argument: `" + args[2] + "` was provided. " +
-                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.");
+                e.getChannel().sendMessageAsync(":x: Unknown Language argument: `" + args[2] + "` was provided. " +
+                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
                 break;
         }
     }
@@ -80,7 +80,15 @@ public class EvalCommand extends Command {
             Object value = null;
             try {
                 System.setOut(new PrintStream(outStream));
-                value = shell.evaluate(args[2]);
+                value = shell.evaluate(new StringBuilder().append("import java.util.*;\n")
+                                                          .append("import java.math.*;\n")
+                                                          .append("import java.net.*;\n")
+                                                          .append("import java.io.*;\n")
+                                                          .append("import java.util.concurrent.*;\n")
+                                                          .append("import java.time.*;\n")
+                                                          .append("import java.lang.*;\n")
+                                                          .append(args[2])
+                                                          .toString());
                 System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
             } catch (RuntimeException exception) {
                 System.out.println(":no_entry: **Did not compile!**");

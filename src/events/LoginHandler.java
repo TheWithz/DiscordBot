@@ -20,7 +20,8 @@ public class LoginHandler extends ListenerAdapter {
         if (event.isPrivate())
             event.getAuthor()
                  .getPrivateChannel()
-                 .sendMessage("I am sorry, but sending invites to bots has been deprecated. However if You really want me to join your server follow this URL \nhttps://discordapp.com/oauth2/authorize?&client_id=168796197396545537&scope=bot&permissions=0");
+                 .sendMessageAsync("I am sorry, but sending invites to bots has been deprecated. However if You really want me to join your server follow this URL " +
+                                           "\nhttps://discordapp.com/oauth2/authorize?&client_id=168796197396545537&scope=bot&permissions=0", null);
     }
 
     @Override

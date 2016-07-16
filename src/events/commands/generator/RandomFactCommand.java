@@ -63,7 +63,7 @@ public class RandomFactCommand extends Command {
             a.add(scanner.nextLine());
         }
         int rnum = (int) (a.size() * Math.random());
-        e.getChannel().sendMessage(":white_check_mark: " + a.get(rnum));
+        e.getChannel().sendMessageAsync(":white_check_mark: " + a.get(rnum), null);
         scanner.close();
     }
 

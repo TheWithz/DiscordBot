@@ -28,7 +28,7 @@ public class JoinCommand extends Command {
                 vChan -> vChan.getName().equalsIgnoreCase(chanName))
                                     .findFirst().orElse(null);  //If there isn't a matching name, return null.
         if (channel == null) {
-            event.getChannel().sendMessage(":x: There isn't a VoiceChannel in this Guild with the name: '" + chanName + "'");
+            event.getChannel().sendMessageAsync(":x: There isn't a VoiceChannel in this Guild with the name: '" + chanName + "'", null);
             return;
         }
         if (manager != null && manager.isConnected()) {
@@ -36,20 +36,20 @@ public class JoinCommand extends Command {
             AudioUtil.setManagerAndPlayer(event);
             AudioUtil.manager.moveAudioConnection(channel);
             event.getChannel()
-                 .sendMessage(String.format(":white_check_mark: Successfully moved from **{**`%1$s`**}**`/`**(**`%2$s`**)** to **{**`%3$s`**}**`/`**(**`%4$s`**)**",
-                                            prevGuild,
-                                            prevChannel,
-                                            event.getGuild().getName(),
-                                            chanName));
+                 .sendMessageAsync(String.format(":white_check_mark: Successfully moved from **{**`%1$s`**}**`/`**(**`%2$s`**)** to **{**`%3$s`**}**`/`**(**`%4$s`**)**",
+                                                 prevGuild,
+                                                 prevChannel,
+                                                 event.getGuild().getName(),
+                                                 chanName), null);
             return;
         }
         AudioUtil.setManagerAndPlayer(event);
         manager.openAudioConnection(channel);
         prevChannel = chanName;
         event.getChannel()
-             .sendMessage(String.format(":white_check_mark: Successfully joined **{**`%1$s`**}**`/`**(**`%2$s`**)**",
-                                        event.getGuild().getName(),
-                                        chanName));
+             .sendMessageAsync(String.format(":white_check_mark: Successfully joined **{**`%1$s`**}**`/`**(**`%2$s`**)**",
+                                             event.getGuild().getName(),
+                                             chanName), null);
     }
 
     @Override

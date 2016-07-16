@@ -34,7 +34,7 @@ public class DiscordAsOutputStream extends OutputStream {
     public void myPrint() {
         if (finalOutput.length() > 0) {
             if (finalOutput.length() <= 2000)
-                outChannel.sendMessage(finalOutput.toString());
+                outChannel.sendMessageAsync(finalOutput.toString(), null);
             else
                 RunBot.printAsFile(outChannel, finalOutput, "EvalOutput");
         }

@@ -14,7 +14,7 @@ public class SkipCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         AudioUtil.player.skipToNext();
-        event.getChannel().sendMessage(":white_check_mark: Skipped the current song.");
+        event.getChannel().sendMessageAsync(":white_check_mark: Skipped the current song.", null);
     }
 
     @Override

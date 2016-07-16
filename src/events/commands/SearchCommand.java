@@ -31,8 +31,8 @@ public class SearchCommand extends Command {
 //        }
 
         StringBuilder builder = new StringBuilder();
-        Arrays.asList(args).stream().forEach(builder::append);
-        sendMessage(e, BashCommand.runLinuxCommand("python3 google.py " + builder.toString()).toString());
+        Arrays.asList(args).forEach(builder::append);
+        e.getChannel().sendMessageAsync(BashCommand.runLinuxCommand("python google.py " + builder.toString()).toString(), null);
     }
 
     @Override

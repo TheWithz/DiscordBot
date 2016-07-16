@@ -104,7 +104,7 @@ public class RunBot {
                 if (LogHandler.logGrouper.size() >= 8) {
                     StringBuilder builder = new StringBuilder();
                     LogHandler.logGrouper.forEach(builder::append);
-                    RunBot.LOG.sendMessage(builder.toString());
+                    RunBot.LOG.sendMessageAsync(builder.toString(), null);
                     LogHandler.logGrouper.clear();
                 }
             }
@@ -142,27 +142,27 @@ public class RunBot {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        channel.sendFile(file, new MessageBuilder().appendCodeBlock(fileName, "java").build());
+        channel.sendFileAsync(file, new MessageBuilder().appendCodeBlock(fileName, "java").build(), null);
         return file.delete();
     }
 
     public static void checkArgs(String[] args, int index, String failMessage, MessageReceivedEvent e) {
         if (args.length < (index + 1)) {
-            e.getChannel().sendMessage(failMessage);
+            e.getChannel().sendMessageAsync(failMessage, null);
             throw new IllegalArgumentException(failMessage);
         }
     }
 
     public static void checkArgs(String[] args, int index, String failMessage, TextChannel tc) {
         if (args.length < (index + 1)) {
-            tc.sendMessage(failMessage);
+            tc.sendMessageAsync(failMessage, null);
             throw new IllegalArgumentException(failMessage);
         }
     }
 
     public static boolean OpRequired(MessageReceivedEvent e) {
         if (!Permissions.getPermissions().isOp(e.getAuthor())) {
-            e.getChannel().sendMessage(RunBot.OP_REQUIRED);
+            e.getChannel().sendMessageAsync(RunBot.OP_REQUIRED, null);
             return true;
         }
         return false;
@@ -170,7 +170,7 @@ public class RunBot {
 
     public static boolean OwnerRequired(MessageReceivedEvent e) {
         if (!e.getAuthor().getId().equals("122764399961309184")) {
-            e.getChannel().sendMessage(RunBot.OWNER_REQUIRED);
+            e.getChannel().sendMessageAsync(RunBot.OWNER_REQUIRED, null);
             return true;
         }
         return false;

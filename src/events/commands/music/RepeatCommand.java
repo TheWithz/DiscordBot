@@ -16,19 +16,19 @@ public class RepeatCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            sendMessage(event, ":x: Cannot repeat a song if there is no song playing.");
+            event.getChannel().sendMessageAsync(":x: Cannot repeat a song if there is no song playing.", null);
             return;
         }
         if (player.isShuffle()) {
-            event.getChannel().sendMessage(":x: Cannot repeat a song if shuffle is **on**.");
+            event.getChannel().sendMessageAsync(":x: Cannot repeat a song if shuffle is **on**.", null);
             return;
         }
         if (player.isRepeat()) {
             player.setRepeat(false);
-            event.getChannel().sendMessage(":white_check_mark: The player has been set to **not** repeat.");
+            event.getChannel().sendMessageAsync(":white_check_mark: The player has been set to **not** repeat.", null);
         } else {
             player.setRepeat(true);
-            event.getChannel().sendMessage(":white_check_mark: The player been set to repeat.");
+            event.getChannel().sendMessageAsync(":white_check_mark: The player been set to repeat.", null);
         }
     }
 
