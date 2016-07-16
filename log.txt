@@ -25620,3 +25620,30 @@ Pong! Took 0.122176118ms.
 [[11:26:53:072][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
 [[11:26:55:169][fishyfing]](ID:116079569349378049) Wrote message in channel/guild [general](Discord Bots)```
 [2016-07-16 15:26:57.920] [Discord Bots#TC:general(110373943822540800)] FishBot: I cannot do that, I lack the "Manage Nicknames" permission.
+[2016-07-16 15:27:09.225] [ProgramDevelopment#TC:bot_development(147169039049949184)] TheWithzBot: 
+***TheWithz*** / **DiscordBot** (master) https://github.com/TheWithz/DiscordBot
+`367933f6c043ac2d56e3a0dd3d2ec94884d18b73` added url to githandler new commit found message [Nathan Withers]
+[2016-07-16 15:27:15.906] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Lubbock: 
+@Lubbot ```js
+bot.registerCommand('penis', '8==========D overrides old penis')
+```
+[2016-07-16 15:27:16.268] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Lubbot: :exclamation: **Error:** _You have already registered a command for penis_
+[2016-07-16 15:27:17.713] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: dt:register
+[2016-07-16 15:27:18.004] [Discord Bots#TC:testing-^_`(113743192305827841)] dTeams: @Jayden, :warning: The server **Discord Bots** (`110373943822540800`) is already registered
+[2016-07-16 15:27:26.423] [Discord Bots#TC:ultimate-shitposting(119222314964353025)] Lubbock: aw
+[2016-07-16 15:27:33.736] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: dt:register
+[2016-07-16 15:27:34.031] [Discord Bots#TC:testing-^_`(113743192305827841)] dTeams: @Jayden, :warning: The server **Discord Bots** (`110373943822540800`) is already registered
+[2016-07-16 15:27:34.600] [ProgramDevelopment#TC:logtest(193015102817959936)] TheWithzBot: 
+```md
+[[11:26:57:991][FishBot]](ID:158124575706578944) Wrote message in channel/guild [general](Discord Bots)``````md
+[[11:27:09:264][TheWithzBot]](ID:168796303726215168) Wrote message in channel/guild [bot_development](ProgramDevelopment)``````md
+[[11:27:16:048][Lubbock]](ID:100382580146196480) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:27:16:385][Lubbot]](ID:171077610556751872) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:27:17:762][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:27:18:057][dTeams]](ID:203881093043060738) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:27:26:474][Lubbock]](ID:100382580146196480) Wrote message in channel/guild [ultimate-shitposting](Discord Bots)``````md
+[[11:27:34:330][Jayden]](ID:154748625350688768) Wrote message in channel/guild [testing-^_`](Discord Bots)``````md
+[[11:27:34:331][dTeams]](ID:203881093043060738) Wrote message in channel/guild [testing-^_`](Discord Bots)```
+[2016-07-16 15:27:40.819] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: y u break
+[2016-07-16 15:27:48.968] [Discord Bots#TC:testing-^_`(113743192305827841)] Jayden: dt:register
+[2016-07-16 15:27:49.543] [Discord Bots#TC:testing-^_`(113743192305827841)] dTeams: @Jayden, :thumbsup: Registered server: **Discord Bots** (`110373943822540800`)
