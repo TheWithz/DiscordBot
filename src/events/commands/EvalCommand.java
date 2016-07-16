@@ -35,19 +35,25 @@ public class EvalCommand extends Command {
     public void onCommand(MessageReceivedEvent e, String[] args) {
         RunBot.checkArgs(args, 1, ":x: No language was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
-        if (RunBot.OwnerRequired(e))
+        if (e.getAuthor().isBot()) {
+            sendMessage(e, ":x: Bots cannot use this command, for obvious reasons.");
             return;
+        }
 
         switch (args[1]) {
             case "java":
             case "groovy":
             case "javascript":
+                if (RunBot.OwnerRequired(e))
+                    return;
                 handleJava(e, new DiscordAsOutputStream(e.getTextChannel()), args);
                 break;
             case "python":
                 handlePython(e, args);
                 break;
             case "thue":
+                if (RunBot.OwnerRequired(e))
+                    return;
                 handleThue(e, new DiscordAsOutputStream(e.getTextChannel()), args);
                 break;
             default:
@@ -57,55 +63,58 @@ public class EvalCommand extends Command {
         }
     }
 
-    private Object handleJava(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
-        RunBot.checkArgs(args, 2, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+    private void handleJava(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
+        Thread k = new Thread(() -> {
+            RunBot.checkArgs(args, 2, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
-        Binding binding = new Binding();
-        binding.setVariable("event", e);
-        binding.setVariable("channel", e.getChannel());
-        binding.setVariable("args", args);
-        binding.setVariable("jda", e.getJDA());
-        binding.setVariable("bot", RunBot.BOT);
-        GroovyShell shell = new GroovyShell(binding);
+            Binding binding = new Binding();
+            binding.setVariable("event", e);
+            binding.setVariable("channel", e.getChannel());
+            binding.setVariable("args", args);
+            binding.setVariable("jda", e.getJDA());
+            binding.setVariable("bot", RunBot.BOT);
+            GroovyShell shell = new GroovyShell(binding);
 
-        // redirect output:
-        PrintStream oldOut = System.out;
-        Object value = null;
-        try {
-            System.setOut(new PrintStream(outStream));
-            value = shell.evaluate(args[1]);
-            System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
-        } catch (RuntimeException exception) {
-            System.out.println(":no_entry: **Did not compile!**");
-            System.out.println("```java\n" + exception.getMessage() + "```");
-        } finally {
-            System.setOut(oldOut);
-            outStream.myPrint();
-        }
-        return value;
+            // redirect output:
+            PrintStream oldOut = System.out;
+            Object value = null;
+            try {
+                System.setOut(new PrintStream(outStream));
+                value = shell.evaluate(args[2]);
+                System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
+            } catch (RuntimeException exception) {
+                System.out.println(":no_entry: **Did not compile!**");
+                System.out.println("```java\n" + exception.getMessage() + "```");
+            } finally {
+                System.setOut(oldOut);
+                outStream.myPrint();
+            }
+        });
+        k.start();
     }
 
     private void handlePython(MessageReceivedEvent e, String[] args) {
-        RunBot.checkArgs(args, 2, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+        Thread k = new Thread(() -> {
+            RunBot.checkArgs(args, 2, ":x: No code was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
-        File f = new File("Template.py");
+            File f = new File("Template.py");
 
-        try {
-            // Create Python file
-            f.createNewFile();
-            f.deleteOnExit();
-            OutputStream stream = new BufferedOutputStream(new FileOutputStream(f));
-            stream.write(StringUtils.join(args, " ", 2, args.length).getBytes());
-            stream.close();
+            try {
+                // Create Python file
+                f.createNewFile();
+                f.deleteOnExit();
+                OutputStream stream = new BufferedOutputStream(new FileOutputStream(f));
+                stream.write(StringUtils.join(args, " ", 2, args.length).getBytes());
+                stream.close();
 
-            // Start process
-            ProcessBuilder builder = new ProcessBuilder();
-            builder.command("python", f.getName());
-            Process p = builder.start();
+                // Start process
+                ProcessBuilder builder = new ProcessBuilder();
+                builder.command("python", f.getName());
+                Process p = builder.start();
 
-            // Create Stream Scanner
-            Scanner sc = new Scanner(p.getInputStream());
-            Scanner scErr = new Scanner(p.getErrorStream());
+                // Create Stream Scanner
+                Scanner sc = new Scanner(p.getInputStream());
+                Scanner scErr = new Scanner(p.getErrorStream());
             /*ChannelListener listener = new ChannelListener(event.channel, 1, m -> { // input
                 try
 				{
@@ -116,31 +125,33 @@ public class EvalCommand extends Command {
 				}
 			});*/
 
-            // Read streams
-            Thread t = new Thread(() -> {
-                if (sc.hasNext() || scErr.hasNext()) {
-                    if (sc.hasNext())
-                        e.getChannel().sendMessageAsync(read(sc), null);
-                    if (scErr.hasNext())
-                        e.getChannel().sendMessageAsync(":no_entry: " + read(scErr), null);
-                } else
-                    e.getChannel().sendMessageAsync(":white_check_mark:", null);
-            }, "PythonEval-Read");
-            t.start();
+                // Read streams
+                Thread t = new Thread(() -> {
+                    if (sc.hasNext() || scErr.hasNext()) {
+                        if (sc.hasNext())
+                            e.getChannel().sendMessageAsync(read(sc), null);
+                        if (scErr.hasNext())
+                            e.getChannel().sendMessageAsync(":no_entry: " + read(scErr), null);
+                    } else
+                        e.getChannel().sendMessageAsync(":white_check_mark:", null);
+                }, "PythonEval-Read");
+                t.start();
 
-            // Destroy Process
-            if (p.waitFor(1, TimeUnit.MINUTES))
-                p.destroy();
-            else {
-                p.destroyForcibly();
-                e.getChannel().sendMessageAsync(":x: Process has been terminated. Exceeded time limit.", null);
+                // Destroy Process
+                if (p.waitFor(1, TimeUnit.MINUTES))
+                    p.destroy();
+                else {
+                    p.destroyForcibly();
+                    e.getChannel().sendMessageAsync(":x: Process has been terminated. Exceeded time limit.", null);
+                }
+                //listener.shutdown();
+                //e.getChannel().sendMessageAsync("Process Destroyed", null);
+            } catch (Exception ex) {
+                e.getChannel().sendMessageAsync(":x: Something went wrong trying to eval your query.", null);
+                e.getChannel().sendMessageAsync("```python\n" + ex.getMessage() + "```", null);
             }
-            //listener.shutdown();
-            //e.getChannel().sendMessageAsync("Process Destroyed", null);
-        } catch (Exception ex) {
-            e.getChannel().sendMessageAsync(":x: Something went wrong trying to eval your query.", null);
-            e.getChannel().sendMessageAsync("```python\n" + ex.getMessage() + "```", null);
-        }
+        });
+        k.start();
     }
 
     private static String read(Scanner in) {
@@ -157,28 +168,30 @@ public class EvalCommand extends Command {
     }
 
     private void handleThue(MessageReceivedEvent e, DiscordAsOutputStream outStream, String[] args) {
-        RunBot.checkArgs(args, 2, ":x: No rules were specified. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
-        RunBot.checkArgs(args, 3, ":x: No content was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
-        RunBot.checkArgs(args, 4, ":x: Show_steps was not specified as true or false. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+        Thread k = new Thread(() -> {
+            RunBot.checkArgs(args, 2, ":x: No rules were specified. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+            RunBot.checkArgs(args, 3, ":x: No content was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
+            RunBot.checkArgs(args, 4, ":x: Show_steps was not specified as true or false. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
-        // redirect output:
-        PrintStream oldOut = System.out;
-        Object value;
-        try {
-            System.setOut(new PrintStream(outStream));
-            value = BashCommand.runLinuxCommand(String.format("python ThueInterpreter.py %1$s:::%2$s %3$s",
-                                                              args[2].replace(" ", ""),
-                                                              args[3],
-                                                              args[4]));
-            System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
-        } catch (RuntimeException exception) {
-            System.out.println(":no_entry: **Did not compile!**");
-            System.out.println("```java\n" + exception.getMessage() + "```");
-        } finally {
-            System.setOut(oldOut);
-            outStream.myPrint();
-        }
-
+            // redirect output:
+            PrintStream oldOut = System.out;
+            Object value;
+            try {
+                System.setOut(new PrintStream(outStream));
+                value = BashCommand.runLinuxCommand(String.format("python ThueInterpreter.py %1$s:::%2$s %3$s",
+                                                                  args[2].replace(" ", ""),
+                                                                  args[3],
+                                                                  args[4]));
+                System.out.println(":white_check_mark: **Compiled without errors!** \n" + ((value == null) ? "The above code did not return anything." : value));
+            } catch (RuntimeException exception) {
+                System.out.println(":no_entry: **Did not compile!**");
+                System.out.println("```java\n" + exception.getMessage() + "```");
+            } finally {
+                System.setOut(oldOut);
+                outStream.myPrint();
+            }
+        });
+        k.start();
     }
 
     @Override

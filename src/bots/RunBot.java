@@ -108,7 +108,7 @@ public class RunBot {
                     LogHandler.logGrouper.clear();
                 }
             }
-        }, 0, 1000); // runs every 5 seconds *i think*
+        }, 0, 1500); // runs every 5 seconds *i think*
     }
 
     public static String getUptime() {
