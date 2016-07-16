@@ -32,6 +32,8 @@ public class JsonCommand extends Command {
                 handleSave(event, args);
                 break;
             case "remove":
+                if (RunBot.OwnerRequired(event))
+                    return;
                 handleRemove(event, args);
                 break;
             case "delete":
@@ -52,12 +54,12 @@ public class JsonCommand extends Command {
     }
 
     private void handleDelete(MessageReceivedEvent event, String[] args) {
-        RunBot.checkArgs(args, 2, ":x: No json was specified to delete. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+        RunBot.checkArgs(args, 2, ":x: No json file was specified to delete. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         if (!allowRemove) {
             event.getChannel()
-                 .sendMessageAsync(":name_badge: :name_badge: :name_badge: Are you sure you want to permanently delete the json file " + args[2] + "If so, run the command again. " +
-                                           ":name_badge: :name_badge: :name_badge:", null);
+                 .sendMessageAsync(":name_badge: :name_badge: :name_badge: Are you sure you want to permanently delete the json file " + args[2] + " If so, run the command again" +
+                                           ". :name_badge: :name_badge: :name_badge:", null);
             allowRemove = true;
             fileToRemove = args[2];
             return;
@@ -76,7 +78,7 @@ public class JsonCommand extends Command {
             BashCommand.runLinuxCommand("rm " + args[2]);
             event.getChannel().sendMessageAsync(":white_check_mark: the json file " + args[2] + " was successfully deleted.", null);
         } catch (IOException e) {
-            event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);
+            event.getChannel().sendMessageAsync(":x: The Specified file to delete `" + args[2] + "` does not exist.", null);
             allowRemove = false;
         }
 
@@ -97,11 +99,6 @@ public class JsonCommand extends Command {
     private void handleRemove(MessageReceivedEvent event, String[] args) {
         RunBot.checkArgs(args, 2, ":x: No json was specified to remove from. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
         RunBot.checkArgs(args, 3, ":x: No key was specified to remove. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
-
-        if (args[2].equals("Config.json")) {
-            if (RunBot.OwnerRequired(event))
-                return;
-        }
 
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get(args[2]))));
