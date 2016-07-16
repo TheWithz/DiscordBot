@@ -114,12 +114,17 @@ public class JsonCommand extends Command {
     private void handleMakeNewJson(MessageReceivedEvent event, String[] args) {
         RunBot.checkArgs(args, 2, ":x: No json was specified to create. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
+        if (args[2].contains("\\") || args[2].contains("/")) {
+            event.getChannel().sendMessageAsync(":x: Nice try. :joy:", null);
+            return;
+        }
+
         JSONObject obj = new JSONObject();
         try {
             Files.write(Paths.get(args[2]), obj.toString(4).getBytes());
             event.getChannel().sendMessageAsync(":white_check_mark: new json `" + args[2] + "` was generated successfully.", null);
         } catch (IOException e1) {
-            event.getChannel().sendMessageAsync(":x: new json `" + args[2] + "` was **not** generated successfully.```" + e1.getMessage() + "```", null);
+            event.getChannel().sendMessageAsync(":x: new json `" + args[2] + "` was **not** generated successfully.", null);
         }
     }
 
