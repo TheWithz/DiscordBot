@@ -520,9 +520,9 @@ public class TodoCommand extends Command {
             return;
         }
 
-        String todoEntryString = args[3];
+        String[] todoEntryStrings = StringUtils.join(args, " ", 3, args.length).split("\\s+");
 
-        if (todoEntryString.equals("*")) {
+        if (todoEntryStrings.length == 1 && todoEntryStrings[0].equals("*")) {
             PreparedStatement setTodoEntryChecked = Database.getInstance().getStatement(SET_TODO_ENTRIES_CHECKED);
             setTodoEntryChecked.setBoolean(1, completed);
             setTodoEntryChecked.setInt(2, todoList.id);
@@ -532,15 +532,15 @@ public class TodoCommand extends Command {
             todoList.entries.forEach(todoEntry -> todoEntry.checked = completed);
 
             e.getChannel().sendMessageAsync(":white_check_mark: Set all entries in the `" + label + "` todo list to **" + (completed ? "complete**" : "incomplete**"), null);
-        } else {
+        } else if (todoEntryStrings.length == 1) {
             int todoEntryIndex;
             try {
                 //We subtract 1 from the provided value because entries are listed from 1 and higher.
                 // People don't start counting from 0, so when we display the list of entries, we start from.
                 // This means that the entry index they enter will actually be 1 greater than the actual entry.
-                todoEntryIndex = Integer.parseInt(todoEntryString) - 1;
+                todoEntryIndex = Integer.parseInt(todoEntryStrings[0]) - 1;
             } catch (NumberFormatException ex) {
-                e.getChannel().sendMessageAsync(":x: The provided value as an index to mark was not a number. Value provided: `" + todoEntryString + "`", null);
+                e.getChannel().sendMessageAsync(":x: The provided value as an index to mark was not a number. Value provided: `" + todoEntryStrings[0] + "`", null);
                 return;
             }
 
@@ -563,6 +563,38 @@ public class TodoCommand extends Command {
 
             e.getChannel()
              .sendMessageAsync(":white_check_mark: Item `" + (todoEntryIndex + 1) + "` in `" + label + "` was marked as **" + (completed ? "completed**" : "incomplete**"), null);
+        } else {
+            ArrayList<Integer> todoEntryIndexs = new ArrayList<>();
+            //We subtract 1 from the provided value because entries are listed from 1 and higher.
+            // People don't start counting from 0, so when we display the list of entries, we start from.
+            // This means that the entry index they enter will actually be 1 greater than the actual entry.
+            Arrays.asList(todoEntryStrings).forEach(ts -> todoEntryIndexs.add(Integer.parseInt(ts) - 1));
+
+            for (Integer todoEntryIndex : todoEntryIndexs) {
+                if (todoEntryIndex < 0 || todoEntryIndex + 1 > todoList.entries.size()) {
+                    //We add 1 back to the todoEntry because we subtracted 1 from it above. (Basically, we make it human readable again)
+                    e.getChannel().sendMessageAsync(":x: The provided index to mark does not exist in this Todo list. Value provided: `" + (todoEntryIndex + 1) + "`", null);
+                    return;
+                }
+            }
+
+            for (Integer todoEntryIndex : todoEntryIndexs) {
+                TodoEntry todoEntry = todoList.entries.get(todoEntryIndex);
+                if (todoEntry.checked != completed) {
+                    PreparedStatement setTodoEntryChecked = Database.getInstance().getStatement(SET_TODO_ENTRY_CHECKED);
+                    setTodoEntryChecked.setBoolean(1, completed);
+                    setTodoEntryChecked.setInt(2, todoEntry.id);
+                    if (setTodoEntryChecked.executeUpdate() == 0)
+                        throw new SQLException(SET_TODO_ENTRY_CHECKED + " reported no updated rows!");
+
+                    todoEntry.checked = completed;
+                }
+            }
+
+            e.getChannel()
+             .sendMessageAsync(":white_check_mark: Items `" + todoEntryIndexs.toString() + "` in `" + label + "` was marked as **" + (completed ? "completed**" :
+                                       "incomplete**"),
+                               null);
         }
     }
 
