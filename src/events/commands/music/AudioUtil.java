@@ -1,5 +1,6 @@
 package events.commands.music;
 
+import net.dv8tion.jda.audio.AudioReceiveHandler;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.managers.AudioManager;
 import net.dv8tion.jda.player.MusicPlayer;
@@ -12,7 +13,7 @@ public class AudioUtil {
     public static AudioManager manager;
     public static MusicPlayer player;
 
-    public static void setManagerAndPlayer(MessageReceivedEvent event) {
+    public static void setManagerAndPlayerForSending(MessageReceivedEvent event) {
         manager = event.getGuild().getAudioManager();
         if (manager.getSendingHandler() == null) {
             player = new MusicPlayer();
@@ -20,6 +21,13 @@ public class AudioUtil {
             manager.setSendingHandler(player);
         } else {
             player = (MusicPlayer) manager.getSendingHandler();
+        }
+    }
+
+    public static void setManagerAndPlayerForRecieving(MessageReceivedEvent event, AudioReceiveHandler handler) {
+        manager = event.getGuild().getAudioManager();
+        if (manager.getReceiveHandler() == null) {
+            manager.setReceivingHandler(handler);
         }
     }
 }

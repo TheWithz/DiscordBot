@@ -12,6 +12,8 @@ import net.dv8tion.jda.MessageBuilder;
 import net.dv8tion.jda.entities.TextChannel;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.player.Playlist;
+import net.dv8tion.jda.player.source.RemoteSource;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,12 +23,18 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
 import java.lang.management.RuntimeMXBean;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
+
+import static net.dv8tion.jda.player.source.RemoteSource.YOUTUBE_DL_LAUNCH_ARGS;
 
 public class RunBot {
     public static JDA API = null;
@@ -176,7 +184,61 @@ public class RunBot {
         return false;
     }
 
+    private static void changeYoutubeDLArgsRemoteSourceWithReflection() {
+        List<String> originalList = YOUTUBE_DL_LAUNCH_ARGS;
+
+        List<String> modifiedList = new ArrayList<String>(originalList);
+        modifiedList.remove(0);
+        modifiedList.set(0, "youtube-dl");
+
+        Class<RemoteSource> cls = RemoteSource.class;
+
+        try {
+            Field field = cls.getDeclaredField("YOUTUBE_DL_LAUNCH_ARGS");
+            field.setAccessible(true);
+
+            Field modifiersField = Field.class.getDeclaredField("modifiers");
+            modifiersField.setAccessible(true);
+            modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+
+            field.set(null, modifiedList);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        //  System.out.println(RemoteSource.YOUTUBE_DL_LAUNCH_ARGS);
+    }
+
+    private static void changeYoutubeDLArgsPlaylistWithReflection() {
+        List<String> originalList = Playlist.YOUTUBE_DL_PLAYLIST_ARGS;
+
+        List<String> modifiedList = new ArrayList<String>(originalList);
+        modifiedList.remove(0);
+        modifiedList.set(0, "youtube-dl");
+
+        Class<Playlist> cls = Playlist.class;
+
+        try {
+            Field field = cls.getDeclaredField("YOUTUBE_DL_PLAYLIST_ARGS");
+            field.setAccessible(true);
+
+            Field modifiersField = Field.class.getDeclaredField("modifiers");
+            modifiersField.setAccessible(true);
+            modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
+
+            field.set(null, modifiedList);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        //  System.out.println(Playlist.YOUTUBE_DL_PLAYLIST_ARGS);
+    }
+
     public static void main(String[] args) {
+        changeYoutubeDLArgsPlaylistWithReflection();
+        changeYoutubeDLArgsRemoteSourceWithReflection();
         RunBot bot = new RunBot();
     }
 

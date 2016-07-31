@@ -33,7 +33,7 @@ public class JoinCommand extends Command {
         }
         if (manager != null && manager.isConnected()) {
             String prevGuild = AudioUtil.manager.getGuild().getName();
-            AudioUtil.setManagerAndPlayer(event);
+            AudioUtil.setManagerAndPlayerForSending(event);
             AudioUtil.manager.moveAudioConnection(channel);
             event.getChannel()
                  .sendMessageAsync(String.format(":white_check_mark: Successfully moved from **{**`%1$s`**}**`/`**(**`%2$s`**)** to **{**`%3$s`**}**`/`**(**`%4$s`**)**",
@@ -43,7 +43,7 @@ public class JoinCommand extends Command {
                                                  chanName), null);
             return;
         }
-        AudioUtil.setManagerAndPlayer(event);
+        AudioUtil.setManagerAndPlayerForSending(event);
         manager.openAudioConnection(channel);
         prevChannel = chanName;
         event.getChannel()

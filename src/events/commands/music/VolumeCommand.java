@@ -16,6 +16,11 @@ public class VolumeCommand extends Command {
     public void onCommand(MessageReceivedEvent event, String[] args) {
         RunBot.checkArgs(args, 1, ":x: No volume was specified to change to. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
+        if(args[1].equals("-infinity") || args[1].equals("infinity") || args[1].equals("NaN")){
+            event.getChannel().sendMessageAsync(":x: How did you know this command took a float? Anyway... please just use a number between 0 and 1.0", null);
+            return;
+        }
+
         if (AudioUtil.player == null) {
             event.getChannel().sendMessageAsync(":x: Cannot change volume of player at this time", null);
             return;

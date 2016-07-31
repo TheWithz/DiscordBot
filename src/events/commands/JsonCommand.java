@@ -104,9 +104,9 @@ public class JsonCommand extends Command {
             for (Object object : obj.keySet()) {
                 builder.append("<")
                        .append(object.toString())
-                       .append("><")
+                       .append("> : <")
                        .append(obj.get(object.toString()))
-                       .append(">\n");
+                       .append(">\n________________________________________________\n");
             }
             builder.append("```");
             event.getChannel().sendMessageAsync(builder.toString(), null);
