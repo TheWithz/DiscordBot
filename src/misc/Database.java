@@ -45,7 +45,7 @@ public class Database {
                 statement.executeUpdate("CREATE TABLE IF NOT EXISTS Ops(id VARCHAR(18))");
                 statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
                                                 "TodoLists(" +
-                                                "id INTEGER," +
+                                                "id INTEGER NOT NULL AUTO_INCREMENT," +
                                                 "label VARCHAR(50) NOT NULL," +
                                                 "owner VARCHAR(18) NOT NULL," +
                                                 "locked BOOLEAN," +
@@ -53,7 +53,7 @@ public class Database {
                                                 ")");
                 statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
                                                 "TodoEntries(" +
-                                                "id INTEGER," +
+                                                "id INTEGER NOT NULL AUTO_INCREMENT," +
                                                 "listId INTEGER," +
                                                 "content TEXT NOT NULL," +
                                                 "checked BOOLEAN," +
@@ -69,39 +69,39 @@ public class Database {
                                                 ")");
                 statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
                                                 "Tags(" +
-                                                "id INTEGER," +
+                                                "id INTEGER NOT NULL AUTO_INCREMENT," +
                                                 "label TEXT NOT NULL," +
                                                 "content TEXT NOT NULL," +
                                                 "PRIMARY KEY (id)" +
                                                 ")");
 
                 //Permissions
-                preparedStatements.put(Permissions.ADD_OP, conn.prepareStatement("REPLACE INTO Ops (id) VALUES (?)"));
-                preparedStatements.put(Permissions.GET_OPS, conn.prepareStatement("SELECT id FROM Ops"));
-                preparedStatements.put(Permissions.REMOVE_OPS, conn.prepareStatement("DELETE FROM Ops WHERE id = ?"));
+                preparedStatements.put(Permissions.ADD_OP, conn.prepareStatement("REPLACE INTO Ops (id) VALUES (?)", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(Permissions.GET_OPS, conn.prepareStatement("SELECT id FROM Ops", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(Permissions.REMOVE_OPS, conn.prepareStatement("DELETE FROM Ops WHERE id = ?", Statement.RETURN_GENERATED_KEYS));
 
                 //TodoCommand
-                preparedStatements.put(TodoCommand.ADD_TODO_LIST, conn.prepareStatement("INSERT INTO TodoLists (label, owner, locked) VALUES (?, ?, ?)"));
-                preparedStatements.put(TodoCommand.ADD_TODO_ENTRY, conn.prepareStatement("INSERT INTO TodoEntries (listId, content, checked) VALUES (?, ?, ?)"));
-                preparedStatements.put(TodoCommand.ADD_TODO_USER, conn.prepareStatement("INSERT INTO TodoUsers (listId, userId) VALUES (?, ?)"));
-                preparedStatements.put(TodoCommand.EDIT_TODO_ENTRY, conn.prepareStatement("UPDATE TodoEntries SET content = ? WHERE listId = ? AND id = ?"));
-                preparedStatements.put(TodoCommand.GET_TODO_LISTS, conn.prepareStatement("SELECT id, label, owner, locked FROM TodoLists"));
-                preparedStatements.put(TodoCommand.GET_TODO_ENTRIES, conn.prepareStatement("SELECT id, content, checked FROM TodoEntries WHERE listId = ?"));
-                preparedStatements.put(TodoCommand.GET_TODO_USERS, conn.prepareStatement("SELECT userId FROM TodoUsers WHERE listId = ?"));
-                preparedStatements.put(TodoCommand.SET_TODO_LIST_LOCKED, conn.prepareStatement("UPDATE TodoListS SET locked = ? WHERE id = ?"));
-                preparedStatements.put(TodoCommand.SET_TODO_ENTRY_CHECKED, conn.prepareStatement("UPDATE TodoEntries SET checked = ? WHERE id = ?"));
-                preparedStatements.put(TodoCommand.SET_TODO_ENTRIES_CHECKED, conn.prepareStatement("UPDATE TodoEntries SET checked = ? WHERE listId = ?"));
-                preparedStatements.put(TodoCommand.REMOVE_TODO_LIST, conn.prepareStatement("DELETE FROM TodoLists WHERE id = ?"));
-                preparedStatements.put(TodoCommand.REMOVE_TODO_ENTRY, conn.prepareStatement("DELETE FROM TodoEntries WHERE id = ?"));
-                preparedStatements.put(TodoCommand.REMOVE_TODO_USER, conn.prepareStatement("DELETE FROM TodoUsers WHERE listId = ? AND userId = ?"));
+                preparedStatements.put(TodoCommand.ADD_TODO_LIST, conn.prepareStatement("INSERT INTO TodoLists (label, owner, locked) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.ADD_TODO_ENTRY, conn.prepareStatement("INSERT INTO TodoEntries (listId, content, checked) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.ADD_TODO_USER, conn.prepareStatement("INSERT INTO TodoUsers (listId, userId) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.EDIT_TODO_ENTRY, conn.prepareStatement("UPDATE TodoEntries SET content = ? WHERE listId = ? AND id = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.GET_TODO_LISTS, conn.prepareStatement("SELECT id, label, owner, locked FROM TodoLists", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.GET_TODO_ENTRIES, conn.prepareStatement("SELECT id, content, checked FROM TodoEntries WHERE listId = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.GET_TODO_USERS, conn.prepareStatement("SELECT userId FROM TodoUsers WHERE listId = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.SET_TODO_LIST_LOCKED, conn.prepareStatement("UPDATE TodoListS SET locked = ? WHERE id = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.SET_TODO_ENTRY_CHECKED, conn.prepareStatement("UPDATE TodoEntries SET checked = ? WHERE id = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.SET_TODO_ENTRIES_CHECKED, conn.prepareStatement("UPDATE TodoEntries SET checked = ? WHERE listId = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.REMOVE_TODO_LIST, conn.prepareStatement("DELETE FROM TodoLists WHERE id = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.REMOVE_TODO_ENTRY, conn.prepareStatement("DELETE FROM TodoEntries WHERE id = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TodoCommand.REMOVE_TODO_USER, conn.prepareStatement("DELETE FROM TodoUsers WHERE listId = ? AND userId = ?", Statement.RETURN_GENERATED_KEYS));
 
                 //TagCommand
-                preparedStatements.put(TagCommand.ADD_TAG, conn.prepareStatement("INSERT INTO Tags (label, content) VALUES (?, ?)"));
-                preparedStatements.put(TagCommand.EDIT_TAG_LABEL, conn.prepareStatement("UPDATE Tags SET label = ? WHERE id = ? AND label = ?"));
-                preparedStatements.put(TagCommand.EDIT_TAG_CONTENT, conn.prepareStatement("UPDATE Tags SET content = ? WHERE id = ? AND label = ?"));
-                preparedStatements.put(TagCommand.GET_TAG, conn.prepareStatement("SELECT content FROM Tags WHERE id = ? AND label = ?"));
-                preparedStatements.put(TagCommand.GET_TAGS, conn.prepareStatement("SELECT id, label, content FROM Tags"));
-                preparedStatements.put(TagCommand.REMOVE_TAG, conn.prepareStatement("DELETE FROM Tags WHERE id = ?"));
+                preparedStatements.put(TagCommand.ADD_TAG, conn.prepareStatement("INSERT INTO Tags (label, content) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TagCommand.EDIT_TAG_LABEL, conn.prepareStatement("UPDATE Tags SET label = ? WHERE id = ? AND label = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TagCommand.EDIT_TAG_CONTENT, conn.prepareStatement("UPDATE Tags SET content = ? WHERE id = ? AND label = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TagCommand.GET_TAG, conn.prepareStatement("SELECT content FROM Tags WHERE id = ? AND label = ?", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TagCommand.GET_TAGS, conn.prepareStatement("SELECT id, label, content FROM Tags", Statement.RETURN_GENERATED_KEYS));
+                preparedStatements.put(TagCommand.REMOVE_TAG, conn.prepareStatement("DELETE FROM Tags WHERE id = ?", Statement.RETURN_GENERATED_KEYS));
 
             } catch (SQLException e) {
                 e.printStackTrace();

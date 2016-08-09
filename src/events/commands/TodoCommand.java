@@ -139,7 +139,7 @@ public class TodoCommand extends Command {
 
     private void refreshTodoChannel(MessageReceivedEvent e, String[] args) {
         TextChannel tc = RunBot.API.getTextChannelById("193539094410690561");
-        Message message = tc.getMessageById("203919282260803586");
+        Message message = tc.getMessageById("212593620618838017");
         StringBuilder msg = getBotFeaturesShowMessage(tc, args);
         if (message != null) {
             message.updateMessageAsync(msg == null ? ":x: The message returned null." : msg.toString(), null);
