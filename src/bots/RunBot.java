@@ -47,6 +47,7 @@ public class RunBot {
     public static final Region REGION = Region.NA;
 
     public RunBot() {
+        //SimpleLog.LEVEL = SimpleLog.Level.DEBUG;
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
 
@@ -116,7 +117,7 @@ public class RunBot {
                     LogHandler.logGrouper.clear();
                 }
             }
-        }, 0, 1500); // runs every 5 seconds *i think*
+        }, 0, 500); // runs every 5 seconds *i think*
     }
 
     public static String getUptime() {

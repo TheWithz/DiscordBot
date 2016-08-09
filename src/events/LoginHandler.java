@@ -31,7 +31,7 @@ public class LoginHandler extends ListenerAdapter {
         RunBot.BOT = API.getUserById(API.getSelfInfo().getId());
         RunBot.LOG = RunBot.API.getTextChannelById("193015102817959936");
         API.getAccountManager().setGame("JDA");
-        LeagueHandler.startTimer();
+        //LeagueHandler.startTimer();
         GitHandler.startTimer();
         RunBot.OWNER_REQUIRED = ":no_entry: Only " + RunBot.API.getUserById("122764399961309184").getAsMention() + " can use this command";
         try {
