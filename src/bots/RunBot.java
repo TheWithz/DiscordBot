@@ -1,7 +1,10 @@
 package bots;
 
 import com.robrua.orianna.type.core.common.Region;
-import events.*;
+import events.LeagueHandler;
+import events.LogHandler;
+import events.LoginHandler;
+import events.TerminalHandler;
 import events.commands.*;
 import events.commands.generator.*;
 import events.commands.music.*;
@@ -14,6 +17,7 @@ import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.player.Playlist;
 import net.dv8tion.jda.player.source.RemoteSource;
+import net.dv8tion.jda.utils.SimpleLog;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,7 +51,7 @@ public class RunBot {
     public static final Region REGION = Region.NA;
 
     public RunBot() {
-        //SimpleLog.LEVEL = SimpleLog.Level.DEBUG;
+        SimpleLog.LEVEL = SimpleLog.Level.DEBUG;
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
 
@@ -57,7 +61,7 @@ public class RunBot {
                                   .addListener(new LogHandler())
                                   .addListener(new TerminalHandler())
                                   .addListener(new LeagueHandler(obj.getString("riotApiToken")))
-                                  .addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName")))
+                                  //.addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName")))
                                   .addListener(help.registerCommand(help, Permissions.Perm.EVERYONE))
                                   .addListener(help.registerCommand(new TranslateCommand(), Permissions.Perm.OP_ONLY))
                                   .addListener(help.registerCommand(new CalculatorCommand(), Permissions.Perm.EVERYONE))
@@ -117,7 +121,7 @@ public class RunBot {
                     LogHandler.logGrouper.clear();
                 }
             }
-        }, 0, 500); // runs every 5 seconds *i think*
+        }, 0, 250);
     }
 
     public static String getUptime() {

@@ -17,7 +17,7 @@
     <orderEntry type="library" name="Python 3.5.1+ (/usr/bin/python3.5) interpreter library" level="application" />
     <orderEntry type="library" name="Maven: com.memetix:microsoft-translator-java-api:0.6.2" level="project" />
     <orderEntry type="library" name="Maven: com.googlecode.json-simple:json-simple:1.1" level="project" />
-    <orderEntry type="library" name="Maven: net.dv8tion:JDA:2.2.0_345" level="project" />
+    <orderEntry type="library" name="Maven: net.dv8tion:JDA:2.2.1_358" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.jaadec:jaad:0.8.5" level="project" />
     <orderEntry type="library" name="Maven: jflac:jflac:1.3" level="project" />
     <orderEntry type="library" name="Maven: com.mashape.unirest:unirest-java:1.4.7" level="project" />
