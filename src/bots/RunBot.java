@@ -1,10 +1,7 @@
 package bots;
 
 import com.robrua.orianna.type.core.common.Region;
-import events.LeagueHandler;
-import events.LogHandler;
-import events.LoginHandler;
-import events.TerminalHandler;
+import events.*;
 import events.commands.*;
 import events.commands.generator.*;
 import events.commands.music.*;
@@ -61,7 +58,7 @@ public class RunBot {
                                   .addListener(new LogHandler())
                                   .addListener(new TerminalHandler())
                                   .addListener(new LeagueHandler(obj.getString("riotApiToken")))
-                                  //.addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName")))
+                                  .addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName")))
                                   .addListener(help.registerCommand(help, Permissions.Perm.EVERYONE))
                                   .addListener(help.registerCommand(new TranslateCommand(), Permissions.Perm.OP_ONLY))
                                   .addListener(help.registerCommand(new CalculatorCommand(), Permissions.Perm.EVERYONE))

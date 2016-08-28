@@ -26,12 +26,23 @@ import net.dv8tion.jda.hooks.ListenerAdapter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by TheWithz on 2/21/16.
  */
 public class LogHandler extends ListenerAdapter {
+    private static final Timer TIMER = new Timer();
     public static ArrayList<String> logGrouper = new ArrayList<>();
+
+    public LogHandler() {
+        TIMER.schedule(new TimerTask() {
+            public void run() {
+
+            }
+        }, 0, 250);
+    }
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
