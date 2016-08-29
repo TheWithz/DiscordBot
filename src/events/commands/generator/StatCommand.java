@@ -14,7 +14,7 @@ import java.util.List;
 public class StatCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        event.getChannel().sendMessageAsync(RunBot.getUptime(),null);
+        System.out.println("add pulling from database stuff");
     }
 
     @Override

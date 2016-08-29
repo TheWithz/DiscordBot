@@ -1,11 +1,12 @@
 package events.commands;
 
 import misc.Permissions;
-import net.dv8tion.jda.MessageBuilder;
+import misc.Statistics;
 import net.dv8tion.jda.entities.Message;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -30,8 +31,14 @@ public abstract class Command extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent e) {
-        if (e.getMessage().getContent().length() > 0 && containsCommand(e.getMessage()))
+        if (e.getMessage().getContent().length() > 0 && containsCommand(e.getMessage())) {
+            try {
+                Statistics.ranCommand(e.getGuild().getId(), commandArgs(e.getMessage())[0].substring(3));
+            } catch (SQLException e1) {
+                e1.printStackTrace();
+            }
             onCommand(e, commandArgs(e.getMessage()));
+        }
     }
 
     private boolean containsCommand(Message message) {
@@ -45,17 +52,6 @@ public abstract class Command extends ListenerAdapter {
     private String[] commandArgs(String string) {
         ArgParse parser = new ArgParse();
         return parser.parse(string);
-    }
-
-    protected Message sendMessage(MessageReceivedEvent e, Message message) {
-        if (e.isPrivate())
-            return e.getPrivateChannel().sendMessage(message);
-        else
-            return e.getTextChannel().sendMessage(message);
-    }
-
-    protected Message sendMessage(MessageReceivedEvent e, String message) {
-        return sendMessage(e, new MessageBuilder().appendString(message).build());
     }
 
     public Command registerPermission(Permissions.Perm permission) {

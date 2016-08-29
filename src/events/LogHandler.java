@@ -1,15 +1,14 @@
 package events;
 
 import bots.RunBot;
+import misc.Statistics;
 import net.dv8tion.jda.entities.User;
 import net.dv8tion.jda.events.audio.AudioRegionChangeEvent;
 import net.dv8tion.jda.events.audio.AudioTimeoutEvent;
 import net.dv8tion.jda.events.audio.AudioUnableToConnectEvent;
 import net.dv8tion.jda.events.channel.text.*;
 import net.dv8tion.jda.events.channel.voice.*;
-import net.dv8tion.jda.events.guild.GuildAvailableEvent;
-import net.dv8tion.jda.events.guild.GuildUnavailableEvent;
-import net.dv8tion.jda.events.guild.GuildUpdateEvent;
+import net.dv8tion.jda.events.guild.*;
 import net.dv8tion.jda.events.guild.member.*;
 import net.dv8tion.jda.events.guild.role.*;
 import net.dv8tion.jda.events.message.MessageReceivedEvent;
@@ -23,6 +22,7 @@ import net.dv8tion.jda.events.user.UserOnlineStatusUpdateEvent;
 import net.dv8tion.jda.events.voice.*;
 import net.dv8tion.jda.hooks.ListenerAdapter;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -46,7 +46,12 @@ public class LogHandler extends ListenerAdapter {
 
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
-
+        super.onMessageReceived(event);
+        try {
+            Statistics.sentMessage(event.getGuild().getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -503,5 +508,25 @@ public class LogHandler extends ListenerAdapter {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss:SSS");
         Date resultdate = new Date(yourmilliseconds);
         return sdf.format(resultdate);
+    }
+
+    @Override
+    public void onGuildJoin(GuildJoinEvent event) {
+        super.onGuildJoin(event);
+        try {
+            Statistics.joinedLeftGuild();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onGuildLeave(GuildLeaveEvent event) {
+        super.onGuildLeave(event);
+        try {
+            Statistics.joinedLeftGuild();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -22,8 +22,6 @@ import javax.security.auth.login.LoginException;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
-import java.lang.management.ManagementFactory;
-import java.lang.management.RuntimeMXBean;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.nio.file.Files;
@@ -33,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import static net.dv8tion.jda.player.source.RemoteSource.YOUTUBE_DL_LAUNCH_ARGS;
 
@@ -118,28 +115,7 @@ public class RunBot {
                     LogHandler.logGrouper.clear();
                 }
             }
-        }, 0, 250);
-    }
-
-    public static String getUptime() {
-        RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
-        long uptime = rb.getUptime();
-
-        long days = TimeUnit.MILLISECONDS.toDays(uptime);
-        uptime -= TimeUnit.DAYS.toMillis(days);
-
-        long hours = TimeUnit.MILLISECONDS.toHours(uptime);
-        uptime -= TimeUnit.HOURS.toMillis(hours);
-
-        long minutes = TimeUnit.MILLISECONDS.toMinutes(uptime);
-        uptime -= TimeUnit.MINUTES.toMillis(minutes);
-
-        long seconds = TimeUnit.MILLISECONDS.toSeconds(uptime);
-
-        return "**Uptime:** " + days + (days != 1L ? " days " : " day ") +
-                hours + (hours != 1L ? " hours " : " hour ") +
-                minutes + (minutes != 1L ? " minutes " : " minute ") +
-                seconds + (seconds != 1L ? " seconds " : " second");
+        }, 0, 50);
     }
 
     public static boolean printAsFile(TextChannel channel, StringBuilder b, String fileName) {

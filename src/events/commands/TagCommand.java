@@ -69,9 +69,6 @@ public class TagCommand extends Command {
                 case "print":
                     handleList(e);
                     break;
-                case "owner":
-                    handleOwner(e, args);
-                    break;
                 default:
                     e.getChannel().sendMessageAsync(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
                                                             "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
@@ -270,10 +267,6 @@ public class TagCommand extends Command {
             builder.append(i + 1).append(") ").append(labels.get(i)).append("\n");
         }
         e.getChannel().sendMessageAsync(builder.append("```").toString(), null);
-    }
-
-    private void handleOwner(MessageReceivedEvent e, String[] args) {
-        //todo: 6/23/16 consider tying ownership to tags
     }
 
     private static class Tag {
