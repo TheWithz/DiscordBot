@@ -67,11 +67,26 @@ public class Database {
                                             "PRIMARY KEY (id)" +
                                             ")");
             statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
-                                            "Statistics(" +
+                                            "Messages(" +
                                             "id INTEGER NOT NULL AUTO_INCREMENT," +
                                             "messages INTEGER," +
+                                            "PRIMARY KEY (id)" +
+                                            ")");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
+                                            "Guilds(" +
+                                            "id INTEGER NOT NULL AUTO_INCREMENT," +
                                             "guilds INTEGER," +
-                                            "uptime BIGINT," +
+                                            "PRIMARY KEY (id)" +
+                                            ")");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
+                                            "Uptime(" +
+                                            "id INTEGER NOT NULL AUTO_INCREMENT," +
+                                            "uptime VARCHAR(64)," +
+                                            "PRIMARY KEY (id)" +
+                                            ")");
+            statement.executeUpdate("CREATE TABLE IF NOT EXISTS " +
+                                            "Commands(" +
+                                            "id INTEGER NOT NULL AUTO_INCREMENT," +
                                             "commands INTEGER," +
                                             "PRIMARY KEY (id)" +
                                             ")");
@@ -104,13 +119,13 @@ public class Database {
             preparedStatements.put(TagCommand.GET_TAGS, conn.prepareStatement("SELECT id, label, content FROM Tags", Statement.RETURN_GENERATED_KEYS));
             preparedStatements.put(TagCommand.REMOVE_TAG, conn.prepareStatement("DELETE FROM Tags WHERE id = ?", Statement.RETURN_GENERATED_KEYS));
 
-            //TagCommand
-            preparedStatements.put(Statistics.GET_MESSAGES_RECEIVED, conn.prepareStatement("SELECT messages FROM Statistics", Statement.RETURN_GENERATED_KEYS));
-            preparedStatements.put(Statistics.GET_COMMANDS_RUN, conn.prepareStatement("SELECT commands FROM Statistics", Statement.RETURN_GENERATED_KEYS));
-            preparedStatements.put(Statistics.EDIT_MESSAGES_RECEIVED, conn.prepareStatement("UPDATE Statistics SET messages = ?", Statement.RETURN_GENERATED_KEYS));
-            preparedStatements.put(Statistics.EDIT_COMMANDS_RUN, conn.prepareStatement("UPDATE Statistics SET commands = ?", Statement.RETURN_GENERATED_KEYS));
-            preparedStatements.put(Statistics.EDIT_GUILDS_JOINED, conn.prepareStatement("UPDATE Statistics SET guilds = ?", Statement.RETURN_GENERATED_KEYS));
-            preparedStatements.put(Statistics.EDIT_UPTIME, conn.prepareStatement("UPDATE Statistics SET uptime = ?", Statement.RETURN_GENERATED_KEYS));
+            //Statistics
+            preparedStatements.put(Statistics.GET_MESSAGES_RECEIVED, conn.prepareStatement("SELECT messages FROM Messages", Statement.RETURN_GENERATED_KEYS));
+            preparedStatements.put(Statistics.GET_COMMANDS_RUN, conn.prepareStatement("SELECT commands FROM Commands", Statement.RETURN_GENERATED_KEYS));
+            preparedStatements.put(Statistics.EDIT_MESSAGES_RECEIVED, conn.prepareStatement("UPDATE Messages SET messages = ?", Statement.RETURN_GENERATED_KEYS));
+            preparedStatements.put(Statistics.EDIT_COMMANDS_RUN, conn.prepareStatement("UPDATE Commands SET commands = ?", Statement.RETURN_GENERATED_KEYS));
+            preparedStatements.put(Statistics.EDIT_GUILDS_JOINED, conn.prepareStatement("UPDATE Guilds SET guilds = ?", Statement.RETURN_GENERATED_KEYS));
+            preparedStatements.put(Statistics.EDIT_UPTIME, conn.prepareStatement("UPDATE Uptime SET uptime = ?", Statement.RETURN_GENERATED_KEYS));
         } catch (IOException | InstantiationException | IllegalAccessException | SQLException e) {
             e.printStackTrace();
         }

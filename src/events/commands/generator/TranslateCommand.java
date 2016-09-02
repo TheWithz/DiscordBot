@@ -58,16 +58,16 @@ public class TranslateCommand extends Command {
     }
 
     private void generateTranslatedText(MessageReceivedEvent event, String[] commandArguments) {
-        RunBot.checkArgs(commandArguments, 2, ":x: No language was specified to translate from. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
-        RunBot.checkArgs(commandArguments, 3, ":x: No language was specified to translate to. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
-        RunBot.checkArgs(commandArguments, 4, ":x: No Content was specified to translate. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+        RunBot.checkArgs(commandArguments, 1, ":x: No language was specified to translate from. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+        RunBot.checkArgs(commandArguments, 2, ":x: No language was specified to translate to. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
+        RunBot.checkArgs(commandArguments, 3, ":x: No Content was specified to translate. See " + RunBot.PREFIX + "help " + getAliases().get(0), event);
 
         //Set your Windows Azure Marketplace client info - See http:msdn.microsoft.com/en-us/library/hh454950.aspx
         Translate.setClientId(MICROSOFT_CLIENT_ID);
         Translate.setClientSecret(MICROSOFT_CLIENT_SECRET);
         String translatedText = null;
         try {
-            translatedText = Translate.execute(StringUtils.join(commandArguments, " ", 4, commandArguments.length), Language.valueOf(commandArguments[1].toUpperCase()), Language
+            translatedText = Translate.execute(StringUtils.join(commandArguments, " ", 3, commandArguments.length), Language.valueOf(commandArguments[1].toUpperCase()), Language
                     .valueOf(commandArguments[2].toUpperCase()));
         } catch (Exception e) {
             event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);

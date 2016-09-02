@@ -32,6 +32,15 @@ public abstract class Command extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent e) {
         if (e.getMessage().getContent().length() > 0 && containsCommand(e.getMessage())) {
+            if (e.isPrivate()) {
+                try {
+                    Statistics.ranCommand(e.getAuthor().getId(), commandArgs(e.getMessage())[0].substring(3));
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+                onCommand(e, commandArgs(e.getMessage()));
+                return;
+            }
             try {
                 Statistics.ranCommand(e.getGuild().getId(), commandArgs(e.getMessage())[0].substring(3));
             } catch (SQLException e1) {

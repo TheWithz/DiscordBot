@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 public class Statistics {
@@ -41,21 +42,21 @@ public class Statistics {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-//        TIMER.schedule(new TimerTask() {
-//            public void run() {
-//                try {
-//                    PreparedStatement editUptime = Database.getInstance().getStatement(EDIT_UPTIME);
-//                    editUptime.setLong(1, getUptime());
-//                    if (editUptime.executeUpdate() == 0)
-//                        throw new SQLException(EDIT_UPTIME + " reported no modified rows!");
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        }, 0, 5000);
+        TIMER.schedule(new TimerTask() {
+            public void run() {
+                try {
+                    PreparedStatement editUptime = Database.getInstance().getStatement(EDIT_UPTIME);
+                    editUptime.setString(1, getUptime());
+                    if (editUptime.executeUpdate() == 0)
+                        throw new SQLException(EDIT_UPTIME + " reported no modified rows!");
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, 0, 250);
     }
 
-    public synchronized static void ranCommand(String guildId, String command) throws SQLException {
+    public static void ranCommand(String guildId, String command) throws SQLException {
         commandsRun++;
         PreparedStatement editCommandsRun = Database.getInstance().getStatement(EDIT_COMMANDS_RUN);
         editCommandsRun.setInt(1, commandsRun);
@@ -63,50 +64,47 @@ public class Statistics {
             throw new SQLException(EDIT_COMMANDS_RUN + " reported no modified rows!");
     }
 
-    public synchronized static void sentMessage(String guildId) throws SQLException {
-        System.out.println(messagesReceived);
+    public static void sentMessage(String guildId) throws SQLException {
         messagesReceived++;
-        PreparedStatement editCommandsRun = Database.getInstance().getStatement(EDIT_COMMANDS_RUN);
-        editCommandsRun.setInt(1, commandsRun);
-        if (editCommandsRun.executeUpdate() == 0)
-            throw new SQLException(EDIT_COMMANDS_RUN + " reported no modified rows!");
+        PreparedStatement editMessagesRecieved = Database.getInstance().getStatement(EDIT_MESSAGES_RECEIVED);
+        editMessagesRecieved.setInt(1, messagesReceived);
+        if (editMessagesRecieved.executeUpdate() == 0)
+            throw new SQLException(EDIT_MESSAGES_RECEIVED + " reported no modified rows!");
     }
 
-    public synchronized static void joinedLeftGuild() throws SQLException {
-        PreparedStatement editCommandsRun = Database.getInstance().getStatement(EDIT_GUILDS_JOINED);
-        editCommandsRun.setInt(1, RunBot.API.getGuilds().size());
-        if (editCommandsRun.executeUpdate() == 0)
-            throw new SQLException(EDIT_COMMANDS_RUN + " reported no modified rows!");
+    public static void joinedLeftGuild() throws SQLException {
+        PreparedStatement editGuildsJoined = Database.getInstance().getStatement(EDIT_GUILDS_JOINED);
+        editGuildsJoined.setInt(1, RunBot.API.getGuilds().size());
+        if (editGuildsJoined.executeUpdate() == 0)
+            throw new SQLException(EDIT_GUILDS_JOINED + " reported no modified rows!");
     }
 
-    public synchronized static long messagesPerHour() {
-        return (messagesReceived / (TimeUnit.MILLISECONDS.toHours(getUptime())));
-    }
+//    public static long messagesPerHour() {
+//        return (messagesReceived / (TimeUnit.MILLISECONDS.toHours(getUptime())));
+//    }
+//
+//    public static long commandsPerHour() {
+//        return (commandsRun / (TimeUnit.MILLISECONDS.toHours(getUptime())));
+//    }
 
-    public synchronized static long commandsPerHour() {
-        return (commandsRun / (TimeUnit.MILLISECONDS.toHours(getUptime())));
-    }
-
-    public static long getUptime() {
+    public static String getUptime() {
         RuntimeMXBean rb = ManagementFactory.getRuntimeMXBean();
         long uptime = rb.getUptime();
 
-        return uptime;
+        long days = TimeUnit.MILLISECONDS.toDays(uptime);
+        uptime -= TimeUnit.DAYS.toMillis(days);
 
-//        long days = TimeUnit.MILLISECONDS.toDays(uptime);
-//        uptime -= TimeUnit.DAYS.toMillis(days);
-//
-//        long hours = TimeUnit.MILLISECONDS.toHours(uptime);
-//        uptime -= TimeUnit.HOURS.toMillis(hours);
-//
-//        long minutes = TimeUnit.MILLISECONDS.toMinutes(uptime);
-//        uptime -= TimeUnit.MINUTES.toMillis(minutes);
-//
-//        long seconds = TimeUnit.MILLISECONDS.toSeconds(uptime);
+        long hours = TimeUnit.MILLISECONDS.toHours(uptime);
+        uptime -= TimeUnit.HOURS.toMillis(hours);
 
-//        return "**Uptime:** " + days + (days != 1L ? " days " : " day ") +
-//                hours + (hours != 1L ? " hours " : " hour ") +
-//                minutes + (minutes != 1L ? " minutes " : " minute ") +
-//                seconds + (seconds != 1L ? " seconds " : " second");
+        long minutes = TimeUnit.MILLISECONDS.toMinutes(uptime);
+        uptime -= TimeUnit.MINUTES.toMillis(minutes);
+
+        long seconds = TimeUnit.MILLISECONDS.toSeconds(uptime);
+
+        return "**Uptime:** " + days + (days != 1L ? " days " : " day ") +
+                hours + (hours != 1L ? " hours " : " hour ") +
+                minutes + (minutes != 1L ? " minutes " : " minute ") +
+                seconds + (seconds != 1L ? " seconds " : " second");
     }
 }

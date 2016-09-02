@@ -47,6 +47,15 @@ public class LogHandler extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         super.onMessageReceived(event);
+        if (event.isPrivate()) {
+            try {
+                Statistics.sentMessage(event.getAuthor().getId());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+
         try {
             Statistics.sentMessage(event.getGuild().getId());
         } catch (SQLException e) {
