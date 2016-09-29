@@ -108,7 +108,7 @@ public class RunBot {
         }
         TIMER.schedule(new TimerTask() {
             public void run() {
-                if (LogHandler.logGrouper.size() >= 8) {
+                if (LogHandler.logGrouper.size() >= 6) {
                     StringBuilder builder = new StringBuilder();
                     LogHandler.logGrouper.forEach(builder::append);
                     RunBot.LOG.sendMessageAsync(builder.toString(), null);
