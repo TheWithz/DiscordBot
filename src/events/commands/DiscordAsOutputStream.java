@@ -1,7 +1,7 @@
 package events.commands;
 
 import bots.RunBot;
-import net.dv8tion.jda.entities.TextChannel;
+import net.dv8tion.jda.core.entities.TextChannel;
 
 import java.io.OutputStream;
 
@@ -34,7 +34,7 @@ public class DiscordAsOutputStream extends OutputStream {
     public void myPrint() {
         if (finalOutput.length() > 0) {
             if (finalOutput.length() <= 2000)
-                outChannel.sendMessageAsync(finalOutput.toString(), null);
+                outChannel.sendMessage(finalOutput.toString()).queue();
             else
                 RunBot.printAsFile(outChannel, finalOutput, "EvalOutput");
         }

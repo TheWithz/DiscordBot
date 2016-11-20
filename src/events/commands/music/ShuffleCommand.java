@@ -2,12 +2,12 @@ package events.commands.music;
 
 import bots.RunBot;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Collections;
 import java.util.List;
 
-import static events.commands.music.AudioUtil.player;
+import static sun.audio.AudioPlayer.player;
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -16,20 +16,20 @@ public class ShuffleCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            event.getChannel().sendMessageAsync(":x: Cannot shuffle a song if there is no song playing.", null);
+            event.getChannel().sendMessage(":x: Cannot shuffle a song if there is no song playing.").queue();
             return;
         }
-        if (player.isRepeat()) {
-            event.getChannel().sendMessageAsync(":x: Cannot shuffle a playlist if repeat is **on**.", null);
-            return;
-        }
-        if (player.isShuffle()) {
-            player.setShuffle(false);
-            event.getChannel().sendMessageAsync(":white_check_mark: The player has been set to **not** shuffle.", null);
-        } else {
-            player.setShuffle(true);
-            event.getChannel().sendMessageAsync(":white_check_mark: The player been set to shuffle.", null);
-        }
+//        if (player.isRepeat()) {
+//            event.getChannel().sendMessage(":x: Cannot shuffle a playlist if repeat is **on**.").queue();
+//            return;
+//        }
+//        if (player.isShuffle()) {
+//            player.setShuffle(false);
+//            event.getChannel().sendMessage(":white_check_mark: The player has been set to **not** shuffle.").queue();
+//        } else {
+//            player.setShuffle(true);
+//            event.getChannel().sendMessage(":white_check_mark: The player been set to shuffle.").queue();
+//        }
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ShuffleCommand extends Command {
                                                                "[Example:](%1$s) This will set <%2$s's> current playlist to shuffle. Running the command again will turn shuffle " +
                                                                "off. ",
                                                        getAliases().get(0),
-                                                       RunBot.BOT.getUsername()));
+                                                       RunBot.BOT.getName()));
     }
 
     @Override

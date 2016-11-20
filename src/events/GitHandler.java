@@ -1,8 +1,8 @@
 package events;
 
 import bots.RunBot;
-import net.dv8tion.jda.entities.TextChannel;
-import net.dv8tion.jda.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import org.kohsuke.github.*;
 
 import java.io.IOException;
@@ -62,14 +62,14 @@ aa9fd8b Fixed issues when JDA received a create event for a new Private channel.
                 }
             }
             TextChannel textChannel = RunBot.API.getTextChannelById("147169039049949184");
-            textChannel.sendMessageAsync(String.format("***%1$s*** / **%2$s** (%3$s) <%4$s>\n`%5$s` %6$s [%7$s]",
+            textChannel.sendMessage(String.format("***%1$s*** / **%2$s** (%3$s) <%4$s>\n`%5$s` %6$s [%7$s]",
                                                        commit.getAuthor().getLogin(),
                                                        discordRepo.getName(),
                                                        branch.getName(),
                                                        discordRepo.getHtmlUrl(),
                                                        commit.getSHA1(),
                                                        commit.getCommitShortInfo().getMessage(),
-                                                       github.getMyself().getName()), null);
+                                                       github.getMyself().getName())).queue();
             lastCommit = discordRepo.getPushedAt();
         }
     }

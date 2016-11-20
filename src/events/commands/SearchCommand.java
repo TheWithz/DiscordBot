@@ -1,7 +1,7 @@
 package events.commands;
 
 import bots.RunBot;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,7 +32,7 @@ public class SearchCommand extends Command {
 
         StringBuilder builder = new StringBuilder();
         Arrays.asList(args).forEach(builder::append);
-        e.getChannel().sendMessageAsync(BashCommand.runLinuxCommand("python google.py " + builder.toString()).toString(), null);
+        e.getChannel().sendMessage(BashCommand.runLinuxCommand("python google.py " + builder.toString()).toString()).queue();
     }
 
     @Override

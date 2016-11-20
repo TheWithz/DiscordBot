@@ -3,8 +3,8 @@ package events.commands.generator;
 import bots.RunBot;
 import events.commands.BashCommand;
 import events.commands.Command;
-import net.dv8tion.jda.MessageBuilder;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.MessageBuilder;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.ArrayUtils;
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
@@ -34,8 +34,8 @@ public class LatexCommand extends Command {
                 handleList(event);
                 break;
             default:
-                event.getChannel().sendMessageAsync(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
-                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
+                event.getChannel().sendMessage(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.").queue();
                 break;
         }
     }
@@ -54,9 +54,9 @@ public class LatexCommand extends Command {
                        .append("\n");
             }
         } catch (IOException e) {
-            event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);
+            event.getChannel().sendMessage(":x: " + e.getMessage()).queue();
         }
-        event.getChannel().sendMessageAsync(builder.append("```").toString(), null);
+        event.getChannel().sendMessage(builder.append("```").toString()).queue();
     }
 
     private void handleShow(MessageReceivedEvent event, String[] args) {
@@ -73,8 +73,8 @@ public class LatexCommand extends Command {
                 handleRaw(event, args);
                 break;
             default:
-                event.getChannel().sendMessageAsync(":x: Unknown Modifier argument: `" + args[1] + "` was provided. " +
-                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
+                event.getChannel().sendMessage(":x: Unknown Modifier argument: `" + args[1] + "` was provided. " +
+                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.").queue();
                 break;
         }
     }
@@ -93,7 +93,11 @@ public class LatexCommand extends Command {
         System.out.println(BashCommand.runLinuxCommand("latex latex.tex"));
         // did you remember to install dvipng? make sure you do
         System.out.println(BashCommand.runLinuxCommand("dvipng -T tight -x 1200 -z 9 latex.dvi -o latex.png"));
-        event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(Arrays.toString(latex), "tex").build());
+        try {
+            event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(Arrays.toString(latex), "tex").build()).queue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void handleShowPresets(MessageReceivedEvent event, String[] args) {
@@ -116,7 +120,7 @@ public class LatexCommand extends Command {
                 event.getChannel().sendFile(new File("latex.png"), new MessageBuilder().appendCodeBlock(args[3], "tex").build());
             }
         } catch (IOException e) {
-            event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);
+            event.getChannel().sendMessage(":x: " + e.getMessage()).queue();
         }
     }
 

@@ -1,7 +1,7 @@
 package events.commands;
 
 import bots.RunBot;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedReader;
@@ -24,7 +24,7 @@ public class BashCommand extends Command {
         if (RunBot.OwnerRequired(e))
             return;
 
-        e.getChannel().sendMessageAsync(runLinuxCommand(StringUtils.join(args, " ", 1, args.length)).toString(), null);
+        e.getChannel().sendMessage(runLinuxCommand(StringUtils.join(args, " ", 1, args.length)).toString()).queue();
     }
 
     @Override
@@ -58,7 +58,7 @@ public class BashCommand extends Command {
         return Collections.singletonList(String.format("(%1$s)] <bash command>\n" +
                                                                "[Example:](%1$s) <\"touch Hello.txt\"> This will create a file called <Hello.txt> in <%2$s's> working directory",
                                                        getAliases().get(0),
-                                                       RunBot.BOT.getUsername()));
+                                                       RunBot.BOT.getName()));
     }
 
     public static StringBuilder runLinuxCommand(String com) {

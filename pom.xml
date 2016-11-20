@@ -42,13 +42,13 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>2.2.1_362</version>
+            <version>3.0.BETA_91</version>
         </dependency>
 
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>jda-player</artifactId>
-            <version>0.2.2_19</version>
+            <version>0.2.3_24</version>
         </dependency>
 
         <dependency>
@@ -88,9 +88,9 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.xerial</groupId>-->
-            <!--<artifactId>sqlite-jdbc</artifactId>-->
-            <!--<version>3.8.11.2</version>-->
+        <!--<groupId>org.xerial</groupId>-->
+        <!--<artifactId>sqlite-jdbc</artifactId>-->
+        <!--<version>3.8.11.2</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -98,6 +98,14 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.16</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.2</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.codehaus.groovy</groupId>

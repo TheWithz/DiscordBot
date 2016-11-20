@@ -1,6 +1,7 @@
 package events.commands;
 
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class MistakeCommand extends Command {
     public void onMessageReceived(MessageReceivedEvent e) {
         super.onMessageReceived(e);
         if (e.getMessage().getContent().equals("fuck")) {
-            e.getChannel().sendMessageAsync(findMatchingCommand(), null);
+            e.getChannel().sendMessage(findMatchingCommand()).queue();
         }
     }
 

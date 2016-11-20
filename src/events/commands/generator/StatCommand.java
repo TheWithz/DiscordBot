@@ -2,7 +2,7 @@ package events.commands.generator;
 
 import bots.RunBot;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -36,7 +36,8 @@ public class StatCommand extends Command {
     public List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(String.format("(%1$s)]\n" +
                                                                "[Example:](%1$s) This will print <%2$s's> statistics",
-                                                       getAliases().get(0), RunBot.BOT.getUsername()));
+                                                       getAliases().get(0),
+                                                       RunBot.BOT.getName()));
     }
 
     @Override

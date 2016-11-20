@@ -1,7 +1,7 @@
 package misc;
 
-import net.dv8tion.jda.entities.SelfInfo;
-import net.dv8tion.jda.entities.User;
+import net.dv8tion.jda.core.entities.SelfUser;
+import net.dv8tion.jda.core.entities.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -59,7 +59,7 @@ public class Permissions {
      *
      * @param bot The User object representing the currently logged in account.
      */
-    public void setBotAsOp(SelfInfo bot) {
+    public void setBotAsOp(SelfUser bot) {
         ops.add(bot.getId());
     }
 

@@ -3,11 +3,11 @@ package events;
 import bots.RunBot;
 import events.commands.ArgParse;
 import events.commands.DiscordAsOutputStream;
-import net.dv8tion.jda.entities.TextChannel;
-import net.dv8tion.jda.events.ReadyEvent;
-import net.dv8tion.jda.events.ReconnectedEvent;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.entities.TextChannel;
+import net.dv8tion.jda.core.events.ReadyEvent;
+import net.dv8tion.jda.core.events.ReconnectedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.io.BufferedReader;
 import java.io.IOException;

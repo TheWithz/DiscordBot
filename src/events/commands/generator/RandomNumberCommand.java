@@ -2,7 +2,7 @@ package events.commands.generator;
 
 import bots.RunBot;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -51,9 +51,9 @@ public class RandomNumberCommand extends Command {
         RunBot.checkArgs(args, 1, ":x: No Integer was provided. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
         try {
             long rnum = (long) (Long.parseLong(args[1]) * Math.random() + 1);
-            e.getChannel().sendMessageAsync(":white_check_mark: your number is: " + rnum, null);
+            e.getChannel().sendMessage(":white_check_mark: your number is: " + rnum).queue();
         } catch (NumberFormatException error) {
-            e.getChannel().sendMessageAsync(":x: either your number is too big or you have not input an integer", null);
+            e.getChannel().sendMessage(":x: either your number is too big or you have not input an integer").queue();
         }
     }
 }

@@ -2,9 +2,9 @@ package events.commands;
 
 import bots.RunBot;
 import misc.Permissions;
-import net.dv8tion.jda.MessageBuilder;
-import net.dv8tion.jda.entities.User;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.MessageBuilder;
+import net.dv8tion.jda.core.entities.User;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.Arrays;
@@ -30,7 +30,7 @@ public class PermissionsCommand extends Command {
 
         if (args.length < 1)    //If the command sent was just '.perms', and we removed that above, then we have an array of length 0 currently.
         {
-            e.getChannel().sendMessageAsync(":x: **Improper syntax, no permissions group provided!**", null);
+            e.getChannel().sendMessage(":x: **Improper syntax, no permissions group provided!**").queue();
             return;
         }
         switch (args[0]) {
@@ -39,12 +39,12 @@ public class PermissionsCommand extends Command {
                 processOp(e, args);
                 break;
             default:
-                e.getChannel().sendMessageAsync(new MessageBuilder()
-                                                        .appendString(":x: **Improper syntax, unrecognized permission group:** ")
-                                                        .appendString(args[0])
-                                                        .appendString("\n**Provided Command:** ")
-                                                        .appendString(e.getMessage().getContent())
-                                                        .build(), null);
+                e.getChannel().sendMessage(new MessageBuilder()
+                                                   .appendString(":x: **Improper syntax, unrecognized permission group:** ")
+                                                   .appendString(args[0])
+                                                   .appendString("\n**Provided Command:** ")
+                                                   .appendString(e.getMessage().getContent())
+                                                   .build()).queue();
         }
     }
 
@@ -88,7 +88,7 @@ public class PermissionsCommand extends Command {
 
     private void processOp(MessageReceivedEvent e, String[] args) {
         if (args.length < 2) {
-            e.getChannel().sendMessageAsync(":x: **Improper syntax, no action argument provided!**", null);
+            e.getChannel().sendMessage(":x: **Improper syntax, no action argument provided!**").queue();
             return;
         }
         switch (args[1]) {
@@ -107,53 +107,53 @@ public class PermissionsCommand extends Command {
                         builder.append(", ");
                     User user = e.getJDA().getUserById(op);
                     if (user != null)
-                        builder.append(user.getUsername());
+                        builder.append(user.getName());
                     else
                         builder.append("<@").append(op).append(">");
                     notFirstLoop = true;
                 }
                 builder.append("]");
-                e.getChannel().sendMessageAsync(builder.toString(), null);
+                e.getChannel().sendMessage(builder.toString()).queue();
                 break;
             default:
-                e.getChannel().sendMessageAsync(new MessageBuilder()
-                                                        .appendString(":x: **Improper syntax, unrecognized argument:** ")
-                                                        .appendString(args[1])
-                                                        .appendString("\n**Provided Command:** ")
-                                                        .appendString(e.getMessage().getContent())
-                                                        .build(), null);
+                e.getChannel().sendMessage(new MessageBuilder()
+                                                   .appendString(":x: **Improper syntax, unrecognized argument:** ")
+                                                   .appendString(args[1])
+                                                   .appendString("\n**Provided Command:** ")
+                                                   .appendString(e.getMessage().getContent())
+                                                   .build()).queue();
         }
     }
 
     private void processAddOp(MessageReceivedEvent e, String[] args) {
         if (args.length < 3 || e.getMessage().getMentionedUsers().isEmpty()) {
-            e.getChannel().sendMessageAsync(":x: Please provide a user!", null);
+            e.getChannel().sendMessage(":x: Please provide a user!").queue();
             return;
         }
 
         for (User user : e.getMessage().getMentionedUsers()) {
             try {
                 if (Permissions.getPermissions().addOp(user.getId())) {
-                    e.getChannel().sendMessageAsync(":white_check_mark: Successfully added " + user.getUsername() + " to the OPs list!", null);
+                    e.getChannel().sendMessage(":white_check_mark: Successfully added " + user.getName() + " to the OPs list!").queue();
                     return;
                 } else {
-                    e.getChannel().sendMessageAsync(user.getUsername() + " is already an OP!", null);
+                    e.getChannel().sendMessage(user.getName() + " is already an OP!").queue();
                     return;
                 }
             } catch (Exception e1) {
-                e.getChannel().sendMessageAsync(new MessageBuilder()
-                                                        .appendString(":x: Encountered an error when attempting to add OP.\n")
-                                                        .appendString("User: ").appendString(user.getUsername())
-                                                        .appendString("Error: ").appendString(e1.getClass().getName()).appendString("\n")
-                                                        .appendString("Reason: ").appendString(e1.getMessage())
-                                                        .build(), null);
+                e.getChannel().sendMessage(new MessageBuilder()
+                                                   .appendString(":x: Encountered an error when attempting to add OP.\n")
+                                                   .appendString("User: ").appendString(user.getName())
+                                                   .appendString("Error: ").appendString(e1.getClass().getName()).appendString("\n")
+                                                   .appendString("Reason: ").appendString(e1.getMessage())
+                                                   .build()).queue();
             }
         }
     }
 
     private void processRemoveOp(MessageReceivedEvent e, String[] args) {
         if (args.length < 3 || e.getMessage().getMentionedUsers().isEmpty()) {
-            e.getChannel().sendMessageAsync(":x: Please provide a user!", null);
+            e.getChannel().sendMessage(":x: Please provide a user!").queue();
             return;
         }
         //Pattern idPattern = Pattern.compile("(?<=<@)[0-9]{18}(?=>)");
@@ -165,19 +165,19 @@ public class PermissionsCommand extends Command {
         for (User user : e.getMessage().getMentionedUsers()) {
             try {
                 if (Permissions.getPermissions().removeOp(user.getId())) {
-                    e.getChannel().sendMessageAsync(":white_check_mark: Successfully removed " + user.getUsername() + " to the OPs list!", null);
+                    e.getChannel().sendMessage(":white_check_mark: Successfully removed " + user.getName() + " to the OPs list!").queue();
                     return;
                 } else {
-                    e.getChannel().sendMessageAsync(":x: " + user.getUsername() + " cannot be removed because they weren't an OP!", null);
+                    e.getChannel().sendMessage(":x: " + user.getName() + " cannot be removed because they weren't an OP!").queue();
                     return;
                 }
             } catch (Exception e1) {
-                e.getChannel().sendMessageAsync(new MessageBuilder()
-                                                        .appendString(":x: Encountered an error when attempting to remove OP.\n")
-                                                        .appendString("User: ").appendString(user.getUsername())
-                                                        .appendString("Error: ").appendString(e1.getClass().getName()).appendString("\n")
-                                                        .appendString("Reason: ").appendString(e1.getMessage())
-                                                        .build(), null);
+                e.getChannel().sendMessage(new MessageBuilder()
+                                                   .appendString(":x: Encountered an error when attempting to remove OP.\n")
+                                                   .appendString("User: ").appendString(user.getName())
+                                                   .appendString("Error: ").appendString(e1.getClass().getName()).appendString("\n")
+                                                   .appendString("Reason: ").appendString(e1.getMessage())
+                                                   .build()).queue();
             }
         }
     }

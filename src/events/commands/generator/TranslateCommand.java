@@ -4,7 +4,7 @@ import bots.RunBot;
 import com.memetix.mst.language.Language;
 import com.memetix.mst.translate.Translate;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
@@ -70,10 +70,10 @@ public class TranslateCommand extends Command {
             translatedText = Translate.execute(StringUtils.join(commandArguments, " ", 3, commandArguments.length), Language.valueOf(commandArguments[1].toUpperCase()), Language
                     .valueOf(commandArguments[2].toUpperCase()));
         } catch (Exception e) {
-            event.getChannel().sendMessageAsync(":x: " + e.getMessage(), null);
+            event.getChannel().sendMessage(":x: " + e.getMessage()).queue();
         }
         if (translatedText != null)
-            event.getChannel().sendMessageAsync(":white_check_mark: `" + translatedText + "`", null);
+            event.getChannel().sendMessage(":white_check_mark: `" + translatedText + "`").queue();
     }
 
 }

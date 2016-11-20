@@ -2,13 +2,13 @@ package events.commands.music;
 
 import bots.RunBot;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.player.MusicPlayer;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Collections;
 import java.util.List;
 
-import static events.commands.music.AudioUtil.player;
+import static sun.audio.AudioPlayer.player;
+
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -17,14 +17,14 @@ public class ResetCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            event.getChannel().sendMessageAsync(":x: Cannot reset the player if it hasn't been created yet!", null);
+            event.getChannel().sendMessage(":x: Cannot reset the player if it hasn't been created yet!").queue();
             return;
         }
         player.stop();
-        player = new MusicPlayer();
-        player.setVolume(AudioUtil.DEFAULT_VOLUME);
-        AudioUtil.manager.setSendingHandler(player);
-        event.getChannel().sendMessageAsync(":white_check_mark: Music player has been completely reset.", null);
+//        player = new MusicPlayer();
+//        player.setVolume(AudioUtil.DEFAULT_VOLUME);
+//        AudioUtil.manager.setSendingHandler(player);
+        event.getChannel().sendMessage(":white_check_mark: Music player has been completely reset.").queue();
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ResetCommand extends Command {
     @Override
     public List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(String.format("(%1$s)]\n" +
-                                                               "[Example:](%1$s) This will reset <%2$s's> audio player.", getAliases().get(0), RunBot.BOT.getUsername()));
+                                                               "[Example:](%1$s) This will reset <%2$s's> audio player.", getAliases().get(0), RunBot.BOT.getName()));
     }
 
     @Override

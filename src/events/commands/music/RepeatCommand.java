@@ -2,12 +2,13 @@ package events.commands.music;
 
 import bots.RunBot;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Collections;
 import java.util.List;
 
-import static events.commands.music.AudioUtil.player;
+import static sun.audio.AudioPlayer.player;
+
 
 /**
  * Created by TheWithz on 4/24/16.
@@ -16,20 +17,20 @@ public class RepeatCommand extends Command {
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
         if (player == null) {
-            event.getChannel().sendMessageAsync(":x: Cannot repeat a song if there is no song playing.", null);
+            event.getChannel().sendMessage(":x: Cannot repeat a song if there is no song playing.").queue();
             return;
         }
-        if (player.isShuffle()) {
-            event.getChannel().sendMessageAsync(":x: Cannot repeat a song if shuffle is **on**.", null);
-            return;
-        }
-        if (player.isRepeat()) {
-            player.setRepeat(false);
-            event.getChannel().sendMessageAsync(":white_check_mark: The player has been set to **not** repeat.", null);
-        } else {
-            player.setRepeat(true);
-            event.getChannel().sendMessageAsync(":white_check_mark: The player been set to repeat.", null);
-        }
+//        if (player.isShuffle()) {
+//            event.getChannel().sendMessage(":x: Cannot repeat a song if shuffle is **on**.").queue();
+//            return;
+//        }
+//        if (player.isRepeat()) {
+//            player.setRepeat(false);
+//            event.getChannel().sendMessage(":white_check_mark: The player has been set to **not** repeat.").queue();
+//        } else {
+//            player.setRepeat(true);
+//            event.getChannel().sendMessage(":white_check_mark: The player been set to repeat.").queue();
+//        }
     }
 
     @Override
@@ -53,7 +54,7 @@ public class RepeatCommand extends Command {
                                                                "[Example:](%1$s) This will set the current song <%2$s> is playing, to repeat. Running the command again will turn" +
                                                                " repeat off.",
                                                        getAliases().get(0),
-                                                       RunBot.BOT.getUsername()));
+                                                       RunBot.BOT.getName()));
     }
 
     @Override

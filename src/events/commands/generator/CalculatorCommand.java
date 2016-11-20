@@ -4,7 +4,7 @@ import bots.RunBot;
 import calculator.EvalPostfix;
 import calculator.InfixToPostfix;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,7 +17,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public void onCommand(MessageReceivedEvent e, String[] args) {
-        e.getChannel().sendMessageAsync(calculate(args), null);
+        e.getChannel().sendMessage(calculate(args)).queue();
     }
 
     @Override

@@ -3,7 +3,7 @@ package events.commands;
 import bots.RunBot;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.script.ScriptEngine;
@@ -40,7 +40,7 @@ public class EvalCommand extends Command {
         RunBot.checkArgs(args, 1, ":x: No language was specified to evaluate. See " + RunBot.PREFIX + "help " + getAliases().get(0), e);
 
         if (e.getAuthor().isBot()) {
-            e.getChannel().sendMessageAsync(":x: Bots cannot use this command, for obvious reasons.", null);
+            e.getChannel().sendMessage(":x: Bots cannot use this command, for obvious reasons.").queue();
             return;
         }
 
@@ -57,8 +57,14 @@ public class EvalCommand extends Command {
                 handleThue(e, new DiscordAsOutputStream(e.getTextChannel()), args);
                 break;
             default:
-                e.getChannel().sendMessageAsync(":x: Unknown Language argument: `" + args[2] + "` was provided. " +
-                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
+                e.getChannel().sendMessage(":x: Unknown Language argument: `" +
+                                                   args[2] +
+                                                   "` was provided. " +
+                                                   "Please use `" +
+                                                   RunBot.PREFIX +
+                                                   "help " +
+                                                   getAliases().get(0) +
+                                                   "` for more information.").queue();
                 break;
         }
     }
@@ -137,11 +143,11 @@ public class EvalCommand extends Command {
                 Thread t = new Thread(() -> {
                     if (sc.hasNext() || scErr.hasNext()) {
                         if (sc.hasNext())
-                            e.getChannel().sendMessageAsync(read(sc), null);
+                            e.getChannel().sendMessage(read(sc)).queue();
                         if (scErr.hasNext())
-                            e.getChannel().sendMessageAsync(":no_entry: " + read(scErr), null);
+                            e.getChannel().sendMessage(":no_entry: " + read(scErr)).queue();
                     } else
-                        e.getChannel().sendMessageAsync(":white_check_mark:", null);
+                        e.getChannel().sendMessage(":white_check_mark:").queue();
                 }, "PythonEval-Read");
                 t.start();
 
@@ -150,13 +156,13 @@ public class EvalCommand extends Command {
                     p.destroy();
                 else {
                     p.destroyForcibly();
-                    e.getChannel().sendMessageAsync(":x: Process has been terminated. Exceeded time limit.", null);
+                    e.getChannel().sendMessage(":x: Process has been terminated. Exceeded time limit.").queue();
                 }
                 //listener.shutdown();
                 //e.getChannel().sendMessageAsync("Process Destroyed", null);
             } catch (Exception ex) {
-                e.getChannel().sendMessageAsync(":x: Something went wrong trying to eval your query.", null);
-                e.getChannel().sendMessageAsync("```python\n" + ex.getMessage() + "```", null);
+                e.getChannel().sendMessage(":x: Something went wrong trying to eval your query.").queue();
+                e.getChannel().sendMessage("```python\n" + ex.getMessage() + "```").queue();
             }
         });
         k.start();

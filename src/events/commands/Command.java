@@ -2,9 +2,10 @@ package events.commands;
 
 import misc.Permissions;
 import misc.Statistics;
-import net.dv8tion.jda.entities.Message;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.entities.ChannelType;
+import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -32,7 +33,7 @@ public abstract class Command extends ListenerAdapter {
     @Override
     public void onMessageReceived(MessageReceivedEvent e) {
         if (e.getMessage().getContent().length() > 0 && containsCommand(e.getMessage())) {
-            if (e.isPrivate()) {
+            if (e.isFromType(ChannelType.PRIVATE)) {
                 try {
                     Statistics.ranCommand(e.getAuthor().getId(), commandArgs(e.getMessage())[0].substring(3));
                 } catch (SQLException ex) {

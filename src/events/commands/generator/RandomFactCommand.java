@@ -2,7 +2,7 @@ package events.commands.generator;
 
 import bots.RunBot;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -63,7 +63,7 @@ public class RandomFactCommand extends Command {
             a.add(scanner.nextLine());
         }
         int rnum = (int) (a.size() * Math.random());
-        e.getChannel().sendMessageAsync(":white_check_mark: " + a.get(rnum), null);
+        e.getChannel().sendMessage(":white_check_mark: " + a.get(rnum)).queue();
         scanner.close();
     }
 

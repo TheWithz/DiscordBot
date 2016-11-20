@@ -2,7 +2,7 @@ package events.commands;
 
 import bots.RunBot;
 import misc.Database;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.StringUtils;
 
 import java.sql.PreparedStatement;
@@ -70,14 +70,14 @@ public class TagCommand extends Command {
                     handleList(e);
                     break;
                 default:
-                    e.getChannel().sendMessageAsync(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
-                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
+                    e.getChannel().sendMessage(":x: Unknown Action argument: `" + args[1] + "` was provided. " +
+                                                            "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.").queue();
             }
         } catch (SQLException e1) {
-            e.getChannel().sendMessageAsync(":x: An SQL error occurred while processing command.\nError Message: " + e1.getMessage(), null);
+            e.getChannel().sendMessage(":x: An SQL error occurred while processing command.\nError Message: " + e1.getMessage()).queue();
             e1.printStackTrace();
         } catch (IllegalArgumentException e2) {
-            e.getChannel().sendMessageAsync(e2.getMessage(), null);
+            e.getChannel().sendMessage(e2.getMessage()).queue();
         }
     }
 
@@ -117,15 +117,15 @@ public class TagCommand extends Command {
         String label = args[2].toLowerCase();
         Tag tag = tags.get(label);
         if (tag == null) {
-            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known tag.", null);
+            e.getChannel().sendMessage(":x: Sorry, `" + label + "` isn't a known tag.").queue();
             return;
         }
 
         if (tag.content.length() >= 1950) {
-            e.getChannel().sendMessageAsync("```fix\nShowing tag: [" + tag.label + "]```", null);
+            e.getChannel().sendMessage("```fix\nShowing tag: [" + tag.label + "]```").queue();
             RunBot.printAsFile(e.getTextChannel(), new StringBuilder(tag.content), tag.label);
         } else
-            e.getChannel().sendMessageAsync("```fix\nShowing tag: [" + tag.label + "]```" + tag.content, null);
+            e.getChannel().sendMessage("```fix\nShowing tag: [" + tag.label + "]```" + tag.content).queue();
     }
 
     private void handleCreate(MessageReceivedEvent e, String[] args) throws SQLException {
@@ -140,7 +140,7 @@ public class TagCommand extends Command {
         Tag tag = tags.get(label);
 
         if (tag != null) {
-            e.getChannel().sendMessageAsync(":x: A tag already exists with the name `" + label + "`.", null);
+            e.getChannel().sendMessage(":x: A tag already exists with the name `" + label + "`.").queue();
             return;
         }
 
@@ -155,7 +155,7 @@ public class TagCommand extends Command {
         tags.put(label, tag);
         addTag.clearParameters();
 
-        e.getChannel().sendMessageAsync(":white_check_mark: Created `" + label + "` tag.", null);
+        e.getChannel().sendMessage(":white_check_mark: Created `" + label + "` tag.").queue();
     }
 
     private void handleDelete(MessageReceivedEvent e, String[] args) throws SQLException {
@@ -167,7 +167,7 @@ public class TagCommand extends Command {
         String label = args[2].toLowerCase();
         Tag tag = tags.get(label);
         if (tag == null) {
-            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known tag.", null);
+            e.getChannel().sendMessage(":x: Sorry, `" + label + "` isn't a known tag.").queue();
             return;
         }
 
@@ -179,7 +179,7 @@ public class TagCommand extends Command {
         removeTagList.clearParameters();
 
         tags.remove(label);
-        e.getChannel().sendMessageAsync(":white_check_mark: Deleted the `" + label + "` tag.", null);
+        e.getChannel().sendMessage(":white_check_mark: Deleted the `" + label + "` tag.").queue();
     }
 
     private void handleEdit(MessageReceivedEvent e, String[] args) throws SQLException {
@@ -199,8 +199,8 @@ public class TagCommand extends Command {
                 handleEditLabel(e, args);
                 break;
             default:
-                e.getChannel().sendMessageAsync(":x: Unknown Modifier argument: `" + args[2] + "` was provided. " +
-                                                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.", null);
+                e.getChannel().sendMessage(":x: Unknown Modifier argument: `" + args[2] + "` was provided. " +
+                                                        "Please use `" + RunBot.PREFIX + "help " + getAliases().get(0) + "` for more information.").queue();
                 break;
         }
 
@@ -212,8 +212,8 @@ public class TagCommand extends Command {
         Tag tag = tags.get(oldLabel);
 
         if (tag == null) {
-            e.getChannel().sendMessageAsync(":x: Sorry, `" + oldLabel + "` isn't a known tag. " +
-                                                    "Try using `" + getAliases().get(0) + " create " + oldLabel + "` to create a new tag by this name.", null);
+            e.getChannel().sendMessage(":x: Sorry, `" + oldLabel + "` isn't a known tag. " +
+                                                    "Try using `" + getAliases().get(0) + " create " + oldLabel + "` to create a new tag by this name.").queue();
             return;
         }
 
@@ -229,7 +229,7 @@ public class TagCommand extends Command {
                 tag.id, newLabel, tag.content
         ));
 
-        e.getChannel().sendMessageAsync(":white_check_mark: Renamed tag `" + oldLabel + "` to '" + newLabel + "'", null);
+        e.getChannel().sendMessage(":white_check_mark: Renamed tag `" + oldLabel + "` to '" + newLabel + "'").queue();
     }
 
     private void handleEditContent(MessageReceivedEvent e, String[] args) throws SQLException {
@@ -238,8 +238,8 @@ public class TagCommand extends Command {
         Tag tag = tags.get(label);
 
         if (tag == null) {
-            e.getChannel().sendMessageAsync(":x: Sorry, `" + label + "` isn't a known tag. " +
-                                                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new tag by this name.", null);
+            e.getChannel().sendMessage(":x: Sorry, `" + label + "` isn't a known tag. " +
+                                                    "Try using `" + getAliases().get(0) + " create " + label + "` to create a new tag by this name.").queue();
             return;
         }
 
@@ -256,7 +256,7 @@ public class TagCommand extends Command {
         ));
         tag.content = content;
 
-        e.getChannel().sendMessageAsync(":white_check_mark: Edited tag `" + label + "`", null);
+        e.getChannel().sendMessage(":white_check_mark: Edited tag `" + label + "`").queue();
     }
 
     private void handleList(MessageReceivedEvent e) {
@@ -266,7 +266,7 @@ public class TagCommand extends Command {
         for (int i = 0; i < tags.keySet().size(); i++) {
             builder.append(i + 1).append(") ").append(labels.get(i)).append("\n");
         }
-        e.getChannel().sendMessageAsync(builder.append("```").toString(), null);
+        e.getChannel().sendMessage(builder.append("```").toString()).queue();
     }
 
     private static class Tag {

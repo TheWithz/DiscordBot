@@ -2,7 +2,7 @@ package events.commands.music;
 
 import bots.RunBot;
 import events.commands.Command;
-import net.dv8tion.jda.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 import java.util.Collections;
 import java.util.List;
@@ -14,13 +14,13 @@ public class LeaveCommand extends Command {
     //Disconnect the audio connection with the VoiceChannel.
     @Override
     public void onCommand(MessageReceivedEvent event, String[] args) {
-        if (AudioUtil.manager.isConnected()) {
-            AudioUtil.player.stop();
-            AudioUtil.manager.closeAudioConnection();
-            AudioUtil.manager = null;
-            AudioUtil.player = null;
-        } else
-            event.getChannel().sendMessageAsync(":x: Cannot sever null audio connection.", null);
+//        if (AudioUtil.manager.isConnected()) {
+//            AudioUtil.player.stop();
+//            AudioUtil.manager.closeAudioConnection();
+//            AudioUtil.manager = null;
+//            AudioUtil.player = null;
+//        } else
+            event.getChannel().sendMessage(":x: Cannot sever null audio connection.").queue();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class LeaveCommand extends Command {
 
     @Override
     public String getDescription() {
-        return "Leaves the voice channel that " + RunBot.BOT.getUsername() + " is connected to.";
+        return "Leaves the voice channel that " + RunBot.BOT.getName() + " is connected to.";
     }
 
     @Override
@@ -42,7 +42,7 @@ public class LeaveCommand extends Command {
     public java.util.List<String> getUsageInstructionsEveryone() {
         return Collections.singletonList(String.format("(%1$s)\n" +
                                                                "[Example:](%1$s) This will automatically remove <%2$s> from it's current audio channel.", getAliases().get(0), RunBot.BOT
-                                                               .getUsername()));
+                                                               .getName()));
     }
 
     @Override
