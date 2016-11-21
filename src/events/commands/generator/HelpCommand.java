@@ -2,12 +2,18 @@ package events.commands.generator;
 
 import bots.RunBot;
 import events.commands.Command;
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.ChannelType;
 import net.dv8tion.jda.core.entities.PrivateChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import org.apache.commons.lang3.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -226,6 +232,7 @@ public class HelpCommand extends Command {
         String command = ((args[1].length() > RunBot.PREFIX.length() + 1) && args[1].substring(0, RunBot.PREFIX.length()).equals(RunBot.PREFIX)) ?
                 args[1] :
                 RunBot.PREFIX + args[1];    //If there is not a preceding PREFIX attached to the command we are search, then prepend one.
+
         for (Command c : commands) {
             if (c.getAliases().contains(command)) {
                 if (c.permission == Perm.OWNER_ONLY) {
@@ -310,6 +317,10 @@ public class HelpCommand extends Command {
                 RunBot.PREFIX + args[1];    //If there is not a preceding PREFIX attached to the command we are search, then prepend one.
         for (Command c : commands) {
             if (c.getAliases().contains(command)) {
+                if (c.getName().equals("Calculator")) {
+                    testEmbedsAndJson(c, channel);
+                    return;
+                }
                 String name = c.getName();
                 String description = c.getDescription();
                 List<String> usageInstructions = c.getUsageInstructionsOwner();
@@ -340,6 +351,35 @@ public class HelpCommand extends Command {
         channel.sendMessage(new MessageBuilder()
                                     .appendString(":x: The provided command '**" + args[1] + "**' does not exist. Use " + RunBot.PREFIX + "help to list all commands.")
                                     .build()).queue();
+    }
+
+    private void testEmbedsAndJson(Command c, PrivateChannel channel) {
+        try {
+            JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Help.json"))));
+            JSONObject commandObject = obj.getJSONObject(c.getName().toUpperCase());
+            JSONObject permissionObject = commandObject.getJSONObject(c.permission.name());
+            String name = permissionObject.getString("name");
+            String description = permissionObject.getString("description");
+            JSONArray aliases = permissionObject.getJSONArray("aliases");
+            JSONArray usages = permissionObject.getJSONArray("usages");
+            JSONArray examples = permissionObject.getJSONArray("aliases");
+            EmbedBuilder builder = new EmbedBuilder();
+            builder.setTitle("Help for " + c.getName())
+                   .addField("Name", c.getName(), true)
+                   .addField("Permission Level", c.permission.name(), true)
+                   .addField("Description", "```css\n" + description + "```", true);
+            // name
+            // description
+            // alias
+            // usage
+            // example
+            builder.build();
+            channel.sendMessage(new MessageBuilder().setEmbed(builder.build())
+                                                    .build())
+                   .queue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void sendPrivate(PrivateChannel channel, String[] args, Perm permission) {

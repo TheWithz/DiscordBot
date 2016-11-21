@@ -15,20 +15,10 @@ import static bots.RunBot.API;
  */
 public class LoginHandler extends ListenerAdapter {
 
-//    @Override
-//    public void onInviteReceived(InviteReceivedEvent event) {
-//        if (event.isPrivate())
-//            event.getAuthor()
-//                 .getPrivateChannel()
-//                 .sendMessage("I am sorry, but sending invites to bots has been deprecated. However if You really want me to join your server follow this URL " +
-//                                           "\nhttps://discordapp.com/oauth2/authorize?&client_id=168796197396545537&scope=bot&permissions=0").queue();
-//    }
-
     @Override
     public void onReady(ReadyEvent event) {
         Permissions.setupPermissions();
         RunBot.BOT = API.getUserById(API.getSelfUser().getId());
-        RunBot.LOG = RunBot.API.getTextChannelById("193015102817959936");
         API.getPresence().setGame(Game.of("JDA"));
         //LeagueHandler.startTimer();
         GitHandler.startTimer();

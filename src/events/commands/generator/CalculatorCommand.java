@@ -32,7 +32,7 @@ public class CalculatorCommand extends Command {
 
     @Override
     public String getName() {
-        return "Calculate Command";
+        return "Calculator";
     }
 
     @Override

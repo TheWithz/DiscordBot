@@ -4,36 +4,86 @@
       "name": "[Name:][Help Command]",
       "description": "[Description:][Command that helps use all other commands!]",
       "aliases": [
-        "[Alias: 1](PREFIXhelp)",
-        "[Alias: 2](PREIFXcommands)"
+        "[Alias: 1]($PREFIX$help)",
+        "[Alias: 2]($PREFIX$commands)"
+      ],
+      "usages": [
       ],
       "examples": [
-        "[Example: 1](PREFIXhelp) Shows all <CURRENTBOT's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>",
-        "[Example: 2](PREFIXhelp) <todo> Shows <CURRENTBOT's> usage information for the todo command if it is in your permission level"
+        "[Example: 1]($PREFIX$help) Shows all <$CURRENTBOT$'s> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>",
+        "[Example: 2]($PREFIX$help) <todo> Shows <$CURRENTBOT$'s> usage information for the todo command if it is in your permission level"
       ]
     },
     "OP_ONLY": {
       "name": "[Name:][Help Command]",
       "description": "[Description:][Command that helps use all other commands!]",
       "aliases": [
-        "[Alias: 1](PREFIXhelp)",
-        "[Alias: 2](PREIFXcommands)"
+        "[Alias: 1]($PREFIX$help)",
+        "[Alias: 2]($PREFIX$commands)"
+      ],
+      "usages": [
       ],
       "examples": [
-        "[Example: 1](PREFIXhelp) Shows all <CURRENTBOT's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>",
-        "[Example: 2](PREFIXhelp) <todo> Shows <CURRENTBOT's> usage information for the todo command if it is in your permission level"
+        "[Example: 1]($PREFIX$help) Shows all <$CURRENTBOT$'s> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>",
+        "[Example: 2]($PREFIX$help) <todo> Shows <$CURRENTBOT$'s> usage information for the todo command if it is in your permission level"
       ]
     },
     "OWNER_ONLY": {
       "name": "[Name:][Help Command]",
       "description": "[Description:][Command that helps use all other commands!]",
       "aliases": [
-        "[Alias: 1](PREFIXhelp)",
-        "[Alias: 2](PREIFXcommands)"
+        "[Alias: 1]($PREFIX$help)",
+        "[Alias: 2]($PREFIX$commands)"
+      ],
+      "usages": [
       ],
       "examples": [
-        "[Example: 1](PREFIXhelp) Shows all <CURRENTBOT's> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>",
-        "[Example: 2](PREFIXhelp) <todo> Shows <CURRENTBOT's> usage information for the todo command if it is in your permission level"
+        "[Example: 1]($PREFIX$help) Shows all <$CURRENTBOT$'s> commands with permission level <EVERYONE> and <OP_ONLY> and <OWNER_ONLY>",
+        "[Example: 2]($PREFIX$help) <todo> Shows <$CURRENTBOT$'s> usage information for the todo command if it is in your permission level"
+      ]
+    }
+  },
+  "CALCULATOR": {
+    "EVERYONE": {
+      "name": "Calculator Command",
+      "description": "Calculates a given expression.",
+      "aliases": [
+        "[Alias: 1]($PREFIX$calc)",
+        "[Alias: 2]($PREFIX$calculate)"
+      ],
+      "usages": [
+        "[Usage: 1]($PREFIX$calc) <Mathematical Expression>"
+      ],
+      "examples": [
+        "[Example: 1]($PREFIX$calc) <4 + 4 + 4 * 6> This will output 32."
+      ]
+    },
+    "OP_ONLY": {
+      "name": "Calculator Command",
+      "description": "Calculates a given expression.",
+      "aliases": [
+        "[Alias: 1]($PREFIX$calc)",
+        "[Alias: 2]($PREFIX$calculate)"
+      ],
+      "usages": [
+        "[Usage: 1]($PREFIX$calc) <Mathematical Expression>"
+      ],
+      "examples": [
+        "[Example: 1]($PREFIX$calc) <4 + 4 + 4 * 6> This will output 32."
+      ]
+    },
+    "OWNER_ONLY": {
+      "name": "Calculator Command",
+      "description": "Calculates a given expression.",
+      "aliases": [
+        "[Alias: 1]($PREFIX$calc)",
+        "[Alias: 2]($PREFIX$calculate)"
+      ],
+      "usages": [
+        "[Usage: 1]($PREFIX$calc) <Mathematical Expression>"
+      ],
+      "examples": [
+        "[Example: 1]($PREFIX$calc) <4 + 4 + 4 * 6> This will output 32."
       ]
     }
   }

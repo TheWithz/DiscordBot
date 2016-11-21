@@ -230,7 +230,7 @@ public class TodoCommand extends Command {
 
                 //Second Usage Message
                 String.format(
-                        "\n[lock/unloc][ListName] - Used to lock a todo list such that only Auth'd users can modify it.\n" +
+                        "\n[lock/unlock][ListName] - Used to lock a todo list such that only Auth'd users can modify it.\n" +
                                 "[[Example 1:](%1$s)][lock] <project5> Locks the <project5> list such that only Auth'd users can use <add>,<mark> and <clear>\n" +
                                 "[[Example 2:](%1$s)][unlock] <project5> Unlocks the <project5> list so that all users can modify it.\n" +
                                 "________________________________________________________________________________________________________\n\n" +

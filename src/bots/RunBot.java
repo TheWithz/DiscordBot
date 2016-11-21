@@ -1,7 +1,7 @@
 package bots;
 
-import com.robrua.orianna.type.core.common.Region;
-import events.*;
+import events.GitHandler;
+import events.LoginHandler;
 import events.commands.*;
 import events.commands.generator.*;
 import events.commands.music.*;
@@ -14,7 +14,6 @@ import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
-import net.dv8tion.jda.core.utils.SimpleLog;
 import net.dv8tion.jda.player.Playlist;
 import net.dv8tion.jda.player.source.RemoteSource;
 import org.json.JSONException;
@@ -31,32 +30,24 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import static net.dv8tion.jda.player.source.RemoteSource.YOUTUBE_DL_LAUNCH_ARGS;
 
 public class RunBot {
     public static JDA API = null;
     public static User BOT = null;
-    public static TextChannel LOG = null;
-    private static final Timer TIMER = new Timer();
     public static final String PREFIX = "$$$";
     private static final String OP_REQUIRED = ":x: Sorry, this command is OP only!";
     public static String OWNER_REQUIRED = null;
-    public static final Region REGION = Region.NA;
 
     public RunBot() {
-        SimpleLog.LEVEL = SimpleLog.Level.DEBUG;
+       // SimpleLog.LEVEL = SimpleLog.Level.DEBUG;
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
 
             HelpCommand help = new HelpCommand();
             API = new JDABuilder(AccountType.BOT).setToken(obj.getString("releaseBotToken"))
                                                  .addListener(new LoginHandler())
-                                                 .addListener(new LogHandler())
-                                                 .addListener(new TerminalHandler())
-                                                 .addListener(new LeagueHandler(obj.getString("riotApiToken")))
                                                  .addListener(new GitHandler(obj.getString("gitApiToken"), obj.getString("gitUserName")))
                                                  .addListener(help.registerCommand(help, Permissions.Perm.EVERYONE))
                                                  .addListener(help.registerCommand(new TranslateCommand(), Permissions.Perm.OP_ONLY))
@@ -110,16 +101,6 @@ public class RunBot {
                 e1.printStackTrace();
             }
         }
-        TIMER.schedule(new TimerTask() {
-            public void run() {
-                if (LogHandler.logGrouper.size() >= 6) {
-                    StringBuilder builder = new StringBuilder();
-                    LogHandler.logGrouper.forEach(builder::append);
-                    RunBot.LOG.sendMessage(builder.toString()).queue();
-                    LogHandler.logGrouper.clear();
-                }
-            }
-        }, 0, 50);
     }
 
     public static boolean printAsFile(TextChannel channel, StringBuilder b, String fileName) {
