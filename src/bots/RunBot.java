@@ -14,6 +14,7 @@ import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
+import net.dv8tion.jda.core.utils.SimpleLog;
 import net.dv8tion.jda.player.Playlist;
 import net.dv8tion.jda.player.source.RemoteSource;
 import org.json.JSONException;
@@ -41,7 +42,7 @@ public class RunBot {
     public static String OWNER_REQUIRED = null;
 
     public RunBot() {
-       // SimpleLog.LEVEL = SimpleLog.Level.DEBUG;
+        SimpleLog.LEVEL = SimpleLog.Level.DEBUG;
         try {
             JSONObject obj = new JSONObject(new String(Files.readAllBytes(Paths.get("Config.json"))));
 

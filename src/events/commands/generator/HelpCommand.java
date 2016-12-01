@@ -366,8 +366,10 @@ public class HelpCommand extends Command {
             EmbedBuilder builder = new EmbedBuilder();
             builder.setTitle("Help for " + c.getName())
                    .addField("Name", c.getName(), true)
+                   .addField("\u200E", "\u200E", true)
                    .addField("Permission Level", c.permission.name(), true)
-                   .addField("Description", "```css\n" + description + "```", true);
+                   .addField("Description", "```css\n" + description + "```", false);
+            aliases.forEach(alias -> builder.addField("\u200E", "```md\n" + alias + "```", false));
             // name
             // description
             // alias
