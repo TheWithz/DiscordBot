@@ -286,7 +286,7 @@ public class TodoCommand extends Command {
             } else {
                 todoEntryString = "-" + (i + 1) + ") " + todoEntryString + "\n\n";
             }
-            if (builder.getLength() + todoEntryString.length() > 2000) {
+            if (builder.length() + todoEntryString.length() > 2000) {
                 todoMessages.add(builder.build());
                 builder = new MessageBuilder();
             }
@@ -320,7 +320,7 @@ public class TodoCommand extends Command {
             } else {
                 todoEntryString = "-" + (i + 1) + ") " + todoEntryString + "\n\n";
             }
-            if (builder.getLength() + todoEntryString.length() > 2000) {
+            if (builder.length() + todoEntryString.length() > 2000) {
                 todoMessages.add(builder.build());
                 builder = new MessageBuilder();
             }
@@ -345,7 +345,7 @@ public class TodoCommand extends Command {
             builder.appendString("" + u.getName() + " owns **" + lists.size() + "** todo lists.\n");
             for (TodoList list : lists) {
                 String listString = " - " + list.labelName + "\n";
-                if (builder.getLength() + listString.length() > 2000) {
+                if (builder.length() + listString.length() > 2000) {
                     messages.add(builder.build());
                     builder = new MessageBuilder();
                 }

@@ -84,7 +84,7 @@ public class PlayCommand extends Command {
 
         String msg = "";
         String url = args[2];
-        Playlist playlist = Playlist.getPlaylist(url);
+        Playlist playlist = Playlist.getPlaylist(url, event.getGuild().getId());
         List<AudioSource> sources = new LinkedList(playlist.getSources());
 //                AudioSource source = new RemoteSource(url);
 //                AudioSource source = new LocalSource(new File(url));
