@@ -95,7 +95,8 @@ public class HelpCommand extends Command {
                                                    .appendString(": Help information was sent as a private message.")
                                                    .build()).queue();
         }
-        sendPrivate(e.getAuthor().getPrivateChannel(), args, permission);
+        if (e.getAuthor().hasPrivateChannel())
+            sendPrivate(e.getAuthor().getPrivateChannel(), args, permission);
     }
 
     private void handleEveryoneHelp(PrivateChannel channel, String[] args) {
